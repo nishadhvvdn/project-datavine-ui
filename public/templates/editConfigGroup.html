@@ -1,0 +1,70 @@
+﻿<div id="print-content">
+    <div class="modal-header">
+        <h4 class="modal-title"><strong>Edit Configuration</strong></h4>
+    </div>
+    <div class="container-fluid modalBackground">
+        <div class="modal-body">
+            <form name="config_form" novalidate>
+                <div class="row">
+                    <div class="col-md-4">
+                        <h5><label>Name:</label></h5>
+                    </div>
+                    <div class="col-md-4">{{configObj["ConfigName"]}}</div>
+                    <div class="col-md-4"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <h5><label>Description:</label></h5>
+                    </div>
+                    <div class="col-md-4">{{configObj["Description"]}}</div>
+                    <div class="col-md-4"></div>
+                </div>
+                <div class="row" style="padding-bottom:10px">
+                    <div class="col-md-4"><label>Config Programs:</label></div>
+                    <div class="col-md-4">
+                        <select style="width:100%" class="form-control input-width" ng-model="config_program"
+                            name="config_program" ng-options="value for value in config_programs"
+                            ng-change="changeConfigProgram(config_program)" required>
+                            <option value="">Select One</option>
+                        </select></div>
+                    <div class="col-md-4"></div>
+                </div>
+                <hr class="editHr" />
+                <div class="container-fluid">
+                    <uib-tabset active="active" class="editModalFont">
+                        <uib-tab index="0" heading="Quantities">
+                            <div ng-include="'/tabs/quantitiesConfigGroup.html'"></div>
+                        </uib-tab>
+                        <uib-tab index="1" heading="Register Operation">
+                            <div ng-include="'/tabs/regOperationConfigGroup.html'"></div>
+                        </uib-tab>
+                        <uib-tab index="2" heading="Load Profile">
+                            <div ng-include="'/tabs/loadProfileConfigGroup.html'"></div>
+                        </uib-tab>
+                        <uib-tab index="3" heading="Events/Alarms">
+                            <div ng-include="'/tabs/eventsAlarmsConfigGroup.html'"></div>
+                        </uib-tab>
+                        <uib-tab index="4" heading="Device Multiplier">
+                            <div ng-include="'/tabs/deviceMultiplierConfigGroup.html'"></div>
+                        </uib-tab>
+                        <uib-tab index="5" heading="Voltage Monitor">
+                            <div ng-include="'/tabs/voltageMonitorConfigGroup.html'"></div>
+                        </uib-tab>
+                        <uib-tab index="6" heading="Comm Logs">
+                            <div ng-include="'/tabs/commLogsConfigGroup.html'"></div>
+                        </uib-tab>
+
+                    </uib-tabset>
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class='modal-footer'>
+        <button type="button" class="btn btn-default btnColor" ng-disabled="config_form.$invalid" ng-click="Save()">
+            Save
+        </button>
+        <button type="button" class="btn btn-default btnDefault" ng-click="cancel()">Cancel</button>
+    </div>
+</div>

@@ -1,0 +1,155 @@
+﻿<div class="container-fluid">
+	<div class="row">
+		<div>
+			<a href='' class="imageBorder" style="margin-left: 80%;" ng-click="printCart()"><img src="../assets/images/Print.png" /></a>
+			<a href='' class="imageBorder" ng-click="pdf()"><img src="../assets/images/PDF.png" /><b class="anchorText">PDF</b>&nbsp;</a>
+			<a href='' class="imageBorder" ng-click="excel()"><img src="../assets/images/Excel.png" /><b class="anchorText">Excel</b>&nbsp;</a>
+		</div>
+	</div>
+	<hr />
+	<div class="row">
+		<!--<form name="load_Profile" novalidate>-->
+		<form name="config_form" novalidate>
+			<div class="col-md-6">
+				<table class="table table-hover modalTableBorder">
+					<tr>
+						<td>
+							<label>Quantity1 </label>
+							<i class="fa fa-asterisk" style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;" aria-hidden="true"></i>
+						</td>
+						<td>
+
+							<select ng-disabled="true" ng-model="configObj['ConfigGroups_Info']['Quantity1']" ng-options="v.value for v in quantity1_values track by v.id"
+								class="form-control select-width"></select>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>Quantity2 </label>
+							<i class="fa fa-asterisk" style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;" aria-hidden="true"></i>
+						</td>
+						<td>
+
+							<select ng-disabled="true" ng-model="configObj['ConfigGroups_Info']['Quantity2']" ng-options="v.value for v in quantity2_values track by v.id"
+								class="form-control select-width"></select>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>Quantity3 </label>
+							<i class="fa fa-asterisk" style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;" aria-hidden="true"></i>
+						</td>
+						<td>
+
+							<select ng-disabled="true" ng-model="configObj['ConfigGroups_Info']['Quantity3']" ng-options="v.value for v in quantity3_values track by v.id"
+								class="form-control select-width"></select>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>Quantity4 </label>
+							<i class="fa fa-asterisk" style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;" aria-hidden="true"></i>
+
+						</td>
+						<td>
+							<select ng-disabled="true" ng-model="configObj['ConfigGroups_Info']['Quantity4']" ng-options="v.value for v in quantity4_values track by v.id"
+								class="form-control select-width" required></select>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>Interval Length </label>
+							<i class="fa fa-asterisk" style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;" aria-hidden="true"></i>
+						</td>
+						<!--<td>
+
+                        <input type="text" name="il" ng-model="configObj['ConfigGroups_Info']['IntervalLength']" class="modalTextbox" ng-minlength="14"
+                            minlength="15" ng-maxlength="59" maxlength="60" required />
+                        <!--<span ng-show="interval_length.$error.minlength" style="color:red">Length should be minimum 15 characters</span>
+                    <span ng-show="interval_length.$error.maxlength" style="color:red">Length should be maximum 60 characters</span>
+                    </td>-->
+						<td>
+							<select ng-disabled="true" ng-model="configObj['ConfigGroups_Info']['IntervalLength']" ng-options="v.value for v in intervalLengthLoad_values track by v.id"
+								class="form-control select-width" required></select>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>Outage&nbsp;Length&nbsp;(seconds)</label>
+							<i class="fa fa-asterisk" style="font-size: 1vh; color: red; position: absolute; margin-top: 0%; margin-left: 0%;" aria-hidden="true"></i>
+
+						</td>
+						<td>
+							<select name="outageLength" ng-model="configObj['ConfigGroups_Info']['OutageLength']" ng-options="v.value for v in outageLengthDropDown track by v.id"
+								class="form-control select-width"></select>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="col-md-6">
+				<table class="table table-hover modalTableBorder">
+					<tr>
+						<td>
+							<label>Pulse Weight 1 </label>
+							<i class="fa fa-asterisk" style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;" aria-hidden="true"></i>
+						</td>
+						<td>
+							<input type="text" numbers-only class="form-control input-width" ng-model="configObj['ConfigGroups_Info']['PulseWeight1']"
+								ng-keyup="customValidation()" name="pw1" required />
+							<span ng-if="loadProfieObj.pulse1" style="color:red">Pulse Weight 1 should between 0-65535</span>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>Pulse Weight 2 </label>
+							<i class="fa fa-asterisk" style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;" aria-hidden="true"></i>
+						</td>
+						<td>
+
+							<input type="text" numbers-only class="form-control input-width" ng-model="configObj['ConfigGroups_Info']['PulseWeight2']"
+								ng-keyup="customValidation()" name="pw2" required />
+							<span ng-if="loadProfieObj.pulse2" style="color:red">Pulse Weight 2 should between 0-65535</span>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>Pulse Weight 3 </label>
+							<i class="fa fa-asterisk" style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;" aria-hidden="true"></i>
+						</td>
+						<td>
+
+							<input type="text" numbers-only class="form-control input-width" ng-model="configObj['ConfigGroups_Info']['PulseWeight3']"
+								name="pw3" ng-keyup="customValidation()" required />
+							<span ng-if="loadProfieObj.pulse3" style="color:red">Pulse Weight 3 should between 0-65535</span>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>Pulse Weight 4 </label>
+							<i class="fa fa-asterisk" style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;" aria-hidden="true"></i>
+						</td>
+						<td>
+
+							<input type="text" ng-keyup="customValidation()" numbers-only
+								ng-model="configObj['ConfigGroups_Info']['PulseWeight4']" class="form-control input-width" name="pw4" required />
+							<span ng-if="loadProfieObj.pulse4" style="color:red">Pulse Weight 4 should between 0-65535</span>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</form>
+	</div>
+	<h5 style="color:red ; font-size:12px"><i class="fa fa-asterisk" style="font-size: 1vh; color: red; " aria-hidden="true"></i>All fields are mandatory</h5>
+	<!--<div class='modal-footer'>
+        <button type="button" class="btn btn-default btnColor" ng-click="Save()" 
+                ng-disabled="load_Profile.il.$error.required ||
+                load_Profile.ol.$error.required ||
+                load_Profile.pw1.$error.required ||
+                load_Profile.pw2.$error.required ||
+                load_Profile.pw3.$error.required ||
+                load_Profile.pw4.$error.required ">
+            Save
+        </button>
+        <button type="button" class="btn btn-default btnDefault" ng-click="cancel()">Cancel</button>
+    </div>-->
+</div>

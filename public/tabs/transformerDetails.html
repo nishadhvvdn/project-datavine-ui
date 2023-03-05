@@ -1,0 +1,116 @@
+<div class="container-fluid">
+    <div class="row">
+        <form name="transDetails_form" novalidate>
+            <div class="col-md-12">
+                <table class="table table-hover modalTableBorder view-tbl-fixed-label">
+                    <tr>
+                        <td>
+                            <label>Transformer Serial Number </label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="transfomerdetails.transformerSl"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Transformer Name </label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="transfomerdetails.TFMRName"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Make </label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="transfomerdetails.Make"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Rating/Capacity (kVA) </label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="transfomerdetails.kvaRating"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Type </label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="transfomerdetails.type"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>High Line Voltage (V) </label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="transfomerdetails.HighLineVoltage"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Low Line Voltage (V) </label>
+
+                        </td>
+                        <td>
+                            <label><span ng-bind="transfomerdetails.LowLineVoltage"></span></label>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label>High Line Current (A) </label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="transfomerdetails.HighLineCurrent"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Low Line Current (A)</label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="transfomerdetails.LowLineCurrent"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Wire Size (mm)</label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="transfomerdetails.WireSize"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Max Oil Temperature ({{unit}})</label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="transfomerdetails.MaxOilTemp"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Min Oil Temperature ({{unit}})</label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="transfomerdetails.MinOilTemp"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Connected Camera</label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="transfomerdetails.CameraConnect"></span></label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    </div>
+</div>

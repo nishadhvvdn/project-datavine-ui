@@ -1,0 +1,22 @@
+<div class="container-fluid tab-form-wrapper py-0" id="lockunlockdevice">
+    <div class="log-status-msg">
+        <h3 class="status-grey">Do you want to Factory Reset the Device?</h3>
+      
+        <div class="input-wrap factory-reset-option wd-100">
+            <div class="radio-wrap">
+                <input type="radio" id="shallow" value="shallow" name="resetType" ng-model="resetType" >
+                <label for="shallow">Shallow Factory Reset</label>
+            </div>
+            <div class="radio-wrap">
+                <input type="radio" id="full" value="full" name="resetType" ng-model="resetType" >
+                <label for="full">Full Factory Reset</label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="popupbtn-blk text-center">
+            <button type="button" class="" ng-click="cancel()">No</button>
+            <button type="button" class="" ng-click="deviceReboot()">Yes</button>
+        </div>
+    </div>
+</div>

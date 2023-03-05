@@ -1,0 +1,71 @@
+<div class="right-section">
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="content-box">
+						<h3>Device Information</h3>
+						<div class="content-para">
+							<p><label>System Name</label>{{!configurationDetails.SystemName ? type === 'hs' ? 'HyperSPROUT&trade;' : 'HyperHUB&trade;' : configurationDetails.SystemName}}</p>
+							<p><label>Serial Number</label>{{!configurationDetails.DeviceSerialNumber ? 'NA' : configurationDetails.DeviceSerialNumber}}</p>
+							<p><label>Ethernet MAC Address</label>{{!configurationDetails.EthernetMACAddress ? 'NA' : configurationDetails.EthernetMACAddress}}</p>
+							<p><label>Cellular MAC Address</label>{{!configurationDetails.CellularMACAddress ? 'NA' : configurationDetails.CellularMACAddress}}</p>
+							<p><label>Wireless MAC Address 2.4 GHz</label>{{!configurationDetails.WirelessMACAddress2_4 ? 'NA' : configurationDetails.WirelessMACAddress2_4}}</p>
+							<p><label>Wireless MAC Address 5 GHz</label>{{!configurationDetails.WirelessMACAddress5 ? 'NA' : configurationDetails.WirelessMACAddress5}}</p>
+							<!-- <p><label>Power Source</label>{{!configurationDetails.PowerSource ? 'NA' : configurationDetails.PowerSource}}</p> -->
+							<p><label>Country</label>{{!configurationDetails.Country ? 'NA' : configurationDetails.Country }}</p>
+							<p><label>Current Firmware Version</label>{{!configurationDetails.CurrentFirmwareVersion ? 'NA' : configurationDetails.CurrentFirmwareVersion}}</p>
+							<!-- <p><label>Backup Firmware Version</label>{{!configurationDetails.BackupFirmwareVersion ? 'NA' : configurationDetails.BackupFirmwareVersion}}</p>
+							<p><label>Current Time</label> <i class="fa fa-clock-o"></i> {{time}}</p>
+							<p><label>Uptime</label> <i ng-show="configurationDetails.UpTime" class="fa fa-clock-o"></i> {{!configurationDetails.UpTime ? 'NA' : configurationDetails.UpTime}}</p>
+							<p><label>Cloud Status</label> <i ng-show="configurationDetails.CloudStatus" class="fa fa-cloud-download"></i> {{!configurationDetails.CloudStatus ? 'NA' : configurationDetails.CloudStatus}}</p> -->
+						</div>
+					</div>
+				</div>
+				<!-- <div class="col-sm-12">
+					<div class="content-box">
+						<h3>Cellular Status</h3>
+						<div class="content-para">
+							<p><label>Status</label>{{!configurationDetails.CellularStatus ? 'NA' : configurationDetails.CellularStatus}}</p>
+							<p><label>IPv4 Address</label>{{!configurationDetails.CellularIPv4Address ? 'NA' : configurationDetails.CellularIPv4Address}}</p>
+							<p><label>Default Gateway</label>{{!configurationDetails.CellularDefaultGateway ? 'NA' : configurationDetails.CellularDefaultGateway}}</p>
+							<p><label>Signal Strength</label>{{!configurationDetails.CellularSignalStrength ? 'NA' : configurationDetails.CellularSignalStrength}}</p>
+							<p><label>Carrier Name</label>{{!configurationDetails.CellularCarrierName ? 'NA' : configurationDetails.CellularCarrierName}}</p>
+						</div>
+					</div>
+				</div> -->
+			</div>
+		</div>
+		<!-- <div class="col-sm-6">
+			<div class="row">	
+				<div class="col-sm-12">
+					<div class="content-box min-ht-box">
+						<h3>Ethernet Status</h3>
+						<div class="content-para">
+							<p><label>Status</label>{{!configurationDetails.EthernetStatus ? 'NA' : configurationDetails.EthernetStatus}}</p>
+							<p><label>IPv4 Address</label>{{!configurationDetails.EthernetIPv4Address ? 'NA' : configurationDetails.EthernetIPv4Address}}</p>
+							<p><label>Subnet Mask</label>{{!configurationDetails.EthernetSubnetMask ? 'NA' : configurationDetails.EthernetSubnetMask}}</p>
+							<p><label>Default Gateway</label>{{!configurationDetails.EthernetDefaultGateway ? 'NA' : configurationDetails.EthernetDefaultGateway}}</p>
+							<p><label>Primary DNS</label>{{!configurationDetails.EthernetPrimaryDNS ? 'NA' : configurationDetails.EthernetPrimaryDNS}}</p>
+							<p><label>Secondary DNS</label>{{!configurationDetails.EthernetSecondaryDNS ? 'NA' : configurationDetails.EthernetSecondaryDNS}}</p>
+							<p><label>Configuration Type</label>{{!configurationDetails.EthernetConfigurationType ? 'NA' : configurationDetails.EthernetConfigurationType}}</p>
+							<p><label>Link Speed</label>{{!configurationDetails.EthernetLinkSpeed ? 'NA' : configurationDetails.EthernetLinkSpeed}}</p>
+						</div>
+					</div>
+				</div>	
+				<div class="col-sm-12">
+					<div class="content-box">
+						<h3>iTM Details</h3>
+						<div class="content-para">
+							<p><label>Status</label>{{!configurationDetails.ITMStatus ? 'NA' : configurationDetails.ITMStatus}}</p>
+							<p><label>Serial Number</label>{{!configurationDetails.ITMSerialNumber ? 'NA' : configurationDetails.ITMSerialNumber}}</p>
+							<p><label>Model Number</label>{{!configurationDetails.ITMModelNumber ? 'NA' : configurationDetails.ITMModelNumber}}</p>
+							<p><label>Firmware Version</label>{{!configurationDetails.ITMFirmwareVersion ? 'NA' : configurationDetails.ITMFirmwareVersion}}</p>
+							<p><label>Phase Type</label>{{!configurationDetails.PhaseType ? 'NA' : configurationDetails.PhaseType}}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> -->
+	</div>
+</div>

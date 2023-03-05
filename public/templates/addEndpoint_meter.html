@@ -1,0 +1,38 @@
+﻿<div class="modal-header">
+    <h4 class="modal-title"><b>Add Endpoints to System</b></h4>
+</div>
+<div class="container-fluid modalBackground">
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="row">
+                    <h5 class=""><strong>Select File For Import</strong></h5>
+                    <input type="file" class="fileUpload" file-model="myFile" name="file" accept=".txt" />
+                </div>
+                <div class="row">
+                    <h5><strong>Add Endpoints to System</strong></h5>
+                    <button type="button" ng-model="addEndpoints" class="btn btn-default btnColor">Add
+                        Endpoints</button>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-7">
+                <div class="row">
+                    <h5><strong>Import Result</strong></h5>
+                </div>
+                <div class="row modalTable">
+                    <table class="table result_table">
+                        <tr ng-repeat="addEndpoints_meter in addEndpoints_meter">
+                            <td>{{addEndpoints_meter.key}}</td>
+                            <td> {{addEndpoints_meter.value}} </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class='modal-footer'>
+    <button type="button" class="btn btn-default btnColor" ng-click="Save()" ng-model="save">Save</button>
+    <button type="button" class="btn btn-default btnDefault" ng-click="cancel()" ng-model="cancel">Cancel</button>
+</div>

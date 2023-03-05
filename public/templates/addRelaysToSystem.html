@@ -1,0 +1,22 @@
+﻿<div class="modal-header">
+    <h4 class="modal-title"><strong>Add Meter to System</strong></h4>
+</div>
+<div class="container-fluid modalBackground">
+    <div class="modal-body">
+        <div class="row">
+            <input type="file" file-model="myFile" name="file" accept=".txt"/>
+        </div><br />
+        <div class="row modalTable">
+            <table class="table result_table">
+                <tr ng-repeat="addRelay in addRelay">
+                    <td>{{addRelay.key}}</td>
+                    <td> {{addRelay.value}} </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div class='modal-footer'>
+    <button type="button" class="btn btn-default btnColor" ng-model="save" ng-click="Save()">Save</button>
+    <button type="button" class="btn btn-default btnDefault" ng-model="cancel" ng-click="cancel()">Cancel</button>
+</div>

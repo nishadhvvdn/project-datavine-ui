@@ -1,0 +1,177 @@
+<div class="container-fluid" id="circuitCreationDiv">
+	<section>
+		<div class="row circuit">
+			<h4 ng-show="type==='add'"><strong>Create HyperHUB&trade;</strong></h4>
+			<h4 ng-show="type==='edit'"><strong>Edit HyperHUB&trade;</strong></h4>
+		</div>
+	</section>
+	<form class="pure-form pure-form-aligned" name="hyperHub" method="post" novalidate autocomplete="off">
+		<section>
+			<uib-accordion close-others="oneAtATime">
+				<div uib-accordion-group class="panel-default" is-open="status.isFirstOpen">
+					<uib-accordion-heading>
+						HyperHUB&trade; Details <i class="fa fa-chevron-down" style="color:blue" aria-hidden="true"></i>
+						<span ng-if="hyperHub.hyperSerial.$valid && hyperHub.HubName.$valid && hyperHub.HardwareVersion.$valid &&
+							  hyperHub.longitude.$valid && hyperHub.latitude.$valid && !errorMacid && !errorgprsMacid &&
+							  hyperHub.WifiIPAddress.$valid && hyperHub.SimCardNumber.$valid &&  hyperHub.WifiAccessPointPassword.$valid">
+							<span class="glyphicon_Ckt glyphicon-ok-sign circuitDetails"></span>
+						</span>
+					</uib-accordion-heading>
+					<section style="margin-left:3%">
+						<div class="row col-lg-12">
+							<div class="col-lg-4">
+								<h5><strong>Hub Serial Number</strong><span class="validationRequired">*</span></h5>
+								<input name="hyperSerial" class="dropbox" ng-model="hyperHubDetails.HubSerialNumber"
+									ng-blur="hyperHubValidation('hyperSerial')"
+									ng-change="hyperHubValidation('hyperSerial')" type="text"
+									placeholder="Hub Serial Number" maxlength=25 ng-trim="false" disallow-space required>
+								<div class="field-message" ng-messages="hyperHub.hyperSerial.$error"
+									ng-if='hyperHub.hyperSerial.$dirty' ng-cloak>
+								</div><br />
+								<span style="color:red;" ng-show="errorHHSl">{{errorMessageHHSl}} </span>
+							</div>
+
+							<div class="col-lg-4">
+								<h5><strong>Hub Name</strong><span class="validationRequired">*</span></h5>
+								<input name="HubName" class="dropbox" ng-model="hyperHubDetails.HubName" type="text"
+									placeholder="Hub Name" required ng-blur="hyperHubValidation('HubName')"
+									ng-change="hyperHubValidation('HubName')" maxlength = 25 ng-trim="false">
+								<div class="field-message" ng-messages="hyperHub.HubName.$error"
+									ng-if='circuitCreation.HubName.$dirty' ng-cloak>
+								</div><br />
+								<span style="color:red;" ng-show="errorHubName">{{errorMessageHubName}} </span>
+							</div>
+							<div class="col-lg-4">
+								<h5><strong>Hardware Version</strong><span class="validationRequired">*</span></h5>
+								<input name="HardwareVersion" class="dropbox" ng-model="hyperHubDetails.HardwareVersion"
+									type="text" placeholder="Hardware Version" required
+									ng-blur="hyperHubValidation('HardwareVersion')"
+									ng-change="hyperHubValidation('HardwareVersion')" maxlength=7
+									ng-trim="false"
+									disallow-space>
+								<div class="field-message" ng-messages="hyperHub.HardwareVersion.$error" ng-if='circuitCreation.HardwareVersion.$dirty' ng-cloak>
+								</div><br />
+								<span style="color:red;" ng-show="errorHardwareVersion">{{errorMessageHardwareVersion}}
+								</span>
+							</div>
+						</div>
+						<div class="row col-lg-12">
+							<div class="col-lg-4">
+								<h5><strong>GPRS MAC ID</strong><span class="validationRequired">*</span></h5>
+								<input name="GprsMacID" class="dropbox" ng-model="hyperHubDetails.GprsMacID" type="text"
+									placeholder="GPRS MAC ID" maxlength=17 ng-blur="hyperHubValidation('gprsMacID')"
+									ng-change="hyperHubValidation('gprsMacID')" ng-trim="false" required disallow-space>
+								<div class="field-message" ng-messages="hyperHub.GprsMacID.$error"
+									ng-if='circuitCreation.latitude.$dirty' ng-cloak>
+								</div><br>
+								<span style="color:red;" ng-show="errorgprsMacid">{{errorgprsMacIDMessage}} </span>
+							</div>
+
+							<div class="col-lg-4">
+								<h5><strong>Wifi MAC ID</strong><span class="validationRequired">*</span></h5>
+								<input name="WifiMacID" class="dropbox" ng-model="hyperHubDetails.WifiMacID" type="text"
+									placeholder="Wifi MAC ID" maxlength=17 ng-blur="hyperHubValidation('macid')"
+									ng-change="hyperHubValidation('macid')" ng-trim="false" required disallow-space><br>
+								<span style="color:red;" ng-show="errorMacid">{{errorMacIDMessage}} </span>
+							</div>
+							<div class="col-lg-4">
+								<h5><strong>Wifi IP Address</strong><span class="validationRequired">*</span></h5>
+								<input name="WifiIPAddress" class="dropbox" ng-model="hyperHubDetails.WifiIPAddress"
+									ng-blur="hyperHubValidation('ip')" maxlength=15 type="text" ng-change="hyperHubValidation('ip')"
+									placeholder="Wifi IP Address" ng-trim="false" ng-readonly="editWifi" required disallow-space><br>
+								<span style="color:red;" ng-show="errorip">{{erroripMessage}} </span>
+							</div>
+						</div>
+						<div class="row col-lg-12">
+							<div class="col-lg-4"
+								ng-if="(!showWifiPassword && editWifi) && hyperHubStatus==='Registered'">
+								<h5><strong>Wifi Access Point Password</strong><span
+										class=" validationRequired">*</span>
+								</h5>
+								<input name="WifiAccessPointPassword" ng-change="hyperHubValidation('wifi')"
+									ng-disabled="true" class="dropbox"
+									ng-model="hyperHubDetails.WifiAccessPointPassword" maxlength=21 type="password"
+									placeholder="Wifi Access Point Password" ng-trim="false" required disallow-space> <span
+									ng-click="toggleWifiPassword()" class="glyphicon glyphicon-eye-open eye_trans_pass"
+									style="cursor: pointer; pointer-events: all;"></span><br>
+								<span style="color:red;" ng-show="errorWifiAccessPwd">{{errorwifiAccessPwdMessage}}
+								</span>
+							</div>
+							<div class="col-lg-4" ng-if="showWifiPassword && editWifi">
+								<h5><strong>Wifi Access Point Password</strong><span class="validationRequired">*</span>
+								</h5>
+								<input name="WifiAccessPointPassword" ng-change="hyperHubValidation('wifi')"
+									ng-disabled="true" class="dropbox"
+									ng-model="hyperHubDetails.WifiAccessPointPassword" maxlength=21 type="text"
+									placeholder="Wifi Access Point Password" ng-trim="false" required disallow-space> <span
+									ng-click="toggleWifiPassword()" class="glyphicon glyphicon-eye-close eye_trans_pass"
+									style="cursor: pointer; pointer-events: all;"></span><br>
+								<span style="color:red;" ng-show="errorWifiAccessPwd">{{errorwifiAccessPwdMessage}}
+								</span>
+							</div>
+							<div class="col-lg-4">
+								<h5><strong>Latitude</strong><span class="validationRequired">*</span></h5>
+								<input name="latitude" class="dropbox" ng-model="hyperHubDetails.Latitude" type="text"
+									ng-blur="hyperHubValidation('latitude')" placeholder="Latitude"
+									ng-change="hyperHubValidation('latitude')" ng-trim="false" maxlength="10" required disallow-space>
+								<div class="field-message" ng-messages="hyperHub.latitude.$error"
+									ng-if='hyperHub.latitude.$dirty' ng-cloak>
+								</div>
+								<span style="color:red;" ng-show="errorlatitude"><br>{{errorlatitudeMessage}} </span>
+							</div>
+							<div class="col-lg-4">
+								<h5><strong>Longitude</strong><span class="validationRequired">*</span></h5>
+								<input name="longitude" class="dropbox" ng-model="hyperHubDetails.Longitude" type="text"
+									ng-blur="hyperHubValidation('longitude')" placeholder="Longitude"
+									ng-change="hyperHubValidation('longitude')" ng-trim="false" maxlength="11" required disallow-space>
+								<div class="field-message" ng-messages="hyperHub.longitude.$error"
+									ng-if='hyperHub.longitude.$dirty' ng-cloak>
+								</div>
+								<span style="color:red;" ng-show="errorlongitude"><br>{{errorlongitudeMessage}} </span>
+							</div>
+						</div>
+						<div class="row col-lg-12">
+							<div class="col-lg-4">
+								<h5><strong>Sim Card Number</strong><span class="validationRequired">*</span></h5>
+								<input name="SimCardNumber" class="dropbox" ng-model="hyperHubDetails.SimCardNumber"
+									type="text" placeholder="Sim Card Number"
+									ng-blur="hyperHubValidation('simCardNumber')"
+									ng-change="hyperHubValidation('simCardNumber')" maxlength=10 ng-trim="false"
+									numbers-only required disallow-space>
+								<span style="color:red;" ng-show="errorsimCard"><br>{{errorsimCardMessage}} </span>
+							</div>
+
+							<div class="col-lg-4">
+							</div>
+							<div class="col-lg-4">
+							</div>
+						</div>
+					</section>
+				</div>
+			</uib-accordion>
+		</section>
+	</form>
+	<section>
+		<div class="row">
+			<div class="btnRow">
+				<span>
+					<button type="button" class="btn btn-default btnColor" ng-show="type==='add'"
+						ng-click="saveHyperHub(hyperHubDetails)"
+						ng-disabled="hyperHub.$invalid || create_hyperhub_valid || errorsubstationAdd == true">
+						Create
+					</button>
+					<!--ng-show="createUpdateStatus"-->
+					<button type="button" class="btn btn-default btnColor" ng-show="type==='edit'"
+						ng-click="updateHyperHub(hyperHubDetails)"
+						ng-disabled="hyperHub.$invalid || create_hyperhub_valid || errorsubstationAdd == true || !hyperHub.$dirty">
+						Update
+					</button>
+					<button type="button" class="btn btn-default btnDefault"
+						ng-click="cancelModalWindow()">Cancel</button>
+				</span>
+			</div>
+		</div>
+	</section>
+</div>
+
+<!--I ma an updated file-->

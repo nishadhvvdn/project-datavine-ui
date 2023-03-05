@@ -1,0 +1,59 @@
+<div class="tab-content">
+    <div class="tab-form-wrapper">
+        <h3 class="no-border">Meter Configuration</h3>
+        <form class="pure-form pure-form-aligned" name="meterConfigForm" method="post" novalidate autocomplete="off">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Utility ID<span class="validationRequired">*</span></label>
+                        <div class="input-wrap"><input type="text" class="form-control" name="utilityID" ng-model="meterConfigurationDetails.MeterUtilityID" ng-blur="focusValidate('utilityID')"
+                            ng-change="focusValidate('utilityID')" numbers-only required disallow-space ng-trim="false">
+                            <div class="field-message" ng-messages="meterConfigForm.utilityID.$error"
+                            ng-if='meterConfigForm.utilityID.$dirty' ng-cloak></div>
+                            <span ng-show="errorUtilityID" class="error-span" style="color:red;">{{errorUtilityIDMessage}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Circuit ID<span class="validationRequired">*</span></label>
+                        <div class="input-wrap"><input type="text" class="form-control" name="circuitID" ng-model="meterConfigurationDetails.MeterCircuitID" ng-blur="focusValidate('circuitID')"
+                            ng-change="focusValidate('circuitID')" numbers-only required disallow-space ng-trim="false" >
+                            <div class="field-message" ng-messages="meterConfigForm.circuitID.$error"
+                            ng-if='meterConfigForm.circuitID.$dirty' ng-cloak></div>
+                            <span ng-show="errorCircuitID" class="error-span" style="color:red;">{{errorCircuitIDMessage}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Certification No.<span class="validationRequired">*</span></label>
+                        <div class="input-wrap"><input type="text" class="form-control" name="certificateNo" ng-model="meterConfigurationDetails.MeterCertificationNumber" ng-blur="focusValidate('certificateNo')"
+                            ng-change="focusValidate('certificateNo')" numbers-only required disallow-space ng-trim="false">
+                            <div class="field-message" ng-messages="meterConfigForm.certificateNo.$error"
+                            ng-if='meterConfigForm.certificateNo.$dirty' ng-cloak></div>
+                            <span ng-show="errorCertificateNo" class="error-span" style="color:red;">{{errorCertificateNoMessage}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>ESN<span class="validationRequired">*</span></label>
+                        <div class="input-wrap"><input type="text" class="form-control" name="meterESN" ng-model="meterConfigurationDetails.MeterESN" ng-blur="focusValidate('meterESN')"
+                            ng-change="focusValidate('meterESN')" numbers-only required disallow-space ng-trim="false">
+                            <div class="field-message" ng-messages="meterConfigForm.meterESN.$error"
+                            ng-if='meterConfigForm.meterESN.$dirty' ng-cloak></div>
+                            <span ng-show="errorMeterESN" class="error-span" style="color:red;">{{errorMeterESNMessage}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-btn text-right">
+                        <button class="plain-btn" ng-click="resetDetails('meter');">Cancel</button>
+                        <button class="fill-btn" ng-click="saveMeterConfig();" ng-disabled="set_meterConfig_valid || meterConfigForm.$invalid || !meterConfigForm.$dirty">Save</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

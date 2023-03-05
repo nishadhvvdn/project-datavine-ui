@@ -1,0 +1,52 @@
+﻿<div class="modal-header">
+	<h4 class="modal-title"><strong>Create Firmware Group</strong></h4>
+</div>
+<div class="container-fluid modalBackground">
+	<div class="modal-body">
+		<form name="createGroupForm" novalidate>
+			<div class="row">
+				<div class="col-md-3 col-lg-3">
+					<h5 class="name"><strong>Group Name: <i class="fa fa-asterisk"
+								style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;"
+								aria-hidden="true"></i></strong></h5>
+				</div>
+				<div class="col-md-9 col-lg-9" style="margin-top:2px">
+
+					<input name="groupName" type="text" autocomplete='off' class="form-control input-width"
+						ng-model="groupData.groupID" style="width: 70%;" ng-keyup="check($event)" ng-maxlength="20"
+						required><br>
+					<span ng-if="msg!=''" style="color:red ; font-size:12px ">{{msg}}</span>
+					<span ng-show="specialChar" style="color:red ; font-size:12px ">Special characters not
+						allowed</span>
+					<span style="color:red " ng-show="createGroupForm.groupName.$error.maxlength">
+						Name should not contain more than 20 characters
+					</span>
+				</div>
+			</div>
+			<div class="row">
+				<!--<td><input type="text " ng-model="groupData.groupID " name="groupName " style="width:
+                                        70%; "  ng-pattern="/^[a-zA-Z0-9]+$/ " required/></br>
+                                <span ng-show="createGroupForm.groupName.$error.pattern " style="color:red;font-size:12px ">Only alpha numeric characters are allowed</span>
+                            </td>-->
+				<div class="col-md-3 col-lg-3">
+					<h5 class="name "><strong>Description: <i class="fa fa-asterisk " style="font-size:
+                                        1vh; color: red; position: absolute;" aria-hidden="true "></i></strong></h5>
+				</div>
+				<div class="col-md-9 col-lg-9" style="margin-top:2px"><input class="form-control input-width"
+						type="text" ng-model="groupData.description " name="groupDescription"
+						ng-keyup="wordCheck($event)" style="width: 70%;" maxlength=250 ng-pattern="/^[a-zA-Z0-9\s]+$/ "
+						required /></br>
+					<span ng-if="wordMsg!=''" style="color:red ; font-size:12px">{{wordMsg}}</span>
+					<span ng-show="createGroupForm.groupDescription.$error.pattern "
+						style="color:red;font-size:12px ">Special characters not allowed</span>
+
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<div class='modal-footer'>
+	<button type="button" class="btn btn-default btnColor" ng-click="Save()"
+		ng-disabled="wordMsg||specialChar||unique||createGroupForm.groupName.$dirty && createGroupForm.groupName.$invalid||createGroupForm.groupDescription.$dirty && createGroupForm.groupDescription.$invalid||createGroupForm.groupName.$error.required||createGroupForm.groupName.$error.pattern|| createGroupForm.groupDescription.$error.required|| createGroupForm.groupDescription.$error.pattern ">Save</button>
+	<button type="button" class="btn btn-default btnDefault" ng-click="cancel()">Cancel</button>
+</div>

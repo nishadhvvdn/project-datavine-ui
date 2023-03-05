@@ -1,0 +1,296 @@
+<div class="right-section">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="deviceConfig-tabs">
+				<ul class="nav nav-tabs" role="tablist">
+					<li ng-class="path==='2.4' ? 'active' : '' "><a ng-click="changeTab('2.4', 'hotspottwofour');">2.4 GHz</a></li>
+					<li ng-class="path==='5' ? 'active' : '' "><a ng-click="changeTab('5', 'hotspotfive');">5 GHz</a></li>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane"  ng-class="path==='2.4' ? 'active' : '' " id="first">
+                        <h3 class="no-border">Wireless Interface Configuration <span class="ylo-btn" ng-show="!hideWirelessSetting" ng-click="showWirelessSettings('2_4');">+</span></h3>
+						<div class="tab-form-wrapper hotspotForm">
+							<form class="pure-form pure-form-aligned" name="fronthaulHotspot2_4Form" method="post" novalidate autocomplete="off">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="form-group switch-box green-switch">
+											<label>Status<span class="validationRequired">*</span></label>
+											<div class="input-wrap short-input"> 
+												<div class="toggle-button-cover">
+													<div class="button-cover">
+														<div class="button r" id="button-1">
+															<input type="checkbox" class="checkbox" name="status"
+															ng-model="configurationDetails.FronthaulHotspot2Status" ng-checked="configurationDetails.FronthaulHotspot2Status">
+															<div class="knobs"></div>
+															<div class="layer"></div>
+														</div>
+													</div>
+												</div>
+												<span>{{configurationDetails.FronthaulHotspot2Status === true ? 'Enabled' : 'Disabled'}}</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-12">
+										<div class="form-group">
+											<label>SSID<span class="validationRequired">*</span></label>
+											<div class="input-wrap short-input">
+												<input type="text" class="form-control" name="ssid" ng-model="configurationDetails.FronthaulHotspot2SSID" ng-blur="focusValidate('ssid')"
+												ng-change="focusValidate('ssid')" maxlength=33 required ng-trim="false"
+												ng-disabled="!configurationDetails.FronthaulHotspot2Status">
+												<div class="field-message" ng-messages="fronthaulHotspot2_4Form.ssid.$error"
+												ng-if='fronthaulHotspot2_4Form.ssid.$dirty' ng-cloak></div>
+												<span ng-show="errorSSID" class="error-span" style="color:red;">{{errorSsidMessage}}</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-12">
+										<div class="form-group">
+											<label>Wireless Security<span class="validationRequired">*</span></label>
+											<div class="input-wrap short-input">
+												<select name="wirelessSecurity" ng-model="configurationDetails.FronthaulHotspot2WirelessSecurity" class="form-control"
+												required ng-change="focusValidate('securityTypeHotspot21')" ng-disabled="!configurationDetails.FronthaulHotspot2Status">
+												<option value="Open">Open</option>
+												<option value="WPA2-PSK">WPA2-PSK</option></select>
+												<div class="field-message" ng-messages="fronthaulHotspot2_4Form.wirelessSecurity.$error"
+												ng-if='fronthaulHotspot2_4Form.wirelessSecurity.$dirty' ng-cloak>
+												<div ng-message="required">Wireless Security is required!</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-12" ng-show="configurationDetails.FronthaulHotspot2WirelessSecurity.toLowerCase() === 'wpa2-psk'">
+										<div class="form-group">
+											<label>Password<span class="validationRequired">*</span></label>
+											<div class="input-wrap short-input icon-input">
+												<input type="{{passwordIconOne}}" class="form-control" name="password" ng-model="configurationDetails.FronthaulHotspot2Password" ng-blur="focusValidate('password')"
+												ng-change="focusValidate('password')" maxlength=63 ng-trim="false"
+												ng-disabled="!configurationDetails.FronthaulHotspot2Status"><i ng-class="passwordIconOne === 'text' ? 'fa fa-eye' : 'fa fa-eye-slash' " ng-click="passwordIconOne === 'text' ? passwordIconOne = 'password' :passwordIconOne = 'text'"></i>
+												<div class="field-message" ng-messages="fronthaulHotspot2_4Form.password.$error"
+												ng-if='fronthaulHotspot2_4Form.password.$dirty' ng-cloak></div>
+												<span ng-show="errorpassword2d" class="error-span" style="color:red;">{{errorpassword2Message}}</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row" ng-show="hideWirelessSetting">
+									<div class="col-sm-12">
+										<div class="form-group switch-box green-switch">
+											<label>Status<span class="validationRequired">*</span></label>
+											<div class="input-wrap short-input"> 
+												<div class="toggle-button-cover">
+													<div class="button-cover">
+														<div class="button r" id="button-1">
+															<input type="checkbox" class="checkbox" name="status21"
+															ng-model="configurationDetails.FronthaulHotspot21Status" ng-checked="configurationDetails.FronthaulHotspot21Status">
+															<div class="knobs"></div>
+															<div class="layer"></div>
+														</div>
+													</div>
+												</div>
+												<span>{{configurationDetails.FronthaulHotspot21Status === true ? 'Enabled' : 'Disabled'}}</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-12">
+										<div class="form-group">
+											<label>SSID<span class="validationRequired">*</span></label>
+											<div class="input-wrap short-input">
+												<input type="text" class="form-control" name="ssid_2" ng-model="configurationDetails.FronthaulHotspot21SSID" 
+												ng-blur="focusValidate('ssid_2')" ng-change="focusValidate('ssid_2')" ng-trim="false" maxlength=33
+												ng-disabled="!configurationDetails.FronthaulHotspot21Status">
+												<div class="field-message" ng-messages="fronthaulHotspot2_4Form.ssid_2.$error"
+												ng-if='fronthaulHotspot2_4Form.ssid_2.$dirty' ng-cloak></div>
+												<span ng-show="errorSSID2" class="error-span" style="color:red;">{{errorSsid2Message}}</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-12">
+										<div class="form-group">
+											<label>Wireless Security<span class="validationRequired">*</span></label>
+											<div class="input-wrap short-input">
+												<select name="wirelessSecurity_2" ng-model="configurationDetails.FronthaulHotspot21WirelessSecurity" class="form-control"
+												ng-required="hideWirelessSetting" ng-change="focusValidate('securityTypeHotspot22')"
+												ng-disabled="!configurationDetails.FronthaulHotspot21Status">
+												<option value="Open">Open</option>
+												<option value="WPA2-PSK">WPA2-PSK</option></select>
+												<div class="field-message" ng-messages="fronthaulHotspot2_4Form.wirelessSecurity_2.$error"
+												ng-if='fronthaulHotspot2_4Form.wirelessSecurity_2.$dirty' ng-cloak>
+												<div ng-message="required">Wireless Security is required!</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-12"  ng-show="configurationDetails.FronthaulHotspot21WirelessSecurity.toLowerCase() === 'wpa2-psk'">
+										<div class="form-group">
+											<label>Password<span class="validationRequired">*</span></label>
+											<div class="input-wrap short-input icon-input">
+												<input type="{{passwordIconTwo}}" class="form-control" name="password_2" ng-model="configurationDetails.FronthaulHotspot21Password" ng-blur="focusValidate('password_2')"
+												ng-change="focusValidate('password_2')" ng-trim="false" maxlength=63
+												ng-disabled="!configurationDetails.FronthaulHotspot21Status"><i ng-class="passwordIconTwo === 'text' ? 'fa fa-eye' : 'fa fa-eye-slash' " ng-click="passwordIconTwo === 'text' ? passwordIconTwo = 'password' :passwordIconTwo = 'text'"></i>
+												<div class="field-message" ng-messages="fronthaulHotspot2_4Form.password_2.$error"
+												ng-if='fronthaulHotspot2_4Form.password_2.$dirty' ng-cloak></div>
+												<span ng-show="errorpassword21" class="error-span" style="color:red;">{{errorpassword21Message}}</span>
+											</div>
+										</div>
+									</div>
+									<span class="deleteIcon" ng-click="showWirelessSettings();"><i class="fa fa-trash"></i></span>
+								</div>
+								<div class="row">									
+									<div class="col-sm-12">
+										<div class="form-btn text-right">
+											<button class="plain-btn" ng-click="resetDetails('hotspottwofour');">Cancel</button>
+											<button class="fill-btn" ng-click="saveFronthaulHotspotConfig('2_4');" ng-disabled="set_hotspot21_valid || set_hotspot22_valid || fronthaulHotspot2_4Form.$invalid || !(fronthaulHotspot2_4Form.$dirty || hideWirelessSettingDirty)">Save</button>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div role="tabpanel" class="tab-pane"  ng-class="path==='5' ? 'active' : '' " id="second">
+                        <h3 class="no-border">Wireless Interface Configuration <span ng-show="!(hideWirelessSetting51h && hideWirelessSetting52h)" ng-click="showWirelessSettings5h('add');" class="ylo-btn">+</span></h3>
+						<div class="tab-form-wrapper hotspotForm">
+							<form class="pure-form pure-form-aligned" name="fronthaulHotspot5_hForm" method="post" novalidate autocomplete="off">
+								<div class="row" ng-show="hideWirelessSetting51h">
+									<div class="col-sm-12">
+										<div class="form-group switch-box green-switch">
+											<label>Status<span class="validationRequired">*</span></label>
+											<div class="input-wrap short-input"> 
+												<div class="toggle-button-cover">
+													<div class="button-cover">
+														<div class="button r" id="button-1">
+															<input type="checkbox" class="checkbox" name="status"
+															ng-model="configurationDetails.FronthaulHotspot51Status" ng-checked="configurationDetails.FronthaulHotspot51Status">
+															<div class="knobs"></div>
+															<div class="layer"></div>
+														</div>
+													</div>
+												</div>
+												<span>{{configurationDetails.FronthaulHotspot51Status === true ? 'Enabled' : 'Disabled'}}</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-12">
+										<div class="form-group">
+											<label>SSID<span class="validationRequired">*</span></label>
+											<div class="input-wrap short-input">
+												<input type="text" class="form-control" name="ssid_51" ng-model="configurationDetails.FronthaulHotspot51SSID" ng-blur="focusValidate('ssid_51')"
+												ng-change="focusValidate('ssid_51')" ng-trim="false" maxlength=33
+												ng-disabled="!configurationDetails.FronthaulHotspot51Status">
+												<div class="field-message" ng-messages="fronthaulHotspot5_hForm.ssid_51.$error"
+												ng-if='fronthaulHotspot5_hForm.ssid_51.$dirty' ng-cloak></div>
+												<span ng-show="errorSSID51" class="error-span" style="color:red;">{{errorSsid51Message}}</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-12">
+										<div class="form-group">
+											<label>Wireless Security<span class="validationRequired">*</span></label>
+											<div class="input-wrap short-input">
+												<select name="wirelessSecurity_51" ng-model="configurationDetails.FronthaulHotspot51WirelessSecurity" class="form-control"
+												ng-required="hideWirelessSetting51h" ng-change="focusValidate('securityTypeHotspot51')"
+												ng-disabled="!configurationDetails.FronthaulHotspot51Status">
+												<option value="Open">Open</option>
+												<option value="WPA2-PSK">WPA2-PSK</option></select>
+												<div class="field-message" ng-messages="fronthaulHotspot5_hForm.wirelessSecurity_51.$error"
+												ng-if='fronthaulHotspot5_hForm.wirelessSecurity_51.$dirty' ng-cloak>
+												<div ng-message="required">Wireless Security is required!</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-12"  ng-show="configurationDetails.FronthaulHotspot51WirelessSecurity.toLowerCase() === 'wpa2-psk'">
+										<div class="form-group">
+											<label>Password<span class="validationRequired">*</span></label>
+											<div class="input-wrap short-input icon-input">
+												<input type="{{passwordIconThree}}"  class="form-control" name="password_51" ng-model="configurationDetails.FronthaulHotspot51Password" ng-blur="focusValidate('password_51')"
+												ng-change="focusValidate('password_51')" ng-trim="false" maxlength=63
+												ng-disabled="!configurationDetails.FronthaulHotspot51Status"><i ng-class="passwordIconThree === 'text' ? 'fa fa-eye' : 'fa fa-eye-slash' " ng-click="passwordIconThree === 'text' ? passwordIconThree = 'password' :passwordIconThree = 'text'"></i>
+												<div class="field-message" ng-messages="fronthaulHotspot5_hForm.password_51.$error"
+												ng-if='fronthaulHotspot5_hForm.password_51.$dirty' ng-cloak></div>
+												<span ng-show="errorpassword51" class="error-span" style="color:red;">{{errorpassword51Message}}</span>
+											</div>
+										</div>
+									</div>
+									<span class="deleteIcon" ng-click="showWirelessSettings5h('delete1');"><i class="fa fa-trash"></i></span>
+								</div>
+								<div class="row" ng-show="hideWirelessSetting52h">
+									<div class="col-sm-12">
+										<div class="form-group switch-box green-switch">
+											<label>Status<span class="validationRequired">*</span></label>
+											<div class="input-wrap short-input"> 
+												<div class="toggle-button-cover">
+													<div class="button-cover">
+														<div class="button r" id="button-1">
+															<input type="checkbox" class="checkbox" name="status"
+															ng-model="configurationDetails.FronthaulHotspot52Status" ng-checked="configurationDetails.FronthaulHotspot52Status">
+															<div class="knobs"></div>
+															<div class="layer"></div>
+														</div>
+													</div>
+												</div>
+												<span>{{configurationDetails.FronthaulHotspot52Status === true ? 'Enabled' : 'Disabled'}}</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-12">
+										<div class="form-group">
+											<label>SSID<span class="validationRequired">*</span></label>
+											<div class="input-wrap short-input">
+												<input type="text" class="form-control" name="ssid_52" ng-model="configurationDetails.FronthaulHotspot52SSID" ng-blur="focusValidate('ssid_52')"
+												ng-change="focusValidate('ssid_52')" ng-trim="false" maxlength=33
+												ng-disabled="!configurationDetails.FronthaulHotspot52Status">
+												<div class="field-message" ng-messages="fronthaulHotspot5_hForm.ssid_52.$error"
+												ng-if='fronthaulHotspot5_hForm.ssid_52.$dirty' ng-cloak></div>
+												<span ng-show="errorSSID52" class="error-span" style="color:red;">{{errorSsid52Message}}</span>
+											
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-12">
+										<div class="form-group">
+											<label>Wireless Security<span class="validationRequired">*</span></label>
+											<div class="input-wrap short-input">
+												<select name="wirelessSecurity_52" ng-model="configurationDetails.FronthaulHotspot52WirelessSecurity" class="form-control"
+												ng-required="hideWirelessSetting52h" ng-change="focusValidate('securityTypeHotspot52')"
+												ng-disabled="!configurationDetails.FronthaulHotspot52Status">
+												<option value="Open">Open</option>
+												<option value="WPA2-PSK">WPA2-PSK</option></select>
+												<div class="field-message" ng-messages="fronthaulHotspot5_hForm.wirelessSecurity_52.$error"
+												ng-if='fronthaulHotspot5_hForm.wirelessSecurity_52.$dirty' ng-cloak>
+												<div ng-message="required">Wireless Security is required!</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-12"  ng-show="configurationDetails.FronthaulHotspot52WirelessSecurity.toLowerCase() === 'wpa2-psk'">
+										<div class="form-group">
+											<label>Password<span class="validationRequired">*</span></label>
+											<div class="input-wrap short-input icon-input">
+												<input type="{{passwordIconFour}}"  class="form-control" name="password_52" ng-model="configurationDetails.FronthaulHotspot52Password" ng-blur="focusValidate('password_52')"
+												ng-change="focusValidate('password_52')" maxlength=63 ng-trim="false"
+												ng-disabled="!configurationDetails.FronthaulHotspot52Status"><i ng-class="passwordIconFour === 'text' ? 'fa fa-eye' : 'fa fa-eye-slash' " ng-click="passwordIconFour === 'text' ? passwordIconFour = 'password' :passwordIconFour = 'text'"></i>
+												<div class="field-message" ng-messages="fronthaulHotspot5_hForm.password_52.$error"
+												ng-if='fronthaulHotspot5_hForm.password_52.$dirty' ng-cloak></div>
+												<span ng-show="errorpassword52" class="error-span" style="color:red;">{{errorpassword52Message}}</span>
+											</div>
+										</div>
+									</div>
+									<span class="deleteIcon" ng-click="showWirelessSettings5h('delete2');"><i class="fa fa-trash"></i></span>
+								</div>
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="form-btn text-right">
+											<button class="plain-btn" ng-click="resetDetails('hotspotfive');">Cancel</button>
+											<button class="fill-btn" ng-click="saveFronthaulHotspotConfig('5');" ng-disabled="set_hotspot51_valid || set_hotspot52_valid || fronthaulHotspot5_hForm.$invalid || !(fronthaulHotspot5_hForm.$dirty || hideWirelessSetting5hDirty)">Save</button>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

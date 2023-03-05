@@ -1,0 +1,36 @@
+﻿<div class="modal-header">
+	<h4 class="modal-title"><strong>Group Test Configuration Details</strong></h4>
+</div>
+
+<div class="container-fluid modalBackground">
+	<div class="modal-body">
+		<div class="row">
+			<table class="table table-hover modalTableBorder">
+				<tr>
+					<td nowrap><label>Group Name</label></td>
+					<td>{{groupName}}</td>
+				</tr>
+				<tr>
+					<td nowrap><label>Device Class</label></td>
+					<td>{{deviceClass}}</td>
+				</tr>
+				<tr>
+					<td><label>Description</label></td>
+					<td>{{description}}</td>
+				</tr>
+				<tr>
+					<td nowrap><label ng-if="type==='HyperSprout'">HyperSPROUT&trade; ID's</label><label
+							ng-if="type==='Meter'">Meter ID's</label></td>
+					<td>
+						<div style="float:left;height:70px;overflow: auto;">
+							<div ng-repeat="id in Ids">{{id}}</div>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+<div class='modal-footer'>
+	<button type="button" class="btn btn-default btnDefault" ng-click="cancel()">Cancel</button>
+</div>

@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <div class="row">
+        <h3 class="headingAlign">Endpoint Cleanup</h3>
+    </div>
+    <div class="row">
+        <div class="pull-left headingAlign"style="margin-top: 1%;">
+            <a ng-click="printCart()">
+                <img alt="#" src="../assets/images/Print.png" class="anchorText" />
+                <strong class="anchorText">Print</strong>
+            </a>
+        </div>
+        <div class="pull-right">
+            <button type="button" class="btn btn-default btnColor" popover-append-to-body='false' popover-animation='true'
+                    popover-placement='bottom' popover-is-open="dynamicPopover.isOpen" uib-popover-template='dynamicPopover.templateUrl'>
+                Filter
+            </button>&nbsp;
+            <button type="button" ng-click="cleanupSelected()" ng-disabled="mySelectedRows.length==0" class="btn btn-default btnColor">Cleanup Selected</button>&nbsp;
+            <button type="button" ng-click="manuallyDeregister()" class="btn btn-default btnColor dw-configuration">Manually Deregister the endpoint</button>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-lg-12">
+            <div ui-grid="cleanupOptions"  ui-grid-resize-columns ui-grid-selection ui-grid-pagination ui-grid-exporter class="grid"></div>
+        </div>
+    </div>
+</div>

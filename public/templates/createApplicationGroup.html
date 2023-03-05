@@ -1,0 +1,39 @@
+﻿<div class="modal-header">
+	<h4 class="modal-title"><strong>Create {{name}} Firmware Group</strong></h4>
+</div>
+<div class="container-fluid modalBackground">
+	<div class="modal-body">
+		<form name="createGroupForm" novalidate autocomplete="off">
+			<div class="row">
+				<div class="col-md-3 col-lg-3">
+					<h5 class="name"><strong>Group Name: <i class="fa fa-asterisk"
+								style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;"
+								aria-hidden="true"></i></strong></h5>
+				</div>
+				<div class="col-md-9 col-lg-9" style="margin-top:2px">
+
+					<input name="groupName" type="text" class="form-control input-width"
+						ng-model="groupData.groupID" style="width: 70%;" ng-blur="validateGroup('groupName')" ng-change="validateGroup('groupName')" ng-trim="false" maxlength=20 required><br>
+					<span ng-if="errorGroupName" style="color:red;">{{errorGroupNameMessage}}</span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3 col-lg-3">
+					<h5 class="name">
+						<strong>Description: <i class="fa fa-asterisk " style="font-size: 1vh; color: red; position: absolute;" aria-hidden="true "></i></strong></h5>
+				</div>
+				<div class="col-md-9 col-lg-9" style="margin-top:2px">
+					<input class="form-control input-width"	type="text" ng-model="groupData.description" name="groupDescription"
+						ng-change="validateGroup('description')" ng-blur = "validateGroup('description')" ng-trim="false" maxlength=250 style="width: 70%;"
+						required />
+					<br>
+					<span ng-if="errorGroupDescription" style="color:red;">{{errorGroupDescriptionMessage}}</span>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<div class='modal-footer'>
+	<button type="button " class="btn btn-default btnColor " ng-click="Save() " ng-disabled="!createGroupForm.groupName.$valid || !createGroupForm.groupDescription.$valid">Save</button>
+	<button type="button " class="btn btn-default btnDefault " ng-click="cancel() ">Cancel</button>
+</div>

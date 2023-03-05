@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for services\parseservice.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">services/</a> parseservice.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">96.89% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>156/161</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">55.26% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>84/152</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>5/5</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">96.89% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>156/161</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">86×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">86×</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">86×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+ * This handles parsing the data
+ * @date : 13-09-2016
+ * @lastModified: 13-09-2016
+ * @Author : Ganesh
+ * @param $q
+ * @param networkUtilService
+ */
+&nbsp;
+(function (angular) {
+&nbsp;
+    "use strict";
+&nbsp;
+    angular.module('dataVINEApp').service('ParseService', [function () {
+        this.getParsedTransformerData = function (objData, circuitId, fetchUnAssigned) {
+            var transfomerData = [];
+            var objHSData = {};
+&nbsp;
+            if (!angular.isUndefinedOrNull(objData) &amp;&amp;
+                !angular.isUndefinedOrNull(objData.HypersproutDetailsSelected)) {
+                for (var i = 0; i &lt; objData.HypersproutDetailsSelected.length; i++) {
+                    var objInputData = objData.HypersproutDetailsSelected[i];
+                    <span class="missing-if-branch" title="else path not taken" >E</span>if (!objInputData.IsHyperHub) {
+                        objHSData[objInputData.TransformerID] = {};
+                        objHSData[objInputData.TransformerID]["SerialNumber"] = objInputData.HypersproutSerialNumber;
+                        objHSData[objInputData.TransformerID]["MAC_ID_GPRS"] = angular.isUndefinedOrNull(objInputData.Hypersprout_Communications) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Hypersprout_Communications.MAC_ID_GPRS;
+                        objHSData[objInputData.TransformerID]["Latitude"] = angular.isUndefinedOrNull(objInputData.Hypersprout_Communications) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Hypersprout_Communications.Latitude;
+                        objHSData[objInputData.TransformerID]["Longitude"] = angular.isUndefinedOrNull(objInputData.Hypersprout_Communications) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Hypersprout_Communications.Longitude;
+                        objHSData[objInputData.TransformerID]["MAC_ID_WiFi"] = angular.isUndefinedOrNull(objInputData.Hypersprout_Communications) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Hypersprout_Communications.MAC_ID_WiFi;
+                        objHSData[objInputData.TransformerID]["IP_address_WiFi"] = angular.isUndefinedOrNull(objInputData.Hypersprout_Communications) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Hypersprout_Communications.IP_address_WiFi;
+                        objHSData[objInputData.TransformerID]["AccessPointPassword"] = angular.isUndefinedOrNull(objInputData.Hypersprout_Communications) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Hypersprout_Communications.AccessPointPassword;
+                        objHSData[objInputData.TransformerID]["SimCardNumber"] = angular.isUndefinedOrNull(objInputData.Hypersprout_Communications) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Hypersprout_Communications.SimCardNumber;
+&nbsp;
+                        objHSData[objInputData.TransformerID]["CT_Ratio"] = angular.isUndefinedOrNull(objInputData.Hypersprout_DeviceDetails) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Hypersprout_DeviceDetails.CT_Ratio;
+                        objHSData[objInputData.TransformerID]["PT_Ratio"] = angular.isUndefinedOrNull(objInputData.Hypersprout_DeviceDetails) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Hypersprout_DeviceDetails.PT_Ratio;
+                        objHSData[objInputData.TransformerID]["RatedVoltage"] = angular.isUndefinedOrNull(objInputData.Hypersprout_DeviceDetails) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Hypersprout_DeviceDetails.RatedVoltage;
+                        objHSData[objInputData.TransformerID]["Phase"] = angular.isUndefinedOrNull(objInputData.Hypersprout_DeviceDetails) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Hypersprout_DeviceDetails.Phase;
+                        objHSData[objInputData.TransformerID]["Frequency"] = angular.isUndefinedOrNull(objInputData.Hypersprout_DeviceDetails) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Hypersprout_DeviceDetails.Frequency;
+                        objHSData[objInputData.TransformerID]["Accuracy"] = angular.isUndefinedOrNull(objInputData.Hypersprout_DeviceDetails) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Hypersprout_DeviceDetails.Accuracy;
+                        objHSData[objInputData.TransformerID]["HSDemandResetDate"] = angular.isUndefinedOrNull(objInputData.Hypersprout_DeviceDetails) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Hypersprout_DeviceDetails.HSDemandResetDate;
+                        objHSData[objInputData.TransformerID]["HSCompliantToStandards"] = angular.isUndefinedOrNull(objInputData.Hypersprout_DeviceDetails) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Hypersprout_DeviceDetails.HSCompliantToStandards;
+                        objHSData[objInputData.TransformerID]["MaxDemandWindow"] = angular.isUndefinedOrNull(objInputData.Hypersprout_DeviceDetails) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Hypersprout_DeviceDetails.MaxDemandWindow;
+                        objHSData[objInputData.TransformerID]["MaxDemandSlidingWindowInterval"] = angular.isUndefinedOrNull(objInputData.Hypersprout_DeviceDetails) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Hypersprout_DeviceDetails.MaxDemandSlidingWindowInterval;
+                        objHSData[objInputData.TransformerID]["Sensor Details"] = angular.isUndefinedOrNull(objInputData.Hypersprout_DeviceDetails) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Hypersprout_DeviceDetails["Sensor Details"];
+                        objHSData[objInputData.TransformerID]["HypersproutVersion"] = angular.isUndefinedOrNull(objInputData.Hypersprout_DeviceDetails) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Hypersprout_DeviceDetails["HypersproutVersion"];
+                        objHSData[objInputData.TransformerID]["HypersproutMake"] = angular.isUndefinedOrNull(objInputData.Hypersprout_DeviceDetails) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Hypersprout_DeviceDetails["HypersproutMake"];
+                        objHSData[objInputData.TransformerID]["Status"] = angular.isUndefinedOrNull(objInputData.Hypersprout_DeviceDetails) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData["Status"];
+                        objHSData[objInputData.TransformerID]["HypersproutID"] = angular.isUndefinedOrNull(objInputData.HypersproutID) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData["HypersproutID"];
+                    }
+                }
+            }
+            if (!angular.isUndefinedOrNull(objData) &amp;&amp;
+                !angular.isUndefinedOrNull(objData.TransformerDetailSelected)) {
+                for (var j = 0; j &lt; objData.TransformerDetailSelected.length; j++) {
+                    var objInputData1 = objData.TransformerDetailSelected[j];
+                    var objInputHSData = objHSData[objInputData1.TransformerID];
+&nbsp;
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (!angular.isUndefinedOrNull(circuitId) &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >circuitId !== objInputData1.CircuitID)</span> {
+<span class="cstat-no" title="statement not covered" >                        continue;</span>
+                    }
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (fetchUnAssigned &amp;&amp; !angular.isUndefinedOrNull(objInputData1.CircuitID === "null" ? null : <span class="branch-1 cbranch-no" title="branch not covered" >objInputData1.CircuitID)</span>) {
+<span class="cstat-no" title="statement not covered" >                        continue;</span>
+                    }
+&nbsp;
+                    var objToInsert = {};
+                    objToInsert["TransformerID"] = objInputData1.TransformerID;
+                    objToInsert["HypersproutID"] = objInputHSData.HypersproutID;
+                    objToInsert["transformerSl"] = objInputData1.TransformerSerialNumber;
+                    objToInsert["kvaRating"] = objInputData1.RatingCapacity;
+                    objToInsert["HighLineVoltage"] = objInputData1.HighLineVoltage;
+                    objToInsert["LowLineVoltage"] = objInputData1.LowLineVoltage;
+                    objToInsert["HighLineCurrent"] = objInputData1.HighLineCurrent;
+                    objToInsert["LowLineCurrent"] = objInputData1.LowLineCurrent;
+                    objToInsert["Make"] = objInputData1.Make;
+                    objToInsert["ConnectedStreetlights"] = objInputData1.ConnectedStreetlights;
+                    objToInsert["CameraConnect"] = objInputData1.CameraConnect;
+                    objToInsert["StreetlightsMetered"] = objInputData1.StreetlightsMetered;
+                    objToInsert["StreetlightUsage"] = objInputData1.StreetlightUsage;
+                    objToInsert["NoOfConnectedStreetlights"] = objInputData1.NoOfConnectedStreetlights;
+                    objToInsert["WireSize"] = objInputData1.WireSize;
+                    objToInsert["noOfMeters"] = objInputData1.NoOfMeterAllocated;
+                    objToInsert["MaxOilTemp"] = objInputData1["MaxOilTemp"];
+                    objToInsert["MinOilTemp"] = objInputData1["MinOilTemp"];
+&nbsp;
+                    objToInsert["type"] = objInputData1.Type;
+                    objToInsert["hvlv"] = 'HV';
+                    <span class="missing-if-branch" title="else path not taken" >E</span>if (!angular.isUndefinedOrNull(objInputHSData)) {
+                        objToInsert["hypSl"] = objInputHSData.SerialNumber;
+                        objToInsert["latitude"] = objInputHSData.Latitude;
+                        objToInsert["longitude"] = objInputHSData.Longitude;
+                        objToInsert["ctRatio"] = objInputHSData.CT_Ratio;
+                        objToInsert["ptRatio"] = objInputHSData.PT_Ratio;
+                        objToInsert["ratedVoltage"] = objInputHSData.RatedVoltage;
+                        objToInsert["phases"] = objInputHSData.Phase;
+                        objToInsert["maxDemand"] = objInputHSData.MaxDemandWindow;
+                        objToInsert["MaxDemandSlidingWindowInterval"] = objInputHSData.MaxDemandSlidingWindowInterval;
+                        objToInsert["frequency"] = objInputHSData.Frequency;
+                        objToInsert["measurementClass"] = 'TBD'
+                        objToInsert["complaintStandard"] = objInputHSData.HSCompliantToStandards;
+                        objToInsert["gprs"] = objInputHSData.MAC_ID_GPRS;
+                        objToInsert["wifiMacId"] = objInputHSData.MAC_ID_WiFi;
+                        objToInsert["wifiIpAdd"] = objInputHSData.IP_address_WiFi;
+                        objToInsert["wifiAccessPwd"] = objInputHSData.AccessPointPassword;
+                        objToInsert["simCard"] = objInputHSData.SimCardNumber;
+                        objToInsert["sensorRating"] = objInputHSData["Sensor Details"];
+                        objToInsert["Accuracy"] = objInputHSData["Accuracy"];
+                        objToInsert["HypersproutVersion"] = objInputHSData["HypersproutVersion"];
+                        objToInsert["HypersproutMake"] = objInputHSData["HypersproutMake"];
+                        objToInsert["HSDemandResetDate"] = objInputHSData["HSDemandResetDate"];
+                        objToInsert["Status"] = objInputHSData["Status"];
+&nbsp;
+&nbsp;
+                    }
+&nbsp;
+                    transfomerData.push(objToInsert);
+                }
+            }
+            return transfomerData;
+        }
+&nbsp;
+        this.getParsedMeterData = function (objData, transformerId, fetchUnAssigned) {
+            var arrMeterData = [];
+            if (!angular.isUndefinedOrNull(objData)) {
+                for (var i = 0; i &lt; objData.length; i++) {
+                    var objInputData = objData[i];
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (!angular.isUndefinedOrNull(transformerId) &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >transformerId !== objInputData.TransformerID)</span> {
+<span class="cstat-no" title="statement not covered" >                        continue;</span>
+                    }
+&nbsp;
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (fetchUnAssigned &amp;&amp; !angular.isUndefinedOrNull(objInputData.TransformerID === "null" ? <span class="branch-0 cbranch-no" title="branch not covered" >null </span>: objInputData.TransformerID)) {
+<span class="cstat-no" title="statement not covered" >                        continue;</span>
+                    }
+                    var objToInsert = {};
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (objInputData.Meters_Communications["AccessPointPassword"] === undefined) {
+<span class="cstat-no" title="statement not covered" >                        objInputData.Meters_Communications["AccessPointPassword"] = objInputData.Meters_Communications["AccessPointPassword"]; </span>//==Undefined ? objInputData.Meters_Communications["AccessPointPassword"]:objInputData.Meters_Communications["AccessPointPassword "];
+                    }
+                    objToInsert["MeterID"] = objInputData.MeterID;
+                    objToInsert["status"] = objInputData.Status;
+                    objToInsert["meterSl"] = objInputData.MeterSerialNumber;
+                    objToInsert["SealID"] = objInputData.SealID;
+                    objToInsert["BiDirectional"] = objInputData.BiDirectional;
+                    objToInsert["EVMeter"] = objInputData.EVMeter;
+                    objToInsert["SolarPanel"] = objInputData.SolarPanel;
+                    objToInsert["applicationType"] = angular.isUndefinedOrNull(objInputData.Meters_DeviceDetails) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Meters_DeviceDetails.MeterApptype;
+                    objToInsert["installationLocation"] = angular.isUndefinedOrNull(objInputData.Meters_DeviceDetails) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Meters_DeviceDetails.MeterInstallationLocation;
+                    objToInsert["MeasurementClass"] = angular.isUndefinedOrNull(objInputData.Meters_DeviceDetails) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Meters_DeviceDetails.MeterAccuracy;
+                    objToInsert["MeterVersion"] = angular.isUndefinedOrNull(objInputData.Meters_DeviceDetails) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Meters_DeviceDetails.MeterVersion;
+                    objToInsert["ctRatioMeter"] = angular.isUndefinedOrNull(objInputData.Meters_DeviceDetails) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Meters_DeviceDetails.CT_Ratio;
+                    objToInsert["ptRatioMeter"] = angular.isUndefinedOrNull(objInputData.Meters_DeviceDetails) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Meters_DeviceDetails.PT_Ratio;
+                    objToInsert["ratedVoltageMeter"] = angular.isUndefinedOrNull(objInputData.Meters_DeviceDetails) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Meters_DeviceDetails.RatedVoltage;
+                    objToInsert["phasesMeter"] = angular.isUndefinedOrNull(objInputData.Meters_DeviceDetails) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Meters_DeviceDetails.Phase;
+                    objToInsert["ratedFrequencyMeter"] = angular.isUndefinedOrNull(objInputData.Meters_DeviceDetails) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Meters_DeviceDetails.Frequency;
+                    objToInsert["nominalCurrent"] = angular.isUndefinedOrNull(objInputData.Meters_DeviceDetails) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Meters_DeviceDetails.MeterNominalCurrent;
+                    objToInsert["maximumCurrent"] = angular.isUndefinedOrNull(objInputData.Meters_DeviceDetails) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Meters_DeviceDetails.MeterMaximumCurrent;
+                    objToInsert["complaintStandardMeter"] = angular.isUndefinedOrNull(objInputData.Meters_DeviceDetails) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Meters_DeviceDetails.MeterCompliantToStandards;
+                    objToInsert["wifiMacIdMeter"] = angular.isUndefinedOrNull(objInputData.Meters_Communications) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Meters_Communications.MAC_ID_WiFi;
+                    objToInsert["wifiIpAddMeter"] = angular.isUndefinedOrNull(objInputData.Meters_Communications) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Meters_Communications.IP_address_WiFi;
+                    objToInsert["wifiAccessPwdMeter"] = angular.isUndefinedOrNull(objInputData.Meters_Communications) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Meters_Communications["AccessPointPassword"];
+                    objToInsert["meterAdminPwd"] = angular.isUndefinedOrNull(objInputData.Meters_Communications) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Meters_Communications.MeterMeterAdminPassword;
+                    objToInsert["latitudeMeter"] = angular.isUndefinedOrNull(objInputData.Meters_Communications) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Meters_Communications.Latitude;
+                    objToInsert["longitudeMeter"] = angular.isUndefinedOrNull(objInputData.Meters_Communications) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Meters_Communications.Longitude;
+                    objToInsert["consumerNumber"] = angular.isUndefinedOrNull(objInputData.Meters_Billing) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Meters_Billing.MeterConsumerNumber;
+                    objToInsert["consumerName"] = angular.isUndefinedOrNull(objInputData.Meters_Billing) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Meters_Billing.MeterConsumerName;
+                    objToInsert["contactNumber"] = angular.isUndefinedOrNull(objInputData.Meters_Billing) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Meters_Billing.MeterConsumerContactNumber;
+                    objToInsert["consumerAddress"] = angular.isUndefinedOrNull(objInputData.Meters_Billing) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Meters_Billing.MeterConsumerAddress;
+                    objToInsert["consumerCountry"] = angular.isUndefinedOrNull(objInputData.Meters_Billing) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Meters_Billing.MeterConsumerCountry;
+                    objToInsert["consumerState"] = angular.isUndefinedOrNull(objInputData.Meters_Billing) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Meters_Billing.MeterConsumerState;
+                    objToInsert["consumerCity"] = angular.isUndefinedOrNull(objInputData.Meters_Billing) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Meters_Billing.MeterConsumerCity;
+                    objToInsert["consumerState"] = angular.isUndefinedOrNull(objInputData.Meters_Billing) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Meters_Billing.MeterConsumerState;
+                    objToInsert["consumerZipcode"] = angular.isUndefinedOrNull(objInputData.Meters_Billing) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Meters_Billing.MeterConsumerZipCode;
+                    objToInsert["billingDate"] = angular.isUndefinedOrNull(objInputData.Meters_Billing) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Meters_Billing.BillingDate;
+                    objToInsert["billingTime"] = angular.isUndefinedOrNull(objInputData.Meters_Billing) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Meters_Billing.BillingTime;
+                    objToInsert["demandResetDate"] = angular.isUndefinedOrNull(objInputData.Meters_Billing) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Meters_Billing.MeterDemandResetDate;
+                    objToInsert["ImpulseCountperKWh"] = angular.isUndefinedOrNull(objInputData.Meters_Billing) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Meters_Billing.ImpulseCountperKWh;
+                    objToInsert["ImpulseCountPerKVARh"] = angular.isUndefinedOrNull(objInputData.Meters_Billing) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Meters_Billing.ImpulseCountPerKVARh;
+                    objToInsert["meterMake"] = angular.isUndefinedOrNull(objInputData.Meters_DeviceDetails) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Meters_DeviceDetails.MeterMake;
+                    objToInsert["meterDisconnector"] = angular.isUndefinedOrNull(objInputData.Meters_DeviceDetails) ? <span class="branch-0 cbranch-no" title="branch not covered" >"" </span>: objInputData.Meters_DeviceDetails.MeterDisconnector;
+                    arrMeterData.push(objToInsert);
+                }
+            }
+            return arrMeterData;
+        }
+        this.getParsedHubData = function (objData, callBack) {
+            var hubData = [];
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (!angular.isUndefinedOrNull(objData.type) &amp;&amp; objData.type) {
+&nbsp;
+                for (var i = 0; i &lt; objData.HyperHubDetailSelected.length; i++) {
+                    var obj = {};
+                    obj.HyperHubID = objData.HyperHubDetailSelected[i].HypersproutID;
+                    obj.HardwareVersion = objData.HyperHubDetailSelected[i].HardwareVersion;
+                    obj.HubSerialNumber = objData.HyperHubDetailSelected[i].HypersproutSerialNumber;
+                    obj.HubName = objData.HyperHubDetailSelected[i].HypersproutName;
+                    obj.Latitude = objData.HyperHubDetailSelected[i].Hypersprout_Communications.Latitude;
+                    obj.Longitude = objData.HyperHubDetailSelected[i].Hypersprout_Communications.Longitude;
+                    obj.WifiIPAddress = objData.HyperHubDetailSelected[i].Hypersprout_Communications.IP_address_WiFi;
+                    obj.WifiAccessPointPassword = objData.HyperHubDetailSelected[i].Hypersprout_Communications.AccessPointPassword;
+                    obj.SimCardNumber = objData.HyperHubDetailSelected[i].Hypersprout_Communications.SimCardNumber;
+                    obj.GprsMacID = objData.HyperHubDetailSelected[i].Hypersprout_Communications.MAC_ID_GPRS;
+                    obj.WifiMacID = objData.HyperHubDetailSelected[i].Hypersprout_Communications.MAC_ID_WiFi;
+                    hubData.push(obj);
+                }
+            }
+            callBack(hubData);
+        }
+    }]);
+})(window.angular);</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Aug 22 2017 16:49:25 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

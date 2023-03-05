@@ -1,0 +1,114 @@
+<div class="container-fluid">
+
+    <!--=====================================================-->
+
+    <div class="row">
+        <div class="rectangleBox">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 your_col">
+                    <img alt="#" src="../assets/images/Report/Device filmware.png" class="imgDimension-helpSub" />
+                </div>
+                <div class="col-xs-8 col-sm-98 col-md-8 col-lg-8 labelStyle">
+                    <label> Device Firmware Versions </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--=====================================================-->
+
+
+    <div class="row" style="margin-top: 1%">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="pull-right">
+                <p><a ng-click="tabChange('readingReport')" href=""><strong>1. &nbsp; Reading The Report</strong></a></p>
+                <p><a ng-click="tabChange('sortReport')" href=""><strong>2. &nbsp; Sorting The Report</strong></a></p>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="pull-left">
+                <p><a ng-click="tabChange('exportingReport')" href=""><strong>3. &nbsp; Exporting The Report</strong></a></p>
+            </div>
+        </div>
+    </div>
+    <!--=====================================================-->
+
+    <div class="hr" style="margin-top: 0"></div>
+
+    <!--===============================================================-->
+
+    <div class="row text-center scrollAdjust scrollHeightThreeRow" ng-show="tabs.readingReport">
+        <label> <h1> <strong> 1. Reading The Report </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+        
+        
+        
+                The firmware version report allows a user to view all firmware update files known to the system and the versions associated with the devices.
+              The CollectionENGINE&trade; should hold several versions of firmware for a given device class. For example, user might have a version of the firmware
+              just for testing, or an update that user have not implemented yet. However, only one version can be in use at a time. This report displays all of
+               the versions available as well as the version in production. The report contains five columns. 
+
+               <br><strong>1.Serial Number:</strong> The serial number of the device.
+                <br><strong>2.Hardware Version: </strong>The version of the hardware device.
+                <br><strong>3.Firmware Version:</strong> The firmware version installed and controlling the device.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/firmwareversionlist.png" style=" width: 56%; margin-top:1%" />
+
+
+        <span> 
+        <p class="paragraph"  style= "margin-top:1%">
+                    If the report has a large amount of data, it might separate into pages. In this case, the user can choose how
+                many entries to display or which page to show from the pagination tool bar in the bottom left of the report.
+        </p>
+                </span>
+
+
+
+        <img alt="#" src="../assets/images/commPage.png" style=" width: 56% ;margin-top:1%" />
+
+    </div>
+ 
+    <!--===================================================================================-->
+
+    <div class="row text-center" ng-show="tabs.sortReport">
+        <label> <h1> <strong> 2. Sorting The Report </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+            To sort the report, the user must click the header of whichever column they would like to sort by. 
+                For instance, clicking on the Firmware Version header will switch the column between the default display, 
+                ascending versions, and descending versions.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/sortdevicefirmware.png" />
+
+    </div>
+    <!--==========================================================================-->
+
+    <div class="row text-center" ng-show="tabs.exportingReport">
+        <label> <h1> <strong> 3. Exporting The Report </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+            The report gives four different options for exporting. The user may export either all the data in the report or just the 
+               currently displayed data in either a CSV format or a PDF format. To do this the user simply has to click on the export button 
+               in the top right corner of the report after filtering it for the desired data.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/exportMenu.png" />
+
+    </div>
+    <!--=================================================================================-->
+
+</div>

@@ -1,0 +1,48 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <div>
+            <a href='' class="imageBorder" style="margin-left: 80%;" ng-click="printCart()"><img src="../assets/images/Print.png" /></a>
+            <a href='' class="imageBorder" ng-click="pdf()"><img src="../assets/images/PDF.png" /><b class="anchorText">PDF</b>&nbsp;</a>
+            <a href='' class="imageBorder" ng-click="excel()"><img src="../assets/images/Excel.png" /><b class="anchorText">Excel</b>&nbsp;</a>
+        </div>
+    </div>
+    <hr />
+    <div class="modal-body">
+        <form name="config_form" novalidate>
+            <div class="row">
+                <table class=" table table-hover modalTableBorder">
+                    <tr>
+                        <td>
+                            <h5>
+                                <strong>CT Multiplier:</strong><i class="fa fa-asterisk" style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;"
+                                    aria-hidden="true"></i>
+                            </h5>
+                        </td>
+                        <td>{{configObj['ConfigGroups_Info']['CTMultiplier']}}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>
+                                <strong>VT Multiplier:</strong><i class="fa fa-asterisk" style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;"
+                                    aria-hidden="true"></i>
+                            </h5>
+                        </td>
+                        <td>{{configObj['ConfigGroups_Info']['VTMultiplier']}}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>
+                                <strong>Register Multiplier:</strong><i class="fa fa-asterisk" style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;"
+                                    aria-hidden="true"></i>
+                            </h5>
+                        </td>
+
+
+                        <td>{{configObj['ConfigGroups_Info']['RegisterMultiplier']}}</td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    </div>
+    <h5 style="color:red ; font-size:12px"><i class="fa fa-asterisk" style="font-size: 1vh; color: red; " aria-hidden="true"></i>All fields are mandatory</h5>
+</div>

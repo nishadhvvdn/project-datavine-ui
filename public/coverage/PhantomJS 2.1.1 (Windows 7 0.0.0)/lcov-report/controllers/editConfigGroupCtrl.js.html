@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for controllers\editConfigGroupCtrl.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">controllers/</a> editConfigGroupCtrl.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">91.6% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>120/131</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">53.03% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>35/66</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">73.33% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>11/15</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">91.6% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>120/131</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">﻿(function (angular) {
+&nbsp;
+    "use strict";
+&nbsp;
+    angular.module('dataVINEApp')
+        .controller('editConfigGroupCtrl', ['$scope', '$timeout', '$modalInstance', 'hypersproutMgmtService', 'record', '$state', 'commonService', 'formatXmlContent', 'type', function ($scope, $timeout, $modalInstance, hypersproutMgmtService, record, $state, commonService, formatXmlContent, type) {
+            $scope.cancel = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                if (this.config_form.$dirty) {</span>
+<span class="cstat-no" title="statement not covered" >                    swal({</span>
+                        title: "Warning!", text: "If you click cancel you will loose your changes, Do you want to continue?",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonText: 'Yes',
+                        cancelButtonText: "No",
+                    },
+<span class="fstat-no" title="function not covered" >                        function (isConfirm) {</span>
+<span class="cstat-no" title="statement not covered" >                            if (isConfirm) {</span>
+<span class="cstat-no" title="statement not covered" >                                $modalInstance.dismiss();</span>
+                            }
+                        });
+                }
+                else {
+<span class="cstat-no" title="statement not covered" >                    $state.reload();</span>
+<span class="cstat-no" title="statement not covered" >                    $modalInstance.dismiss();</span>
+                }
+            }
+            init(loadData);
+            $scope.configObj = {};
+            var dropDownObj = formatXmlContent.getDropDownData();
+            $scope.quantities_energy = dropDownObj.energyDataValues;
+            $scope.quantities_demand = dropDownObj.demandDataValues;
+            $scope.demandIntervalLength_values = dropDownObj.intervalLengthValues;
+            $scope.subInterval_values = dropDownObj.intervalLengthValues;
+            $scope.coldPickuptime_values = dropDownObj.coldPickuptimeValues;
+            $scope.powerOutageRecognitionTime_values = dropDownObj.powerOutageRecognitionTimeValues;
+            $scope.registerOperation_TestModeDemandIntervalLengths = dropDownObj.quantityValues;
+            $scope.registerOperation_NumberofTestModeSubintervals = dropDownObj.quantityValues;
+            $scope.quantity1_values = dropDownObj.energyDataValues_q;
+            $scope.quantity2_values = dropDownObj.energyDataValues_q;
+            $scope.quantity3_values = dropDownObj.energyDataValues_q;
+            $scope.quantity4_values = dropDownObj.energyDataValues_q;
+            $scope.intervalLengthLoad_values = dropDownObj.intervalLengthLoadValues;
+            $scope.phaseSelection_values = dropDownObj.phaseSelectionValues;
+            $scope.voltageIntervalLength_values = dropDownObj.voltageIntervalLengthValues;
+&nbsp;
+            function init(calBack) {
+                var configProgDetails = [];
+                hypersproutMgmtService.configPrograms(type).then(function (resObjData) {
+                    <span class="missing-if-branch" title="else path not taken" >E</span>if (!angular.isUndefinedOrNull(resObjData) &amp;&amp; !angular.isUndefinedOrNull(resObjData.configProgramData)) {
+                        for (var count in resObjData.configProgramData) {
+                            <span class="missing-if-branch" title="else path not taken" >E</span>if (resObjData.configProgramData.hasOwnProperty(count)) {
+                                configProgDetails.push(resObjData.configProgramData[count].Name)
+                            }
+                        }
+                        $scope.config_programs = configProgDetails;
+                    }
+&nbsp;
+                    calBack();
+                });
+&nbsp;
+            }
+            function loadData() {
+                hypersproutMgmtService.getConfigDataForEdit(record.entity.ID).then(function (resObj) {
+                    <span class="missing-if-branch" title="else path not taken" >E</span>if (!angular.isUndefinedOrNull(resObj.Docs[0].ConfigProgramName)) {
+                        $scope.changeConfigProgram(resObj.Docs[0].ConfigProgramName);
+                    }
+                    $scope.configObj["ConfigName"] = record.entity.Name;
+                    $scope.configObj["Description"] = record.entity.Description;
+                    $scope.config_program = record.entity.Config_program;
+                });
+            }
+&nbsp;
+            $scope.changeConfigProgram = function (value) {
+                hypersproutMgmtService.ConfigProgramsEdit(value, type).then(function (objData) {
+                    <span class="missing-if-branch" title="else path not taken" >E</span>if (!angular.isUndefinedOrNull(objData) &amp;&amp; !angular.isUndefinedOrNull(objData.Docs)) {
+                        $scope.configObj = {};
+                        $scope.configObj["ConfigName"] = record.entity.Name;
+                        $scope.configObj["Description"] = record.entity.Description;
+                        $scope.configObj["ConfigGroups_Info"] = {};
+                        $scope.configObj["ConfigGroups_Info"]["Demand"] = commonService.getObjectById(dropDownObj.demandDataValues, objData.Docs[0].ConfigGroups_Info.Demand).value;
+                        $scope.configObj["ConfigGroups_Info"]["Quantity1"] = commonService.getObjectById(dropDownObj.energyDataValues_q, objData.Docs[0].ConfigGroups_Info.Quantity1).value;
+                        $scope.configObj["ConfigGroups_Info"]["Quantity2"] = commonService.getObjectById(dropDownObj.energyDataValues_q, objData.Docs[0].ConfigGroups_Info.Quantity2).value;
+                        $scope.configObj["ConfigGroups_Info"]["Quantity3"] = commonService.getObjectById(dropDownObj.energyDataValues_q, objData.Docs[0].ConfigGroups_Info.Quantity3).value;
+                        $scope.configObj["ConfigGroups_Info"]["Quantity4"] = commonService.getObjectById(dropDownObj.energyDataValues_q, objData.Docs[0].ConfigGroups_Info.Quantity4).value;
+                        $scope.configObj["ConfigGroups_Info"]["RMSVoltLoadThreshold"] = objData.Docs[0].ConfigGroups_Info.RMSVoltLoadThreshold;
+                        $scope.configObj["ConfigGroups_Info"]["RMSVoltHighThreshold"] = objData.Docs[0].ConfigGroups_Info.RMSVoltHighThreshold;
+                        $scope.configObj["ConfigGroups_Info"]["LowVoltageThreshold"] = objData.Docs[0].ConfigGroups_Info.LowVoltageThreshold;
+                        $scope.configObj["ConfigGroups_Info"]["LowVoltageThresholdDeviation"] = objData.Docs[0].ConfigGroups_Info.LowVoltageThresholdDeviation;
+                        $scope.configObj["ConfigGroups_Info"]["HighVoltageThresholdDeviation"] = objData.Docs[0].ConfigGroups_Info.HighVoltageThresholdDeviation;
+                        $scope.configObj["ConfigGroups_Info"]["VTMultiplier"] = objData.Docs[0].ConfigGroups_Info.VTMultiplier;
+                        $scope.configObj["ConfigGroups_Info"]["RegisterMultiplier"] = objData.Docs[0].ConfigGroups_Info.RegisterMultiplier;
+                        $scope.configObj["ConfigGroups_Info"]["IntervalLength"] = commonService.getObjectById(dropDownObj.intervalLengthLoadValues, objData.Docs[0].ConfigGroups_Info.IntervalLength).value;
+                        $scope.configObj["ConfigGroups_Info"]["OutageLength"] = commonService.getObjectById(dropDownObj.outageLengthDropDown, objData.Docs[0].ConfigGroups_Info.OutageLength).value;
+                        $scope.configObj["ConfigGroups_Info"]["PulseWeight1"] = objData.Docs[0].ConfigGroups_Info.PulseWeight1;
+                        $scope.configObj["ConfigGroups_Info"]["PulseWeight2"] = objData.Docs[0].ConfigGroups_Info.PulseWeight2;
+                        $scope.configObj["ConfigGroups_Info"]["PulseWeight3"] = objData.Docs[0].ConfigGroups_Info.PulseWeight3;
+                        $scope.configObj["ConfigGroups_Info"]["PulseWeight4"] = objData.Docs[0].ConfigGroups_Info.PulseWeight4;
+                        $scope.configObj["ConfigGroups_Info"]["PhaseSelection"] = commonService.getObjectById(dropDownObj.phaseSelectionValues, objData.Docs[0].ConfigGroups_Info.PhaseSelection).value;
+                        $scope.configObj["ConfigGroups_Info"]["TimetoremaininTestMode"] = objData.Docs[0].ConfigGroups_Info.TimetoremaininTestMode;
+                        $scope.configObj["ConfigGroups_Info"]["NumberofSubIntervals"] = commonService.getObjectById(dropDownObj.intervalLengthValues, objData.Docs[0].ConfigGroups_Info.NumberofSubIntervals).value;
+                        $scope.configObj["ConfigGroups_Info"]["ColdLoadPickupTimes"] = commonService.getObjectById(dropDownObj.coldPickuptimeValues, objData.Docs[0].ConfigGroups_Info.ColdLoadPickupTimes).value;
+                        $scope.configObj["ConfigGroups_Info"]["PowerOutageRecognitionTime"] = commonService.getObjectById(dropDownObj.powerOutageRecognitionTimeValues, objData.Docs[0].ConfigGroups_Info.PowerOutageRecognitionTime).value;
+                        $scope.configObj["ConfigGroups_Info"]["TestModeDemandIntervalLength"] = commonService.getObjectById(dropDownObj.quantityValues, objData.Docs[0].ConfigGroups_Info.TestModeDemandIntervalLength).value;
+                        $scope.configObj["ConfigGroups_Info"]["NumberofTestModeSubintervals"] = commonService.getObjectById(dropDownObj.quantityValues, objData.Docs[0].ConfigGroups_Info.NumberofTestModeSubintervals).value;
+                        $scope.configObj["ConfigGroups_Info"]["DemandIntervalLength"] = commonService.getObjectById(dropDownObj.intervalLengthValues, objData.Docs[0].ConfigGroups_Info.DemandIntervalLength).value;
+&nbsp;
+                         $scope.configObj["ConfigGroups_Info"]["DailySelfReadTime"] = (objData.Docs[0].ConfigGroups_Info.DailySelfReadTime === 1) ? true : <span class="branch-1 cbranch-no" title="branch not covered" >false;</span>
+                            $scope.configObj["ConfigGroups_Info"]["AllEvents"] = (objData.Docs[0].ConfigGroups_Info.AllEvents === 1) ? true : <span class="branch-1 cbranch-no" title="branch not covered" >false;           </span>
+                            $scope.configObj["ConfigGroups_Info"]["BillingDateCleard"] = (objData.Docs[0].ConfigGroups_Info.BillingDateCleard === 1) ? true : <span class="branch-1 cbranch-no" title="branch not covered" >false;                    </span>
+                            $scope.configObj["ConfigGroups_Info"]["BillingScheduleExpiration"] = (objData.Docs[0].ConfigGroups_Info.BillingScheduleExpiration === 1) ? true : <span class="branch-1 cbranch-no" title="branch not covered" >false;     </span>
+                            $scope.configObj["ConfigGroups_Info"]["DemandResetOccured"] = (objData.Docs[0].ConfigGroups_Info.DemandResetOccured === 1) ? true : <span class="branch-1 cbranch-no" title="branch not covered" >false;</span>
+                            $scope.configObj["ConfigGroups_Info"]["HistoryLogCleared"] = (objData.Docs[0].ConfigGroups_Info.HistoryLogCleared === 1) ? true : <span class="branch-1 cbranch-no" title="branch not covered" >false;</span>
+                            $scope.configObj["ConfigGroups_Info"]["ConfigurationErrorDetected"] = (objData.Docs[0].ConfigGroups_Info.ConfigurationErrorDetected === 1) ? true : <span class="branch-1 cbranch-no" title="branch not covered" >false;</span>
+                            $scope.configObj["ConfigGroups_Info"]["LoadProfileError"] = (objData.Docs[0].ConfigGroups_Info.LoadProfileError === 1) ? true : <span class="branch-1 cbranch-no" title="branch not covered" >false;</span>
+                            $scope.configObj["ConfigGroups_Info"]["LowBatteryDetected"] = (objData.Docs[0].ConfigGroups_Info.LowBatteryDetected === 1) ? true : <span class="branch-1 cbranch-no" title="branch not covered" >false;</span>
+                            $scope.configObj["ConfigGroups_Info"]["PrimaryPowerDown"] = (objData.Docs[0].ConfigGroups_Info.PrimaryPowerDown === 1) ? true : <span class="branch-1 cbranch-no" title="branch not covered" >false;</span>
+                            $scope.configObj["ConfigGroups_Info"]["OTMultiplier"] = objData.Docs[0].ConfigGroups_Info.OTMultiplier;
+                            $scope.configObj["ConfigGroups_Info"]["EnableVoltageMonitor"] = (objData.Docs[0].ConfigGroups_Info.EnableVoltageMonitor === 1) ? true : <span class="branch-1 cbranch-no" title="branch not covered" >false;</span>
+                            $scope.configObj["ConfigGroups_Info"]["LinkFailure"] = (objData.Docs[0].ConfigGroups_Info.LinkFailure === 1) ? true : <span class="branch-1 cbranch-no" title="branch not covered" >false;</span>
+                            $scope.configObj["ConfigGroups_Info"]["LinkMetric"] = (objData.Docs[0].ConfigGroups_Info.LinkMetric === 1) ? true : <span class="branch-1 cbranch-no" title="branch not covered" >false;</span>
+                            $scope.configObj["ConfigGroups_Info"]["InterrogationSendSucceeded"] = (objData.Docs[0].ConfigGroups_Info.InterrogationSendSucceeded === 1) ? true : <span class="branch-1 cbranch-no" title="branch not covered" >false;</span>
+                            $scope.configObj["ConfigGroups_Info"]["SendResponseFailed"] = (objData.Docs[0].ConfigGroups_Info.SendResponseFailed === 1) ? true : <span class="branch-1 cbranch-no" title="branch not covered" >false;</span>
+                            $scope.configObj["ConfigGroups_Info"]["DeregistrationResult"] = (objData.Docs[0].ConfigGroups_Info.DeregistrationResult === 1) ? true : <span class="branch-1 cbranch-no" title="branch not covered" >false;</span>
+                            $scope.configObj["ConfigGroups_Info"]["ReceivedMessageFrom"] = (objData.Docs[0].ConfigGroups_Info.ReceivedMessageFrom === 1)  ? true : <span class="branch-1 cbranch-no" title="branch not covered" >false;</span>
+                            $scope.configObj["ConfigGroups_Info"]["DataVineHyperSproutChange"] = (objData.Docs[0].ConfigGroups_Info.DataVineHyperSproutChange === 1) ? true : <span class="branch-1 cbranch-no" title="branch not covered" >false;</span>
+                            $scope.configObj["ConfigGroups_Info"]["DataVineSyncFatherChange"] = (objData.Docs[0].ConfigGroups_Info.DataVineSyncFatherChange === 1) ? true : <span class="branch-1 cbranch-no" title="branch not covered" >false;</span>
+                            $scope.configObj["ConfigGroups_Info"]["ZigbeeSETunnelingMessage"] = (objData.Docs[0].ConfigGroups_Info.ZigbeeSETunnelingMessage === 1) ? true : <span class="branch-1 cbranch-no" title="branch not covered" >false;</span>
+                            $scope.configObj["ConfigGroups_Info"]["ZigbeeSimpleMeteringMessage"] = (objData.Docs[0].ConfigGroups_Info.ZigbeeSimpleMeteringMessage === 1) ? true : <span class="branch-1 cbranch-no" title="branch not covered" >false;</span>
+                            $scope.configObj["ConfigGroups_Info"]["TableSendRequestFailed"] = (objData.Docs[0].ConfigGroups_Info.TableSendRequestFailed === 1) ? true : <span class="branch-1 cbranch-no" title="branch not covered" >false;</span>
+&nbsp;
+                        <span class="missing-if-branch" title="else path not taken" >E</span>if (type === 'Meter') {
+                            $scope.configObj["ConfigGroups_Info"]["Energy1"] = commonService.getObjectById(dropDownObj.energyDataValues, objData.Docs[0].ConfigGroups_Info.Energy1).value;
+                            $scope.configObj["ConfigGroups_Info"]["Energy2"] = commonService.getObjectById(dropDownObj.energyDataValues, objData.Docs[0].ConfigGroups_Info.Energy2).value;
+                            $scope.configObj["ConfigGroups_Info"]["Energy3"] = commonService.getObjectById(dropDownObj.energyDataValues, objData.Docs[0].ConfigGroups_Info.Energy3).value;
+                            $scope.configObj["ConfigGroups_Info"]["Energy4"] = commonService.getObjectById(dropDownObj.energyDataValues, objData.Docs[0].ConfigGroups_Info.Energy4).value;
+                            $scope.configObj["ConfigGroups_Info"]["IntervalLengthVoltage"] = commonService.getObjectById(dropDownObj.voltageIntervalLengthValues, objData.Docs[0].ConfigGroups_Info.VoltageMointorIntervalLength).value;
+                            $scope.configObj["ConfigGroups_Info"]["LoadControlDisconnectThresholdMaxDemand"] = commonService.getObjectById(dropDownObj.quantities_loadControlValues, objData.Docs[0].ConfigGroups_Info.LoadControlDisconnectThreshold).value;
+                            $scope.configObj["ConfigGroups_Info"]["ReconnectMethod"] = commonService.getObjectById(dropDownObj.reconnectMethod_Values, objData.Docs[0].ConfigGroups_Info.ReconnectMethod).value;
+                            $scope.configObj["ConfigGroups_Info"]["Loginattemptsoptical"] = objData.Docs[0].ConfigGroups_Info.LockoutLoginattemptsOptical;
+                            $scope.configObj["ConfigGroups_Info"]["Logoutattemptsoptical"] = objData.Docs[0].ConfigGroups_Info.LockoutLogoutminutesOptical;
+                            $scope.configObj["ConfigGroups_Info"]["LoginattemptsIan"] = objData.Docs[0].ConfigGroups_Info.LockoutLoginattemptsLAN;
+                            $scope.configObj["ConfigGroups_Info"]["LogoutattemptsIan"] = objData.Docs[0].ConfigGroups_Info.LockoutLogoutminutesLAN;
+                            $scope.configObj["ConfigGroups_Info"]["ConsecutiveLANmsgFailureLimit"] = objData.Docs[0].ConfigGroups_Info.ConsecutiveLAN;
+                            $scope.configObj["ConfigGroups_Info"]["LANLinkMetricQuality"] = objData.Docs[0].ConfigGroups_Info.LanLinkMetric;
+                        } else {
+<span class="cstat-no" title="statement not covered" >                            $scope.configObj["ConfigGroups_Info"]["Energy"] = commonService.getObjectById(dropDownObj.energyDataValues, objData.Docs[0].ConfigGroups_Info.Energy).value;</span>
+<span class="cstat-no" title="statement not covered" >                            $scope.configObj["ConfigGroups_Info"]["CTMultiplier"] = objData.Docs[0].ConfigGroups_Info.CTMultiplier;</span>
+<span class="cstat-no" title="statement not covered" >                            $scope.configObj["ConfigGroups_Info"]["IntervalLengthVoltage"] = commonService.getObjectById(dropDownObj.voltageIntervalLengthValues, objData.Docs[0].ConfigGroups_Info.IntervalLengthVoltage).value;</span>
+                        }
+                    }
+                });
+            }
+            $scope.printCart = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                commonService.openPDF($scope.configObj.ConfigGroups_Info, "print");</span>
+            };
+&nbsp;
+            $scope.pdf = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                commonService.openPDF($scope.configObj.ConfigGroups_Info, "pdf");</span>
+            }
+&nbsp;
+            $scope.excel = function () {
+                var para = $scope.configObj.ConfigGroups_Info;
+                commonService.downloadCSV(para);
+            }
+            $scope.Save = function () {
+                var updatevalues = {
+                    ConfigID: record.entity.ID,
+                    ConfigProgramName: $scope.config_program,
+                    Type: type
+                };
+                hypersproutMgmtService.HSMConfEditSave(updatevalues).then(function (objData) {
+                    if (!angular.isUndefinedOrNull(objData) &amp;&amp; (objData.type)) {
+                        $state.reload();
+                        swal(objData.Message);
+                    } else {
+                        swal(objData.Message);
+                    }
+                    $modalInstance.dismiss();
+                });
+            }
+        }]);
+})(window.angular);</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Aug 22 2017 16:49:25 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

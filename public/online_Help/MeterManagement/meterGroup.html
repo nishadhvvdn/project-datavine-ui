@@ -1,0 +1,236 @@
+<div class="container-fluid">
+
+    <!--=====================================================-->
+
+    <div class="row">
+        <div class="rectangleBox">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 your_col">
+                    <img alt="#" src="../assets/images/HypersproutManagement/GroupManagement.png" class="imgDimension-helpSub" />
+                </div>
+                <div class="col-xs-8 col-sm-98 col-md-8 col-lg-8 labelStyle">
+                    <label> Group Management </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--=====================================================-->
+
+    <div class="row" style="margin-top: 1%">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="pull-right">
+                <p><a ng-click="tabChange('readingReport')" href=""><strong> 1. &nbsp; Reading The List </strong></a></p>
+                <p><a ng-click="tabChange('sortReport')" href=""><strong> 2. &nbsp; Sorting The List </strong></a></p>
+                <p><a ng-click="tabChange('exportingReport')" href=""><strong> 3. &nbsp; Exporting The List </strong></a></p>
+                <p><a ng-click="tabChange('filterReport')" href=""><strong> 4. &nbsp; Creating An App Group </strong></a></p>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="pull-left">
+                <p><a ng-click="tabChange('addReport')" href=""><strong> 5. &nbsp; View A Group </strong></a></p>
+                <p><a ng-click="tabChange('editReport')" href=""><strong> 6. &nbsp; Delete A Group </strong></a></p>
+                <p><a ng-click="tabChange('deleteReport')" href=""><strong> 7. &nbsp; Assign/Remove Endpoints </strong></a></p>
+                <p><a ng-click="tabChange('resetReport')" href=""><strong> 8. &nbsp; Download Configurations </strong></a></p>
+            </div>
+        </div>
+    </div>
+    <!--=====================================================-->
+
+    <div class="hr" style="margin-top: 0"></div>
+
+    <!--===============================================================-->
+
+    <div class="row text-center scrollAdjust scrollHeightFiveRow" ng-show="tabs.readingReport">
+        <label> <h1> <strong> 1. Reading The List </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+            The group management list shows every group that has been added to the system. The list contains four columns. </br>
+
+                <strong>1. Group Name</strong> The unique name of the group is shown here.</br>
+                <b>2. Members: </b> This shows No. of grouped delta links.</br>
+                <b>3. Description:  </b>This column shows a brief description of what the group is for.</br>
+                <b>4. Action: </b> This column contains a button for downloading the configurations associated to each of
+                the group’s members and a deletion button for removing the group.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/grouplisthelp.png" style=" width: 56%" />
+
+
+        <span> 
+        <p class="paragraph"  style= "margin-top:1%">
+                    If the list has a large amount of data, it might separate into pages. In this case, the user can choose how many entries
+                to display or which page to show from the pagination tool bar in the bottom left of the report.
+        </p>
+                </span>
+
+
+
+        <img alt="#" src="../assets/images/commPage.png" style=" width: 56% ;margin-top:1%" />
+
+    </div>
+    <!--=====================================================================================-->
+
+    <div class="row text-center" ng-show="tabs.sortReport">
+        <label> <h1> <strong> 2. Sorting The List </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+            To sort the list, the user must click the header of whichever column they would like to sort by. For instance, clicking on
+                the Group Name header will switch the column between the default display, ascending alphabetically, and descending
+                alphabetically.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/groupSort.png" />
+
+    </div>
+    <!--================================================================================-->
+
+    <div class="row text-center" ng-show="tabs.exportingReport">
+        <label> <h1> <strong> 3. Exporting The List </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+            The report gives four different options for exporting. The user may export either all the data in the report or just the
+                currently displayed data in either a CSV format or a PDF format. To do this the user simply has to click
+                on the export button in the top right corner of the report after filtering it for the desired data.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/exportMenu.png" />
+
+    </div>
+    <!--===================================================================-->
+
+    <div class="row text-center scrollAdjust scrollHeightFiveRow" ng-show="tabs.filterReport">
+        <label> <h1> <strong> 4. Creating an App Group </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+           An application group is a special grouping of devices. It allowes a user to group like devices that might have different
+                configurations. For instance, user might want to group all of the devices in a region together so that configuration
+                updates can be sent out at the same time across the region. To create one of these groups simply click the new button above the
+                right corner of the group list.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/groupNew.png" />
+
+
+        <span> 
+        <p class="paragraph" style="margin-top:1%">
+                    This will open up a creation window. Input a unique name and a brief description of the application group’s purpose
+                then click save. A new application group matching the inputed information will immediately be added to the
+                list.
+        </p>
+                </span>
+                
+                <img alt="#" src="../assets/images/mmgroupcreatehelp.png" style="width: 56%; margin-top:1%" />
+        
+
+    </div>
+
+    <!--=====================================================================================-->
+
+    <div class="row text-center scrollHeightFiveRow" ng-show="tabs.addReport">
+        <label> <h1> <strong> 5. View a Group </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+            To view basic details of a group, find the group’s entry in the group list and click on the group name. A window will appear
+                with the group’s details.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/groupviewhelp.png" style="width: 56%; margin-top:1%" />
+
+    </div>
+    <!--=====================================================================================-->
+    
+    <div class="row text-center" ng-show="tabs.editReport">
+        <label> <h1> <strong> 6. Delete a Group </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+             To delete a group simply find it in the list and click the deletion button. user will be prompted if user are sure. Click yes
+                and the group will be removed from the system (Note, the group must not have any members for the deletion
+                button to be available).
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/groupDelete.png" />
+        <span>
+            <p class="paragraph"  style="margin-top:1%">
+                Confirmation Popup For Delete Group.
+            </p>
+        </span>
+    
+            <img alt="#" src="../assets/images/deletesecuirtyhelp.png" style=" width: 50% ;margin-top:1%"/>
+
+    </div>
+    <!--===============================================================================-->
+     <div class="row text-center scrollAdjust scrollHeightFiveRow" ng-show="tabs.deleteReport">
+        <label> <h1> <strong> 7. Assign/Remove Endpoints </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+             When a group is first created it has no members associated to it. To add members locate the Assign Endpoint Group Membership
+                button above the top right corner of the list and click it.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/assigngrouphelp.png"  style="margin-top:1%"/>
+        <span>
+        <p class="paragraph" style="margin-top:1%">
+            
+            After clicking the button the Assign Endpoint Group Membership window will pop up. From here select a group from
+                the dropdown (Note, user can jump to the application group creation window by clicking the plus button next
+                to the group dropdown). Then select whether to add or remove members and input the path of the file containing
+                the device IDs by clicking the Choose File button. Finally click Assign Membership and the window will report
+                whether or not it is successful on the result line.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/mmgroupassignhelp.png" style="width: 56%; margin-top:1%" />
+
+
+    </div>
+    <!--==============================================================================-->
+     <div class="row text-center" ng-show="tabs.resetReport">
+        <label> <h1> <strong> 8. Download Configurations </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+             To update each of a group’s members configuration files simply locate the group in the list and click the download button
+                in the action column. Note, an application group will use the configuration file associated with each of
+                its individual member’s configuration group.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/groupDelete.png" />
+
+
+    </div>
+    <!--==================================================================================-->
+
+</div>

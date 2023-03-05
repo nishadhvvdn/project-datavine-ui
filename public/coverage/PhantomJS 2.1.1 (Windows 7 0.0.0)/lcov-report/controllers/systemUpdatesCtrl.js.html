@@ -1,0 +1,791 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for controllers\systemUpdatesCtrl.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">controllers/</a> systemUpdatesCtrl.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">82.01% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>114/139</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">62.03% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>49/79</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">72.22% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>13/18</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">82.01% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>114/139</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">﻿(function (angular) {
+&nbsp;
+    "use strict";
+&nbsp;
+    angular.module('dataVINEApp').controller('systemUpdatesCtrl', ['$scope', 'reportsService', 'hypersproutMgmtService', '$filter', '$timeout', 'refreshservice', '$controller', 'type', 'formatDate', function ($scope, reportsService, hypersproutConfigService, $filter, $timeout, refreshservice, $controller, type, formatDate) {
+        $scope.isCollapsed = false;
+&nbsp;
+        $scope.boolEdit = true;
+        $scope.title = 'Job Status';
+        var arrData = [];
+        $scope.jobsObject = [];
+        $scope.jobsObject.runningJobs = true;
+        $scope.jobsObject.historicalJobs = true;
+        $scope.systemUpdatesOptions = {};
+        $scope.invalidSelection = false;
+&nbsp;
+&nbsp;
+        $scope.ticked = false;
+        $scope.toggle = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >            $scope.isSelected = true;</span>
+<span class="cstat-no" title="statement not covered" >            $scope.ticked = !$scope.ticked;</span>
+        }
+&nbsp;
+        $scope.dynamicPopover = {
+            templateUrl: '/templates/systemUpdateSettings.html',
+            content: '',
+            open: function () {
+                $scope.dynamicPopover.isOpen = true;
+            },
+            close: function () {
+                $scope.dynamicPopover.isOpen = false;
+            }
+        };
+&nbsp;
+        var userTimeZone = angular.isUndefinedOrNull(objCacheDetails.userDetails) ? <span class="branch-0 cbranch-no" title="branch not covered" >undefined </span>: objCacheDetails.userDetails.timeZone;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (angular.isUndefined(userTimeZone)) {
+<span class="cstat-no" title="statement not covered" >            refreshservice.refresh().then(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                userTimeZone = objCacheDetails.userDetails.timeZone;</span>
+<span class="cstat-no" title="statement not covered" >                initializeDateForSystemUpdate(false);</span>
+            });
+        } else {
+            initializeDateForSystemUpdate(false);
+        }
+        function initializeDateForSystemUpdate(flag) {
+            if (!flag) {
+                $scope.startingDate = new Date(moment.tz(userTimeZone).format('YYYY-MM-DD HH:mm'));
+                $scope.endingDate = new Date(moment.tz(userTimeZone).format('YYYY-MM-DD HH:mm'));
+                formatDate.getFormatedDate($scope,'jobstatus', function (fDate, tDate, tZone) {
+                    userTimeZone = tZone;
+                    init(fDate, tDate, flag);
+                })
+            }else{
+                init(moment.utc($scope.startingDate).format('YYYY-MM-DDTHH:mm:ss.SSS') + 'Z',moment.utc($scope.endingDate).format('YYYY-MM-DDTHH:mm:ss.SSS') + 'Z',flag);
+            }
+        }
+        $scope.systemUpdatesOptions = angular.copy(objCacheDetails.grid);
+        $scope.systemUpdatesOptions.data = [];
+        $scope.systemUpdatesOptions.columnDefs = [
+            { field: 'Job ID', enableHiding: false },
+            { field: 'Description', enableHiding: false },
+            { field: 'Status', enableHiding: false, cellTemplate: '&lt;div style="margin-top: 5px;margin-left:5px" ng-class="{ statusColor:row.entity.Status==\'Failed\' }" &gt;{{row.entity.Status}}  &lt;/div&gt;' },
+            { field: 'Group', enableHiding: false },
+            { field: 'SerialNumber', displayName: 'Serial Number', enableHiding: false },
+            { field: 'Start Time',sort: { direction: 'desc'},enableHiding: false },
+            { field: 'End Time', enableHiding: false }
+&nbsp;
+        ];
+&nbsp;
+        function init(fromDate, toDate, flag) {
+            arrData = [];
+            hypersproutConfigService.getJobStatus([fromDate, toDate,'All'],'JobsList').then(function (objData) {
+                <span class="missing-if-branch" title="else path not taken" >E</span>if (!angular.isUndefinedOrNull(objData) &amp;&amp; !angular.isUndefinedOrNull(objData.JobsArray)) {
+                    for (var i = 0; i &lt; objData.JobsArray.length; i++) {
+                        var objNetworkJobStatus = objData.JobsArray[i];
+                        var objToInsert = {};
+                        objToInsert["Job ID"] = objNetworkJobStatus.JobID;
+                        objToInsert["Description"] = objNetworkJobStatus.JobType;
+                        objToInsert["Status"] = objNetworkJobStatus.Status;
+                        objToInsert["Group"] = objNetworkJobStatus.JobName;
+                        objToInsert["SerialNumber"] = objNetworkJobStatus.SerialNumber;
+                        objToInsert["Start Time"] = moment.tz( objNetworkJobStatus.CreatedDateTimestamp, userTimeZone).format('YYYY-MM-DD HH:mm:ss');
+                        objToInsert["type"] = objNetworkJobStatus.JobType;
+                        objToInsert["End Time"] = angular.isUndefinedOrNull(objNetworkJobStatus.EndTime) ? '' : <span class="branch-1 cbranch-no" title="branch not covered" >moment.tz(objNetworkJobStatus.EndTime, userTimeZone).format('YYYY-MM-DD HH:mm:ss');</span>
+                        arrData.push(objToInsert);
+                    }
+                    $scope.systemUpdatesData = arrData;
+                    $scope.systemUpdatesOptions.data = $scope.systemUpdatesData;
+                }
+                if (flag)
+                    systemUpdateFilter(arrData);
+&nbsp;
+&nbsp;
+            });
+        }
+        $scope.errorUpdate = function () {
+&nbsp;
+            <span class="missing-if-branch" title="else path not taken" >E</span>if ($scope.ListOfItems[0].isSelected || $scope.ListOfItems[1].isSelected || <span class="branch-2 cbranch-no" title="branch not covered" >$scope.ListOfItems[2].isSelected </span>|| <span class="branch-3 cbranch-no" title="branch not covered" >$scope.ListOfItems[3].isSelected </span>|| <span class="branch-4 cbranch-no" title="branch not covered" >$scope.ListOfItems[4].isSelected </span>|| <span class="branch-5 cbranch-no" title="branch not covered" >$scope.ListOfItems[5].isSelected|</span>|<span class="branch-6 cbranch-no" title="branch not covered" >$scope.ListOfItems[6].isSelected </span>||
+<span class="branch-7 cbranch-no" title="branch not covered" >                $scope.jobsObject.runningJobs </span>|| <span class="branch-8 cbranch-no" title="branch not covered" >$scope.jobsObject.historicalJobs)</span> {
+                $scope.invalidSelection = false;
+            } else {
+<span class="cstat-no" title="statement not covered" >                $scope.invalidSelection = true;</span>
+            }
+        }
+        function systemUpdateFilter(Arraydata) {
+            var jobsData = [];
+            var runningJobs = [];
+            var historicalJobs = [];
+            var selectedArray;
+            var ondemandRead = [];
+            var configurationJobs = [];
+            var firmwareJobs = [];
+            var jobsStatus = false;
+            var selectedStatus = false;
+            var remoteDisconnects=[];
+            var registration=[];
+            var nodePing=[];
+            var intervalJobs=[];
+            $scope.invalidSelection = true;
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (($scope.jobsObject.runningJobs || <span class="branch-1 cbranch-no" title="branch not covered" >$scope.jobsObject.historicalJobs)</span>) {
+                jobsStatus = true;
+                $scope.invalidSelection = false;
+                <span class="missing-if-branch" title="else path not taken" >E</span>if ($scope.jobsObject.runningJobs) {
+                    runningJobs = $filter('runningJobsFilter')(Arraydata, $scope.jobsObject.runningJobs);
+                }
+                <span class="missing-if-branch" title="else path not taken" >E</span>if ($scope.jobsObject.historicalJobs) {
+                    historicalJobs = $filter('historicalJobsFilter')(Arraydata, $scope.jobsObject.historicalJobs);
+                }
+            }
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (jobsStatus) {
+                jobsData = runningJobs.concat(historicalJobs);
+                jobsData.sort($scope.compare);
+                $scope.compare = <span class="fstat-no" title="function not covered" >function (first, second) {</span>
+<span class="cstat-no" title="statement not covered" >                    var firstDateTime = first['Start Time'];</span>
+<span class="cstat-no" title="statement not covered" >                    var secondDateTime = second['Start Time'];</span>
+<span class="cstat-no" title="statement not covered" >                    if (firstDateTime &lt; secondDateTime) {</span>
+<span class="cstat-no" title="statement not covered" >                        return -1;</span>
+                    }
+<span class="cstat-no" title="statement not covered" >                    if (firstDateTime &gt; secondDateTime) {</span>
+<span class="cstat-no" title="statement not covered" >                        return 1;</span>
+                    }
+<span class="cstat-no" title="statement not covered" >                    return 0;</span>
+                }
+            }
+            else {
+<span class="cstat-no" title="statement not covered" >                jobsData = angular.copy(Arraydata);</span>
+            }
+&nbsp;
+            angular.forEach($scope.ListOfItems, function (ListOfJobsData) {
+                <span class="missing-if-branch" title="else path not taken" >E</span>if (ListOfJobsData.isSelected) {
+                    $scope.invalidSelection = false;
+                    selectedStatus = true
+                    if (ListOfJobsData.isSelected &amp;&amp; ListOfJobsData.desc === "Configuration Jobs") {
+                        configurationJobs = $filter('configurationJobsFilter')(jobsData, ListOfJobsData.isSelected);
+                    }
+                    if (ListOfJobsData.isSelected &amp;&amp; ListOfJobsData.desc === "Firmware Jobs") {
+                        firmwareJobs = $filter('firmwareJobsFilter')(jobsData, ListOfJobsData.isSelected, 'firmware');
+                    }
+                    if (ListOfJobsData.isSelected &amp;&amp; ListOfJobsData.desc === "On-Demand Read Jobs") {
+                        ondemandRead = $filter('firmwareJobsFilter')(jobsData, ListOfJobsData.isSelected, 'ondemandRead');
+                    }
+                    if (ListOfJobsData.isSelected &amp;&amp; ListOfJobsData.desc === "Remote Disconnects") {
+                        remoteDisconnects = $filter('firmwareJobsFilter')(jobsData, ListOfJobsData.isSelected, 'remoteDisconnect');
+                    }   
+                    if (ListOfJobsData.isSelected &amp;&amp; ListOfJobsData.desc === "Registration Jobs") {
+                        registration = $filter('firmwareJobsFilter')(jobsData, ListOfJobsData.isSelected, 'registration');
+                    }     
+                    if (ListOfJobsData.isSelected &amp;&amp; ListOfJobsData.desc === "Node Ping Jobs") {
+                        nodePing = $filter('firmwareJobsFilter')(jobsData, ListOfJobsData.isSelected, 'nodeping');
+                    }       
+                    if (ListOfJobsData.isSelected &amp;&amp; ListOfJobsData.desc === "Interval Read Jobs") {
+                        intervalJobs = $filter('firmwareJobsFilter')(jobsData, ListOfJobsData.isSelected, 'intervalJob');
+                    }                                                                     
+                }
+            });
+            selectedArray = configurationJobs.concat(firmwareJobs, ondemandRead,remoteDisconnects,registration,nodePing,intervalJobs);
+<span class="fstat-no" title="function not covered" >            function compare(first, second) {</span>
+<span class="cstat-no" title="statement not covered" >                var firstDate = first['Start Time'];</span>
+<span class="cstat-no" title="statement not covered" >                var secondDate = second['Start Time'];</span>
+<span class="cstat-no" title="statement not covered" >                if (firstDate &lt; secondDate) {</span>
+<span class="cstat-no" title="statement not covered" >                    return -1;</span>
+                }
+<span class="cstat-no" title="statement not covered" >                if (firstDate &gt; secondDate) {</span>
+<span class="cstat-no" title="statement not covered" >                    return 1;</span>
+                }
+<span class="cstat-no" title="statement not covered" >                return 0;</span>
+            }
+            selectedArray.sort(compare);
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (selectedStatus) {
+&nbsp;
+                $scope.systemUpdatesOptions.data = selectedArray;
+            }
+            else {
+<span class="cstat-no" title="statement not covered" >                if (jobsStatus) {</span>
+<span class="cstat-no" title="statement not covered" >                    $scope.systemUpdatesOptions.data = jobsData;</span>
+                }
+            }
+            <span class="missing-if-branch" title="if path not taken" >I</span>if ($scope.invalidSelection) {
+<span class="cstat-no" title="statement not covered" >                $scope.dynamicPopover.isOpen = true;</span>
+            }
+            else {
+                $scope.dynamicPopover.isOpen = false;
+                $scope.invalidSelection = false;
+            }
+            $timeout(<span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                $scope.$apply();</span>
+            }, 300, false);
+        }
+        $scope.systemUpdates = function () {
+            initializeDateForSystemUpdate(true);
+        }
+&nbsp;
+        $scope.printCart = function () {
+            window.print();
+        };
+&nbsp;
+        $scope.ListOfItems = [{
+            isSelected: true,
+            desc: "Configuration Jobs"
+        }, {
+            isSelected: true,
+            desc: "Firmware Jobs"
+        }, {
+            isSelected: true,
+            desc: "Interval Read Jobs"
+        }, {
+            isSelected: true,
+            desc: "On-Demand Read Jobs"
+        }, {
+            isSelected: true,
+            desc: "Remote Disconnects"
+        }, {
+            isSelected: true,
+            desc: "Registration Jobs"
+        },{
+            isSelected: true,
+            desc: "Node Ping Jobs"
+        }]
+&nbsp;
+        $controller('dateCommonCtrl', { $scope: $scope });
+        $scope.AllSelectedItems = false;
+        $scope.NoSelectedItems = false;
+    }]);
+})(window.angular);</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Aug 22 2017 16:49:25 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

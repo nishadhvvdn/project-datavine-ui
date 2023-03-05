@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for controllers\transformerMeterGroupingCtrl.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">controllers/</a> transformerMeterGroupingCtrl.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">86.76% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>59/68</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">72.22% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>13/18</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">66.67% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>14/21</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">86.76% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>59/68</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">(function (angular) {
+&nbsp;
+    "use strict";
+&nbsp;
+    angular.module('dataVINEApp').controller('transformerMeterGroupingCtrl', ['$scope', '$uibModal', '$state', '$rootScope', '$filter', '$timeout', 'DeviceService', 'ParseService', 'DeviceMappingService',
+        function ($scope, $uibModal, $state, $rootScope, $filter, $timeout, deviceService, parseService, deviceMappingService) {
+&nbsp;
+            var arrMeterData = [];
+            init();
+            function init() {
+                $scope.datagridMessage = 'Loading';
+                arrMeterData = [];
+                <span class="missing-if-branch" title="if path not taken" >I</span>if ((objCacheDetails.hasOwnProperty('data') &amp;&amp; angular.isUndefinedOrNull(objCacheDetails.data.selectedCircuit)) || (objCacheDetails.hasOwnProperty('data') &amp;&amp; angular.isUndefinedOrNull(objCacheDetails.data.selectedTransformer))) {
+<span class="cstat-no" title="statement not covered" >                    $state.go('system.grouping.circuitGrouping');</span>
+                } else {
+                    deviceService.getAllMeters().then(function (objData) {
+                        arrMeterData = parseService.getParsedMeterData(objData, objCacheDetails.data.selectedTransformer, false);
+                        $scope.meterGridGrouping.data = arrMeterData;
+                        $scope.datagridMessage = 'Empty List! There are no Meters assigned to this service. Please add a Meter.';
+                        $timeout(<span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                            $scope.$apply();</span>
+                        }, 300, false);
+                    });
+                }
+            }
+            $scope.isSelected = false;
+&nbsp;
+            var vm = this;
+            $scope.meterGridGrouping = angular.copy(objCacheDetails.grid);
+            $scope.meterGridGrouping.data = [];
+            $scope.meterGridGrouping.columnDefs =[
+                    { field: 'meterSl', displayName: 'Meter Serial Number', type: 'number', enableHiding: false },
+                    { field: 'meterMake', displayName: 'Make', enableHiding: false },
+                    { field: 'consumerNumber', displayName: 'Consumer Number', enableHiding: false },
+                    { field: 'phasesMeter', displayName: 'No of Phases', type: 'number', enableHiding: false },
+                    //{ field: 'applicationType', displayName : 'Application Type', enableHiding: false },
+                    { field: 'installationLocation', displayName: 'Installation Location', enableHiding: false, visible: false },
+                    { field: 'ctRatioMeter', displayName: 'CT Ratio', type: 'number', enableHiding: false, visible: false },
+                    { field: 'ptRatioMeter', displayName: 'PT Ratio', type: 'number', enableHiding: false, visible: false },
+                    { field: 'ratedVoltageMeter', displayName: 'Rated Voltage', type: 'number', enableHiding: false, visible: false },
+                    { field: 'ratedFrequencyMeter', displayName: 'Rated Frequency', type: 'number', enableHiding: false, visible: false },
+                    { field: 'nominalCurrent', displayName: 'Nominal Current', type: 'number', enableHiding: false, visible: false },
+                    { field: 'maximumCurrent', displayName: 'Maximum Current', type: 'number', enableHiding: false, visible: false },
+                    { field: 'complaintStandardMeter', displayName: 'Complaint of Standard', enableHiding: false, visible: false },
+                    { field: 'wifiMacIdMeter', displayName: 'Wifi Mac ID', enableHiding: false, visible: false },
+                    { field: 'wifiIpAddMeter', displayName: 'Wifi IP Address', enableHiding: false, visible: false },
+                    { field: 'wifiAccessPwdMeter', displayName: 'Wifi Access Pt PWD', enableHiding: false, visible: false },
+                    { field: 'meterAdminPwd', displayName: 'Meter Admin PWD', enableHiding: false, visible: false },
+                    { field: 'latitudeMeter', displayName: 'Latitude', enableHiding: false },
+                    { field: 'longitudeMeter', displayName: 'Longitude', enableHiding: false },
+                    { field: 'consumerName', displayName: 'Consumer Name', enableHiding: false, visible: false },
+                    { field: 'contactNumber', displayName: 'Contact Number', enableHiding: false, visible: false },
+                    { field: 'consumerAddress', displayName: 'Address', enableHiding: false, visible: false },
+                    { field: 'consumerCountry', displayName: 'Country', enableHiding: false, visible: false },
+                    { field: 'consumerState', displayName: 'State', enableHiding: false, visible: false },
+                    { field: 'consumerCity', displayName: 'City', enableHiding: false, visible: false },
+                    { field: 'consumerZipcode', displayName: 'Zipcode', enableHiding: false, visible: false },
+                    { field: 'billingDate', displayName: 'Billing Cycle Day', type: 'number', enableHiding: false, visible: false },
+                    { field: 'billingTime', displayName: 'Billing Time', enableHiding: false, visible: false },
+                    { field: 'demandResetDate', displayName: 'Demand Reset Day', type: 'number', enableHiding: false, visible: false },
+                    {
+                        field: 'Actions',
+                        cellTemplate: '&lt;div class="ui-grid-cell-contents"&gt;&lt;button type="button" class="btn btn-xs btn-primary cellBtn" ng-click="grid.appScope.vm.viewMeterInfo(row)"&gt;  &lt;i class="fa fa-eye"&gt;&lt;/i&gt;&lt;/button&gt; &amp;nbsp | &amp;nbsp &lt;button class="btn btn-xs btn-primary cellBtn" ng-click="grid.appScope.vm.deleteMeter(row)"&gt; &lt;i class="fa fa-times" aria-hidden="true"&gt;&lt;/i&gt;&lt;/button&gt;&lt;/div&gt;',
+                        enableColumnMenu: false,
+                        enableHiding: false, width: 150
+                    }
+                ];            
+            $scope.meterGridGrouping.onRegisterApi= <span class="fstat-no" title="function not covered" >function (gridApi) {</span>
+<span class="cstat-no" title="statement not covered" >                $scope.gridApi = gridApi;</span>
+            } 
+&nbsp;
+&nbsp;
+            $rootScope.updateMeterConfigOptions = <span class="fstat-no" title="function not covered" >function (data, callback) {</span>
+<span class="cstat-no" title="statement not covered" >                callback();</span>
+            };
+&nbsp;
+            vm.viewMeterInfo = function (row) {
+                objCacheDetails.data.selectedData = row.entity;
+                 $uibModal.open({
+                    templateUrl: '/templates/viewMeterEntry.html',
+                    controller: 'viewMeterEntryCtrl',
+                    size: 'lg',
+                    backdrop: 'static',
+                    keyboard: true
+                });
+            }
+&nbsp;
+            vm.deleteMeter = function (row) {
+                swal({
+                    title: "Warning!!", text: "Removing the Meters from the Transformer group will unassign the Meters. Are you sure you want to remove Meters?",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: '#DD6B55',
+                    confirmButtonText: 'Remove',
+                    cancelButtonText: "Cancel",
+                },
+                    function (isConfirm) {
+                        <span class="missing-if-branch" title="else path not taken" >E</span>if (isConfirm) {
+                            var selectedMeters = [row.entity.MeterID];
+                            deviceMappingService.removeMeterFromTransformer(objCacheDetails.data.selectedTransformer, selectedMeters).then(function (objData) {
+                                swal(objData);
+                                init();
+                            });
+                        }
+                    });
+            };
+&nbsp;
+            $scope.openNewMeterConfiguration = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                $state.go('system.grouping.unassignedMeterList');</span>
+&nbsp;
+            };
+&nbsp;
+            $scope.removeSelectedMeter = function () {
+                var selectedMeters = [];
+                for (var i = 0; i &lt; $scope.gridApi.selection.getSelectedRows().length; i++) {
+                    selectedMeters.push($scope.gridApi.selection.getSelectedRows()[i].MeterID);
+                }
+                <span class="missing-if-branch" title="else path not taken" >E</span>if (selectedMeters.length &gt; 0) {
+                    swal({
+                        title: "Un-Group Meter", text: "Do you really like to Un-Group ?",
+                        showCancelButton: true,
+                        confirmButtonColor: 'black',
+                        confirmButtonText: 'Un-Group',
+                        cancelButtonText: "Cancel",
+                        cancelButtonColor: 'white',
+                    },
+                        function (isConfirm) {
+                            <span class="missing-if-branch" title="else path not taken" >E</span>if (isConfirm) {
+                                deviceMappingService.removeMeterFromTransformer(objCacheDetails.data.selectedTransformer, selectedMeters).then(function (objData) {
+                                    swal(objData);
+                                    init();
+                                });
+                            }
+                        })
+                }
+                else {
+<span class="cstat-no" title="statement not covered" >                    swal({ title: 'Warning', text: 'Please select a meter to Un-Group', type: "warning" });</span>
+                }
+            };
+&nbsp;
+            vm.removeMeter = function (row) {
+                var selectedMeters = [row.entity.MeterID];
+                deviceMappingService.removeMeterFromTransformer(objCacheDetails.data.selectedTransformer, selectedMeters).then(function (objData) {
+                    swal(objData);
+                    init();
+                });
+            };
+&nbsp;
+            vm.cancel = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                $modalInstance.dismiss();</span>
+            };
+&nbsp;
+            $scope.searchMeterGrouping = 'all';
+            $scope.searchGrid = function (searchTerm) {
+                var filter_tsn = { 'meterSl': searchTerm };
+                var filter_hsn = { 'consumerNumber': searchTerm };
+                if ($scope.searchMeterGrouping === 'tsn') {
+                    $scope.meterGridGrouping.data = $filter('filter')(arrMeterData, filter_tsn, undefined);
+                }
+                else if ($scope.searchMeterGrouping === 'hsn') {
+                    $scope.meterGridGrouping.data = $filter('filter')(arrMeterData, filter_hsn, undefined);
+                } else <span class="missing-if-branch" title="else path not taken" >E</span>if ($scope.searchMeterGrouping === 'all') {
+                    $scope.meterGridGrouping.data = $filter('meterGroupingSearch')(arrMeterData, searchTerm);
+                }
+            };
+&nbsp;
+            $scope.goBack = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                $state.go('system.grouping.transformerMeterGrouping');</span>
+&nbsp;
+            };
+            $scope.ok = <span class="fstat-no" title="function not covered" >function () {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                $modalInstance.dismiss();</span>
+&nbsp;
+            };
+        }]);
+})(window.angular);</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Aug 22 2017 16:49:25 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

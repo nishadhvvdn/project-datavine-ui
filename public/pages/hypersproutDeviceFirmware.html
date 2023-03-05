@@ -1,0 +1,21 @@
+<div class="container-fluid">
+    <div class="row">
+        <input type="text" class="form-control searchBoxAdjust ng-pristine ng-valid ng-touched dvhealth-input" style="margin-top: 0.8%;margin-left: 1.2%;margin-right: 1%;"  name="endpoint" ng-model="endpoint" type="search" ng-keyup="" ng-change="searchButtonClear(endpoint)"
+            placeholder="Search by Serial Number" />
+            <button type="button" ng-click="filterReportsData(endpoint)" class="btn btn-default btnColor" ng-disabled="!endpoint">
+                Search
+            </button>
+        <div class="pull-right filterBtn " style="margin-top: 0.2%">
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 2vh;">
+        <div class="container-fluid">
+            <div ui-grid="deviceFirmware_ReportOptions" ui-grid-exporter ui-grid-pagination ui-grid-resize-columns class="grid">               
+            </div>
+            <div class="watermark" ng-if="!deviceFirmware_ReportOptions.data.length">{{commonMsg}}</div>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,19 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <h3 class="headingAlign" style="margin-left:15px">Meter Firmware Group Management</h3>
+    </div>
+    <div class="row">
+        <div class="pull-right">
+            <button type="button" ng-click="openCreateApplicationGroup()" class="btn btn-default btnColor ">
+                New
+            </button>&nbsp;
+            <button type="button" ng-click="openAssignEndpoint()" ng-model="assignEndpoint" class="btn btn-default btnColor configSettings">Assign Firmware Group Management</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="container-fluid">
+            <div ui-grid="groupOptions_meter" ui-grid-exporter ui-grid-pagination ui-grid-resize-columns class="grid"></div>
+            <div class="watermark" ng-show="!groupOptions_meter.data.length">{{commonMsg}}</div>
+        </div>
+    </div>
+</div>

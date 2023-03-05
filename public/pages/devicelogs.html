@@ -1,0 +1,43 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="breadcrumb" style="margin-bottom: 3px;">
+                <ul>
+                    <li><a ng-click="goToDeviceManagement()">{{ activeDeviceType }}</a></li>
+                    <li> {{ deviceInfo.serialNum }} </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row ">
+                <button type="button" class="btn btn-default bk-button" ng-click="goToDeviceManagement()" style="margin-bottom: 1%;">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    Back
+                </button>
+        <div class="circuitName listadjust">
+            <h3 class="headingAlign" style="margin-left: 0%">Device Logs</h3>
+        </div>
+    </div>
+    <div class="row" style="margin-bottom: 1%; margin-top:-35px;">
+        <table>
+            <tr>
+                <div class="pull-right relayMeterFilterBtn" style="margin-top:0.5%; margin-right: 1.5vh" ng-if="deviceInfo.isRegistered !== 'Yes'">
+                    <button  type="button" ng-click="deleteSelectedLogs({},'bulk')" ng-disabled="mySelectedRows.length==0" class="btn btn-default btnColor">Delete Selected</button>
+                </div>
+                <div class="pull-right relayMeterFilterBtn" style="margin-top:0.5%" ng-if="deviceInfo.isRegistered == 'Yes'">
+                    <button  type="button" ng-click="deleteSelectedLogs({},'bulk')" ng-disabled="mySelectedRows.length==0" class="btn btn-default btnColor">Delete Selected</button>
+<!--                    <button  type="button" ng-click="clearDeviceLog()" class="btn btn-default btnColor">Clear Logs</button>-->
+                    <button  type="button" ng-click="fetchLogs()" class="btn btn-default btnColor">Fetch Logs</button>
+                    <button  type="button" ng-click="setLogsVerbosity()" class="btn btn-default btnColor" style="margin-right: 1.5vh;">Logs verbosity</button>
+                </div>
+            </tr>
+        </table>
+    </div>
+
+    <div class="row">
+        <div class="container-fluid " style="margin-top: -1vh">
+            <div ui-grid="logsGrid" ui-grid-edit ui-grid-exporter ui-grid-pagination ui-grid-selection ui-grid-resize-columns class="grid"></div>
+            <div class="watermark" ng-if="!logsGrid.data.length">{{commonMsg}}</div>
+        </div>
+    </div>
+</div>

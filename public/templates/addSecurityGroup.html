@@ -1,0 +1,61 @@
+﻿<div class="modal-header">
+    <h4 class="modal-title"><strong>Add Security Group</strong></h4>
+</div>
+<div class="container-fluid modalBackground">
+    <div class="modal-body">
+        <div class="row">
+            <form name="securityGroupForm" novalidate>
+                <table class="table table-hover modalTableBorder">
+                    <tr>
+                        <td>
+                            <h5><strong>Security Group ID:</strong><i class="fa fa-asterisk mandatory"
+                                    style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;"
+                                    aria-hidden="true"></i></h5>
+                        </td>
+                        <td>
+                            <input name="securityGroupID" type="text" autocomplete='off' ng-model="securityGroupID"
+                                ng-change="check($event)" ng-blur="check($event)" ng-maxlength="20" class="form-control userSettingsInput"
+                                required disallow-space />
+                            <span ng-if="msg!=''" style="color:red ; font-size:12px">{{msg}}</span>
+                            <span ng-show="specialChar" style="color:red ; font-size:12px ">Special Characters not
+                                allowed</span>
+                            <span style="color:red ; font-size:12px" ng-show="securityGroupForm.securityGroupID.$error.maxlength">
+                                Security Group ID should not contain more than 20 characters
+                            </span>
+                            <span style="color:red ; font-size:12px" ng-show="securityGroupForm.securityGroupID.$error.required && (securityGroupForm.securityGroupID.$touched || securityGroupForm.securityGroupID.$dirty)">
+                                Security Group ID is required
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5><strong>Description:</strong><i class="fa fa-asterisk mandatory"></i></h5>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control userSettingsInput" ng-model="description"
+                                name="description" ng-change="wordCheck($event)" ng-blur="wordCheck($event)" maxlength=250 required />
+                            <span ng-if="wordMsg!=''" style="color:red ; font-size:12px">{{wordMsg}}</span>
+                            <span style="color:red ; font-size:12px" ng-show="securityGroupForm.description.$error.required && (securityGroupForm.description.$touched || securityGroupForm.description.$dirty)">
+                                Description is required
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5><strong>Functions:</strong><i class="fa fa-asterisk mandatory"></i></h5>
+                        </td>
+                        <td>
+                            <div id="tree" ng-init="treeDivInitialized()"></div>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default btnColor"
+        ng-disabled="unique||specialChar||disable||wordCheckButtonDisable||securityGroupForm.$invalid && securityGroupForm.name.$error.required"
+        ng-click="SaveOrEditSecurityGroup()">OK</button>
+    <button type="button" class="btn btn-default btnDefault" ng-click="cancel()">Cancel</button>
+</div>

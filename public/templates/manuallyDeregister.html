@@ -1,0 +1,35 @@
+﻿<div class="modal-header">
+    <h4 class="modal-title"><b>Manually Deregister </b></h4>
+</div>
+<div class="container-fluid modalBackground">
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="row">
+                    <h5><b>Manually Deregister Endpoints</b></h5>
+                </div>
+                <div class="row">
+                    <input type="file" class="fileUpload" file-model="myFile" name="file" accept=".txt" />
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="row">
+                    <h5><b>Deregistration Result</b></h5>
+                </div>
+                <div class="row modalTable">
+                    <table class="table result_table">
+                        <tr ng-repeat="manually_deregister in manually_deregister">
+                            <td>{{manually_deregister.key}}</td>
+                            <td> {{manually_deregister.value}} </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default btnColor" ng-model="deregister"
+        ng-click="deregister()">Deregister</button>
+    <button type="button" class="btn btn-default btnDefault" ng-model="cancel" ng-click="cancel()">Cancel</button>
+</div>

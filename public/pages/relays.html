@@ -1,0 +1,81 @@
+﻿<div class="container-fluid">
+	<div class="row">
+		<h3 class="headingAlign" style="margin-left: 1.2%">{{title}}</h3>
+	</div>
+	<div class="row">
+		<table>
+			<tr>
+				<td>
+					<div class="row">
+						<div class="col-xs-3 col-md-3 col-sm-3 col-lg-3">
+							<select ng-model="searchObj.searchParam" class="form-control boxadjust"  ng-change="search(seachitem)"  style="margin-left: 16px;margin-top: 15px;">
+								<option value="all">All</option>
+								<option value="srchname">{{title}} Serial Number/Name </option>
+								<option value="srchid">{{title}} ID</option>
+							</select>
+						</div>
+						<div class="col-xs-3 col-md-3 col-sm-3 col-lg-3">
+							<input ng-model="seachitem" class="form-control searchBox" placeholder="Search"
+								   type="search" ng-change="searchButtonClear(seachitem);"  style="margin-top: 15px;">
+						</div>
+						<div class="col-xs-3 col-md-3 col-sm-3 col-lg-3" style="padding-left: 0;margin-top: 15px;">
+							<button type="button" ng-click="searchButton(seachitem)" class="btn btn-default btnColor" ng-disabled="!seachitem">
+							 Search
+							</button>
+						</div>
+					</div>
+				</td>
+
+				<div class="pull-right relayMeterFilterBtn" style="margin-top:1.5%">
+					<button type="button" class="btn btn-default btnColor demandReadSettings" popover-append-to-body='false' popover-animation='true'
+						popover-placement='bottom' popover-is-open="dynamicPopover.isOpen" uib-popover-template='dynamicPopover.templateUrl'
+						ng-click="today()">
+                Filter
+            </button>
+				</div>
+			</tr>
+		</table>
+	</div>
+
+	<div class="row">
+		<div class="container-fluid " style="margin-top: -1vh">
+			<div ui-grid="relaysOptions " ui-grid-resize-columns ui-grid-pagination ui-grid-exporter class="grid "></div>
+			<div class="watermark" ng-if="!relaysOptions.data.length">{{commonMsg}}</div>
+		</div>
+	</div>
+</div>
+
+<!--===============================================================-->
+
+<!--<div class="container-fluid">
+	<div class="row">
+		<h3 class="headingAlign">HyperSprout</h3>
+	</div>
+	<div class="row" style="margin-left:-41px;margin-bottom:3px">
+		<div class="col-md-7" style="margin-top:1%">
+			<div class="col-md-12 allign">
+				<a ng-click="printCart()"><img alt="#" src="../assets/images/Print.png" class="anchorText" /><strong class="anchorText">Print</strong></a>
+				<input placeholder="Search" type="text" ng-change="search()" style="border: 1px solid #ccc;
+    border-radius: 4px;height:30px;width:220px" ng-model="searchObj.searchParam" class="searchBox">&nbsp;
+					
+			</div>
+
+		</div>
+		<div class="col-md-3">
+			&nbsp;
+		</div>
+		
+		<div class="pull-right relayMeterFilterBtn" style="margin-top:1%">
+            <button type="button" class="btn btn-default btnColor demandReadSettings" popover-append-to-body='false' popover-animation='true'
+                popover-placement='bottom' popover-is-open="dynamicPopover.isOpen" uib-popover-template='dynamicPopover.templateUrl'
+                ng-click="today()">
+                Filter
+            </button>
+        </div>
+	</div>
+    <div class="row">
+        <div class="container-fluid ">
+            <div ui-grid="relaysOptions "  ui-grid-resize-columns ui-grid-pagination ui-grid-exporter class="grid "></div>
+        </div>
+    </div>
+</div>-->

@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for controllers\relayDetailsCtrl.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">controllers/</a> relayDetailsCtrl.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">87.88% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>29/33</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">58.33% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>7/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">85.71% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>6/7</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">87.88% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>29/33</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">﻿(function (angular) {
+&nbsp;
+    "use strict";
+&nbsp;
+    angular.module('dataVINEApp').controller('relayDetailsCtrl', ['$scope', '$modalInstance', '$timeout', 'SystemManagementService', 'type', function ($scope, $modalInstance, $timeout, systemManagementService, type) {
+        $scope.status = "Unknown";
+        init();
+        $scope.deviceType = type;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (type === 'Hyperhub')
+<span class="cstat-no" title="statement not covered" >            type = 'HyperSprout';</span>
+        $scope.name = 'Node Ping';
+        function init() {
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (!angular.isUndefinedOrNull(objCacheDetails.data.systmDeviceMgmtDetails.selectedRow)) {
+                $scope.serialNumber = objCacheDetails.data.systmDeviceMgmtDetails.selectedRow["SerialNumber"];
+                $scope.hardwareVersion = objCacheDetails.data.systmDeviceMgmtDetails.selectedRow["Hardware Version"];
+                $scope.deviceClassId = objCacheDetails.data.systmDeviceMgmtDetails.selectedRow["DeviceClassId"];
+                $scope.esn = objCacheDetails.data.systmDeviceMgmtDetails.selectedRow["ESN"];
+                $scope.createdDate = objCacheDetails.data.systmDeviceMgmtDetails.selectedRow["CreatedTime"];
+            }
+        }
+&nbsp;
+        $scope.cancel = function () {
+            $modalInstance.dismiss();
+        };
+        $scope.requesting = false;
+        $scope.nodePing = function () {
+            $scope.requesting = true;
+            $scope.status = "Processing";
+            var serialNumber = (type === 'HyperSprout') ? objCacheDetails.data.systmDeviceMgmtDetails.selectedRow["SerialNumber"] : <span class="branch-1 cbranch-no" title="branch not covered" >objCacheDetails.data.systmDeviceMgmtDetails.selectedRow["MeterID"];</span>
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (objCacheDetails.env === 'clean') {
+<span class="cstat-no" title="statement not covered" >                $timeout(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                    $scope.status = "Connected";</span>
+<span class="cstat-no" title="statement not covered" >                    $scope.requesting = false;</span>
+                }, 3000);
+            } else {
+                systemManagementService.getNodePingDetails(serialNumber, type).then(function (objData) {
+                    <span class="missing-if-branch" title="else path not taken" >E</span>if (!angular.isUndefinedOrNull(objData)) {
+                        if (objData.type) {
+                            $scope.status = objData.Output;
+                            $scope.requesting = false;
+                        } else {
+                            $scope.status = objData.Message;
+                            $scope.requesting = false;
+                        }
+                    }
+                });
+            }
+        };
+    }]);
+})(window.angular);</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Aug 22 2017 16:49:25 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

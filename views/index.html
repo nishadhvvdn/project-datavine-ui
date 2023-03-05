@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta http-equiv="cache-control" content="no-cache" />
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="expires" content="0" />
+	<!--[if lt IE 9]
+    <script src="js/lib/html5shiv.min.js"></script>
+    <script src="js/lib/respond.min.js"></script>
+    [endif] -->
+<!--//	../assets/images/loading2.gif-->
+
+	<title>Delta DataVINE&trade;</title>
+	<link rel="icon" href="../assets/images/delta-favicon.png" type="image/gif" sizes="16x16">
+	<meta property="og:title" content="Delta DataVINE">
+	<meta property="og:description" content="ENERGY & COMMUNICATIONS, INC">
+	<meta property="og:image" content="../assets/images/delta-logo.png" />
+</head>
+
+<body class="mainBody backgroundImg" ng-app="dataVINEApp" ng-controller="dataVINECtrl" style="overflow:hidden">
+<div ui-view>
+	<div id="myDivScreen"><img src="../assets/images/delta-logo.png"/></div>
+</div>
+<div id="mydiv" ng-show="enableLoading">
+	<img src="../assets/images/loading2.gif" class="ajax-loader"/>
+</div>
+
+<!-- Load Bootstrap -->
+	<link rel="stylesheet" href="stylesheets/lib/angular-timezone-selector.css">
+	<link href="stylesheets/lib/bootstrap.css" rel="stylesheet" />
+	<link href="stylesheets/css/style.css" rel="stylesheet" />
+	<!-- <link href="stylesheets/css/messageStyle.css" rel="stylesheet" /> -->
+	<link href="stylesheets/css/loginStyle.css" rel="stylesheet" />
+	<link href="stylesheets/css/homeStyle.css" rel="stylesheet" />
+	<link href="stylesheets/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="stylesheets/lib/multi-select.min.css" rel="stylesheet" />
+	<link href="stylesheets/css/help.css" rel="stylesheet" />
+
+	<!-- UI Grid CSS -->
+	<link href="stylesheets/lib/ui-grid.css" rel="stylesheet" />
+	<link href="stylesheets/lib/ui-grid.eot" rel="stylesheet" />
+	<link href="stylesheets/lib/ui-grid.svg" rel="stylesheet" />
+	<link href="stylesheets/lib/ui-grid.ttf" rel="stylesheet" />
+	<link href="stylesheets/lib/ui-grid.woff" rel="stylesheet" />
+	<link href="stylesheets/lib/sweetalert.css" rel="stylesheet" />
+
+	<!-- Lib JS includes -->
+	<script src="js/lib/jquery.min.js"></script>
+	<script src="js/lib/bootstrap-treeview.min.js"></script>
+	<script>
+		if (global === undefined) {
+			var global = window;
+		}
+		window.onload = function (e) {
+			if (navigator.userAgent.indexOf('Firefox') != -1) {
+				$('html').addClass('firefox-browser');
+			} 
+		}
+	</script>
+	<!-- Angular JS includes -->
+	<script src="js/lib/angular.min.js"></script>
+	<script src="js/lib/angular-file-model.js"></script>
+	<script src="js/lib/angular-ui-router.min.js"></script>
+	<script src="js/lib/angular-animate.min.js"></script>
+	<script src="js/lib/ui-bootstrap-tpls.min.js"></script>
+	<script src="js/lib/ui-grid.min.js"></script>
+	<script src="js/lib/angular-touch.min.js"></script>
+	<script src="js/lib/angular-multiselect-dropdown.js"></script>
+	<script src="js/lib/pdfmake.min.js"></script>
+	<script src="js/lib/csv.js"></script>
+	<script src="js/lib/vfs_fonts.js"></script>
+	<script src="js/lib/moment.min.js"></script>
+	<script src="js/lib/angular-country-timezone-picker.js"></script>
+	<script src="js/lib/moment-timezone-with-data.min.js"></script>
+	<script src="js/lib/chosen.jquery.js"></script>
+	<script src="js/lib/ng-file-upload.min.js"></script>
+	<script src="js/lib/ng-file-upload-shim.min.js"></script>
+
+	<script src="js/lib/jstz.min.js"></script>
+	<script src="js/lib/angular-timezone-selector.js"></script>
+	<script src="js/lib/csvparser.js"></script>
+	<!--<script src="js/lib/angular-cookies.min.js"></script>-->
+	<script src="js/lib/angular-sessionStorage.js"></script>
+
+	<!--Library for Idle Session Timeout handling included Goutham KD-->
+	<script src="js/lib/angular-idle.min.js"></script>
+
+	<script src="js/lib/ngMessage.js"></script>
+
+	<!-- Library for Sweet Alert-->
+	<script src="js/lib/sweetalert.min.js"></script>
+
+	<!-- Bootstrap JS includes -->
+	<script src="js/lib/bootstrap.min.js"></script>
+
+	<!-- Controller JS includes -->
+	
+	<script src="js/lib/jxml2json.js"></script>
+
+	<script src="js/lib/downloadify.min.js"></script>
+	<script src="js/lib/jspdf.js"></script>
+
+	<!-- MQTT -->
+	<script src="js/lib/mqtt.min.js"></script>
+
+	<!-- Filter JS includes -->
+
+	<!--Kd testing-->
+
+	<!-- Angular Breadcrumb Lib includes-->
+	<script src="js/lib/angular-breadcrumb.min.js"></script>
+	<script>
+		var timestamp = new Date().getTime();
+		var files = ["js/controllers/dataVINEController.js", "js/services/networkutilservice.js", "js/directives/fileReader.js", "js/directives/logoutService.js",
+	"js/directives/registrationFileReader.js",	"js/directives/clickOutside.js", "js/directives/compareTo.js", "js/model/constants.js",
+	"js/model/cachedetails.js",	"js/services/networkservice.js", "js/services/initservice.js", "js/services/authservice.js",
+	"js/services/hypersproutMgmtService.js", "js/services/MeterMgmtService.js",	"js/services/systemmanagementservice.js",
+	"js/services/administrationService.js",	"js/services/toolsService.js",	"js/services/refreshservice.js", "js/services/permissionService.js",
+	"js/services/reportsService.js", "js/services/deviceservice.js", "js/services/parseservice.js",	"js/services/csvparser.js",
+	"js/services/devicemappingservice.js", "js/services/logoutservice.js", "js/controllers/loginCtrl.js", "js/controllers/dateCommonCtrl.js",
+	"js/controllers/homeCtrl.js", "js/controllers/configurationsCtrl.js", "js/controllers/importConfigurationCtrl.js",
+	"js/controllers/configurationManagementCtrl.js", "js/controllers/configurationManagement_meterCtrl.js",
+	"js/controllers/tagsCtrl.js", "js/controllers/jobStatusCtrl.js",
+	"js/controllers/newConfigurationCtrl.js", "js/controllers/hyperSproutDownloadsCtrl.js",	"js/controllers/downloadConfigurationCtrl.js",
+	"js/controllers/deviceManagementCtrl.js", "js/controllers/registrationCtrl.js",	"js/controllers/dataVineHealthCtrl.js",
+	"js/controllers/configurations_meterCtrl.js", "js/controllers/editHyperSproutOrMeterCtrl.js", "js/controllers/meterDownloadsCtrl.js",
+	"js/controllers/downloadConfiguration_meterCtrl.js", "js/controllers/metersCtrl.js", "js/controllers/relaysCtrl.js",
+	"js/controllers/deviceLogsCtrl.js",	"js/controllers/editLogsVerbosityCtrl.js", "js/controllers/addRelaytoSystemCtrl.js",
+	"js/controllers/relayDetailsCtrl.js", "js/controllers/lockUnLockUICtrl.js", "js/controllers/deviceRebootCtrl.js",
+	"js/controllers/serverDetailsCtrl.js", "js/controllers/manuallyDeregisterCtrl.js", "js/controllers/groupConfigurationDetailsCtrl.js",
+	"js/controllers/defineUsersCtrl.js", "js/controllers/securityCtrl.js", "js/controllers/userSettingsCtrl.js",
+	"js/controllers/communicationStatisticsCtrl.js", "js/controllers/dataVineHealth_reportsCtrl.js", "js/controllers/deviceFirmwareVersionsCtrl.js",
+	"js/controllers/systemAuditLogCtrl.js",	"js/controllers/systemUpdatesCtrl.js", "js/controllers/nodeHyperSproutDetailCtrl.js",
+	"js/controllers/dataVineHealthCtrl.js",	"js/controllers/dataVINEServerHealthDetailsCtrl.js", "js/controllers/groupManagementCtrl.js",
+	"js/controllers/groupConfigurationDetails_groupManagementCtrl.js", "js/controllers/assignEndpointCtrl.js", "js/controllers/createApplicationGroupCtrl.js",
+	"js/controllers/groupManagement_meterCtrl.js", "js/controllers/cellEndpoints_DataVINEHealthCtrl.js",
+	"js/controllers/dataVINENetworkStatisticsCtrl.js", "js/controllers/importFirmwareCtrl.js", "js/controllers/enterFirmwareDownloadCtrl.js",
+	"js/controllers/productionFirmwareCtrl.js",	"js/controllers/addOrEditSecurityGroupCtrl.js",	"js/controllers/passwordSettingsCtrl.js",
+	"js/controllers/systemSettingsCtrl.js",	"js/controllers/addUserCtrl.js", "js/controllers/configProgramCtrl.js",	"js/controllers/endpointDetailsCtrl.js",
+	"js/controllers/systemLogsCtrl.js",	"js/controllers/uploadConfigProgramCtrl.js", "js/controllers/saveAsConfigPrgmCtrl.js", "js/controllers/saveAsConfigPrgmCtrl_meter.js",
+	"js/controllers/editConfigGroupCtrl.js", "js/controllers/changePasswordCtrl.js", "js/controllers/circuitRegistrationCtrl.js",
+	"js/controllers/endpointRegistrationCtrl.js", "js/controllers/addOrEditEndpointCtrl.js", "js/controllers/cktUploadCtrl.js", "js/controllers/groupingCtrl.js",
+	"js/controllers/viewCircuitEntryCtrl.js", "js/controllers/circuitGroupingCtrl.js",
+	"js/controllers/circuitInfoGroupingCtrl.js", "js/controllers/transformerGroupingCtrl.js", "js/controllers/unassignedTransformerListCtrl.js",
+	"js/controllers/transformerMeterGroupingCtrl.js", "js/controllers/viewMeterEntryCtrl.js", "js/controllers/newCircuitConfigurationCtrl.js", "js/controllers/transformerRegistrationCtrl.js","js/controllers/messageCtrl.js",
+	"js/controllers/viewTransformerEntryCtrl.js", "js/controllers/hyperHubRegistrationCtrl.js", "js/controllers/addOrEditHyperHubCtrl.js", "js/controllers/hyperHupGroupingCtrl.js",
+	"js/controllers/unassignedHyperHubListCtrl.js",	"js/controllers/meterRegistrationCtrl.js", "js/controllers/newMeterConfigurationCtrl.js", "js/controllers/unassignedMeterListCtrl.js",
+	"js/controllers/hypersproutCommCtrl.js", "js/controllers/firmwareManagementCtrl.js", "js/controllers/newXfmerConfigurationCtrl.js", "js/services/dateFormateService.js", "js/services/firmwareManagementService.js",
+	"js/services/formatXmlContentService.js", "js/directives/numberOnly.js", "js/services/commonService.js", "js/services/authService.js", "js/filters/searchForDeviceManagementFilter.js",
+    "js/filters/hyperHubSearchFilter.js", "js/filters/unAsigTransformerGroupingSearch.js", "js/filters/meterGroupingSearch.js", "js/filters/transformerGroupingSearch.js", 
+    "js/filters/meterSearchAllFilter.js", "js/filters/transformerSearchAllFilter.js", "js/filters/endPointSearchFilter.js", "js/filters/dvhealthAllFilter.js", "js/filters/meterDisconnectFilter.js",
+    "js/filters/meterConnectFilter.js", "js/filters/commStatisticsFilter.js", "js/filters/lockedUserFilter.js", "js/filters/allSelectedJobsFilter.js", "js/filters/otherJobsFilter.js",
+    "js/filters/interrogationJobsFilter.js", "js/filters/firmwareJobsFilter.js", "js/filters/configurationJobsFilter.js", "js/filters/serverJobsFilter.js", "js/filters/allJobsFilter.js", 
+    "js/filters/historicalJobsFilter.js", "js/filters/runningJobsFilter.js", "js/filters/tagFilter.js", "js/filters/serialIDFilter.js", "js/filters/dateFilter.js", "/js/directives/disallowSpecialCharacters.js",
+    "/js/directives/disallowSpaces.js", "js/directives/alphaNumericOnly.js", "js/controllers/newAccounts_ReportCtrl.js", "online_Help/onlineHelpModule.js", "online_Help/onlineHelpCtrl.js", "online_Help/onlineHelpService.js",
+	"js/filters/deltaLinkSearchFilter.js", "js/controllers/deltaLinkRegistrationCtrl.js", "js/controllers/addOrEditDeltaLinkCtrl.js", "js/controllers/viewDeltaLinkCtrl.js", "js/controllers/deltaLinkCtrl.js",
+	"js/controllers/deltaLinkDetailsCtrl.js","js/controllers/groupManagement_DeltaLinkCtrl.js", "js/controllers/deltaLinkFirmwareManagementCtrl.js","js/controllers/metertoDeltalinkCtrl.js",
+	 "js/controllers/deltaLinkGroupConfigurationDetailsCtrl.js", "js/controllers/meterBulkOperationCtrl.js", "js/controllers/bulkOperationsCtrl.js",
+			"js/controllers/deltaLinkJobStatusCtrl.js","js/controllers/unassignedDeltaLinkCtrl.js",
+			"js/controllers/deviceFactoryResetCtrl.js", "js/controllers/hypersproutDeviceFirmwareCtrl.js",
+			 "js/controllers/technicalLossEntryCtrl.js", "js/controllers/newTechnicalLossConfigurationCtrl.js", "js/controllers/technicalLossItemCtrl.js", "js/filters/technicalLossSearchFilter.js",
+			 "js/controllers/deviceHypersproutConfigurationManagementCtrl.js", "js/controllers/hypersproutdeviceconfigCtrl.js",
+	 "js/controllers/meterDeviceConfigCtrl.js", "js/controllers/deviceMeterConfigurationManagementCtrl.js", "js/controllers/dashboardCtrl.js", "js/filters/userSearchFilter.js"];
+		for ( var i = 0 ; i < files.length ; i++) { 
+		document.write('<script type="text/javascript" src="'+files[i]+'?c='+timestamp+'"><\/script>');
+		}
+	</script>
+</body>
+
+</html>

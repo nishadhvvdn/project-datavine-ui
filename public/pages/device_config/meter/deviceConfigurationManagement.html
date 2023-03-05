@@ -1,0 +1,62 @@
+<div class="device-config-page">
+    <div class="container-fluid" id="unassignedMeterListDiv">
+        <div class="row ">
+            <div class="back-btn-wrapper">
+                <button type="button" class="btn btn-default bk-button" ng-click="goBack()">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    Back
+                </button>
+                <div class="backBtnText">
+                    Meter > {{serialNumber}}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-3">
+                <nav class="navbar navbar-default">
+                    <h3>Device Configuration</h3>
+                    <ul class="nav navbar-nav">
+                        <li ui-sref-active="activeMenu">
+                            <a ui-sref="system.meterconfig.systeminformation" id="registration" class="configNav">System
+                                Information</a>
+                        </li>
+                        <li ui-sref-active="activeMenu" ng-class="currentURL.current.name === 'system.meterconfig.frontHaulRadio' || currentURL.current.name === 'system.meterconfig.frontHaulMesh' || 
+                        currentURL.current.name === 'system.meterconfig.frontHaulHotspot' || currentURL.current.name === 'system.meterconfig.frontHaulDhcp' ? 'activeState' : '' ">
+                            <a class="configNav collapsed" role="button" data-toggle="collapse" data-target="#frontHallMenu"
+                                aria-expanded="false" aria-controls="frontHallMenu">Fronthaul Configuration <i class="fa fa-angle-down"></i></a>
+                            <div class="collapse innerDropMenu" id="frontHallMenu">
+                                <ul>
+                                    <li ui-sref-active="activeMenu"><a ui-sref="system.meterconfig.frontHaulRadio"> Radio Configuration</a></li>
+                                    <li ui-sref-active="activeMenu"><a ui-sref="system.meterconfig.frontHaulMesh">Mesh Configuration</a></li>
+                                    <li ui-sref-active="activeMenu"><a ui-sref="system.meterconfig.frontHaulHotspot">Hotspot Configuration</a></li>
+                                    <li ui-sref-active="activeMenu"><a ui-sref="system.meterconfig.frontHaulDhcp">DHCP Server Configuration</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li ui-sref-active="activeMenu">
+                            <a ui-sref="system.meterconfig.configurations" class="configNav">Meter Configuration</a>
+                        </li>
+                        <li ui-sref-active="activeMenu" ng-class="currentURL.current.name === 'system.meterconfig.bandwidthLimitations' ? 'activeState' : '' ">
+                            <a class="configNav collapsed" role="button" data-toggle="collapse" data-target="#advancedmenu"
+                                aria-expanded="false" aria-controls="advancedmenu">Advanced <i class="fa fa-angle-down"></i></a>
+                            <div class="collapse innerDropMenu" id="advancedmenu">
+                                <ul>
+                                    <li ui-sref-active="activeMenu"><a ui-sref="system.meterconfig.bandwidthLimitations"> Bandwidth Limitations</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li ui-sref-active="activeMenu">
+                            <a ui-sref="system.meterconfig.alarms" class="configNav">Alarms</a>
+                        </li>
+                        <li ui-sref-active="activeMenu">
+                            <a ui-sref="system.meterconfig.systemSettings" class="configNav">System Settings</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-sm-12 col-md-9">
+                <div ui-view></div>
+            </div>
+        </div>
+    </div>
+</div>

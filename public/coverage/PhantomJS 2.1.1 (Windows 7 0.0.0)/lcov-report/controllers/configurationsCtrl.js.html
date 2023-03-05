@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for controllers\configurationsCtrl.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">controllers/</a> configurationsCtrl.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">83.02% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>88/106</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">58.82% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>20/34</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">73.08% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>19/26</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">83.02% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>88/106</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">﻿(function (angular) {
+&nbsp;
+    "use strict";
+&nbsp;
+    angular.module('dataVINEApp')
+        .controller('configurationsCtrl', ['$scope', '$timeout', '$uibModal', '$state', 'hypersproutMgmtService', '$filter', 'refreshservice', '$controller',
+            function ($scope, $timeout, $uibModal, $state, hypersproutMgmtService, $filter, refreshservice, $controller) {
+                $scope.configOptions = {};
+                $scope.startingDate = null;
+                $scope.endingDate = null;
+                $scope.invalidDate = false;
+                $scope.invalidTime = false;
+                var userTimeZone = angular.isUndefinedOrNull(objCacheDetails.userDetails) ? <span class="branch-0 cbranch-no" title="branch not covered" >undefined </span>: objCacheDetails.userDetails.timeZone;
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (angular.isUndefined(userTimeZone)) {
+<span class="cstat-no" title="statement not covered" >                    refreshservice.refresh().then(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                        userTimeZone = objCacheDetails.userDetails.timeZone;</span>
+<span class="cstat-no" title="statement not covered" >                        init();</span>
+                    });
+                } else {
+                    init();
+                }
+                var configurationData = [];
+                var objConfigMemberInfo = {};
+                $scope.configOptions =angular.copy(objCacheDetails.grid); 
+                $scope.configOptions.data=[];
+                $scope.configOptions.columnDefs=[
+                        { field: 'Name', width: '17%', cellTemplate: '&lt;div class="ui-grid-cell-contents"&gt;&lt;a class="anchorUIGrid" title="{{row.entity.Name}}" ng-click="grid.appScope.vm.nameDetails(row)"&gt;{{row.entity.Name}} &lt;/a&gt; &lt;/div&gt;', enableHiding: false },
+                        { field: 'Description', width: '20%', enableHiding: false },
+                        { field: 'Members', enableHiding: false },
+                        { field: 'Device Class', enableHiding: false },
+                        { field: 'Config_program', width: '18%', enableHiding: false },
+                        { field: 'Edit Time', enableHiding: false },
+                        { field: 'Action', cellTemplate: '&lt;div class="ui-grid-cell-contents"&gt;&lt;button type="button" class="btn btn-xs btn-primary cellBtn" ng-if="row.entity.ID !== 1" ng-click="grid.appScope.vm.editConfiguration(row)"&gt;  &lt;i class="fa fa-edit"&gt;&lt;/i&gt;&lt;/button&gt; &lt;span ng-if="row.entity.ID !== 1"&gt;&amp;nbsp;|&amp;nbsp;&lt;/span&gt;&lt;button type="button" class="btn btn-xs btn-primary cellBtn" ng-if="row.entity.ID !== 1 &amp;&amp; row.entity.Members&lt;=0" ng-click="grid.appScope.vm.deleteConfiguration(row)"&gt;  &lt;i class="fa fa-remove"&gt;&lt;/i&gt;&lt;/button&gt; &lt;/div&gt;', enableColumnMenu: false, enableHiding: false, enableSorting: false }
+                    ];
+&nbsp;
+                function init() {
+                    $scope.startingDate = new Date(moment.tz(userTimeZone).format('YYYY-MM-DD HH:mm'));
+                    $scope.endingDate = new Date(moment.tz(userTimeZone).format('YYYY-MM-DD HH:mm'));
+                    configurationData = [];
+                    objConfigMemberInfo = {};
+                    hypersproutMgmtService.getConfigData().then(function (objData) {
+                        <span class="missing-if-branch" title="else path not taken" >E</span>if (!angular.isUndefinedOrNull(objData) &amp;&amp; !angular.isUndefinedOrNull(objData.memberInfo)) {
+                            for (var count in objData.memberInfo) {
+                                <span class="missing-if-branch" title="else path not taken" >E</span>if (objData.memberInfo.hasOwnProperty(count)) {
+                                    objConfigMemberInfo[objData.memberInfo[count]["configID"]] =
+                                        {
+                                            "Members": objData.memberInfo[count]["Members"],
+                                            "NonMembers": objData.memberInfo[count]["NonMembers"]
+                                        };
+                                }
+                            }
+                        }
+                        <span class="missing-if-branch" title="else path not taken" >E</span>if (!angular.isUndefinedOrNull(objData) &amp;&amp; !angular.isUndefinedOrNull(objData.hyperSproutData)) {
+                            for (var cnt in objData.hyperSproutData) {
+                                <span class="missing-if-branch" title="else path not taken" >E</span>if (objData.hyperSproutData.hasOwnProperty(cnt)) {
+                                    var objToInsert = {};
+                                    objToInsert["Name"] = objData.hyperSproutData[cnt].ConfigName;
+                                    objToInsert["ID"] = objData.hyperSproutData[cnt].ConfigID;
+                                    objToInsert["Description"] = objData.hyperSproutData[cnt].Description;
+                                    objToInsert["Members"] = angular.isUndefinedOrNull(objConfigMemberInfo[objToInsert["ID"]]) ? <span class="branch-0 cbranch-no" title="branch not covered" >'' </span>: objConfigMemberInfo[objToInsert["ID"]].Members;
+                                    objToInsert["Device Class"] = objData.hyperSproutData[cnt].ClassName;
+                                    objToInsert["Config_program"] = objData.hyperSproutData[cnt].ConfigProgramName;
+                                    objToInsert["Version"] = objData.hyperSproutData[cnt].Version;
+                                    objToInsert["Edit Time"] = moment.tz(objData.hyperSproutData[cnt].EditTime, userTimeZone).format('YYYY-MM-DD HH:mm');
+                                    configurationData.push(objToInsert);
+                                }
+                            }
+                            $scope.configOptions.data = configurationData;
+                            objCacheDetails.data.configurationDetails = configurationData;
+                        }
+                    });
+                }
+                var vm = this;
+                $scope.isCollapsed = false;
+                $scope.boolEdit = true;
+                $scope.dynamicPopover = {
+                    templateUrl: '/templates/settings.html',
+                    content: '',
+                    open: function () {
+                        $scope.dynamicPopover.isOpen = true;
+                    },
+                    close: function () {
+                        $scope.dynamicPopover.isOpen = false;
+                    }
+&nbsp;
+                };
+                vm.editConfiguration = <span class="fstat-no" title="function not covered" >function (row) {</span>
+<span class="cstat-no" title="statement not covered" >                    objCacheDetails.data.ID = row.entity.ID;</span>
+<span class="cstat-no" title="statement not covered" >                    $uibModal.open({</span>
+                        templateUrl: '/templates/editConfigGroup.html',
+                        controller: 'editConfigGroupCtrl',
+                        size: 'lg',
+                        backdrop: 'static',
+                        keyboard: true,
+                        resolve: {
+                            record: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                                return row;</span>
+                            },
+                            type: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                                return "HyperSprout";</span>
+                            }
+                        }
+                    });
+                }
+&nbsp;
+                vm.deleteConfiguration = function (row) {
+                    var groupType = 'Configuration Group';
+                    swal({
+                        title: "Warning!", text: "Are you sure you want to delete?",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonText: 'Yes',
+                        cancelButtonText: "No",
+                    }, function (confirm) {
+                        <span class="missing-if-branch" title="else path not taken" >E</span>if (confirm === true) {
+                            var deviceType = 'HyperSprout';
+                            hypersproutMgmtService.HSGroupDelete(row.entity.ID, groupType, deviceType).then(function (objData) {
+                                <span class="missing-if-branch" title="if path not taken" >I</span>if (!angular.isUndefinedOrNull(objData) &amp;&amp; (objData.type === true)) {
+<span class="cstat-no" title="statement not covered" >                                    swal(objData.output);</span>
+                                } else {
+                                    swal(objData.Message);
+                                }
+                                $state.reload();
+                            });
+                        }
+                    });
+                };
+&nbsp;
+                vm.nameDetails = function (row) {
+                    <span class="missing-if-branch" title="else path not taken" >E</span>if (angular.isUndefinedOrNull(objCacheDetails.data.configurationDetails)) {
+                        objCacheDetails.data.configurationDetails = {};
+                    }
+                    objCacheDetails.data.configurationDetails.selectedRow = row.entity;
+                    $uibModal.open({
+                        templateUrl: '/templates/groupConfigurationDetails.html',
+                        controller: 'groupConfigurationDetailsCtrl',
+                        size: 'md',
+                        backdrop: 'static',
+                        keyboard: true,
+                        resolve: {
+&nbsp;
+                            data: hypersproutMgmtService.ListDevicesAttached(row.entity.ID, 'HyperSprout', 'Configuration Group').then(<span class="fstat-no" title="function not covered" >function (resObj) {</span>
+<span class="cstat-no" title="statement not covered" >                                var objArray = [];</span>
+<span class="cstat-no" title="statement not covered" >                                if (resObj.hasOwnProperty('SerialNumbers')) {</span>
+<span class="cstat-no" title="statement not covered" >                                    for (var i = 0; i &lt; resObj.SerialNumbers.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >                                        objArray.push(resObj.SerialNumbers[i])</span>
+                                    }
+<span class="cstat-no" title="statement not covered" >                                    return $scope.HyperSproutList = objArray;</span>
+                                } else <span class="cstat-no" title="statement not covered" >return ['No Serial numbers found'];</span>
+                            }),
+                            type: function () {
+                                return 'HyperSprout';
+                            }
+                        }
+                    });
+                }
+&nbsp;
+                $scope.toggleDropdown = <span class="fstat-no" title="function not covered" >function ($event) {</span>
+<span class="cstat-no" title="statement not covered" >                    $event.preventDefault();</span>
+<span class="cstat-no" title="statement not covered" >                    $event.stopPropagation();</span>
+<span class="cstat-no" title="statement not covered" >                    $scope.status.isopen = !$scope.status.isopen;</span>
+                };
+&nbsp;
+                $scope.filterConfiguration = function () {
+                    $scope.configOptions.data = $filter('dateFilter')(configurationData, "Edit Time", $scope.startingDate, $scope.endingDate);
+&nbsp;
+                    $timeout(<span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                        $scope.$apply();</span>
+                    }, 300, false);
+                    $scope.dynamicPopover.isOpen = false;
+                };
+                $controller('dateCommonCtrl', { $scope: $scope });
+                $scope.openImportConfiguration = function (size) {
+                    $uibModal.open({
+                        templateUrl: '/templates/importConfiguration.html',
+                        controller: 'importConfigurationCtrl',
+                        size: size,
+                        backdrop: 'static',
+                        keyboard: true,
+                        resolve: {
+&nbsp;
+                            data: function () {
+                                return $scope.configOptions.data;
+                            },
+                            type:function(){
+                                return 'HyperSprout';
+                            }                            
+                        }
+                    });
+                    $scope.dynamicPopover.isOpen = false;
+                };
+&nbsp;
+                $scope.openNewConfiguration = function (size) {
+                    $uibModal.open({
+                        templateUrl: '/templates/newConfiguration.html',
+                        controller: 'newConfigurationCtrl',
+                        size: size,
+                        backdrop: 'static',
+                        keyboard: true,
+                        resolve: {
+                            data: hypersproutMgmtService.configPrograms('HyperSprout').then(function (objData) {
+                                <span class="missing-if-branch" title="else path not taken" >E</span>if (!angular.isUndefinedOrNull(objData) &amp;&amp; !angular.isUndefinedOrNull(objData.configProgramData)) {
+                                    var configurationDatas = [];
+                                    for (var count in objData.configProgramData) {
+                                        <span class="missing-if-branch" title="else path not taken" >E</span>if (objData.configProgramData.hasOwnProperty(count)) {
+                                            var objToInserts = {};
+                                            objToInserts["Names"] = objData.configProgramData[count].Name;
+                                            configurationDatas.push(objToInserts);
+                                        }
+                                    }
+                                    objCacheDetails.data.configPrgmData = configurationDatas;
+                                    return true;
+                                }
+                            }),
+                            type: function () {
+                                return "HyperSprout";
+                            }
+                        }
+                    });
+                    $scope.dynamicPopover.isOpen = false;
+&nbsp;
+                };
+                $scope.printCart = function () {
+                    window.print();
+                };
+            }]);
+})(window.angular);
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Aug 22 2017 16:49:25 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

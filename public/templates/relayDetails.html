@@ -1,0 +1,67 @@
+﻿<div class="modal-header">
+    <h4 class="modal-title"><strong>Details</strong></h4>
+    <button type="button" class="btn btn-xs btn-default modalCloseBtn pull-right btn-bg-adjust" ng-model="cancel"
+        ng-click="cancel()"><span class="glyphicon glyphicon-remove btn-adjust"></span></button>
+</div>
+<div class="container-fluid modalBackground">
+    <div class="modal-body">
+        <div class="row">
+            <table class="table table-hover tableBorder">
+                <tr>
+                    <td>
+                        <h5><strong>Serial Number:</strong></h5>
+                    </td>
+                    <td>
+                        <h5><strong>{{serialNumber}}</strong></h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5><strong>Registration Time:</strong></h5>
+                    </td>
+                    <td>
+                        <h5><strong>{{createdDate|date:"yyyy-MM-dd HH:mm"}}</strong></h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5><strong>Electronic Serial Number:</strong></h5>
+                    </td>
+                    <td>
+                        <h5><strong>{{esn}}</strong></h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5><strong>Hardware Version:</strong></h5>
+                    </td>
+                    <td>
+                        <h5><strong>{{hardwareVersion}}</strong></h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5><strong>Device Class:</strong></h5>
+                    </td>
+                    <td>
+                        <h5><strong>{{deviceType}}</strong></h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5><strong>Status:</strong></h5>
+                    </td>
+                    <td>
+                        <h5><strong>{{status}}</strong></h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button type="button" ng-disabled="requesting" class="btn btn-default btnColor"
+                            ng-click="nodePing()">{{name}}</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div class='modal-footer'></div>

@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for controllers\hyperHupGroupingCtrl.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">controllers/</a> hyperHupGroupingCtrl.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">82.61% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>38/46</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">80% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>8/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">66.67% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>10/15</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">82.61% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>38/46</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">(function (angular) {
+&nbsp;
+    "use strict";
+&nbsp;
+    angular.module('dataVINEApp').controller('hyperHubGroupingCtrl', ['$scope', '$uibModal', '$state','$filter', 'DeviceService', 'ParseService', 'DeviceMappingService','commonService',
+        function ($scope, $uibModal, $state, $filter, deviceService, parseService, deviceMappingService,commonService) {
+            $scope.hyperHubDataGrouping = [];
+            $scope.enableButton = false;
+            $scope.mySelectedRows = [];
+            var assignedhyperHub = [];
+            $scope.hyperHubGrouping = angular.copy(objCacheDetails.grid);
+            $scope.hyperHubGrouping.data = [];
+            $scope.hyperHubGrouping.columnDefs = [
+                    { field: 'HubSerialNumber', displayName: 'HyperHub Serial Number', enableHiding: false },
+                    { field: 'HubName', displayName: 'Hub Name', enableHiding: false },
+                    { field: 'HardwareVersion', displayName: 'Hardware Version', enableHiding: false },
+                    { field: 'Latitude', displayName: 'Latitude', enableHiding: false },
+                    { field: 'Longitude', displayName: 'Longitude', enableHiding: false },
+                    {
+                        field: 'Actions',
+                        cellTemplate: '&lt;div class="ui-grid-cell-contents"&gt;&lt;button type="button" class="btn btn-xs btn-primary cellBtn" ng-click="grid.appScope.viewhyperHubInfo(row)"&gt; &lt;i class="fa fa-eye" aria-hidden="true"&gt;&lt;/i&gt;&lt;/button&gt;| &amp;nbsp &lt;button class="btn btn-xs btn-primary cellBtn" ng-click="grid.appScope.removeSelectedHyperHub(row,\'single\')"&gt; &lt;i class="fa fa-times" aria-hidden="true"&gt;&lt;/i&gt;&lt;/button&gt;&lt;/div&gt;',
+                        enableColumnMenu: false,
+                        enableHiding: false, width: 150
+                    }
+                ];
+&nbsp;
+                 $scope.hyperHubGrouping.onRegisterApi=<span class="fstat-no" title="function not covered" >function (gridApi) {</span>
+<span class="cstat-no" title="statement not covered" >                    $scope.gridApi = gridApi;</span>
+<span class="cstat-no" title="statement not covered" >                    commonService.getGridApi($scope,gridApi);</span>
+                };            
+            initHyperHubGrouping();
+            function initHyperHubGrouping() {
+                $scope.datagridMessage = 'Loading';
+                <span class="missing-if-branch" title="if path not taken" >I</span>if ((objCacheDetails.hasOwnProperty('data') &amp;&amp; angular.isUndefinedOrNull(objCacheDetails.data.selectedCircuit)) || (objCacheDetails.hasOwnProperty('data') &amp;&amp; angular.isUndefinedOrNull(objCacheDetails.data.selectedTransformer))) {
+<span class="cstat-no" title="statement not covered" >                    $state.go('system.grouping.circuitGrouping');</span>
+                } else {
+                    deviceMappingService.GetAllHyperHubAttachedToTransformer(objCacheDetails.data.selectedTransformer).then(function (objData) {
+                        parseService.getParsedHubData(objData, function (resCallBack) {
+                            $scope.hyperHubGrouping.data = resCallBack;
+                            assignedhyperHub = resCallBack;
+                        });
+                        $scope.datagridMessage = 'Empty List! There are no HyperHubs assigned to this service. Please add a HyerHub.';
+                    });
+                }
+            }
+            $scope.isSelected = false;
+&nbsp;
+            $scope.openNewHyerHubConfiguration = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                $state.go('system.grouping.unassignedHyperHubList');</span>
+&nbsp;
+            };
+            $scope.viewhyperHubInfo = <span class="fstat-no" title="function not covered" >function (row) {</span>
+<span class="cstat-no" title="statement not covered" >                $uibModal.open({</span>
+                    template: '&lt;div id="print-content"&gt;&lt;div class="modal-header"&gt;&lt;h4 class="modal-title"&gt;&lt;strong&gt;Hyperhub Details&lt;/strong&gt;&lt;/h4&gt;&lt;/div&gt; &lt;div class="container-fluid modalBackground"&gt;&lt;div class="modal-body"&gt;&lt;div class="container-fluid"&gt;&lt;div class="row"&gt;&lt;form name="billingDetails_form"novalidate&gt;&lt;div class="col-md-12"&gt;&lt;table class="table table-hover"&gt;&lt;tr&gt;&lt;td&gt;&lt;label&gt;Hub Serial Number&lt;/label&gt;&lt;/td&gt;&lt;td&gt;&lt;label&gt;&lt;span ng-bind="viewHyperHubDetails.HubSerialNumber"&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;&lt;/tr&gt; &lt;tr&gt;&lt;td&gt;&lt;label&gt;Hub Name&lt;/label&gt;&lt;/td&gt;&lt;td&gt;&lt;label&gt;&lt;span ng-bind="viewHyperHubDetails.HubName"&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;label&gt;Hardware Version&lt;/label&gt;&lt;/td&gt;&lt;td&gt;&lt;label&gt;&lt;span ng-bind="viewHyperHubDetails.HardwareVersion"&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;label&gt;GPRS MAC ID&lt;/label&gt;&lt;/td&gt;&lt;td&gt;&lt;label&gt;&lt;span ng-bind="viewHyperHubDetails.GprsMacID"&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;label&gt;Wifi MAC ID&lt;/label&gt;&lt;/td&gt;&lt;td&gt;&lt;label&gt;&lt;span ng-bind="viewHyperHubDetails.WifiMacID"&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;label&gt;Wifi IP Address&lt;/label&gt;&lt;/td&gt;&lt;td&gt;&lt;label&gt;&lt;span ng-bind="viewHyperHubDetails.WifiIPAddress"&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;label&gt;Wifi Access Point Password&lt;/label&gt;&lt;/td&gt;&lt;td&gt;&lt;label&gt;&lt;span ng-bind="viewHyperHubDetails.WifiAccessPointPassword"&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt; &lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;label&gt;Latitude&lt;/label&gt;&lt;/td&gt;&lt;td&gt;&lt;label&gt;&lt;span ng-bind="viewHyperHubDetails.Latitude"&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;label&gt;longitude&lt;/label&gt;&lt;/td&gt;&lt;td&gt;&lt;label&gt;&lt;span ng-bind="viewHyperHubDetails.Longitude"&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;label&gt;Sim Card Number&lt;/label&gt;&lt;/td&gt;&lt;td&gt;&lt;label&gt;&lt;span ng-bind="viewHyperHubDetails.SimCardNumber"&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/form&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt; &lt;/div&gt;&lt;div class="modal-footer"&gt;&lt;button type="button" class="btn btn-default btnDefault" ng-click="closeWindow()"&gt;OK&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;',
+                    controller: <span class="fstat-no" title="function not covered" >function ($scope, $modalInstance) {</span>
+<span class="cstat-no" title="statement not covered" >                        $scope.viewHyperHubDetails = row.entity;</span>
+<span class="cstat-no" title="statement not covered" >                        $scope.closeWindow = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                            $modalInstance.dismiss();</span>
+                        }
+                    },
+                    size: 'lg',
+                    backdrop: 'static',
+                    keyboard: true,
+                });
+            }; 
+            $scope.removeSelectedHyperHub = function (row, type) {
+&nbsp;
+                swal({
+                    title: "Un-Group HyperHub", text: "Do you really like to Un-Group ?",
+                    showCancelButton: true,
+                    confirmButtonColor: 'black',
+                    confirmButtonText: 'Un-Group',
+                    cancelButtonText: "Cancel",
+                    cancelButtonColor: 'white',
+                },
+                    function (isConfirm) {
+                        <span class="missing-if-branch" title="else path not taken" >E</span>if (isConfirm) {
+                            var selectedHyperHub = [];
+                            if (type === 'single') {
+                                selectedHyperHub = [row.entity.HyperHubID]
+                            } else {
+                                for (var i = 0; i &lt; $scope.gridApi.selection.getSelectedRows().length; i++) {
+                                    selectedHyperHub.push($scope.mySelectedRows[i].HyperHubID);
+                                }
+                            }
+                            deviceMappingService.RemovingHyperHubFromTransformer(objCacheDetails.data.selectedTransformer, selectedHyperHub).then(function (objData) {
+                                swal(objData);
+                                $scope.mySelectedRows = [];
+                                initHyperHubGrouping();
+                            });
+                        }
+                    })
+            };
+&nbsp;
+            $scope.goBack = function () {
+                $state.go('system.grouping.transformerMeterGrouping');
+&nbsp;
+            };
+            $scope.searchGridAssignedGroupping = function (searchValue) {
+                $scope.hyperHubGrouping.data = $filter('hyperHubSearch')(assignedhyperHub, searchValue,'hyperHub');
+            };
+        }]);
+})(window.angular);</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Aug 22 2017 16:49:25 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

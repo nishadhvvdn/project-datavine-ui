@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta http-equiv="cache-control" content="no-cache" />
+		<meta http-equiv="pragma" content="no-cache" />
+		<meta http-equiv="expires" content="0" />
+		<!--[if lt IE 9]
+	    <script src="js/lib/html5shiv.min.js"></script>
+	    <script src="js/lib/respond.min.js"></script>
+	    [endif] -->
+	<!--//	../assets/images/loading2.gif-->
+		<title>Delta DataVINE&trade;</title>
+		<link rel="icon" href="../assets/images/delta-favicon.png" type="image/gif" sizes="16x16">
+		<meta property="og:title" content="Delta DataVINE">
+		<meta property="og:description" content="ENERGY & COMMUNICATIONS, INC">
+		<meta property="og:image" content="../assets/images/delta-logo.png" />
+	</head>
+	<body class="mainBody backgroundImg" ng-app="dataVINEApp" ng-controller="dataVINECtrl" style="overflow:hidden">
+	<div ui-view>
+		<div id="myDivScreen"><img src="../assets/images/delta-logo.png"/></div>
+	</div>
+	<div id="mydiv" ng-show="enableLoading">
+		<img src="../assets/images/loading2.gif" class="ajax-loader"/>
+	</div>
+	<!-- Load Bootstrap -->
+		<link rel="stylesheet" href="stylesheets/lib/angular-timezone-selector.css">
+		<link href="stylesheets/lib/bootstrap.css" rel="stylesheet" />
+		<!-- <link href="stylesheets/css/style.css" rel="stylesheet" />
+		<link href="stylesheets/css/loginStyle.css" rel="stylesheet" />
+		<link href="stylesheets/css/homeStyle.css" rel="stylesheet" /> -->
+		<link href="stylesheets/css/styles.css" rel="stylesheet">
+		<link href="stylesheets/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+		<link href="stylesheets/lib/multi-select.min.css" rel="stylesheet" />
+		<!-- <link href="stylesheets/css/help.css" rel="stylesheet" /> -->
+		<!-- UI Grid CSS -->
+		<link href="stylesheets/lib/ui-grid.css" rel="stylesheet" />
+		<link href="stylesheets/lib/ui-grid.eot" rel="stylesheet" />
+		<link href="stylesheets/lib/ui-grid.svg" rel="stylesheet" />
+		<link href="stylesheets/lib/ui-grid.ttf" rel="stylesheet" />
+		<link href="stylesheets/lib/ui-grid.woff" rel="stylesheet" />
+		<link href="stylesheets/lib/sweetalert.css" rel="stylesheet" />
+		<!-- Lib JS includes -->
+		<script src="js/lib/jquery.min.js"></script>
+		<script src="js/lib/bootstrap-treeview.min.js"></script>
+		<script>
+			if (global === undefined) {
+				var global = window;
+			}
+			window.onload = function (e) {
+				if (navigator.userAgent.indexOf('Firefox') != -1) {
+					$('html').addClass('firefox-browser');
+				} 
+			}
+		</script>
+		<!-- Angular JS includes -->
+		<script src="js/lib/angular.min.js"></script>
+		<script src="js/lib/angular-file-model.js"></script>
+		<script src="js/lib/angular-ui-router.min.js"></script>
+		<script src="js/lib/angular-animate.min.js"></script>
+		<script src="js/lib/ui-bootstrap-tpls.min.js"></script>
+		<script src="js/lib/ui-grid.min.js"></script>
+		<script src="js/lib/angular-touch.min.js"></script>
+		<script src="js/lib/angular-multiselect-dropdown.js"></script>
+		<script src="js/lib/pdfmake.min.js"></script>
+		<script src="js/lib/csv.js"></script>
+		<script src="js/lib/vfs_fonts.js"></script>
+		<script src="js/lib/moment.min.js"></script>
+		<script src="js/lib/angular-country-timezone-picker.js"></script>
+		<script src="js/lib/moment-timezone-with-data.min.js"></script>
+		<script src="js/lib/chosen.jquery.js"></script>
+		<script src="js/lib/ng-file-upload.min.js"></script>
+		<script src="js/lib/ng-file-upload-shim.min.js"></script>
+		<script src="js/lib/jstz.min.js"></script>
+		<script src="js/lib/angular-timezone-selector.js"></script>
+		<script src="js/lib/csvparser.js"></script>
+		<!--<script src="js/lib/angular-cookies.min.js"></script>-->
+		<script src="js/lib/angular-sessionStorage.js"></script>
+		<!--Library for Idle Session Timeout handling included Goutham KD-->
+		<script src="js/lib/angular-idle.min.js"></script>
+		<script src="js/lib/ngMessage.js"></script>
+		<!-- Library for Sweet Alert-->
+		<script src="js/lib/sweetalert.min.js"></script>
+		<!-- Bootstrap JS includes -->
+		<script src="js/lib/bootstrap.min.js"></script>
+		<!-- Controller JS includes -->	
+		<script src="js/lib/jxml2json.js"></script>
+		<script src="js/lib/downloadify.min.js"></script>
+		<script src="js/lib/jspdf.js"></script>
+		<!-- MQTT -->
+		<script src="js/lib/mqtt.min.js"></script>
+		<!-- Filter JS includes -->
+		<!--Kd testing-->
+		<!-- Angular Breadcrumb Lib includes-->
+		<script src="js/lib/angular-breadcrumb.min.js"></script>
+		<script>
+			var timestamp = new Date().getTime();
+			var files = ["js/app.js", "js/services.js", "js/directives.js", "js/model/constants.js",
+					"js/model/cachedetails.js",	"js/filters.js", "online_Help/onlineHelp.js"];		
+			for ( var i = 0 ; i < files.length ; i++) { 
+			document.write('<script type="text/javascript" src="'+files[i]+'?c='+timestamp+'"><\/script>');
+			}
+		</script>
+	</body>
+</html>

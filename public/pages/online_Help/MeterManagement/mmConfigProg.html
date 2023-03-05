@@ -1,0 +1,207 @@
+<div class="container-fluid">
+
+    <!--=====================================================-->
+
+    <div class="row">
+        <div class="rectangleBox">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 your_col">
+                    <img alt="#" src="../assets/images/HypersproutManagement/Config Program.png" class="imgDimension-helpSub" />
+                </div>
+                <div class="col-xs-8 col-sm-98 col-md-8 col-lg-8 labelStyle">
+                    <label> Config Program</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--=====================================================-->
+
+    <div class="row" style="margin-top: 1%">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="pull-right">
+                <p><a ng-click="tabChange('readingReport')" href=""><strong> 1. &nbsp; Reading The List </strong></a></p>
+                <p><a ng-click="tabChange('sortReport')" href=""><strong> 2. &nbsp; Sorting The List </strong></a></p>
+                <p><a ng-click="tabChange('exportingReport')" href=""><strong> 3. &nbsp; Exporting The List </strong></a></p>
+             </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="pull-left">
+                <p><a ng-click="tabChange('setReport')" href=""><strong> 4. &nbsp; Uploading A Config Program </strong></a></p>
+                <p><a ng-click="tabChange('addReport')" href=""><strong> 5. &nbsp; Updating A Config Program </strong></a></p>
+                <p><a ng-click="tabChange('editReport')" href=""><strong> 6. &nbsp; Deleting A Config Program </strong></a></p>
+            </div>
+        </div>
+    </div>
+    <!--=====================================================-->
+
+    <div class="hr" style="margin-top: 0"></div>
+
+    <!--===============================================================-->
+
+    <div class="row text-center" ng-show="tabs.readingReport">
+        <label> <h1> <strong> 1. Reading The List </strong> </h1> </label> 
+
+        <span>
+        <p class="paragraph">
+        
+        
+        
+                 The config program list shows every Meter configuration program that has been added to the system.
+                </br>The list contains four columns.
+
+
+
+                </br><strong>1.	Name:</strong> This column contains the unique name of the configuration program.
+                </br><strong>2.	Description:</strong> This column shows a brief description of what the configuration program
+                is for.
+                </br><strong>3.	Members:</strong> This column shows how many configuration groups are using the particular
+                configuration program .
+                </br><strong>4.	Action:</strong> This column contains a button for creating new configuration program from
+                the selected ones defaults and a deletion button for removing the program.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/readConfigProg.png" style=" width: 56%; height:15vh" />
+
+
+        <span> 
+        <p class="paragraph"  style= "margin-top:1%">
+                    If the list has a large amount of data, it might separate into pages. In this case, the user can choose how many entries
+                to display or which page to show from the pagination tool bar in the bottom left of the report.
+        </p>
+                </span>
+
+
+
+        <img alt="#" src="../assets/images/commPage.png" style=" width: 56% ;margin-top:1%" />
+
+    </div>
+    <!--=====================================================================================-->
+
+    <div class="row text-center" ng-show="tabs.sortReport">
+        <label> <h1> <strong> 2. Sorting The List </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+             To sort the list, the user must click the header of whichever column they would like to sort by. For instance, clicking on
+                the Name header will switch the column between the default display, ascending alphabetically, and descending
+                alphabetically.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/sortConfigProg.png" />
+
+    </div>
+    <!--================================================================================-->
+
+    <div class="row text-center" ng-show="tabs.exportingReport">
+        <label> <h1> <strong> 3. Exporting The List </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+            The report gives four different options for exporting. The user may export either all the data in the report or just the
+                currently displayed data in either a CSV format or a PDF format. To do this the user simply has to click
+                on the export button in the top right corner of the report after filtering it for the desired data.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/exportMenu.png" />
+
+    </div>
+   
+    <!--===================================================================-->
+
+        <div class="row text-center scrollAdjust" ng-show="tabs.setReport" style=" height: 67vh">
+            <label> <h1> <strong> 4. Uploading A Config Program </strong> </h1> </label>
+
+            <span>
+        <p class="paragraph">
+            
+           Uploading a config program consists of three steps.
+                </br>The first is clicking the Upload Config Program button located above the upper right corner of the list.
+        </p>
+                </span>
+
+
+            <img alt="#" src="../assets/images/uploadProg.png" />
+
+
+            <span> 
+        <p class="paragraph" style="margin-top:1%">
+                    After that the user will be presented with a small window. This window will ask for the unique name the user wishes to call
+                the program, a description, and the path to the program file.The path is inputed by clicking the choose file
+                button.
+        </p>
+                </span>
+
+
+
+            <img alt="#" src="../assets/images/uploadWindow.png" />
+            <span> 
+        <p class="paragraph" style="margin-top:1%">
+                    Finally, the user must click the save button after which the new program will be added to the list.
+        </p>
+                </span>
+            <img alt="#" src="../assets/images/save.png" />
+
+        </div>
+
+        <!--=====================================================================================-->
+
+        <div class="row text-center scrollAdjust" ng-show="tabs.addReport" style=" height: 67vh">
+            <label> <h1> <strong> 5. Updating A Config Program </strong> </h1> </label>
+
+            <span>
+        <p class="paragraph">
+            
+            To update a config program simply locate the config program in the list and click the Save As button in the Action column.
+        </p>
+                </span>
+
+
+            <img alt="#" src="../assets/images/editSecGrp.png" />
+
+
+            <span> 
+        <p class="paragraph" style="margin-top:1%">
+                   After clicking the button the user will be shown the Save As window. It will be immediately populated with the values of
+                the configuration program from the row the user selected. From here any value can be changed. Once you are
+                happy with the changes input a name and description and click the save button. This will create a new configuration
+                program with the selected values.
+        </p>
+                </span>
+
+
+
+            <img alt="#" src="../assets/images/saveAsMeter.png" style=" width: 60% ; margin-top:1%" />
+             
+
+    </div>
+    <!--=====================================================================================-->
+    
+    <div class="row text-center" ng-show="tabs.editReport">
+        <label> <h1> <strong> 6. Deleting A Config Program </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+            To delete a configuration program simply locate the configuration program you wish to delete in the list, click the delete
+                button in the action column, and select yes when prompted if you are sure. Note, this button is only available
+                if no configuration groups are using the config program.
+        </p>
+                </span>
+
+
+            <img alt="#" src="../assets/images/editSecGrp.png" />
+
+
+        </div>
+        <!--===============================================================================-->
+
+    </div>

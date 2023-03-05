@@ -1,0 +1,40 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <div>  <a href='' class="imageBorder" style="margin-left: 80%;" ng-click="printCart()"><img src="../assets/images/Print.png" /></a>
+         <a href='' class="imageBorder" ng-click="pdf()"><img src="../assets/images/PDF.png" /><b class="anchorText">PDF</b>&nbsp;</a>
+         <a href='' class="imageBorder" ng-click="excel()"><img src="../assets/images/Excel.png" /><b class="anchorText">Excel</b>&nbsp;</a>
+         </div>
+    </div>
+    <hr />
+    <div class="row">
+        <!--<form name="quantitiesForm">-->
+        <form name="config_form" novalidate>
+            <table class="table table-hover modalTableBorder">
+                <tr>
+                    <td>
+                        <label>Energy</label>
+                        <i class="fa fa-asterisk" style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;" aria-hidden="true"></i>
+                    </td>
+                    <td>
+                        <!--ng-options="obj for obj in quantities.Energy"-->
+                        <select ng-disabled="true" class="form-control select-width" style="width:50%;" name="energy" ng-model="configObj['ConfigGroups_Info']['Energy']" ng-options="obj.value for obj in quantities_energy track by obj.id" required></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Demand</label>
+                        <i class="fa fa-asterisk" style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;" aria-hidden="true"></i>
+                    </td>
+                    <td>
+                        <select ng-disabled="true" class="form-control select-width" style="width:50%;" ng-model="configObj['ConfigGroups_Info']['Demand']" ng-options="obj.value for obj in quantities_demand track by obj.id" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <h5 style="color:red ; font-size:12px; margin-left:2%"><i class="fa fa-asterisk" style="font-size: 1vh; color: red; " aria-hidden="true"></i>All fields are mandatory</h5>
+    <!--<div class='modal-footer'>
+        <button type="button" class="btn btn-default btnColor" ng-click="Save()">Save</button>
+        <button type="button" class="btn btn-default btnDefault" ng-click="cancel()">Cancel</button>
+    </div>-->
+</div>

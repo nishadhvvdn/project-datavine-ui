@@ -1,0 +1,391 @@
+<div class="container-fluid">
+
+    <!--=====================================================-->
+
+    <div class="row">
+        <div class="rectangleBox">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 your_col">
+                    <img alt="#" src="../assets/images/SystemManagement/Registration.png"
+                        class="imgDimension-helpSub" />
+                </div>
+                <div class="col-xs-8 col-sm-98 col-md-8 col-lg-8 labelStyle">
+                    <label> Add Devices </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--=====================================================-->
+
+
+    <div class="row" style="margin-top: 1%">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="pull-right">
+                <p><a ng-click="tabChange('readingReport')" href=""><strong>1. &nbsp; Reading The Report</strong></a></p>
+                <p><a ng-click="tabChange('sortReport')" href=""><strong>2. &nbsp; Sorting The Report</strong></a></p>
+                <p><a ng-click="tabChange('exportingReport')" href=""><strong>3. &nbsp; Exporting The Report</strong></a></p>
+                <p><a ng-click="tabChange('printReport')" href=""><strong>4. &nbsp; Search For A Device </strong></a></p>
+                <p><a ng-click="tabChange('setReport')" href=""><strong>5. &nbsp; Add A Device </strong></a></p>
+                <p><a ng-click="tabChange('addReport')" href=""><strong>6. &nbsp; Edit A Device </strong></a></p>
+               </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="pull-left">
+                <p><a ng-click="tabChange('editReport')" href=""><strong>7. &nbsp; Viewing a Device</strong></a></p>
+                <p><a ng-click="tabChange('deleteReport')" href=""><strong>8. &nbsp; Delete A Device </strong></a></p>
+                <p><a ng-click="tabChange('configurationIcon')" href=""><strong>9. &nbsp; Configuration Management </strong></a></p>
+                <p><a ng-click="tabChange('deltalinkmeterIcon')" href=""><strong>10. &nbsp; Assign DeltaLINK&trade; to Meter </strong></a></p>
+                <p><a ng-click="tabChange('technicallossIcon')" href=""><strong>11. &nbsp; Technical Loss Items </strong></a></p>
+            </div>
+        </div>
+    </div>
+    <!--=====================================================-->
+
+    <div class="hr" style="margin-top: 0"></div>
+
+    <!--===============================================================-->
+    <div class="row text-center scrollAdjust scrollHeightFourRow" ng-show="tabs.readingReport">
+        <label>
+            <h1> <strong> 1. Reading The Report </strong> </h1>
+        </label>
+
+        <span>
+            <p class="paragraph">
+
+
+
+                The registration list shows all DTC's,HyperHUBs&trade;,transformers,meters and endpoints (depending on which
+                tab user have clicked) registered to
+                the system.
+                </br>The list contains different columns depending on which tab user have clicked.
+                </br>The DTC's list has five columns.
+
+                <br><strong>1. DTC ID:</strong> The ID of the DTC is shown here.
+                <br><strong>2. KVA Rating:</strong> The KVA rating of the DTC is shown in this column.
+                <br><strong>3. Sub-Station ID:</strong> The ID associated with the substation is located here.
+                <br><strong>4. Sub-Station Address:</strong> The physical address of the substation is in this column.
+                <br><strong>5. Actions: </strong>A user can view, edit, or delete a DTC from this column.
+                <br> The HyperHUB&trade; list contains six columns
+                <br><strong>1. HyperHUB&trade; Serial Number:</strong> This contain HyperHUB&trade; Serial Number.
+                <br><strong>2. Hub Name:</strong> This contain Hub Name.
+                <br><strong>3. Hardware Version: </strong>This contain Hardware Version of the device.
+                <br><strong>4. Latitude:</strong> The latitude for the transformer’s physical location is in this
+                column.
+                <br><strong>5. Longitude:</strong> The longitude for the transformer’s physical location is in this
+                column.
+                <br><strong>6. Actions:</strong> A user can view, edit, or delete a HyperHUB&trade; from this column.
+                <br> The transformer list contains eight columns
+
+                <br><strong>1. Transformer ID:</strong> The ID of the transformer is shown here.
+                <br><strong>2. KVA Rating:</strong> This column shows the KVA rating of the transformer.
+                <br><strong>3. HS Serial Number: </strong>This column contains the HyperSPROUT&trade; serial number.
+                <br><strong>4. HS Name: </strong>This one contains the HyperSPROUT's&trade; name.
+                <br><strong>5. Hardware Version: </strong>The version of the hardware currently on the device is shown
+                here.
+                <br><strong>6. Latitude:</strong> The latitude for the transformer’s physical location is in this
+                column.
+                <br><strong>7. Longitude:</strong> The longitude for the transformer’s physical location is in this
+                column.
+                <br><strong>8. Actions:</strong> A user can view, edit, or delete a transformer from this column.
+
+                <br>The meter list contains seven columns.
+
+                <br><strong>1. Meter ID: </strong>The ID of the meter is shown here.
+                <br><strong>2. Make:</strong> This column shows who makes the meter. For instance, Vision or Tatung.
+                <br><strong>3. Consumer Number: </strong>The consumer ID number is shown in this column.
+                <br><strong>4. No of Phases:</strong> The number of phases supported by the meter.
+                <br><strong>5. Latitude: </strong>The latitude for the meter’s physical location is in this column.
+                <br><strong>6. Longitude: </strong>The longitude for the meter’s physical location is in this column.
+                <br><strong>7. Actions: </strong>A user can view, edit, or delete a meter from this column.
+                </br>The DeltaLINK&trade; list has four columns.
+
+                <br><strong>1. Serial Number:</strong> This column contains the DeltaLINK&trade; serial number.
+                <br><strong>2. Version :</strong> The version of the hardware currently on the device is shown here.
+                <br><strong>3. Registered:</strong> This column shows whether or not the device has fully registered withthe system.
+                </br>The endpoint list has five columns.
+                <br><strong>4. Actions: </strong>A user can view, edit, or delete a DeltaLINK&trade; from this column.
+
+                <br><strong>1. MAC ID:</strong> This contain MAC ID of the endpoint device.
+                <br><strong>2. DTC:</strong> The ID of the DTC is shown here.
+                <br><strong>3. Owner:</strong> This contain Name of the owner details.
+                <br><strong>4. Description:</strong> This contain detailed information of the endpoint device.
+                <br><strong>5. Actions: </strong>A user can view, edit, or delete a endpoint from this column.
+            </p>
+        </span>
+
+
+        <img alt="#" src="../assets/images/readRegistration.png" style=" width: 56%" />
+
+
+        <span>
+            <p class="paragraph" style="margin-top:1%">
+                If the report has a large amount of data, it might separate into pages. In this case, the user can
+                choose how
+                many entries to display or which page to show from the pagination tool bar in the bottom left of the
+                report.
+            </p>
+        </span>
+
+
+
+        <img alt="#" src="../assets/images/commPage.png" style=" width: 56% ;margin-top:1%" />
+
+    </div>
+    <!--=====================================================================================-->
+
+    <div class="row text-center scrollHeightFourRow" ng-show="tabs.sortReport">
+        <label>
+            <h1> <strong> 2. Sorting The Report </strong> </h1>
+        </label>
+
+        <span>
+            <p class="paragraph">
+
+                To sort the list, the user must click the header of whichever column they would like to sort by. For
+                instance, clicking on
+                the Group header will switch the column between the default display, ascending alphabetically, and
+                descending
+                alphabetically.
+            </p>
+        </span>
+
+
+        <img alt="#" src="../assets/images/sortSystemRegistration.png" />
+
+    </div>
+    <!--==========================================================================-->
+
+    <div class="row text-center scrollHeightFourRow" ng-show="tabs.exportingReport">
+        <label>
+            <h1> <strong> 3. Exporting The Report </strong> </h1>
+        </label>
+
+        <span>
+            <p class="paragraph">
+
+                The report gives four different options for exporting. The user may export either all the data in the
+                report or just the
+                currently displayed data in either a CSV format or a PDF format. To do this the user simply has to click
+                on the export button in the top right corner of the report after filtering it for the desired data.
+            </p>
+        </span>
+
+
+        <img alt="#" src="../assets/images/exportMenu.png" />
+
+    </div>
+    <!--=================================================================================-->
+
+    <div class="row text-center scrollHeightFourRow" ng-show="tabs.printReport">
+        <label>
+            <h1> <strong> 4. Search For A Device </strong> </h1>
+        </label>
+
+        <span>
+            <p class="paragraph">
+
+                To search for a device, first click the tab of the device type user wish to search for. Then enter the
+                entire ID or a portion
+                of it and click search button for pull up matching devices.
+            </p>
+        </span>
+
+
+        <img alt="#" src="../assets/images/addsearchhelp.png" />
+
+
+    </div>
+    <!--==============================================================================-->
+    <div class="row text-center scrollAdjust scrollHeightFourRow" ng-show="tabs.setReport">
+        <label>
+            <h1> <strong> 5. Add A Device </strong> </h1>
+        </label>
+
+        <span>
+            <p class="paragraph">
+
+                There are two options for adding a device. The most simple option is to import the device details from a
+                device specific csv file . To do this
+                click the upload button above the top right corner of the list.Note: User can download device specific CSV file from the window.
+            </p>
+        </span>
+
+
+        <img alt="#" src="../assets/images/upload.png" />
+        <span>
+            <p class="paragraph" style="margin-top:1%">
+
+                After clicking the button a window will pop up. Click the Choose File button to select the file to
+                import and the click the
+                Import button. The device will then be added to the list.
+            </p>
+        </span>
+
+
+        <img alt="#" src="../assets/images/uploadhelp.png" style="width: 56%;margin-top:1%" />
+
+        <span>
+            <p class="paragraph" style="margin-top:1%">
+
+                The second option is to manually enter a device’s details. To do this click the Add button directly next
+                to the Upload button.
+                This will open a new window where user can input all of the details manually.
+            </p>
+        </span>
+
+
+        <img alt="#" src="../assets/images/addRegistration.png" style="width: 56%;margin-top:1%" />
+
+
+    </div>
+    <!--=====================================================================================-->
+    <div class="row text-center scrollAdjust scrollHeightFourRow" ng-show="tabs.addReport">
+        <label>
+            <h1> <strong> 6. Edit A Device </strong> </h1>
+        </label>
+
+        <span>
+            <p class="paragraph">
+
+                To edit a device simply find it on the list and click the edit button in the Actions column for the
+                device.
+            </p>
+        </span>
+
+
+        <img alt="#" src="../assets/images/addactionhs.png" />
+
+        <span>
+            <p class="paragraph" style="margin-top:1%">
+
+                This will open a new window where user can edit every detail of the device. After the changes have been
+                made just click the
+                Update button.
+            </p>
+        </span>
+
+
+        <img alt="#" src="../assets/images/editdevicehelp.png" style="width: 56%;margin-top:1%" />
+
+
+    </div>
+    <!--====================================================================================-->
+
+    <div class="row text-center scrollHeightFourRow" ng-show="tabs.editReport">
+        <label>
+            <h1> <strong> 7. View Device Details </strong> </h1>
+        </label>
+
+        <span>
+            <p class="paragraph">
+
+                To view a device’s details locate in the device list and click the view button in the Actions column for
+                the device.
+            </p>
+        </span>
+
+
+        <img alt="#" src="../assets/images/addactionhs.png" />
+
+        <span>
+            <p class="paragraph" style="margin-top:1%">
+
+                This will open a new window with the device’s details. Click the OK button when user are done to return
+                to the previous screen.
+            </p>
+        </span>
+
+
+        <img alt="#" src="../assets/images/viewRegistration.png" style="width: 56%;margin-top:1%" />
+
+
+    </div>
+
+    <!--=====================================================================================-->
+    <div class="row text-center scrollHeightFourRow" ng-show="tabs.deleteReport">
+        <label>
+            <h1> <strong> 8. Delete A Device </strong> </h1>
+        </label>
+
+        <span>
+            <p class="paragraph">
+
+                To delete a device locate in the list and click on the delete button in the Actions column for the
+                device. User will be prompted
+                if user are sure. To delete the device click Yes.
+            </p>
+        </span>
+
+
+        <img alt="#" src="../assets/images/addactionhs.png" />
+        <span>
+            <p class="paragraph"  style="margin-top:1%">
+                Confirmation Popup For Delete Device.
+            </p>
+        </span>
+    
+            <img alt="#" src="../assets/images/dtcdeletehelp.png" style=" width: 50% ;margin-top:1%"/>
+    </div>
+
+    <!--======================================================================================-->
+    <div class="row text-center scrollHeightFourRow" ng-show="tabs.configurationIcon">
+        <label>
+            <h1> <strong> 9. Configuration Management </strong> </h1>
+        </label>
+        <span>
+            <p class="paragraph">
+                Configuration Management helps the user to configure the device configurations which are present in the device local UI. After registration if user change the configuration from the Cloud then it will reflect in the device. It will be applicable for the HyperSPROUT&trade; /HyperHUB&trade;/ Meter. When user add a device, it will create automatic entries for the device configuration in the DB. Device configuration is only applicable for HH/HS/Meter (Mesh Card). These configurations will be sent to the device at the time of registration.
+            </p>
+        </span>
+        <img alt="#" src="../assets/images/addactionhs.png" />
+        <span> 
+        <p class="paragraph"  style= "margin-top:1%">
+            Configure the device configurations
+        </p>
+                </span>
+        <img alt="#" src="../assets/images/confighelp.png" style=" width: 56% ;margin-top:1%" />
+    </div>
+
+    <!--======================================================================================-->
+    <div class="row text-center scrollHeightFourRow" ng-show="tabs.deltalinkmeterIcon">
+        <label>
+            <h1> <strong> 10. Assign DeltaLINK&trade; to Meter</strong> </h1>
+        </label>
+        <span>
+            <p class="paragraph">
+                Here user can assign DeltaLINK&trade; to meter on meter level. 
+            </p>
+        </span>
+        <img alt="#" src="../assets/images/addactionmm.png" />
+        <span> 
+        <p class="paragraph"  style= "margin-top:1%">
+            List of DeltaLINK&trade;
+        </p>
+                </span>
+        <img alt="#" src="../assets/images/assignmeterhelp.png" style=" width: 56% ;margin-top:1%" />
+    </div>
+
+    <!--======================================================================================-->
+
+    <div class="row text-center scrollHeightFourRow" ng-show="tabs.technicallossIcon">
+        <label>
+            <h1> <strong> 11. Technical Loss Items</strong> </h1>
+        </label>
+        <span>
+            <p class="paragraph">
+                With the Non-technical loss calculation, User can identify any theft of electricity happening. It is based upon the difference between actual power delivered and consumption of the Meters or technical loss items (like street light, traffic lights) which is directly consuming the electricity from transformer with minor line loss considered. If the difference is Zero then there is no theft but if the difference is there then user see theft is happening as the consumption doesn’t match the power delivered. 
+            </p>
+        </span>
+        <img alt="#" src="../assets/images/addactionhs.png" />
+        <span> 
+        <p class="paragraph"  style= "margin-top:1%">
+            List of Technical Loss Items
+        </p>
+                </span>
+        <img alt="#" src="../assets/images/technicalhelp.png" style=" width: 56% ;margin-top:1%" />
+    </div>
+
+    <!--======================================================================================-->
+
+</div>

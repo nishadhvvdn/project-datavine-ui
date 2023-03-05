@@ -1,0 +1,208 @@
+<div class="container-fluid">
+
+    <!--=====================================================-->
+
+    <div class="row">
+        <div class="rectangleBox">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 your_col">
+                    <img alt="#" src="../assets/images/Administration/Security.png" class="imgDimension-helpSub" />
+                </div>
+                <div class="col-xs-8 col-sm-98 col-md-8 col-lg-8 labelStyle">
+                    <label> Security </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--=====================================================-->
+
+
+    <div class="row" style="margin-top: 1%">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="pull-right">
+                <p><a ng-click="tabChange('readingReport')" href=""><strong>1. &nbsp; Reading The List</strong></a></p>
+                 <p><a ng-click="tabChange('sortReport')" href=""><strong>2. &nbsp; Sorting The List</strong></a></p>
+                 <p><a ng-click="tabChange('exportingReport')" href=""><strong>3. &nbsp; Exporting The List</strong></a></p>
+                 <p><a ng-click="tabChange('setReport')" href=""><strong>4. &nbsp; Password Settings </strong></a></p>
+                </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="pull-left">
+                <p><a ng-click="tabChange('addReport')" href=""><strong>5. &nbsp;  Adding A Security Group </strong></a></p>
+                 <p><a ng-click="tabChange('editReport')" href=""><strong>6. &nbsp; Editing A Security Group </strong></a></p>
+                  <p><a ng-click="tabChange('deleteReport')" href=""><strong>7. &nbsp; Deleting A Security Group </strong></a></p>
+            </div>
+        </div>
+    </div>
+    <!--=====================================================-->
+
+    <div class="hr" style="margin-top: 0"></div>
+
+    <!--===============================================================-->
+
+    <div class="row text-center" ng-show="tabs.readingReport"  >
+        <label> <h1> <strong> 1. Reading The List </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+        
+        
+        
+               The security list shows every every security group in the system. The list contains four columns. </br>
+
+                1. <b>Security Group ID:</b>The unique ID of the security group will be shown here.</br>
+                2. <b>Description:</b>A brief description of the security group will be displayed in this column.</br>
+                3. <b>No of Users:</b> This column shows the number of users attached to the security group.</br>
+                4. <b>Action:</b> This column contains buttons for editing and deleting a security group.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/listSecurity.png" style=" width: 56%" />
+
+
+        <span> 
+        <p class="paragraph"  style= "margin-top:1%">
+                    If the report has a large amount of data, it might separate into pages. In this case, the user can choose how
+                many entries to display or which page to show from the pagination tool bar in the bottom left of the report.
+        </p>
+                </span>
+
+
+
+        <img alt="#" src="../assets/images/commPage.png" style=" width: 56% ;margin-top:1%" />
+
+    </div>
+    <!--=====================================================================================-->
+
+
+    <div class="row text-center" ng-show="tabs.sortReport">
+        <label> <h1> <strong> 2. Sorting The List </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+             To sort the list, the user must click the header of whichever column they would like to sort by. For instance, clicking on
+                the Description header will switch the column between the default display, ascending alphabetically, and
+                descending alphabetically.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/listSort.png" />
+
+    </div>
+    <!--==========================================================================-->
+
+    <div class="row text-center" ng-show="tabs.exportingReport">
+        <label> <h1> <strong> 3. Exporting The List </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+            The report gives four different options for exporting. The user may export either all the data in the report or just the
+                currently displayed data in either a CSV format or a PDF format. To do this the user simply has to click
+                on the export button in the top right corner of the report after filtering it for the desired data.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/exportMenu.png" />
+
+    </div>
+    <!--=====================================================================================-->
+    <div class="row text-center" ng-show="tabs.setReport">
+        <label> <h1> <strong> 4. Password Settings </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+           To change global password settings such as the number of days a password can remain active before needing to change click
+                the Password Settings button above the top right corner of the list.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/passwordSet.png" style="width:40vw;height:40vh" />
+
+
+    </div>
+    <!--=====================================================================================-->
+     <div class="row text-center scrollAdjust" ng-show="tabs.addReport">
+        <label> <h1> <strong> 5.  Adding A Security Group </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+          To add a new security group simply click the Add Security Group button above the top right corner of the list.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/addSecurity.png" />
+        <span>
+        <p class="paragraph" style="margin-top:1%">
+            
+         The creation window will pop up after the button is clicked. From here simply enter the security group ID, the description,
+                and checkmark the areas users attached to this group should be able to access. Click OK and the security
+                group will be added.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/addSecure.png" />
+
+
+    </div>
+    <!--=====================================================================================-->
+    <div class="row text-center scrollAdjust" ng-show="tabs.editReport">
+        <label> <h1> <strong> 6.  Editing A Security Group </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+         To edit a security group locate it on the list and click the edit button in the Action column of the security group you wish
+        to change.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/editSecGrp.png" />
+        <span>
+        <p class="paragraph"  style="margin-top:1%">
+         A window will appear where you can change any of the values in the security group. After you have finished click OK to save
+                the changes to the group.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/edit.png"   style="margin-top:1%"/>
+
+
+    </div>
+    <!--=====================================================================================-->
+    <div class="row text-center" ng-show="tabs.deleteReport">
+        <label> <h1> <strong> 7.  Deleting A Security Group </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+         To delete a security group locate it on the list and click the delete button in the Action column. When prompted if you are
+                sure click yes and the group will be deleted.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/editSecGrp.png" />
+    </div>
+    <!--=====================================================================================-->
+
+
+</div>
+
+
+
+
+
+

@@ -1,0 +1,52 @@
+﻿<div class="row">
+    <a class="btn btn-default pull-right" ng-click="dynamicPopover.close()" style="margin-top: -1vh; border:0px;">
+        <span class="glyphicon glyphicon-remove"></span>
+    </a>
+</div>
+<div class="row well well-sm">
+    <strong>Select Status Options</strong>
+</div>
+<div class="row">
+    <input type="checkbox" class="demandReadCheckbox" name="all" ng-model="all" ng-change="" />&nbsp;All
+</div>
+<div class="row">
+    <input type="checkbox" class="demandReadCheckbox" name="registered" ng-model="registered"
+        ng-change="" />&nbsp;Registered
+</div>
+<div class="row">
+    <input type="checkbox" class="demandReadCheckbox" name="failedAuth" ng-model="failedAuth"
+        ng-change="" />&nbsp;Failed Authentication
+</div>
+<div class="row">
+    <input type="checkbox" class="demandReadCheckbox" name="notRegistered" ng-model="notRegistered"
+        ng-change="" />&nbsp;Not yet registered
+</div>
+<div class="row">
+    <input type="checkbox" class="demandReadCheckbox" name="deregistered" ng-model="deregistered"
+        ng-change="" />&nbsp;Deregistered
+</div><br />
+<div class="row well well-sm readOptions">
+    <strong>Last Deregistered Time Threshold</strong>
+</div><br />
+<div class="row">
+    <div class="col-md-6">
+        <div class="input-group dateFilterPos">
+            <input type="text" class="form-control" uib-datepicker-popup ng-model="startingDate"
+                ng-change="setFromDate(startingDate)" is-open="popup1.opened" datepicker-options="dateOptions"
+                ng-required="true" close-text="Close" show-button-bar="false" readonly="readonly" />
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default " ng-click="open1()">
+                    <i class="glyphicon glyphicon-calendar"></i>
+                </button>
+            </span>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <uib-timepicker ng-model="startingDate" ng-change="setStartTime(startingDate)" hour-step="hstep"
+            minute-step="mstep" show-meridian="ismeridian" class="timepicker demandTime"></uib-timepicker>
+    </div>
+</div>
+<div class="row">
+    <button type="submit" class="btn btn-default btnColor" ng-click="filter"
+        style="width: 26vw; margin-left: 1vh;">Filter</button>
+</div>

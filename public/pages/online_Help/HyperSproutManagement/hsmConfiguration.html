@@ -1,0 +1,299 @@
+<div class="container-fluid">
+
+    <!--=====================================================-->
+
+    <div class="row">
+        <div class="rectangleBox">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 your_col">
+                    <img alt="#" src="../assets/images/HypersproutManagement/Configuration.png" class="imgDimension-helpSub" />
+                </div>
+                <div class="col-xs-8 col-sm-98 col-md-8 col-lg-8 labelStyle">
+                    <label> Configurations </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--=====================================================-->
+
+    <div class="row" style="margin-top: 1%">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="pull-right">
+                <p><a ng-click="tabChange('readingReport')" href=""><strong> 1. &nbsp; Reading The List </strong></a></p>
+                <p><a ng-click="tabChange('sortReport')" href=""><strong> 2. &nbsp; Sorting The List </strong></a></p>
+                <p><a ng-click="tabChange('exportingReport')" href=""><strong> 3. &nbsp; Exporting The List </strong></a></p>
+                <p><a ng-click="tabChange('printReport')" href=""><strong> 4. &nbsp; Printing The List </strong></a></p>
+                <p><a ng-click="tabChange('filterReport')" href=""><strong> 5. &nbsp; Filtering The List </strong></a></p>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="pull-left">
+                <p><a ng-click="tabChange('setReport')" href=""><strong> 6. &nbsp; Creating A Configuration </strong></a></p>
+                <p><a ng-click="tabChange('resetReport')" href=""><strong> 7. &nbsp; Viewing A Configuration </strong></a></p>
+                <p><a ng-click="tabChange('editReport')" href=""><strong> 8. &nbsp; Editing A Configuration </strong></a></p>
+                <p><a ng-click="tabChange('deleteReport')" href=""><strong> 9. &nbsp; Deleting A Configuration </strong></a></p>
+                <p><a ng-click="tabChange('addReport')" href=""><strong> 10. &nbsp; Adding Members </strong></a></p>
+            </div>
+        </div>
+    </div>
+    <!--=====================================================-->
+
+    <div class="hr" style="margin-top: 0"></div>
+
+    <!--===============================================================-->
+
+    <div class="row text-center" ng-show="tabs.readingReport">
+        <label> <h1> <strong> 1. Reading The List </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+        
+        
+        
+                The configurations list shows every HyperSPROUT&trade; configuration group that has been added to the system.
+                <br>The list contains seven columns.
+
+                <br><strong>1.	Name:</strong> This column contains the unique name of the configuration group.
+                <br><strong>2.	Description:</strong> This column shows a brief description of what the configuration group
+                is for.
+                <br><strong>3.	Members:</strong> This column shows how many HyperSprouts are using the particular configuration
+                group.
+                <br><strong>4.	Device Class:</strong> The device class of the HyperSprouts belonging to the group.
+                <br><strong>5.	 Config Program:</strong> The name of the config program associated with the configuration
+                group
+                <br><strong>6.	Edit Time:</strong> The timestamp for when the group was last edited
+                <br><strong>7.	Action: </strong>This column contains a button for editing the configuration group and a deletion
+                button for removing the group.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/readConfigurations.png" style=" width: 56%" />
+
+
+        <span> 
+        <p class="paragraph"  style= "margin-top:1%">
+                    If the list has a large amount of data, it might separate into pages. In this case, the user can choose how many entries
+                to display or which page to show from the pagination tool bar in the bottom left of the report.
+        </p>
+                </span>
+
+
+
+        <img alt="#" src="../assets/images/commPage.png" style=" width: 56% ;margin-top:1%" />
+
+    </div>
+    <!--=====================================================================================-->
+
+    <div class="row text-center" ng-show="tabs.sortReport" style=" height: 67vh">
+        <label> <h1> <strong> 2. Sorting The List </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+           To sort the list, the user must click the header of whichever column they would like to sort by. For instance, clicking on
+                the Name header will switch the column between the default display, ascending alphabetically, and descending
+                alphabetically.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/sortName.png" />
+
+
+        <span> 
+
+        </div>
+        <!--===================================================================================-->
+
+        <div class="row text-center" ng-show="tabs.exportingReport">
+            <label> <h1> <strong> 3. Exporting The List </strong> </h1> </label>
+
+            <span>
+        <p class="paragraph">
+            
+            The list gives four different options for exporting. The user may export either all the data in the list or just the currently
+                displayed data in either a CSV format or a PDF format. To do this the user simply has to click on the export
+                button in the top right corner of the list after filtering it for the desired data.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/exportMenu.png" />
+
+    </div>
+    <!--==========================================================================-->
+
+    <div class="row text-center" ng-show="tabs.printReport">
+        <label> <h1> <strong> 4. Printing The List </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+            The list can easily be prepared for printing by using the provided printing button. This button will open up a standard printing
+                window with the report displayed.
+
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/savePrint.png" />
+
+    </div>
+    <!--=================================================================================-->
+
+    <div class="row text-center" ng-show="tabs.filterReport">
+        <label> <h1> <strong> 5. Filtering The List </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+            The filter for the configurations page only contains one section. This section allows a user to filter the report so that only entries 
+               containing an edit time within the user specified date range will be shown.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/filterConf.png" style="margin-top:1%"/>
+
+
+    </div>
+
+    <!--=====================================================================================-->
+    <div class="row text-center scrollAdjust" ng-show="tabs.setReport" style="height:58vh">
+        <label> <h1> <strong> 6. Creating A Configuration </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+             Creating a configuration group consists of three steps. The first is clicking the New button located above the upper right
+                corner of the list.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/new.png" />
+        <p class="paragraph" style="margin-top:1%">
+
+            After that the user will be presented with a small window. This window will ask for the unique name the user wishes to call
+            the group, the device class, the configuration to associate with the group, and a description.
+        </p>
+        </span>
+
+
+        <img alt="#" src="../assets/images/newConfigurations.png" style="margin-top:1%" />
+        <p class="paragraph" style="margin-top:1%">
+
+            Finally, the user must click the save button after which the new group will be added to the list.
+        </p>
+        </span>
+
+
+        <img alt="#" src="../assets/images/save.png" />
+
+
+    </div>
+
+
+
+    <!--========================================================================================-->
+
+    <div class="row text-center" ng-show="tabs.resetReport">
+        <label> <h1> <strong> 7. Viewing A Configuration </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+            To view a groups basic details a user simply has to locate it in the list and click the name after which a window will appear
+                showing the group’s details.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/groupDetails.png" style="margin-top:1%" />
+
+
+    </div>
+    <!--====================================================================================-->
+
+    <div class="row text-center scrollAdjust" ng-show="tabs.editReport" style=" height:439px">
+        <label> <h1> <strong> 8. Editing A Configuration </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+            To change the configuration associated with a group first find the group within the list and then click the edit button in
+                the action column.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/editConfigurations.png"  />
+
+        <span>
+        <p class="paragraph" style="margin-top:1%">
+            
+           The edit configuration window will pop up. From here you can select any of the config programs in the system from the config
+                program dropdown. Then just click Save to change the associated configuration program (Note, this only changes
+                the groups configuration program on the CollectionENGINE&trade;. To have it actually change on the associated HyperSprouts
+                you must download the configuration program to the devices from the Downloads tab).
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/editCWindow.png" style=" width: 56%" />
+
+
+    </div>
+    <!--==============================================================================-->
+
+    <div class="row text-center" ng-show="tabs.deleteReport">
+        <label> <h1> <strong> 9. Deleting A Configuration </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+            To delete a configuration simply find the group you wish to delete in the list, click the delete button in the in the action
+                column, and select yes when prompted if you are sure.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/deleteC.png"  style="margin-top:1%"/>
+
+
+    </div>
+    <!--=================================================================-->
+    
+    <div class="row text-center scrollAdjust" ng-show="tabs.addReport" style=" height:436px">
+        <label> <h1> <strong> 10. Adding Members </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+             To add members to a group you must first click the Add members button above the top right corner of the configuration groups
+                list.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/addMembers.png" />
+
+        <span>
+        <p class="paragraph">
+            
+             This will open up a creation window. Input a unique name and a brief description of the application group’s purpose then
+                click save. A new application group matching the inputed information will immediately be added to the list.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/addMembersWindow.png" />
+
+
+    </div>
+
+    <!--==================================================================-->
+
+</div>

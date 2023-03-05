@@ -1,0 +1,2435 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for controllers\dataVINEController.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">controllers/</a> dataVINEController.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">35.63% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>31/87</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">15.79% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>6/38</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">18.37% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>9/49</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">35.63% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>31/87</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+648
+649
+650
+651
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667
+668
+669
+670
+671
+672
+673
+674
+675
+676
+677
+678
+679
+680
+681
+682
+683
+684
+685
+686
+687
+688
+689
+690
+691
+692
+693
+694
+695
+696
+697
+698
+699
+700
+701
+702
+703
+704
+705
+706
+707
+708
+709
+710
+711
+712
+713
+714
+715
+716
+717
+718
+719
+720
+721
+722
+723
+724
+725
+726
+727
+728
+729
+730
+731
+732
+733
+734
+735
+736
+737
+738
+739
+740
+741
+742
+743
+744
+745
+746
+747
+748
+749
+750
+751
+752
+753
+754
+755
+756
+757
+758
+759
+760
+761
+762
+763
+764
+765
+766
+767
+768
+769
+770
+771
+772
+773
+774
+775
+776
+777
+778
+779
+780
+781
+782
+783
+784
+785
+786
+787
+788
+789
+790
+791</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">856×</span>
+<span class="cline-any cline-yes">856×</span>
+<span class="cline-any cline-yes">856×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">856×</span>
+<span class="cline-any cline-yes">856×</span>
+<span class="cline-any cline-yes">856×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">856×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">856×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">856×</span>
+<span class="cline-any cline-yes">143×</span>
+<span class="cline-any cline-yes">143×</span>
+<span class="cline-any cline-yes">143×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">143×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">7539×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">﻿(function (angular) {
+&nbsp;
+    "use strict";
+&nbsp;
+    angular.module('dataVINEApp', ['ui.router', 'onlineHelp', 'ngMessages', 'file-model', 'ngIdle', 'ngAnimate', 'ui.bootstrap', 'ui.grid', 'ngTouch', 'ui.grid.selection', 'ui.grid.exporter', 'ui.grid.resizeColumns', 'ui.grid.pagination', 'ncy-angular-breadcrumb', 'angular-country-timezone-picker', 'angularjs-dropdown-multiselect', 'angular-timezone-selector', 'ngFileUpload', 'swxSessionStorage'])
+&nbsp;
+        .config(function ($stateProvider, $urlRouterProvider, IdleProvider, KeepaliveProvider, $httpProvider) {
+&nbsp;
+            IdleProvider.idle(900);
+            IdleProvider.timeout(60);
+            KeepaliveProvider.interval(600);
+&nbsp;
+            $urlRouterProvider.otherwise("/login");
+            $httpProvider.defaults.withCredentials = true;
+            $stateProvider
+&nbsp;
+                .state('login', {
+                    url: '/login',
+                    templateUrl: 'pages/login.html',
+                    controller: 'loginCtrl'
+&nbsp;
+                })
+&nbsp;
+                .state('master', {
+                    url: '/master',
+                    templateUrl: 'pages/homescreen.html',
+                    controller: 'homeCtrl'
+                })
+&nbsp;
+                .state('hyperSprout', {
+                    abstract: true,
+                    url: "/hyperSprout",
+                    templateUrl: "pages/hyperSproutManagement_mainview.html",
+                    controller: 'hyperSproutManagement_mainviewCtrl'
+                })
+&nbsp;
+&nbsp;
+                .state('hyperSprout.configurationManagement', {
+                    url: "/configurationManagement",
+                    templateUrl: "pages/configurationManagement.html",
+                    controller: 'configurationManagementCtrl'
+                })
+&nbsp;
+&nbsp;
+                .state('hyperSprout.hyperSproutJobStatus', {
+                    url: '/hyperSproutJobStatus',
+                    templateUrl: 'pages/hyperSproutJobStatus.html',
+                    controller: 'jobStatusCtrl',
+                    resolve: {
+                        type: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                            return 'HyperSprout';</span>
+                        }
+                    }  
+                })
+&nbsp;
+                .state('hyperSprout.configurationManagement.configPrgm', {
+                    url: '/configPrgm',
+                    views: {
+                        '@hyperSprout.configurationManagement': {
+                            templateUrl: 'pages/configProgram.html',
+                            controller: 'configProgramCtrl',
+                            controllerAs: 'vm',
+                            resolve:{
+                                type:<span class="fstat-no" title="function not covered" >function(){</span>
+<span class="cstat-no" title="statement not covered" >                                    return 'HyperSprout';</span>
+                                }
+                            }
+                        }
+                    }
+                })
+&nbsp;
+&nbsp;
+                .state('hyperSprout.configurationManagement.configurations', {
+                    url: '/configurations',
+                    views: {
+                        '@hyperSprout.configurationManagement': {
+                            templateUrl: 'pages/configurations.html',
+                            controller: 'configurationsCtrl',
+                            controllerAs: 'vm'
+                        }
+                    }
+                })
+&nbsp;
+&nbsp;
+                .state('hyperSprout.groupManagement', {
+                    url: '/groupManagement',
+                    templateUrl: 'pages/groupManagement.html',
+                    controller: 'groupManagementCtrl',
+                    controllerAs: 'vm'
+                })
+&nbsp;
+&nbsp;
+                .state('hyperSprout.firmwareManagement', {
+                    url: '/firmwareManagement',
+                    templateUrl: 'pages/firmwareManagement.html',
+                    controller: 'firmwareManagementCtrl',
+                    resolve: {
+                        deviceType: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                            return 'HyperSprout';</span>
+                        }
+                    }
+                })
+&nbsp;
+                .state('meter.firmwareManagement', {
+                    url: '/meterfirmwareManagement',
+                    templateUrl: 'pages/firmwareManagement_meter.html',
+                    controller: 'firmwareManagementCtrl',
+                    resolve: {
+                        deviceType: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                            return 'Meter';</span>
+                        }
+                    }
+                })
+                .state('hyperSprout.configurationManagement.downloads', {
+                    url: '/downloads',
+                    views: {
+                        '@hyperSprout.configurationManagement': {
+                            templateUrl: 'pages/hyperSproutDownloads.html',
+                            controller: 'hyperSproutDownloadsCtrl'
+                        }
+                    }
+                })
+&nbsp;
+                .state('hyperSprout.configurationManagement.discrepancies', {
+                    url: '/discrepancies',
+                    views: {
+                        '@hyperSprout.configurationManagement': {
+                            templateUrl: 'pages/tags.html',
+                            controller: 'discrepanciesCtrl',
+                            resolve: {
+                                endpoint: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                                    return 'HSMTagDiscrepancies';</span>
+                                }
+                            }
+                        }
+                    }
+                })
+&nbsp;
+                .state('meter', {
+                    abstract: true,
+                    url: "/meter",
+                    templateUrl: "pages/meterManagement_mainview.html",
+                    controller: 'meterManagement_mainviewCtrl'
+                })
+&nbsp;
+                .state('meter.configurationManagement', {
+                    url: "/meterconfigurationManagement",
+                    templateUrl: "pages/configurationManagement_meter.html",
+                    controller: 'configurationManagement_meterCtrl'
+                })
+&nbsp;
+                .state('meter.configurationManagement.configPrgm', {
+                    url: '/configPrgm',
+                    views: {
+                        '@meter.configurationManagement': {
+                            templateUrl: 'pages/configProgram_meter.html',
+                            controller: 'configProgramCtrl',
+                            controllerAs: 'vm',
+                            resolve:{
+                                type:<span class="fstat-no" title="function not covered" >function(){</span>
+<span class="cstat-no" title="statement not covered" >                                    return 'Meter';</span>
+                                }
+                            }                            
+                        }
+                    }
+                })
+&nbsp;
+                .state('meter.configurationManagement.configurations', {
+                    url: '/meterconfigurations',
+                    views: {
+                        '@meter.configurationManagement': {
+                            templateUrl: 'pages/configurations_meter.html',
+                            controller: 'configurations_meterCtrl',
+                        }
+                    }
+                })
+&nbsp;
+&nbsp;
+                .state('meter.configurationManagement.discrepancies', {
+                    url: '/meterdiscrepancies',
+                    views: {
+                        '@meter.configurationManagement': {
+                            templateUrl: 'pages/tags_meter.html',
+                            controller: 'discrepanciesCtrl',
+                            resolve: {
+                                endpoint: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                                    return 'MMTagDiscrepancies';</span>
+                                }
+                            }
+                        }
+                    }
+                })
+&nbsp;
+                .state('meter.configurationManagement.downloads', {
+                    url: '/meterdownloads',
+                    views: {
+                        '@meter.configurationManagement': {
+                            templateUrl: 'pages/meterDownloads.html',
+                            controller: 'meterDownloadsCtrl'
+                        }
+                    }
+                })
+&nbsp;
+                .state('meter.groupManagement', {
+                    url: '/metergroupManagement',
+                    templateUrl: 'pages/groupManagement_meter.html',
+                    controller: 'groupManagement_meterCtrl',
+                    controllerAs: 'vm'
+                })
+&nbsp;
+                .state('meter.JobStatus', {
+                    url: '/meterJobStatus',
+                    templateUrl: 'pages/meterJobStatus.html',
+                    controller: 'jobStatusCtrl',
+                    resolve: {
+                        type: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                            return 'Meter';</span>
+                        }
+                    }                    
+                })
+&nbsp;
+                .state('system', {
+                    abstract: true,
+                    url: "/system",
+                    templateUrl: "pages/systemManagement_mainview.html",
+                    controller: "systemManagement_mainviewCtrl"
+                })
+&nbsp;
+                .state('system.deviceManagement', {
+                    url: "/deviceManagement",
+                    templateUrl: "pages/deviceManagement.html",
+                    controller: 'deviceManagementCtrl'
+                })
+&nbsp;
+                .state('system.deviceManagement.relays', {
+                    url: "/relays",
+                    views: {
+                        '@system.deviceManagement': {
+                            templateUrl: "pages/relays.html",
+                            controller: 'relaysCtrl',
+                            resolve: {
+                                type: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                                    return 'HyperSprout';</span>
+                                }
+                            }    
+                        }
+                    }
+                })
+                .state('system.deviceManagement.hyperhub', {
+                    url: "/hyperhub",
+                    views: {
+                        '@system.deviceManagement': {
+                            templateUrl: "pages/relays.html",
+                            controller: 'relaysCtrl',
+                            resolve: {
+                                type: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                                    return 'Hyperhub';</span>
+                                }
+                            }                             
+                        }
+                    }
+                })
+&nbsp;
+                .state('system.deviceManagement.meters', {
+                    url: "/meters",
+                    views: {
+                        '@system.deviceManagement': {
+                            templateUrl: "pages/meters.html",
+                            controller: 'metersCtrl'
+                        }
+                    }
+                })
+&nbsp;
+                .state('system.networkJobStatus', {
+                    url: "/JobStatus",
+                    templateUrl: "pages/systemUpdates.html",
+                    controller: "systemUpdatesCtrl",
+                    resolve:{
+                        type:<span class="fstat-no" title="function not covered" >function(){</span>
+<span class="cstat-no" title="statement not covered" >                            return 'netWorkJobStatus';</span>
+                        }
+                    }
+                })
+&nbsp;
+                .state('system.networkStatistics', {
+                    url: "/networkStatistics",
+                    templateUrl: "pages/dataVineHealth.html",
+                    controller: 'dataVineHealthCtrl',
+                    ncyBreadcrumb: {
+                        skip: true
+                    }
+                })
+&nbsp;
+                .state('system.networkStatistics.cellEndpoints_networkStatistics', {
+                    url: "/cellEndpoints_networkStatistics",
+                    views: {
+                        '@system': {
+                            templateUrl: "pages/cellEndpoints_DataVINEHealth.html",
+                            controller: 'home',
+                            controllerAs: "vm",
+                        }
+                    },
+                    ncyBreadcrumb: {
+                        label: 'Endpoints',
+                        parent: <span class="fstat-no" title="function not covered" >function ($scope) {</span>
+<span class="cstat-no" title="statement not covered" >                            return $scope.from || 'system.networkStatistics.cellRelays_networkStatistics';</span>
+                        }
+                    }
+                })
+&nbsp;
+                .state('system.registration', {
+                    url: "/registration",
+                    templateUrl: "pages/registration.html",
+                    controller: 'registrationCtrl'
+                })
+&nbsp;
+                .state('system.registration.circuitEntry', {
+                    url: "/circuitEntry",
+                    views: {
+                        '@system.registration': {
+                            templateUrl: "pages/circuitRegistration.html",
+                            controller: 'circuitRegistrationCtrl',
+                            controllerAs: 'vm',
+                        }
+                    },
+                    ncyBreadcrumb: {
+                        label: 'List of Circuits',
+                    }
+                })
+&nbsp;
+&nbsp;
+                .state('system.registration.transformerEntry', {
+                    url: "/transformerEntry",
+                    views: {
+                        '@system.registration': {
+                            templateUrl: "pages/transformerRegistration.html",
+                            controller: 'transformerRegistrationCtrl',
+                            controllerAs: 'vm',
+                        }
+                    },
+                    ncyBreadcrumb: {
+                        label: 'Transformer'
+                    }
+                })
+                .state('system.registration.meterEntry', {
+                    url: "/meterEntry",
+                    views: {
+                        '@system.registration': {
+                            templateUrl: "pages/meterRegistration.html",
+                            controller: 'meterRegistrationCtrl',
+                            controllerAs: 'vm',
+                        }
+                    },
+                    ncyBreadcrumb: {
+                        label: 'Meter'
+                    }
+                })
+               
+                .state('system.grouping', {
+                    url: "/grouping",
+                    templateUrl: "pages/grouping.html",
+                    controller: 'groupingCtrl',
+                    ncyBreadcrumb: {
+                        skip: true
+                    }
+                })
+                .state('system.grouping.circuitGrouping', {
+                    url: "/circuitGrouping",
+                    templateUrl: "pages/circuitGrouping.html",
+                    controller: 'circuitGroupingCtrl',
+                    controllerAs: 'vm',
+                    ncyBreadcrumb: {
+                        label: 'DTC Level'
+                    }
+                })
+                .state('system.grouping.transformerGrouping', {
+                    url: "/transformerGrouping",
+                    templateUrl: "pages/transformerGrouping.html",
+                    controller: 'transformerGroupingCtrl',
+                    controllerAs: 'vm',
+                    ncyBreadcrumb: {
+                        label: 'Transformer Level',
+                        parent: <span class="fstat-no" title="function not covered" >function ($scope) {</span>
+<span class="cstat-no" title="statement not covered" >                            return $scope.from || 'system.grouping.circuitGrouping';</span>
+                        }
+                    }
+                })
+&nbsp;
+                .state('system.grouping.transformerMeterGrouping', {
+                    url: "/transformerMeterGrouping",
+                    templateUrl: "pages/transformerMeterGrouping.html",
+                    controller: 'transformerMeterGroupingCtrl',
+                    controllerAs: 'vm',
+                    ncyBreadcrumb: {
+                        label: 'Meter Level',
+                        parent: <span class="fstat-no" title="function not covered" >function ($scope) {</span>
+<span class="cstat-no" title="statement not covered" >                            return $scope.from || 'system.grouping.transformerGrouping';</span>
+                        }
+                    }
+                })
+                .state('system.grouping.unassignedTransformers', {
+                    url: "/unassignedTransformers",
+                    templateUrl: "pages/unassignedTransformerList.html",
+                    controller: 'unassignedTransformerListCtrl',
+                    controllerAs: 'vm',
+                })
+&nbsp;
+                .state('system.grouping.unassignedMeterList', {
+&nbsp;
+                    url: '/unassignedMeterList',
+                    templateUrl: 'pages/unassignedMeterList.html',
+                    controller: 'unassignedMeterListCtrl',
+                    controllerAs: 'vm',
+                    ncyBreadcrumb: {
+                        label: 'Info',
+                        parent: 'system.grouping.transformerMeterGrouping'
+&nbsp;
+                    }
+                })
+&nbsp;
+&nbsp;
+                .state('createCircuit', {
+                    url: '/createCircuit',
+                    templateUrl: 'templates/createCircuit.html',
+                    controller: 'newCircuitConfigurationCtrl',
+                    controllerAs: 'vm',
+                    ncyBreadcrumb: {
+                        label: 'Circuit Creation',
+                        parent: 'system.registration.circuitEntry'
+&nbsp;
+                    }
+                })
+&nbsp;
+                .state('editCircuit', {
+&nbsp;
+                    url: '/editCircuit',
+                    templateUrl: 'templates/createCircuit.html',
+                    controller: 'newCircuitConfigurationCtrl',
+                    controllerAs: 'vm',
+                })
+&nbsp;
+                .state('createTransformer', {
+                    url: '/createTransformer',
+                    templateUrl: 'templates/createTransformer.html',
+                    controller: 'newXfmerConfigurationCtrl',
+                    ncyBreadcrumb: {
+                        parent: 'system.registration.transformerEntry'
+&nbsp;
+                    },
+                })
+&nbsp;
+                .state('editTransformer', {
+                    url: '/editTransformer',
+                    templateUrl: 'templates/createTransformer.html',
+                    controller: 'newXfmerConfigurationCtrl  ',
+                    controllerAs: 'vm',
+                })
+&nbsp;
+                .state('tools', {
+                    abstract: true,
+                    url: "/tools",
+                    templateUrl: "pages/tools_mainview.html",
+                })
+&nbsp;
+                .state('tools.userSettings', {
+                    url: '/userSettings',
+                    templateUrl: 'pages/userSettings.html',
+                    controller: 'userSettingsCtrl'
+                })
+&nbsp;
+                .state('administration', {
+                    abstract: true,
+                    url: "/administration",
+                    templateUrl: "pages/administration_mainview.html",
+                })
+&nbsp;
+&nbsp;
+                .state('administration.security', {
+                    url: "/security",
+                    templateUrl: "pages/security.html",
+                    controller: 'securityCtrl'
+                })
+&nbsp;
+&nbsp;
+                .state('administration.systemSettings', {
+                    url: "/systemSettings",
+                    templateUrl: "pages/systemSettings.html",
+                    controller: 'systemSettingsCtrl'
+                })
+&nbsp;
+&nbsp;
+                .state('administration.defineUsers', {
+                    url: "/defineUsers",
+                    templateUrl: "pages/defineUsers.html",
+                    controller: 'defineUsersCtrl'
+                })
+&nbsp;
+                .state('reports', {
+                    abstract: true,
+                    url: "/reports",
+                    templateUrl: "pages/reports_mainview.html",
+                    controller:<span class="fstat-no" title="function not covered" >function($scope){</span>
+<span class="cstat-no" title="statement not covered" >                            $scope.selectHypersproutComm = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                                $('#communication').click();</span>
+                            };
+                    }
+                })
+&nbsp;
+&nbsp;
+                .state('reports.communicationStatistics', {
+                    url: "/communicationStatistics",
+                    templateUrl: "pages/communicationStatistics.html",
+                    controller: "communicationStatisticsCtrl"
+                })
+&nbsp;
+                .state('reports.communicationStatistics.hypersproutEntry', {
+                    url: "/hypersproutEntry",
+                    views: {
+                        '@reports.communicationStatistics': {
+                            templateUrl: "pages/hypersproutComm.html",
+                            controller: 'hypersproutCommCtrl',
+                            resolve: {
+                                type: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                                    return 'HyperSprout';</span>
+                                }
+                            }    
+                        }
+                    }
+                })
+                .state('reports.communicationStatistics.hyperhubEntry', {
+                    url: "/hyperhubEntry",
+                    views: {
+                        '@reports.communicationStatistics': {
+                            templateUrl: "pages/hypersproutComm.html",
+                            controller: 'hypersproutCommCtrl',
+                            resolve: {
+                                type: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                                    return 'Hyperhub';</span>
+                                }
+                            }                             
+                        }
+                    }
+                })
+&nbsp;
+                .state('reports.communicationStatistics.meterEntry', {
+                    url: "/meterEntry",
+                    views: {
+                        '@reports.communicationStatistics': {
+                            templateUrl: "pages/hypersproutComm.html",
+                            controller: 'hypersproutCommCtrl',
+                            resolve: {
+                                type: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                                    return 'Meter';</span>
+                                }
+                            }   
+                        }
+                    }
+                })
+&nbsp;
+                
+&nbsp;
+&nbsp;
+                // .state('reports.dataConsumption', {
+                //     url: "/dataConsumption",
+                //     templateUrl: "pages/dataConsumption.html",
+                //     controller: "dataConsumptionCtrl"
+                // })
+&nbsp;
+&nbsp;
+                .state('reports.dataVineHealth', {
+                    url: "/dataVineHealth",
+                    templateUrl: "pages/dataVineHealth_reports.html",
+                    controller: "dataVineHealth_reportsCtrl"
+                })
+&nbsp;
+&nbsp;
+                .state('reports.systemLogs', {
+                    url: "/systemLogs",
+                    templateUrl: "pages/systemLog.html",
+                    controller: "systemLogsCtrl"
+                })
+&nbsp;
+                .state('reports.deviceFirmwareVersions', {
+                    url: "/deviceFirmwareVersions",
+                    templateUrl: "pages/deviceFirmwareVersions.html",
+                    controller: "deviceFirmwareVersionsCtrl"
+                })
+&nbsp;
+&nbsp;
+                .state('reports.newAccounts_Report', {
+                    url: "/newAccounts_Report",
+                    templateUrl: "pages/newAccounts_Report.html",
+                    controller: "newAccounts_ReportCtrl"
+                })
+                .state('reports.systemAuditLog', {
+                    url: "/systemAuditLog",
+                    templateUrl: "pages/systemAuditLog.html",
+                    controller: "systemAuditLogCtrl"
+                })
+                
+                .state('system.registration.hyperHubEntry', {
+                    url: "/hyperHubEntry",
+                    views: {
+                        '@system.registration': {
+                            templateUrl: "pages/hyperHubRegistration.html",
+                            controller: 'hyperHubRegistrationCtrl',
+                            controllerAs: 'vm',
+                        }
+                    },
+                    ncyBreadcrumb: {
+                        label: 'List of HyperHubs',
+                    }
+                })
+                .state('system.registration.endpointEntry', {
+                    url: "/endpointEntry",
+                    views: {
+                        '@system.registration': {
+                            templateUrl: "pages/endpointRegistration.html",
+                            controller: 'endpointRegistrationCtrl',
+                            controllerAs: 'vm',
+                        }
+                    },
+                    ncyBreadcrumb: {
+                        label: 'List of HyperHubs',
+                    }
+                })
+                .state('system.grouping.hyperHubGrouping', {
+                    url: "/hyperHubGrouping",
+                    templateUrl: "pages/hyperHubGrouping.html",
+                    controller: 'hyperHubGroupingCtrl',
+                    controllerAs: 'vm',
+                    ncyBreadcrumb: {
+                        label: 'HyperHub Level',
+                        parent: <span class="fstat-no" title="function not covered" >function ($scope) {</span>
+<span class="cstat-no" title="statement not covered" >                            return $scope.from || 'system.grouping.transformerGrouping';</span>
+                        }
+                    }
+                })
+                
+                .state('system.grouping.unassignedHyperHubList', {
+&nbsp;
+                    url: '/unassignedHyperHubList',
+                    templateUrl: 'pages/unassignedHyperHubList.html',
+                    controller: 'unassignedHyperHubListCtrl',
+                    controllerAs: 'vm',
+                    ncyBreadcrumb: {
+                        label: 'Info',
+                        parent: 'system.grouping.hyperHubGrouping'
+&nbsp;
+                    }
+                })
+&nbsp;
+        })
+&nbsp;
+        .controller('dataVINECtrl', ['$sessionStorage','$rootScope', '$scope', '$http', '$state', 'InitService',
+            'refreshservice', 'logoutservice',
+            function ($sessionStorage,$rootScope, $scope, $http, $state, initService, refreshservice, logoutservice) {
+                init();
+                            
+                $scope.logout = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                    logoutservice.logout().then(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                        $state.go('login');</span>
+                    })
+                };
+                $rootScope.dynamicPopover = {
+                    templateUrl: '/templates/profilePopUp.html',
+&nbsp;
+                    content: '',
+                    open: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                        $scope.dynamicPopover.isOpen = true;</span>
+                    },
+                    close: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                        $scope.dynamicPopover.isOpen = false;</span>
+                    }
+                };
+                $rootScope.dynamicPopover.isOpen = false;
+                objCacheDetails.grid.paginationPageSize=$sessionStorage.get('displayItemPerpage');
+                function init() {
+&nbsp;
+                    initService.initializeApp().then(<span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                        refreshservice.refresh().then(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                            $rootScope.userName = !angular.isUndefinedOrNull(objCacheDetails.userDetails) ? objCacheDetails.userDetails.username : '';</span>
+                        });
+                    });
+                };
+                $scope.redirectToSettings = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                    $state.go('tools.userSettings');</span>
+                }
+                $scope.open = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                    var url = $state.href('help', { absolute: true });</span>
+<span class="cstat-no" title="statement not covered" >                    window.open(url);</span>
+                }
+            }])
+&nbsp;
+&nbsp;
+        .controller('hyperSproutManagement_mainviewCtrl', ['$scope', <span class="fstat-no" title="function not covered" >function ($scope) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            $scope.selectConfigurationTab = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                $('#configurationManagement').click();</span>
+            };
+        }])
+&nbsp;
+        .controller('meterManagement_mainviewCtrl', ['$scope', <span class="fstat-no" title="function not covered" >function ($scope) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            $scope.selectConfigurationTab = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                $('#configurationManagement').click();</span>
+            };
+        }])
+        .service('fileUpload', ['$http', function ($http) {
+            this.uploadFileToUrl = function (file, uploadUrl) {
+                var fd = new FormData();
+                fd.append('file', file);
+                $http.post(uploadUrl, fd, {
+                    transformRequest: angular.identity,
+                    headers: { 'Content-Type': undefined }
+                })
+                    .success(<span class="fstat-no" title="function not covered" >function () {</span>
+                    })
+                    .error(<span class="fstat-no" title="function not covered" >function () {</span>
+                    });
+            }
+        }])
+        .controller('systemManagement_mainviewCtrl', ['$scope', '$state', '$rootScope', <span class="fstat-no" title="function not covered" >function ($scope, $state, $rootScope) {</span>
+<span class="cstat-no" title="statement not covered" >            $rootScope.$on('$stateChangeStart', <span class="fstat-no" title="function not covered" >function (e, toState, toParams, fromState, fromParams) {</span></span>
+<span class="cstat-no" title="statement not covered" >                if ((fromState.name === 'system.networkStatistics.servers_networkStatistics' ||</span>
+                    fromState.name === 'system.networkStatistics.cellRelays_networkStatistics'
+                ) &amp;&amp; toState.name === 'system.networkStatistics') {
+<span class="cstat-no" title="statement not covered" >                    e.preventDefault();</span>
+<span class="cstat-no" title="statement not covered" >                    $state.go('^.servers_networkStatistics');</span>
+                }
+<span class="cstat-no" title="statement not covered" >                if ((fromState.name === 'system.grouping.circuitGrouping' ||</span>
+                    fromState.name === 'system.grouping.transformerGrouping' ||
+                    fromState.name === 'system.grouping.transformerMeterGrouping' ||
+                    fromState.name === 'system.grouping.hyperHubGrouping'||
+                    fromState.name === 'system.grouping.unassignedTransformers' ||
+                    fromState.name === 'system.grouping.unassignedMeterList'
+                ) &amp;&amp; toState.name === 'system.grouping') {
+<span class="cstat-no" title="statement not covered" >                    e.preventDefault();</span>
+<span class="cstat-no" title="statement not covered" >                    $state.go('^.circuitGrouping');</span>
+                }
+            });
+<span class="cstat-no" title="statement not covered" >            $scope.selectDeviceTab = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                $('#deviceManagement').click();</span>
+            };
+<span class="cstat-no" title="statement not covered" >            $scope.selectRegistration = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                $('#registration').click();</span>
+            };
+        }])
+        .run(['$state', '$rootScope', 'permissionService', '$uibModalStack', 'Idle', function ($state, $rootScope, permissionService, $uibModalStack, Idle) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (!angular.isUndefinedOrNull($rootScope.userName))
+<span class="cstat-no" title="statement not covered" >                Idle.watch();</span>
+            $rootScope.$on('IdleStart', <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                $uibModalStack.dismissAll();</span>
+<span class="cstat-no" title="statement not covered" >                swal('Session Expired!! Please Login to continue...');</span>
+<span class="cstat-no" title="statement not covered" >                $state.go('login');</span>
+            });
+            $rootScope.$on('$stateChangeStart', function (e, toState, toParams, fromState, fromParams) {
+                $rootScope.dynamicPopover.isOpen = false;
+                var top = $uibModalStack.getTop();
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (top) {
+<span class="cstat-no" title="statement not covered" >                    $uibModalStack.dismiss(top.key);</span>
+                }
+                if (fromState.name !== '') {
+                    permissionService.checkPermission(toState, <span class="fstat-no" title="function not covered" >function (check) {</span>
+<span class="cstat-no" title="statement not covered" >                        if (!check) {</span>
+<span class="cstat-no" title="statement not covered" >                            if (fromState.name === 'login' || fromState.name === '') {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                                e.preventDefault();</span>
+<span class="cstat-no" title="statement not covered" >                                $state.go('master');</span>
+&nbsp;
+                            } else {
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                                e.preventDefault();</span>
+<span class="cstat-no" title="statement not covered" >                                $state.go(fromState.name);</span>
+<span class="cstat-no" title="statement not covered" >                                swal("You don't have access here");</span>
+&nbsp;
+                            }
+&nbsp;
+                        }
+                    });
+                }
+            });
+        }])
+    angular.isUndefinedOrNull = function (val) {
+        return angular.isUndefined(val) || val === null;
+    };
+})(window.angular);
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Aug 22 2017 16:49:25 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿<div class="modal-header">
+    <h4 class="modal-title"><strong>Add Members</strong></h4>
+</div>
+<div class="container-fluid modalBackground">
+    <div class="modal-body">
+        <div class="row">
+            <form name="import_configForm" novalidate>
+                <div class="col-md-4">
+                    <div class="row">
+                        <h5><strong>Select Group</strong></h5>
+                    </div>
+                    <div class="row">
+                        <select class="selectGroup" name="group" ng-model="selectedTestGroup"
+                            ng-options="obj.Name for obj in configurationDetails" required>
+                            <option value="">Select One</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <h5><strong>Select File For Import</strong></h5>
+                        <input type="file" class="fileUpload" ng-model="file" file-model="fileMod" accept=".txt"
+                            file-reader="fileContent" />
+                        <span style="font-size: 11px; color:red ">{{errMessage}}</span>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-7">
+                    <div class="row">
+                        <h5 class=""><strong>Import Result</strong></h5>
+                    </div>
+                    <div class="row modalTable">
+                        <table class="table result_table" ng-model="importResult_Meter">
+                            <tr ng-repeat="imports_meter in imports">
+                                <td>{{imports_meter.key}}</td>
+                                <td> {{imports_meter.value}} </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default btnColor" ng-click="uploadFile()" ng-disabled="
+            (import_configForm.group.$dirty && import_configForm.group.$invalid ||
+            import_configForm.group.$error.required) || fileUploadStatus">
+        Import
+    </button>
+    <button type="button" class="btn btn-default btnDefault" ng-click="cancel()" ng-model="cancel">Cancel</button>
+</div>

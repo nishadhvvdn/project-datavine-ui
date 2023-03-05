@@ -1,0 +1,61 @@
+<div class="container-fluid">
+    <div class="row rg-list"><h5>List of Transformers </h5></div>
+    <div class="row circuit-lable-bottom">
+        <div class="pull-left">
+            <div class="row transformer-lable">
+                <div class="col-xs-6 col-md-6 col-sm-6 col-lg-6 " >
+                    <select ng-model="searchTransformerEntry" class="form-control " ng-change="searchGrid(searchterm)" >
+                        <option value="all">All</option>
+                        <option value="tsn">Transformer Serial Number</option>
+                        <!-- <option value="hsn">Hypersprout Serial Number</option> -->
+                    </select>
+                </div>
+                <div class="col-xs-4 col-md-4 col-sm-4 col-lg-4" >
+                    <input ng-model="searchterm" class="form-control searchBox" placeholder="Search" 
+                           type="search" ng-change="searchButtonClear(searchterm)">
+                    <!--<input id="Search" name="Search" type="search"
+                           placeholder="Search" />-->
+                </div>
+                <div class="col-xs-2 col-md-2 col-sm-2 col-lg-2">
+                    <button type="button" ng-click="searchButton(searchterm)" class="btn btn-default btnColor" ng-disabled="!searchterm">
+                        Search
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="pull-right">
+            <button type="button" ng-click="createTransformer()"
+                    class="btn btn-default btnColor">
+                Add
+            </button>
+            &nbsp;
+            <button type="button" ng-click="openXfmerUploadConfiguration()"
+                    class="btn btn-default btnColor">
+                Upload
+            </button> 
+            &nbsp;
+            <button type="button" ng-click="uploadHypersproutConfiguration()"
+            class="btn btn-default btnColor">
+                Upload Config
+            </button>
+            &nbsp;
+            <button type="button" ng-disabled="mySelectedRows.length==0"
+                    ng-click="deleteSelectedTransformers()"
+                    class="btn btn-default btnColor configSettings">
+                Delete Selected
+            </button><!--ng-disabled="!isSelected"-->
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="container-fluid">
+            <div ui-grid="downloadOptions" ui-grid-edit ui-grid-exporter ui-grid-pagination
+                 ui-grid-selection ui-grid-resize-columns class="grid"></div>
+            <div class="watermark" ng-if="!downloadOptions.data.length">{{commonMsg}}</div>
+        </div>
+        <div class="container">
+            <div ui-view></div>
+
+        </div>
+    </div>
+</div>

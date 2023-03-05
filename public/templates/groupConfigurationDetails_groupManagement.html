@@ -1,0 +1,37 @@
+﻿<div class="modal-header">
+    <h4 class="modal-title"><strong>Group Configuration Details</strong></h4>
+</div>
+
+<div class="container-fluid modalBackground">
+    <div class="modal-body">
+        <div class="row" style="margin-left:4%">
+            <table class="table modalTableBorder">
+                <tr>
+                    <th nowrap> Group Name </th>
+                    <td>{{groupName}}</td>
+                </tr>
+<!--                <tr>-->
+<!--                    <th nowrap> Group Type </th>-->
+<!--                    <td>{{groupType}}</td>-->
+<!--                </tr>-->
+                <tr>
+                    <th> Description </th>
+                    <td>{{description}}</td>
+                </tr>
+                <tr>
+                    <th nowrap ng-if="type==='HyperSprout'">HyperSPROUT&trade; ID's </th>
+                    <th nowrap ng-if="type==='Meter'">Meter ID's </th>
+
+                    <td>
+                        <div style="float:left; height:14vh; width:20vw; overflow: auto;">
+                            <div ng-repeat="id in Ids track by $index">{{id}}</div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div class='modal-footer'>
+    <button type="button" class="btn btn-default btnDefault" ng-click="cancel()">Cancel</button>
+</div>

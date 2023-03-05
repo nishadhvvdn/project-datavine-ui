@@ -1,0 +1,59 @@
+<div class="right-section">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="content-box">
+						<h3>Device Information</h3>
+						<div class="content-para">
+							<p><label>System Name</label> {{!meterConfigurationDetails.SystemName ? 'MESHCARD' :meterConfigurationDetails.SystemName}}</p>
+							<p><label>Serial Number</label> {{!meterConfigurationDetails.DeviceSerialNumber ? 'NA' : meterConfigurationDetails.DeviceSerialNumber}}</p>
+							<p><label>Wireless MAC Address</label> {{!meterConfigurationDetails.WirelessMACAddress2_4 ? 'NA' : meterConfigurationDetails.WirelessMACAddress2_4}}</p>
+							<p><label>Country</label> {{!meterConfigurationDetails.Country ? 'NA' : meterConfigurationDetails.Country}}</p>
+							<p><label>Current Firmware Version</label>{{!meterConfigurationDetails.CurrentFirmwareVersion ? 'NA' : meterConfigurationDetails.CurrentFirmwareVersion}}</p>
+							<!-- <p><label>Backup Firmware Version</label> {{!meterConfigurationDetails.BackupFirmwareVersion ? 'NA' : meterConfigurationDetails.BackupFirmwareVersion}}</p>
+							<p><label>Current Time</label> <i class="fa fa-clock-o"></i>{{time}}</p>
+							<p><label>Uptime</label> <i ng-show="meterConfigurationDetails.UpTime" class="fa fa-clock-o"></i> {{!meterConfigurationDetails.UpTime ? 'NA' : meterConfigurationDetails.UpTime}}</p> -->
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="content-box">
+						<h3>Meter Information</h3>
+						<div class="content-para">
+							<!-- <p><label>Status</label> {{!meterConfigurationDetails.MeterStatus ? 'NA' : meterConfigurationDetails.MeterStatus}}</p> -->
+							<p><label>Serial Number</label> {{!meterConfigurationDetails.MeterSerialNumber ? 'NA' : meterConfigurationDetails.MeterSerialNumber}}</p>
+							<p><label>Model Number</label> {{!meterConfigurationDetails.MeterModelNumber ? 'NA' : meterConfigurationDetails.MeterModelNumber}}</p>
+							<p><label>Firmware Version</label>{{!meterConfigurationDetails.MeterFirmwareVersion ? 'NA' : meterConfigurationDetails.MeterFirmwareVersion}}</p>
+							<p><label>Hardware Version</label> {{!meterConfigurationDetails.MeteHardwareVersion ? 'NA' : meterConfigurationDetails.MeteHardwareVersion}}</p>
+							<p><label>Device Type</label> {{!meterConfigurationDetails.MeterType ? 'NA' : meterConfigurationDetails.MeterType}}</p>
+							<p><label>Phase Type</label> {{!meterConfigurationDetails.MeterPhaseType ? 'NA' : meterConfigurationDetails.MeterPhaseType}}</p>
+							<p><label>Standard Type</label> {{!meterConfigurationDetails.MeterStandardType ? 'NA' : meterConfigurationDetails.MeterStandardType}}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- <div class="col-sm-12">
+			<div class="row">	
+				<div class="col-sm-12">
+					<div class="content-box">
+						<h3>Wireless Settings</h3>
+						<div class="content-para">
+							<div class="row">
+								<div class="col-sm-6">
+									<p><label>Radio</label>{{!meterConfigurationDetails.FronthaulRadioRadioBand ? 'NA' : meterConfigurationDetails.FronthaulRadioRadioBand}}</p>
+									<p><label>Wireless Mode</label> {{!meterConfigurationDetails.FronthaulRadioRadioMode ? 'NA' : meterConfigurationDetails.FronthaulRadioRadioMode}}</p>
+								</div>
+								<div class="col-sm-6">
+									<p><label>Antena</label> {{!meterConfigurationDetails.FronthaulRadioStreamSelection ? 'NA' : meterConfigurationDetails.FronthaulRadioStreamSelection}}</p>
+									<p><label>Channel</label> {{!meterConfigurationDetails.FronthaulRadioChannel ? 'NA' : meterConfigurationDetails.FronthaulRadioChannel}}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>	
+			</div>
+		</div> -->
+	</div>
+</div>

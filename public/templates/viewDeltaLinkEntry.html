@@ -1,0 +1,75 @@
+<div id="print-content">
+    <div class="modal-header">
+        <h4 class="modal-title"><strong>DeltaLINK&trade; Details (Serial Number - {{deltaLinkDetails.SerialNumber}})</strong></h4>
+    </div>
+    <div class="container-fluid modalBackground">
+        <div class="modal-body">
+            <form name="" novalidate>
+                <div class="container-fluid">
+                    <div class="container-fluid">
+                        <div class="row">
+                                <div class="col-md-12">
+                                    <table class="table table-hover modalTableBorder">
+                                        <tr>
+                                            <td>
+                                                <label>Serial Number </label>
+                                            </td>
+                                            <td>
+                                                <label><span ng-bind="deltaLinkDetails.SerialNumber"></span></label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label>Version </label>
+                                            </td>
+                                            <td>
+                                                <label><span ng-bind="deltaLinkDetails.version"></span></label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label>WIFI MAC ID </label>
+                                            </td>
+                                            <td>
+                                                <label><span ng-bind="deltaLinkDetails.macID"></span></label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label>Bandwidth</label>
+                                            </td>
+                                            <td>
+                                                <label><span ng-bind="deltaLinkDetails.bandwidth === '1' ? 'Enable' : 'Disable'"></span></label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label>Download Bandwidth (Mbps)</label>
+                                            </td>
+                                            <td>
+                                                <label><span ng-bind="deltaLinkDetails.downloadBandwidth"></span></label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label>Upload Bandwidth (Mbps)</label>
+                                            </td>
+                                            <td>
+                                                <label><span ng-bind="deltaLinkDetails.uploadBandwidth"></span></label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class='modal-footer'>
+        <button type="button" class="btn btn-default btnDefault" ng-click="ok()">OK</button>
+    </div>
+</div>

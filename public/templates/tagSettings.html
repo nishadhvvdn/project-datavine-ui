@@ -1,0 +1,75 @@
+﻿<div class="row select_Group">
+    <a class="btn btn-default pull-right tag_popoverClose" ng-click="dynamicPopover.close()">
+        <span class="glyphicon glyphicon-remove"></span>
+    </a>
+</div>
+<div class="radio state">
+    <h5><strong>Select Tag Corrected State</strong></h5>
+    <div class="radio_items">
+        <input type="radio" name="optradio" value="all" ng-checked="true" ng-model="object.correctedState"
+            ng-change="tags()" />All<br />
+        <input type="radio" name="optradio" value="correctedOnly" ng-model="object.correctedState"
+            ng-change="tags()" />Corrected Only<br />
+        <input type="radio" name="optradio" value="discrepentOnly" ng-model="object.correctedState"
+            ng-change="tags()" />Discrepent Only<br />
+    </div>
+</div>
+
+<div class="row">
+    <h5 class="start_Date_Time"><strong>Start Date Time</strong></h5>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="input-group dateFilterPos">
+            <input type="text" class="form-control" uib-datepicker-popup ng-model="startingDate"
+                ng-change="setFromDate(startingDate)" is-open="popup1.opened" datepicker-options="dateOptions"
+                ng-required="true" close-text="Close" show-button-bar="false" readonly="readonly" />
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default " ng-click="open1()">
+                    <i class="glyphicon glyphicon-calendar"></i>
+                </button>
+            </span>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <uib-timepicker ng-model="startingDate" ng-change="setStartTime(startingDate)" hour-step="hstep"
+            minute-step="mstep" show-meridian="ismeridian" class="timepicker demandTime"></uib-timepicker>
+    </div>
+</div>
+<div class="row">
+    <h5 class="end_Date_Time"><strong>End Date Time</strong></h5>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="input-group dateFilterPos">
+            <input type="text" class="form-control" uib-datepicker-popup ng-model="endingDate"
+                ng-change="setToDate(endingDate)" is-open="popup2.opened" datepicker-options="dateOptions"
+                ng-required="true" close-text="Close" show-button-bar="false" readonly="readonly" />
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default " ng-click="open2()">
+                    <i class="glyphicon glyphicon-calendar"></i>
+                </button>
+            </span>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <uib-timepicker ng-model="endingDate" ng-change="setToTime(endingDate)" hour-step="hstep" minute-step="mstep"
+            show-meridian="ismeridian" class="timepicker demandTime"></uib-timepicker>
+    </div>
+</div>
+<div ng-if="invalidDate">
+    <span style="color:red">*End date should be greater than Start date</span><br />
+</div>
+<div ng-if="invalidTime">
+    <span style="color:red">*End time should be greater than Start time</span></br>
+</div>
+<div ng-if="properDateTime">
+    <span style="color:red">*select valid date and time</span></br>
+</div>
+<div ng-if="invalidSelection">
+    <span style="color:red">*Please select atleast one radio button</span>
+</div>
+<div class="row createReport_row">
+    <button type="button" name="filterConfig" class="btn btn-default btnColor createReport" ng-click="tagFilterConfig()"
+        ng-disabled="(invalidDate || invalidTime || properDateTime) == true">Filter Configurations</button>
+</div>

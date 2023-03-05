@@ -1,0 +1,22 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <h3 class="headingAlignSecurity">Security</h3>
+    </div>
+    <div class="row marg-bottom">
+        <div class="pull-right">
+            <button type="button" ng-click="openPasswordSettings()" class="btn btn-default btnColor">
+                Password Settings
+            </button>&nbsp;
+            <button type="button" ng-click="addSecurityGroup('','add')" ng-show="addSecurityGroup" class="btn btn-default btnColor configSettings">
+                Add Security Group
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="container-fluid">
+            <div ui-grid="securityOptions" ui-grid-exporter ui-grid-pagination ui-grid-resize-columns class="grid"></div>
+            <div class="watermark" ng-if="!securityOptions.data.length">{{commonMsg}}</div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,76 @@
+﻿<div class="row">
+    <a class="btn btn-default pull-right relay_popoverClose" ng-click="dynamicPopover.close()">
+        <span class="glyphicon glyphicon-remove"></span>
+    </a>
+    <div class="well well-sm">
+        <strong>Job Filter(s)</strong>
+    </div>
+</div>
+<div class="row jobfilteroption">
+    <div class="toolsSettingsRadio">
+        <input type="radio" name="optradio" value="all" />Show All Jobs<br />
+        <input type="radio" name="optradio" value="selectedJobs" />Show Selected Jobs<br />
+    </div>
+    <div class="row toolsSettingsCheckbox">
+        <input type="checkbox" ng-model="eventLogCheckbox" ng-change="" id="display" />Retrieve Event Log<br />
+        <input type="checkbox" ng-model="homeNetworkCheckbox" ng-change="" id="display" />Retrieve Home Network
+        Data<br />
+        <input type="checkbox" ng-model="retrieveRegistersCheckbox" ng-change="" id="display" />Retrieve Registers<br />
+        <input type="checkbox" ng-model="loadProfileCheckbox" ng-change="" id="display" />Retrieve Load Profile<br />
+        <input type="checkbox" ng-model="networkStatsCheckbox" ng-change="" id="display" />Retrieve Network
+        Statistics<br />
+    </div>
+</div>
+<div class="row">
+    <input type="checkbox" class="demandReadCheckbox" ng-model="runningJobs" ng-change="" />Display Only Running
+    Jobs<br />
+    <input type="checkbox" class="demandReadCheckbox" ng-model="historicalJobs" ng-change="" />Display Historical Jobs
+</div>
+<div class="row">
+    <div class="well well-sm readOptions">
+        <strong>Set On Demand Read Options</strong>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="input-group dateFilterPos">
+            <input type="text" class="form-control" uib-datepicker-popup ng-model="startingDate"
+                ng-change="setFromDate(startingDate)" is-open="popup1.opened" datepicker-options="dateOptions"
+                ng-required="true" close-text="Close" />
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default " ng-click="open1()">
+                    <i class="glyphicon glyphicon-calendar"></i>
+                </button>
+            </span>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <uib-timepicker ng-model="startingDate" ng-change="setStartTime(startingDate)" hour-step="hstep"
+            minute-step="mstep" show-meridian="ismeridian" class="timepicker demandTime"></uib-timepicker>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="input-group dateFilterPos">
+            <input type="text" class="form-control" uib-datepicker-popup ng-model="endingDate"
+                ng-change="setToDate(endingDate)" is-open="popup2.opened" datepicker-options="dateOptions"
+                ng-required="true" close-text="Close" />
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default " ng-click="open2()">
+                    <i class="glyphicon glyphicon-calendar"></i>
+                </button>
+            </span>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <uib-timepicker ng-model="endingDate" ng-change="setToTime(endingDate)" hour-step="hstep" minute-step="mstep"
+            show-meridian="ismeridian" class="timepicker demandTime"></uib-timepicker>
+    </div>
+    <span ng-show="invalidDate" style="color:red">*End date should be greater than Start date</span><br />
+    <span ng-show="invalidTime" style="color:red">*End time should be greater than Start time</span>
+</div>
+<div class="row">
+    <button type="button" ng-model="filterJobs" name="filterEndpoint" ng-click="apply()"
+        class="btn btn-default btnColor hyperSproutCreateReport">Apply</button>
+</div>

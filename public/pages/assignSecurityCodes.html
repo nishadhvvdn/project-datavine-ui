@@ -1,0 +1,58 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">Assign Device Security Codes</h3>
+</div>
+<div class="container-fluid modalBackground">
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="row">
+                    <h5><strong>Select Device Class</strong></h5>
+                </div>
+                <div class="row">
+                    <select class="">
+                        <option value="Device1">Device1</option>
+                        <option value="Device2">Device2</option>
+                        <option value="Device3">Device3</option>
+                    </select>
+                </div>
+                <br />
+                <div class="row">
+                    <h5 class=""><strong>Select Security Code Version</strong></h5>
+                </div>
+                <div class="row">
+                    <select class="">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <h5 class=""><strong>Security Codes</strong></h5>
+                </div>
+                <div class="row">
+                    <input type="text" ng-model="securityCodes" />
+                </div>
+                <div class="row">
+                    <h5 class=""><strong>Select File</strong></h5>
+                </div>
+                <div class="row">
+                    <input type="file" file-model="securityCodesFile" accept=".txt"/>
+                </div>
+                <br />
+            </div>
+            <div class="col-md-7">
+                <div class="row">
+                    <h5 class=""><strong>Import Result</strong></h5>
+                </div>
+                <div class="row">
+                    <textarea ng-model="importResult" class="importResultArea"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class='modal-footer'>
+    <button type="button" class="btn btn-default btnColor" ng-click="uploadFile()">Assign Device Security Codes</button>
+    <button type="submit" class="btn btn-default btnDefault" ng-click="cancel()">Cancel</button>
+</div>
+

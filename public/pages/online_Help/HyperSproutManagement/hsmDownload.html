@@ -1,0 +1,183 @@
+<div class="container-fluid">
+
+    <!--=====================================================-->
+
+    <div class="row">
+        <div class="rectangleBox">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 your_col">
+                    <img alt="#" src="../assets/images/HypersproutManagement/Downloads.png" class="imgDimension-helpSub" />
+                </div>
+                <div class="col-xs-8 col-sm-98 col-md-8 col-lg-8 labelStyle">
+                    <label> Downloads </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--=====================================================-->
+
+    <div class="row" style="margin-top: 1%">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="pull-right">
+                <p><a ng-click="tabChange('readingReport')" href=""><strong> 1. &nbsp; Reading The List </strong></a></p>
+                <p><a ng-click="tabChange('sortReport')" href=""><strong> 2. &nbsp; Sorting The List </strong></a></p>
+                <p><a ng-click="tabChange('exportingReport')" href=""><strong> 3. &nbsp; Exporting The List </strong></a></p>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="pull-left">
+                <p><a ng-click="tabChange('printReport')" href=""><strong> 4. &nbsp; Printing The List </strong></a></p>
+                <p><a ng-click="tabChange('filterReport')" href=""><strong> 5. &nbsp; Filtering The List </strong></a></p>
+                <p><a ng-click="tabChange('setReport')" href=""><strong> 6. &nbsp; Downloading A Configuration </strong></a></p>
+            </div>
+        </div>
+    </div>
+    <!--=====================================================-->
+
+    <div class="hr" style="margin-top: 0"></div>
+
+    <!--===============================================================-->
+
+    <div class="row text-center scrollAdjust" ng-show="tabs.readingReport">
+        <label> <h1> <strong> 1. Reading The List </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+        
+        
+        
+                  The downloads list shows every HyperSPROUT&trade; download job in the system.
+                <br>The list contains seven columns.
+
+                <br><strong>1.	Job ID:</strong> This column contains the unique id of the job.
+                <br><strong>2.	Description:</strong> This column shows a brief description of what the job is for.
+                <br><strong>3.	Group: </strong> Column shows what group activated the download.
+                <br><strong>4.	Serial Number: </strong> Column shows serial number of the device.
+                <br><strong>5.	Status: </strong> Status shows if the download is in progress or completed among all members
+                in the group.
+                <br><strong>6.	Start Time: </strong> Timestamp for when the download started.
+                <br><strong>7.	End Time: </strong> Timestamp for when the download ended.
+               
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/readDownoad.png" style=" width: 56%" />
+
+
+        <span> 
+        <p class="paragraph"  style= "margin-top:1%">
+                   If the list has a large amount of data, it might separate into pages. In this case, the user can choose how many entries
+                to display or which page to show from the pagination tool bar in the bottom left of the report.
+        </p>
+                </span>
+
+
+
+        <img alt="#" src="../assets/images/commPage.png" style=" width: 56% ;margin-top:1%" />
+
+    </div>
+    <!--=====================================================================================-->
+    <div class="row text-center" ng-show="tabs.sortReport">
+        <label> <h1> <strong> 2. Sorting The List </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+              To sort the list, the user must click the header of whichever column they would like to sort by. For instance, clicking on
+                the Group header will switch the column between the default display, ascending alphabetically, and descending
+                alphabetically.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/sortDownload.png" />
+
+    </div>
+    <!--================================================================================-->
+
+    <div class="row text-center" ng-show="tabs.exportingReport">
+        <label> <h1> <strong> 3. Exporting The List </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+            The report gives four different options for exporting. The user may export either all the data in the report or just the
+                currently displayed data in either a CSV format or a PDF format. To do this the user simply has to click
+                on the export button in the top right corner of the report after filtering it for the desired data.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/exportMenu.png" />
+
+    </div>
+    <!--====================================================================-->
+
+    <div class="row text-center" ng-show="tabs.printReport">
+        <label> <h1> <strong> 4. Printing The List </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+            The report can easily be prepared for printing by using the provided printing button. This button will open up a standard
+                printing window with the report displayed.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/savePrint.png" />
+
+
+    </div>
+    <!--===================================================================-->
+
+    <div class="row text-center " ng-show="tabs.filterReport" >
+        <label> <h1> <strong> 5. Filtering The List </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+           The filter for the downloads page only contains one section. This section allows a user to filter the report so that only entries
+                 containing a start time within the user specified date range will be shown.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/filterWind.png"  style="margin-top:1%"/>
+
+    </div>
+
+    <!--=====================================================================================-->
+    <div class="row text-center" ng-show="tabs.setReport">
+        <label> <h1> <strong> 6. Downloading A Configuration</strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+           To begin downloading the associated configuration to a configuration group’s members simply click the Download Configuration
+                button above the upper right corner of the list.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/downloadConfiguration.png" />
+        <span>
+        <p class="paragraph" style="margin-top:1%">
+            
+           After clicking the button you will be presented with the Download Configuration window. Choose which configuration you would
+                like to initiate a download for from the Configurations dropdown. If you wish to only download to certain
+                members of the group deselect the undesired HyperSprouts from the HyperSPROUT&trade; dropdown. After this click
+                the Download Configuration button.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/downloadWindow.png" style="margin-top:1%" />
+
+
+    </div>
+    <!--===============================================================================-->
+
+</div>

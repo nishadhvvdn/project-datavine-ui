@@ -1,0 +1,26 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <h3 class="headingAlign">Jobs</h3>
+    </div>
+    <div class="row">
+        <div class="pull-left headingAlign" style="margin-top:1%">
+            <a ng-click="printCart()">
+                <img alt="#" src="../assets/images/Print.png" class="anchorText" />
+                <strong class="anchorText">Print</strong>
+            </a>
+        </div>
+        <div class="pull-right">
+            <button type="button" class="btn btn-default btnColor toolsSettings"
+                    popover-append-to-body='false' popover-animation='true'
+                    popover-placement='bottom' popover-is-open="dynamicPopover.isOpen"
+                    uib-popover-template='dynamicPopover.templateUrl' ng-click="today()">
+                Filter
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="container-fluid">
+            <div ui-grid="toolsJobStatusOptions" ui-grid-exporter ui-grid-pagination ui-grid-resize-columns class="grid"></div>
+        </div>
+    </div>
+</div>

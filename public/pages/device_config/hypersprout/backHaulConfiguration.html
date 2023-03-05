@@ -1,0 +1,227 @@
+<div class="right-section">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="deviceConfig-tabs">
+				<ul class="nav nav-tabs" role="tablist">
+					<li ng-class="path==='2.4' ? 'active' : '' "><a ng-click="changeTab('2.4', 'cellular');">Cellular</a></li>
+					<li ng-class="path==='5' ? 'active' : '' "><a ng-click="changeTab('5', 'ethernet');">Ethernet</a></li>
+					<li ng-class="path==='5-1' ? 'active' : '' "><a ng-click="changeTab('5-1', 'advanced');">Advanced</a>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane" ng-class="path==='2.4' ? 'active' : '' " id="cellular">
+						<div class="tab-form-wrapper">
+							<form class="pure-form pure-form-aligned" name="backhaulCellularForm" method="post" novalidate autocomplete="off">
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label>Username<span class="validationRequired">*</span></label>
+											<div class="input-wrap"><input type="text" class="form-control" name="username" ng-model="configurationDetails.BackhaulCellularUserName" ng-blur="focusValidate('username')"
+												ng-change="focusValidate('username')"
+												required disallow-space ng-trim="false" maxlength=32>
+												<div class="field-message" ng-messages="backhaulCellularForm.username.$error"
+												ng-if='backhaulCellularForm.username.$dirty' ng-cloak></div>
+												<span ng-show="errorUsername" class="error-span" style="color:red;">{{errorUsernameMessage}}</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label>Password<span class="validationRequired">*</span></label>
+											<div class="input-wrap icon-input"><input type="{{passwordIconOne}}" class="form-control" name="password" ng-model="configurationDetails.BackhaulCellularPassword" ng-blur="focusValidate('BackhaulPassword')"
+												ng-change="focusValidate('BackhaulPassword')" 
+												required disallow-space  maxlength=32 ng-trim="false"><i ng-class="passwordIconOne === 'text' ? 'fa fa-eye' : 'fa fa-eye-slash' " ng-click="passwordIconOne === 'text' ? passwordIconOne = 'password' :passwordIconOne = 'text'"></i>
+												<div class="field-message" ng-messages="backhaulCellularForm.password.$error"
+												ng-if='backhaulCellularForm.password.$dirty' ng-cloak></div>
+												<span ng-show="errorPassword" class="error-span" style="color:red;">{{errorPasswordMessage}}</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label>Sim Pin<span class="validationRequired">*</span></label>
+											<div class="input-wrap"><input type="text" class="form-control" name="simPin" ng-model="configurationDetails.BackhaulCellularSimPin" ng-blur="focusValidate('simPin')"
+												ng-change="focusValidate('simPin')" numbers-only
+												required disallow-space  maxlength=4 ng-trim="false">
+												<div class="field-message" ng-messages="backhaulCellularForm.simPin.$error"
+												ng-if='backhaulCellularForm.simPin.$dirty' ng-cloak></div>
+												<span ng-show="errorSimPin" style="color:red;" class="error-span">{{errorSimPinMessage}}</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label>Network Selection<span class="validationRequired">*</span></label>
+											<div class="input-wrap">
+												<select name="networkSelection" ng-model="configurationDetails.BackhaulCellularNetworkSelection" class="form-control"
+												ng-change="onchangeNetworkSelection()" required>
+												<option value="0">Auto</option>
+												<option value="1">Manual</option></select>							
+												<div class="field-message" ng-messages="backhaulCellularForm.networkSelection.$error"
+												ng-if='backhaulCellularForm.networkSelection.$dirty' ng-cloak>
+												<div ng-message="required">Network Selection is required!</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-6" ng-show="configurationDetails.BackhaulCellularNetworkSelection.toLowerCase() === '1'">
+										<div class="form-group">
+											<label>Carrier Name<span class="validationRequired">*</span></label>
+											<div class="input-wrap">
+												<select name="carrierName" ng-model="configurationDetails.BackhaulCellularCarrierName" class="form-control"
+												ng-options="x for x in carrierNameList" ng-required="configurationDetails.BackhaulCellularNetworkSelection === '1'">
+												<option value="">Select Carrier Name</option></select>
+												<div class="field-message" ng-messages="backhaulCellularForm.carrierName.$error"
+												ng-if='backhaulCellularForm.carrierName.$dirty' ng-cloak>
+												<div ng-message="required">Carrier Name is required!</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-12">
+										<div class="form-btn text-right">
+											<button class="plain-btn" ng-click="resetDetails('cellular');">Cancel</button>
+											<button class="fill-btn" ng-click="saveBackhaulConfig('Cellular');" ng-disabled="backhaulCellularForm.$invalid || set_cellular_valid || !backhaulCellularForm.$dirty">Save</button>
+										</div>
+									</div>
+								</div>
+						    </form>
+						</div>
+					</div>
+					<div role="tabpanel" class="tab-pane" ng-class="path==='5' ? 'active' : '' " id="ethernet">
+						<div class="tab-form-wrapper">
+							<form class="pure-form pure-form-aligned" name="backhaulEthernetForm" method="post" novalidate autocomplete="off">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="form-group">
+											<label>Ethernet<span class="validationRequired">*</span></label>
+											<div class="input-wrap">
+												<div class="radio-wrap">
+													<input type="radio" id="true" ng-value="true" name="ethernetType" ng-model="configurationDetails.BackhaulEthernetIPType" ng-change="onchangeEthernet()">
+													<label for="true">Static IP</label>
+												</div>
+												<div class="radio-wrap">
+													<input type="radio" id="false" ng-value="false" name="ethernetType" ng-model="configurationDetails.BackhaulEthernetIPType" ng-change="onchangeEthernet()">
+													<label for="false">Dynamic IP</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div ng-show="configurationDetails.BackhaulEthernetIPType">
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label>IP<span class="validationRequired">*</span></label>
+											<div class="input-wrap"><input type="text" class="form-control" name="ipAddress" ng-model="configurationDetails.BackhaulEthernetIPAddress" ng-blur="focusValidate('ipAddress')"
+												ng-change="focusValidate('ipAddress')" maxlength=15 disallow-space>
+												<div class="field-message" ng-messages="backhaulEthernetForm.ipAddress.$error"
+												ng-if='backhaulEthernetForm.ipAddress.$dirty' ng-cloak></div>
+												<span ng-show="errorBackhaulIpAddress" class="error-span" style="color:red;">{{errorBackhaulIpAddressMessage}}</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label>Primary DNS<span class="validationRequired">*</span></label>
+											<div class="input-wrap"><input type="text" class="form-control" name="primaryDNS" ng-model="configurationDetails.BackhaulEthernetPrimaryDNS" ng-blur="focusValidate('primaryDNS')"
+												ng-change="focusValidate('primaryDNS')" maxlength=15 disallow-space>
+												<div class="field-message" ng-messages="backhaulEthernetForm.primaryDNS.$error"
+												ng-if='backhaulEthernetForm.primaryDNS.$dirty' ng-cloak></div>
+												<span ng-show="errorBackhaulPrimaryDNS" class="error-span" style="color:red;">{{errorBackhaulPrimaryDNSMessage}}</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label>Gateway<span class="validationRequired">*</span></label>
+											<div class="input-wrap"><input type="text" class="form-control" name="gateway" ng-model="configurationDetails.BackhaulEthernetGateWay" ng-blur="focusValidate('gateway')"
+												ng-change="focusValidate('gateway')" maxlength=15 disallow-space>
+												<div class="field-message" ng-messages="backhaulEthernetForm.gateway.$error"
+												ng-if='backhaulEthernetForm.gateway.$dirty' ng-cloak></div>
+												<span ng-show="errorBackhaulGateway" class="error-span" style="color:red;">{{errorBackhaulGatewayMessage}}</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label>Secondary DNS<span class="validationRequired">*</span></label>
+											<div class="input-wrap"><input type="text" class="form-control" name="secondaryDNS" ng-model="configurationDetails.BackhaulEthernetSecondaryDNS" ng-blur="focusValidate('secondaryDNS')"
+												ng-change="focusValidate('secondaryDNS')" maxlength=15 disallow-space>
+												<div class="field-message" ng-messages="backhaulEthernetForm.secondaryDNS.$error"
+												ng-if='backhaulEthernetForm.secondaryDNS.$dirty' ng-cloak></div>
+												<span ng-show="errorBackhaulSecondaryDNS" class="error-span" style="color:red;">{{errorBackhaulSecondaryDNSMessage}}</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label>Subnet Mask<span class="validationRequired">*</span></label>
+											<div class="input-wrap"><input type="text" class="form-control" name="subnetMask" ng-model="configurationDetails.BackhaulEthernetSubnetMask" ng-blur="focusValidate('subnetMask')"
+												ng-change="focusValidate('subnetMask')" maxlength=15 disallow-space >
+												<div class="field-message" ng-messages="backhaulEthernetForm.subnetMask.$error"
+												ng-if='backhaulEthernetForm.subnetMask.$dirty' ng-cloak></div>
+												<span ng-show="errorBackhaulSubnetMask" class="error-span" style="color:red;">{{errorBackhaulSubnetMaskMessage}}</span>
+											</div>
+										</div>
+									</div>
+								</div>
+									<div class="col-sm-12">
+										<div class="form-btn text-right">
+											<button class="plain-btn" ng-click="resetDetails('ethernet');">Cancel</button>
+											<button class="fill-btn" ng-click="saveBackhaulConfig('Ethernet');" ng-disabled="backhaulEthernetForm.$invalid || (configurationDetails.BackhaulEthernetIPType && set_Ethernet_valid) || !backhaulEthernetForm.$dirty">Save</button>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div role="tabpanel" class="tab-pane" ng-class="path==='5-1' ? 'active' : '' " id="advanced">
+						<div class="tab-form-wrapper">
+							<form class="pure-form pure-form-aligned" name="backhaulAdvancedForm" method="post" novalidate autocomplete="off">
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label>Primary Backhaul<span class="validationRequired">*</span></label>
+											<div class="input-wrap">
+												<select name="primaryBackhaul" ng-model="configurationDetails.BackhaulAdvancedPrimary" class="form-control" required>
+												<option value="0">Cellular</option>
+												<option value="1">Ethernet</option></select>
+												<div class="field-message" ng-messages="backhaulAdvancedForm.primaryBackhaul.$error"
+												ng-if='backhaulAdvancedForm.primaryBackhaul.$dirty' ng-cloak>
+												<div ng-message="required">Primary Backhaul is required!</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-group switch-box green-switch">
+											<label>Auto Switch-over<span class="validationRequired">*</span></label>
+											<div class="input-wrap short-input">
+												<div class="toggle-button-cover">
+													<div class="button-cover">
+														<div class="button r" id="button-1">
+															<input type="checkbox" class="checkbox" name="autoSwitch"
+															ng-model="configurationDetails.BackhaulAdvancedAutoSwitch" ng-checked="configurationDetails.BackhaulAdvancedAutoSwitch">
+															<div class="knobs"></div>
+															<div class="layer"></div>
+														</div>
+													</div>
+												</div>
+												<span>{{configurationDetails.BackhaulAdvancedAutoSwitch === false ? 'Off' : 'On'}}</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-12">
+										<div class="form-btn text-right">
+											<button class="plain-btn" ng-click="resetDetails('advanced');">Cancel</button>
+											<button class="fill-btn" ng-click="saveBackhaulConfig('Advanced');" ng-disabled="backhaulAdvancedForm.$invalid || !backhaulAdvancedForm.$dirty">Save</button>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

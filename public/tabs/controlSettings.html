@@ -1,0 +1,76 @@
+﻿<div class="container-fluid">
+    <div class="row ">
+    <table class="table table-hover ">
+                <tr>
+                    <th style="background-color: black; color:white;text-align:center;width:9vw">Setting</th>
+                    <th style="background-color: black; color:white;text-align:center">Description</th>
+                    <th style="background-color: black; color:white;text-align:center;width:12vw">Value</th>
+                </tr>
+    </table>
+    </div>
+    <div class="row adminSettings">
+        <form name="controlSettingsForm" novalidate>
+            <table class="table table-hover adminSettingsTable">
+                <!--<tr>
+                    <th style="background-color: black; color:white;">Setting</th>
+                    <th style="background-color: black; color:white;">Description</th>
+                    <th style="background-color: black; color:white;">Value</th>
+                </tr>-->
+                <tr>
+                    <td>
+                        <h5 style="margin-top:0.3vh"><strong>Days between TOU pending season retries</strong></h5>
+                    </td>
+                    <td>
+                        <p>
+                            Determines how many days a TOU pending season job needs to run before doing point-to-point retries to the unfinished endpoints. 1 to 100.
+                        </p>
+                    </td>
+                    <td>
+                        <input class="form-control controlSettingsInput" type="number" name="pendingTOU" ng-model="objControl.pendingTOU" min=0 oninput="validity.valid||(value='');" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h5 style="margin-top:0.3vh"><strong>Node ping period duration in seconds</strong></h5>
+                    </td>
+                    <td>
+                        <p>This setting together with the MaxNodePingsPerPeriod setting define the maximum allowed pace of node ping requests to a single relay for the given window period. Requests that exceed this limit will be rejected. 1 to 86400.</p>
+                    </td>
+                    <td>
+                        <input class="form-control controlSettingsInput" type="number" name="nodePingPeriod" ng-model="objControl.nodePingPeriod" min=0 oninput="validity.valid||(value='');" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5 style="margin-top:0.3vh"><strong>Process TOU pending season updates</strong></h5>
+                    </td>
+                    <td>
+                        <p>Determines whether or not TOU pending season updates will be run automatically when the automated process runs.</p>
+                    </td>
+                    <td>
+                        <input class="" type="checkbox" name="processTOU" ng-model="objControl.processTOU" ng-checked="" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5 style="margin-top:0.3vh"><strong>The number of simultaneous configuration download jobs allowed</strong></h5>
+                    </td>
+                    <td>
+                        <p>The maximum number of simultaneously active configuration download jobs allowed. 1 to 2.147484E+09.</p>
+                    </td>
+                    <td>
+                        <input class="form-control controlSettingsInput" type="number" name="simultaneousConfig" ng-model="objControl.simultaneousConfig" min=0 oninput="validity.valid||(value='');" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+       
+    </div>
+    <div class="btnAdjust">
+         <button type="button" class="btn btn-default btnColor" ng-click="SaveControl()">Save</button>&nbsp;
+        <button type="button" class="btn btn-default btnDefault" ng-click="restoreControlDefaults(resetValues)">Restore Defaults</button>
+    </div>
+    <div class="row">&nbsp;</div>
+    <div class="row">&nbsp;</div>
+</div>

@@ -1,0 +1,44 @@
+<div class="container-fluid">
+    <div class="row rg-list">
+        <h5>List of DeltaLINK&trade; </h5>
+    </div>
+    <div class="row" style="margin-bottom:3px">
+        <div class="pull-left">
+            <div class="row transformer-lable">
+                <div class="col-xs-6 col-md-6 col-sm-6 col-lg-6">
+                    <input ng-model="searchterm"
+                           class="form-control searchBox"
+                           placeholder="Search"
+                           type="search"
+                           ng-change="searchButtonClear(searchterm);"/>
+                </div>
+                <div class="col-xs-6 col-md-6 col-sm-6 col-lg-6" style="padding-left: 0;">
+                    <button type="button" ng-click="searchButton(searchterm)" class="btn btn-default btnColor" ng-disabled="!searchterm">
+                     Search
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="pull-right">
+            <button type="button" ng-click="createOrEditDeltaLink('add',{})"
+                    class="btn btn-default btnColor">
+                Add
+            </button>
+            <button type="button" ng-click="openUploadDeltaLinkConfiguration()"
+                    class="btn btn-default btnColor">
+                Upload
+            </button>
+            <button type="button" ng-disabled="mySelectedRows.length==0" ng-click="deleteSelectedDeltaLink({},'bulk')"
+                    class="btn btn-default btnColor configSettings">
+                Delete Selected
+            </button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="container-fluid">
+            <div ui-grid="deltaLinkGrid" ui-grid-edit ui-grid-exporter ui-grid-pagination ui-grid-selection ui-grid-resize-columns class="grid"></div>
+            <div class="watermark" ng-if="!deltaLinkGrid.data.length">{{commonMsg}}</div>
+        </div>
+    </div>
+</div>

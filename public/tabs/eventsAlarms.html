@@ -1,0 +1,78 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <div>
+            <a href='' class="imageBorder" style="margin-left: 80%;" ng-click="printCart()"><img src="../assets/images/Print.png" /></a>
+            <a href='' class="imageBorder" ng-click="pdf()"><img src="../assets/images/PDF.png" /><b class="anchorText">PDF</b>&nbsp;</a>
+            <a href='' class="imageBorder" ng-click="excel()"><img src="../assets/images/Excel.png" /><b class="anchorText">Excel</b>&nbsp;</a>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <form name="config_form" novalidate>
+            <table class="table table-hover table-bordered" style="border:1px solid;">
+                <tr>
+                    <th style="background-color: black; color:white;">Event Description</th>
+                    <th style="background-color: black; color:white;">History Log Events</th>
+                    <th style="background-color: black; color:white;">Notify Exceptions(Alarms)</th>
+                </tr>
+                <tr>
+                    <td>All</td>
+                    <td><input type="checkbox" ng-disabled="true" ng-model="configObj['ConfigGroups_Info']['AllEvents']" ng-checked="configObj['ConfigGroups_Info']['AllEvents']"/></td>
+                    <td><input type="checkbox" ng-disabled="true" ng-model="AllException" ng-checked="AllException" /></td>
+                </tr>
+                <tr>
+                    <td>Billing Date Cleared</td>
+                    <td><input type="checkbox" ng-disabled="true" ng-model="configObj['ConfigGroups_Info']['BillingDateCleard']"
+                        /></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Billing Schedule Expiration</td>
+                    <td><input type="checkbox" ng-disabled="true" ng-model="configObj['ConfigGroups_Info']['BillingScheduleExpiration']"
+                        /></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Demand Reset Occurred</td>
+                    <td><input type="checkbox" ng-disabled="true" ng-model="configObj['ConfigGroups_Info']['DemandResetOccured']"
+                        /></td>
+                    <td><input type="checkbox" ng-disabled="true" ng-model="demandResetException" /></td>
+                </tr>
+                <tr>
+                    <td>History Log Cleared</td>
+                    <td><input type="checkbox" ng-disabled="true" ng-model="configObj['ConfigGroups_Info']['HistoryLogCleared']"
+                        /></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Configuration Error Detected</td>
+                    <td><input type="checkbox" ng-disabled="true" ng-model="configObj['ConfigGroups_Info']['ConfigurationErrorDetected']"
+                        /></td>
+                    <td><input type="checkbox" ng-disabled="true" ng-model="configurationErrorException" /></td>
+                </tr>
+                <tr>
+                    <td>Load Profile Error</td>
+                    <td><input type="checkbox" ng-disabled="true" ng-model="configObj['ConfigGroups_Info']['LoadProfileError']"
+                        /></td>
+                    <td><input type="checkbox" ng-disabled="true" ng-model="loadProfileException" /></td>
+                </tr>
+                <tr>
+                    <td>Low Battery Detected</td>
+                    <td><input type="checkbox" ng-disabled="true" ng-model="configObj['ConfigGroups_Info']['LowBatteryDetected']"
+                        /></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Primary Power Down</td>
+                    <td><input type="checkbox" ng-disabled="true" ng-model="configObj['ConfigGroups_Info']['PrimaryPowerDown']"
+                        /></td>
+                    <td></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <!--<div class='modal-footer'>
+        <button type="button" class="btn btn-default btnColor" ng-click="Save()">Save</button>
+        <button type="button" class="btn btn-default btnDefault" ng-click="cancel()">Cancel</button>
+    </div>-->
+</div>

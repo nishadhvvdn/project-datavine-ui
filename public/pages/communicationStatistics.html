@@ -1,0 +1,62 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <nav class="navbar navbar-default customNav">
+            <ul class="nav navbar-nav">
+                <li ui-sref-active="activeMenu">
+                   <a ui-sref="reports.communicationStatistics.hypersproutEntry" id="communication" class="configNav">HyperSPROUT&trade;</a>
+                </li>
+                <li ui-sref-active="activeMenu">
+                   <a ui-sref="reports.communicationStatistics.hyperhubEntry" class="configNav">HyperHUB&trade;</a>
+                </li>                
+                <li ui-sref-active="activeMenu">
+                   <a ui-sref="reports.communicationStatistics.meterEntry" class="configNav">Meter</a>
+                </li>
+                </ul>
+        </nav>
+    </div>
+</div>
+<div class="container-fluid">
+    <div ui-view></div>
+</div>
+<!--==============================================================-->
+
+<!--<div class="container-fluid">
+
+    <div class="row">
+        <h3 class="headingAlign">Communication Statistics</h3>
+    </div>
+
+    <div class="row" style="margin-top:1%">
+        <div class="pull-left headingAlign" style="margin-top:0.5%">
+            <a ng-click="printCart()">
+                <img alt="#" src="../assets/images/Print.png" class="anchorText" />
+                <strong class="anchorText">Print</strong>
+            </a>
+        </div>
+
+
+        <input type="text" class="form-control searchBoxAdjust" name="endpoint" ng-model="endpoint" type="search" ng-keyup="" ng-change="addEndpoint(endpoint)"
+            placeholder="Search" />
+
+
+
+        <div class="pull-right filterBtn " style="margin-top: 0.2%">
+
+
+
+            <button type="button" class="btn btn-default btnColor demandReadSettings" popover-append-to-body='false' popover-animation='true'
+                popover-placement='bottom' popover-is-open="dynamicPopover.isOpen" uib-popover-template='dynamicPopover.templateUrl'
+                ng-click="today()">
+                Filter
+            </button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="container-fluid" style="margin-top: 0.2vh">
+            <div ui-grid="commStatsOptions" ui-grid-exporter ui-grid-pagination ui-grid-resize-columns class="grid"></div>
+        </div>
+
+    </div>
+
+</div>-->

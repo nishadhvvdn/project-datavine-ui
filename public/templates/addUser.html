@@ -1,0 +1,279 @@
+﻿<div class="modal-header">
+	<h4 class="modal-title" ng-show="!viewMode&&!editmode"><strong>Add User</strong></h4>
+	<h4 class="modal-title" ng-show="viewMode"><strong>View User</strong></h4>
+	<h4 class="modal-title" ng-show="editmode"><strong>Edit User</strong></h4>
+	<!--<h4 class="modal-title" ng-hide="addSecurityGroup"><strong>Edit Security Group</strong></h4>-->
+</div>
+<div class="container-fluid back-ground">
+	<div class="modal-body">
+		<div class="addUserForm-Model" ng-show="!viewMode">
+			<form name="addUserForm" novalidate>
+
+				<div class="row">
+					<div class="col-md-3 col-lg-3">
+						<h5><strong>User ID:</strong><i class="fa fa-asterisk mandatory"></i></h5>
+					</div>
+					<div class="col-md-9 col-lg-9">
+						<input type="text" ng-disabled="editEnable||!accessEdit" ng-model="userObj.userID" name="userID" ng-change="check($event)"
+							ng-blur="check($event)" class="form-control userSettingsInput" ng-minlength="8"
+							maxlength="20" ng-pattern="/^[a-zA-Z0-9]+$/" ng-trim="false" required disallow-space/>
+						<span ng-show="userCheck" class="errorUserTextMessage">User ID is already exist in db!</span>
+						<span ng-show="addUserForm.userID.$error.minlength && !addUserForm.userID.$error.pattern" class="errorUserTextMessage">
+							User ID should contain at least 8 characters!</span>
+						<span ng-show="addUserForm.userID.$error.pattern && !addUserForm.userID.$error.required" class="errorUserTextMessage">
+							Invalid User ID!</span>
+						<span class="errorUserTextMessage" ng-show="addUserForm.userID.$error.required && (addUserForm.userID.$touched || addUserForm.userID.$dirty)">
+							User ID is required!
+						</span>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-3 col-lg-3">
+						<h5><strong>First Name:</strong><i class="fa fa-asterisk mandatory"></i></h5>
+					</div>
+					<div class="col-md-9 col-lg-9">
+						<input type="text" name="firstName" ng-disabled="!accessEdit" ng-model="userObj.firstName"
+							class="form-control userSettingsInput" ng-minlength="4" maxlength="16"
+							ng-pattern="/^[a-zA-Z]+(\s[a-zA-Z]+)*$/" required ng-trim="false"/>
+						<span class="errorUserTextMessage" ng-show="addUserForm.firstName.$error.minlength && !addUserForm.firstName.$error.pattern">
+							First Name should contain at least 4 characters!
+						</span>
+						<span class="errorUserTextMessage" ng-show="addUserForm.firstName.$error.pattern && !addUserForm.firstName.$error.required">
+							Invalid First Name!
+						</span>
+						<span class="errorUserTextMessage" ng-show="addUserForm.firstName.$error.required && (addUserForm.firstName.$touched || addUserForm.firstName.$dirty)">
+							First Name is required!
+						</span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3 col-lg-3">
+						<h5><strong>Last Name:</strong><i class="fa fa-asterisk mandatory"></i></h5>
+					</div>
+					<div class="col-md-9 col-lg-9">
+						<input type="text" name="lastName" ng-disabled="!accessEdit" ng-model="userObj.lastName"
+							class="form-control userSettingsInput" ng-minlength="1" maxlength="16" ng-trim="false"
+							ng-pattern="/^[a-zA-Z]+$/" required disallow-space/>
+						<span class="errorUserTextMessage" ng-show="addUserForm.lastName.$error.pattern && !addUserForm.lastName.$error.required">
+							Invalid Last Name!
+						</span>
+						<span class="errorUserTextMessage" ng-show="addUserForm.lastName.$error.required && (addUserForm.lastName.$touched || addUserForm.lastName.$dirty)">
+							Last Name is required!
+						</span>
+						<span class="errorUserTextMessage" ng-show="addUserForm.lastName.$error.minlength && !addUserForm.lastName.$error.pattern">
+							Last Name should contain at least 1 character!
+						</span>
+					</div>
+
+				</div>
+				<div class="row">
+					<div class="col-md-3 col-lg-3">
+						<h5><strong>E-Mail Address</strong><i class="fa fa-asterisk mandatory"></i></h5>
+					</div>
+					<div class="col-md-9 col-lg-9">
+						<input type="email" ng-disabled="!accessEdit" ng-model="userObj.email" name="email"
+							maxlength="40" class="form-control userSettingsInput"
+							ng-pattern="/^[_a-zA-Z0-9]+(\.[_a-zA-Z0-9]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,4})$/"
+							required  disallow-space ng-trim="false"/>
+							<span ng-show="addUserForm.email.$error.required && (addUserForm.email.$touched || addUserForm.email.$dirty)"
+								class="errorUserTextMessage">E-Mail Address is required!</span>
+							<span ng-show="addUserForm.email.$error.pattern && !addUserForm.email.$error.required"
+								class="errorUserTextMessage">Invalid E-Mail Address!</span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3 col-lg-3">
+						<h5><strong>Security Groups:</strong><i class="fa fa-asterisk mandatory"></i></h5>
+					</div>
+					<div class="col-md-9 col-lg-9">
+						<select name="securityGroups" ng-disabled="!accessEdit" ng-model="userObj.securityGroup"
+							ng-options="o as o for o in securityGroups" ng-change=""
+							class="form-control userSettingsInput" required>
+							<option value="">Select One</option>
+						</select>
+						<span ng-show="addUserForm.securityGroups.$error.required && (addUserForm.securityGroups.$touched || addUserForm.securityGroups.$dirty)"
+							class="errorUserTextMessage"> Select Security Group </span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3 col-lg-3">
+						<h5><strong>Default Page:</strong><i class="fa fa-asterisk mandatory"></i></h5>
+					</div>
+					<div class="col-md-9 col-lg-9">
+						<select class="form-control userSettingsInput" ng-disabled="!accessEdit" name="homePage"
+							ng-model="userObj.homePage"
+							ng-options="value for value in ['Home Page', 'Reports', 'HyperSPROUT&trade; Management', 'Meter Management', 'System Management', 'DeltaLINK&trade; Management', 'Administration']"
+							required>
+							<option value="">Select One</option>
+						</select>
+						<span ng-show="addUserForm.homePage.$error.required && (addUserForm.homePage.$dirty || addUserForm.homePage.$touched)" class="errorUserTextMessage">
+							Select Default Page </span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3 col-lg-3">
+						<h5><strong>Temperature:</strong><i class="fa fa-asterisk mandatory"></i></h5>
+					</div>
+					<div class="col-md-9 col-lg-9">
+						<select name="temprature" ng-disabled="!accessEdit" ng-model="userObj.temprature"
+							ng-options="value for value in ['Celsius','Fahrenheit']" ng-change=""
+							class="form-control userSettingsInput" required>
+							<option value="">Select One</option>
+						</select>
+						<span ng-show="addUserForm.temprature.$error.required && (addUserForm.temprature.$dirty || addUserForm.temprature.$touched)"
+							class="errorUserTextMessage"> Select Temperature </span>
+					</div>
+
+				</div>
+				<div class="row" style="margin-bottom:20px">
+					<div class="col-md-3 col-lg-3">
+						<h5><strong>Time Zone:</strong><i class="fa fa-asterisk mandatory"></i></h5>
+					</div>
+					<div class="col-md-9 col-lg-9">
+						<timezone-selector ng-disabled="!accessEdit" ng-model="userObj.timezone" class="form-control"
+							display-utc="true" sort-by="offset" width="400px"></timezone-selector>
+					</div>
+				</div>
+				<!-- Mobile Number Field -->
+				<div class="row" style="margin-bottom:20px">
+					<div class="col-md-3 col-lg-3">
+						<h5><strong>Mobile Number:</strong><i class="fa fa-asterisk mandatory"></i></h5>
+					</div>
+					<div class="col-md-9 col-lg-9">						
+						<div style="display: flex;">
+							<select class="form-control" style="width: 20%;" name="countryCode" ng-model="countryCode">
+								<option value="">+1</option>
+							</select>
+							<input  type="text" id="mobileNumber" minlength="8" maxlength="10"class="form-control" style="width: 55%;" 							
+								name="mobileNumber" autocomplete="off" ng-model="userObj.mobileNumber" required 
+								onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"  />
+							<span data-ng-show="userObj.mobileNumber.$invalid && userObj.mobileNumber.$dirty" class="help">
+							<span data-ng-show="userObj.mobileNumber.$error.required" class="userSettingsErrMsg">*Mobile Number Required</span>
+							</span><br>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3 col-lg-3">
+						<h5><strong>Account Locked:</strong></h5>
+					</div>
+					<div class="col-md-9 col-lg-9">
+						<input type="checkbox" ng-disabled="!accessEdit" name="accountLocked"
+							ng-model="userObj.accountLocked" ng-checked="userObj.accountLocked" />
+					</div>
+				</div>
+				</table>
+			</form>
+		</div>
+		<div class="row" ng-if="viewMode">
+			<form name="addUserForm" novalidate>
+				<table class="table table-hover modalTableBorder">
+					<tr>
+						<td>
+							<h5 style="margin-top:2%"><strong>User ID:</strong></h5>
+						</td>
+						<td style="font-size: 14px">{{userObj.userID}}
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h5 style="margin-top:2%"><strong>First Name:</strong></h5>
+						</td>
+						<td style="font-size: 14px">{{userObj.firstName}}
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h5 style="margin-top:2%"><strong>Last Name:</strong></h5>
+						</td>
+
+						<td style="font-size: 14px">
+							{{userObj.lastName}}
+							</span>
+						</td>
+
+					</tr>
+					<tr>
+						<td>
+							<h5 style="margin-top:2%"><strong>E-Mail Address</strong></h5>
+						</td>
+						<td style="font-size: 14px">
+							{{userObj.email}}
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h5 style="margin-top:2%"><strong>Security Groups:</strong></h5>
+						</td>
+						<td style="font-size: 14px">
+							{{userObj.securityGroup}}
+
+						</td>
+
+					</tr>
+					<tr>
+						<td>
+							<h5 style="margin-top:2%"><strong>Default Page:</strong></h5>
+						</td>
+						<td style="font-size: 14px">{{userObj.homePage}}
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h5 style="margin-top:2%"><strong>Temperature:</strong></h5>
+						</td>
+						<td style="font-size: 14px">{{userObj.temprature}}
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h5 style="margin-top:2%"><strong>Time Zone:</strong></h5>
+						</td>
+						<td style="font-size: 14px">{{userObj.timezone}}
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h5 style="margin-top:2%"><strong>Mobile Number:</strong></h5>
+						</td>
+						<td style="font-size: 14px">+1 - {{userObj.mobileNumber}}
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h5 style="margin-top:2%"><strong>Account Locked:</strong></h5>
+						</td>
+						<td style="font-size: 14px">{{userObj.accountLocked?'Yes':'No'}}
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+</div>
+<h5 style="color:red ; font-size:12px; margin-left:2%" ng-if="!viewMode"><i class="fa fa-asterisk"
+		style="font-size: 1vh; color: red; " aria-hidden="true"></i>All fields are mandatory</h5>
+<div class='modal-footer' ng-show="!viewMode">
+	<button type="button" class="btn btn-default btnColor" ng-click="Save()" ng-disabled="!accessEdit||addUserForm.userID.$error.required|| addUserForm.userID.$error.pattern ||addUserForm.firstName.$error.required ||addUserForm.firstName.$error.minlength||addUserForm.firstName.$error.maxlength
+             ||addUserForm.firstName.$error.pattern || addUserForm.lastName.$error.minlength ||
+             addUserForm.lastName.$error.maxlength || addUserForm.lastName.$error.pattern ||
+            addUserForm.lastName.$error.required ||addUserForm.email.$invalid ||
+            addUserForm.email.$error.required || addUserForm.userID.$error.maxlength || addUserForm.userID.$error.minlength ||
+            addUserForm.homePage.$error.required ||addUserForm.temprature.$error.required || !userObj.timezone || !userObj.mobileNumber ||addUserForm.securityGroups.$error.required ||
+            addUserForm.accountLocked.$error.required||userCheck || !addUserForm.$dirty">OK</button>
+	<button type="button" class="btn btn-default btnDefault" ng-click="cancel()">Cancel</button>
+</div>
+<div class='modal-footer' ng-show="viewMode">
+	<div align="center"><button type="button" class="btn btn-default btnDefault" ng-click="cancel()">Cancel</button>
+	</div>
+</div>
+
+<!--
+    ng-disabled="addUserForm.firstName.$error.required ||
+            addUserForm.lastName.$error.required ||
+            addUserForm.email.$error.required ||
+            addUserForm.homePage.$error.required ||
+            addUserForm.accountLocked.$error.required "
+    -->

@@ -1,0 +1,147 @@
+<div class="container-fluid">
+
+    <!--=====================================================-->
+
+    <div class="row">
+        <div class="rectangleBox">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 your_col">
+                    <img alt="#" src="../assets/images/HypersproutManagement/HyperSprout Job Status.png" class="imgDimension-helpSub" />
+                </div>
+                <div class="col-xs-8 col-sm-98 col-md-8 col-lg-8 labelStyle">
+                    <label> Meter Job Status </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--=====================================================-->
+
+
+    <div class="row" style="margin-top: 1%">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="pull-right">
+                <p><a ng-click="tabChange('readingReport')" href=""><strong>1. &nbsp; Reading The Report</strong></a></p>
+                <p><a ng-click="tabChange('filterReport')" href=""><strong>2. &nbsp; Filtering The Report</strong></a></p>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="pull-left">
+                <p><a ng-click="tabChange('sortReport')" href=""><strong>3. &nbsp; Sorting The Report</strong></a></p>
+                <p><a ng-click="tabChange('exportingReport')" href=""><strong>4. &nbsp; Exporting The Report</strong></a></p>
+           </div>
+        </div>
+    </div>
+    <!--=====================================================-->
+
+    <div class="hr" style="margin-top: 0"></div>
+
+    <!--===============================================================-->
+
+    <div class="row text-center" ng-show="tabs.readingReport">
+        <label> <h1> <strong> 1. Reading The Report </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+        
+        
+        
+               The Meter job status list shows every job that has or is running on the Meter in the system.
+                </br>The list contains seven columns.
+
+                <br><strong>1.Job ID: </strong> This column shows unique ID of the job.
+                <br><strong>2.Description:</strong> This column shows a brief description of what the job is.
+                <br><strong>3.Status:</strong> This column shows whether or not the job is currently running.
+                <br><strong>4.Job Name: </strong> This column shows name of the job.
+                <br><strong>5.Serial Number: </strong> This column shows Serial number of the job.
+                <br><strong>6.Start Time: </strong>The timestamp for when the job began.
+                <br><strong>7.End Time: </strong>The timestamp for when the job Ends.
+            
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/jobstatushelp.png" style=" width: 56%; height:27vh" />
+
+
+        <span> 
+        <p class="paragraph"  style= "margin-top:1%">
+                    The report has a large amount of data, it might separate into pages. In this case, the user can choose how
+                many entries to display or which page to show from the pagination tool bar in the bottom left of the report.
+        </p>
+                </span>
+
+
+
+        <img alt="#" src="../assets/images/commPage.png" style=" width: 56% ;margin-top:1%" />
+
+    </div>
+    <!--=====================================================================================-->
+
+    <div class="row text-center scrollAdjust scrollHeightThreeRow" ng-show="tabs.filterReport">
+        <label> <h1> <strong> 2. Filtering The Report </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+             The filter for the Meter job status page contains two sections.
+                </br>The first allows user to check what types of jobs user want to display and whether or not user want to
+                display finished jobs.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/hsfilterhelp.png" style=" width: 46% ;margin-top:1%"/>
+
+
+        <span> 
+        <p class="paragraph" style= "margin-top:1%">
+                   The second section allows user to input a date range that will filter the list for jobs that were started within the specified
+                range.
+        </p>
+                </span>
+
+
+
+        <img alt="#" src="../assets/images/filtertimehelp.png" style=" width: 46% ;margin-top:1%" />
+        <span> 
+
+    </div>
+    <!--===================================================================================-->
+    
+    <div class="row text-center" ng-show="tabs.sortReport">
+        <label> <h1> <strong> 3. Sorting The Report </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+             To sort the list, the user must click the header of whichever column they would like to sort by. For instance, clicking on
+                the Group header will switch the column between the default display, ascending alphabetically, and descending
+                alphabetically.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/firmwaresorthelp.png" />
+
+    </div>
+    <!--==========================================================================-->
+
+    <div class="row text-center" ng-show="tabs.exportingReport">
+        <label> <h1> <strong> 4. Exporting The Report </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+            The report gives four different options for exporting. The user may export either all the data in the report or just the
+                currently displayed data in either a CSV format or a PDF format. To do this the user simply has to click
+                on the export button in the top right corner of the report after filtering it for the desired data.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/exportMenu.png" />
+
+    </div>
+    <!--=================================================================================-->
+</div>

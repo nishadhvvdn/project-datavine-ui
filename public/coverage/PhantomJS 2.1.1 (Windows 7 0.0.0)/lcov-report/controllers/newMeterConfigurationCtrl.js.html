@@ -1,0 +1,1817 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for controllers\newMeterConfigurationCtrl.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">controllers/</a> newMeterConfigurationCtrl.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">95.29% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>384/403</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">97.35% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>184/189</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">66.67% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>10/15</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">95.29% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>384/403</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">474×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">74×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">71×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">68×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">65×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">62×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">59×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">56×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">53×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">50×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">47×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">44×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">38×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">35×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">26×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">36×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">74×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">(function (angular) {
+&nbsp;
+    "use strict";
+&nbsp;
+    angular.module('dataVINEApp').controller('newMeterConfigurationCtrl', ["$uibModalStack", "$modalInstance", "$scope", "$uibModal", "$state", "$rootScope", "DeviceService",
+        function ($uibModalStack, $modalInstance, $scope, $uibModal, $state, $rootScope, deviceService) {
+            $scope.meterdetails = {};
+            var meterPassword = null;
+            var userTimeZone = objCacheDetails.userDetails.timeZone;
+            $scope.meterdetails.billingTime = new Date(moment.tz(userTimeZone).format('YYYY-MM-DD HH:mm'));
+            $scope.make = ["Tatung", "Vision"];
+            $scope.meterdetails.make = $scope.make[1];
+            function populateProperData(key){
+                return (key)?{id:true,value:'True'}:{id:false,value:'False'};
+            }
+            $scope.phases = [1, 3];
+            $scope.meterdetails.phases = $scope.phases[1];
+&nbsp;
+            $scope.applicationType = ["Residential", "Commercial", "Industrial", "Electric Vehicle", "Street Light Load"];
+            $scope.meterdetails.applicationType = $scope.applicationType[1];
+&nbsp;
+            $scope.installationType = ["In Door", "Out Door"];
+            $scope.meterdetails.installationType = $scope.installationType[1];
+&nbsp;
+            $scope.ratedVoltage = [110, 220, 240];
+            $scope.meterdetails.ratedVoltage = $scope.ratedVoltage[1];
+&nbsp;
+            $scope.frequency = [50, 60];
+            $scope.meterdetails.frequency = $scope.frequency[1];
+&nbsp;
+            $scope.complaintStandardMeter = ["0.5", "1", "2"];
+            $scope.meterdetails.complaintStandardMeter = $scope.complaintStandardMeter[1];
+&nbsp;
+            $scope.meterDisconnector = ["Yes", "No"];
+            $scope.meterdetails.meterDisconnector = $scope.meterDisconnector[1];
+&nbsp;
+            //$scope.BiDirectional = ["True", "False"];
+            $scope.meterdetails.BiDirectional = populateProperData(false);
+&nbsp;
+            $scope.billingDate = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+            $scope.meterdetails.billingDate = $scope.billingDate[1];
+&nbsp;
+            $scope.demandDate = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28];
+            $scope.meterdetails.demandDate = $scope.demandDate[1];
+&nbsp;
+            $scope.measurementClass = ["0.5", "1", "2"];
+            $scope.meterdetails.measurementClass = $scope.measurementClass[1];
+&nbsp;
+            //$scope.EVMeter = ["True", "False"];
+            $scope.meterdetails.EVMeter =populateProperData(false);
+&nbsp;
+            //$scope.SolarPanel = ["True", "False"];
+            $scope.meterdetails.SolarPanel = populateProperData(true);
+&nbsp;
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (angular.isUndefinedOrNull(objCacheDetails.data.selectedData)) {
+<span class="cstat-no" title="statement not covered" >                $scope.createUpdateStatus = true;</span>
+<span class="cstat-no" title="statement not covered" >                $scope.meterdetails.wifiAccessPwd = '000000';</span>
+<span class="cstat-no" title="statement not covered" >                $scope.meterdetails.meterAdminPwd='00000000000000000000';</span>
+<span class="cstat-no" title="statement not covered" >                $scope.meterStatus = 'NotRegistered';</span>
+            } else {
+&nbsp;
+                var meterData = objCacheDetails.data.selectedData;
+                $scope.meterStatus = meterData.status;
+                meterPassword = meterData.wifiAccessPwdMeter;
+                $scope.meterdetails.MeterID = meterData.MeterID;
+                $scope.meterdetails.meterSl = meterData.meterSl;
+&nbsp;
+                $scope.meterdetails.SealID = meterData.SealID;
+                $scope.meterdetails.BiDirectional = populateProperData(meterData.BiDirectional);
+                $scope.meterdetails.EVMeter = populateProperData(meterData.EVMeter);
+                $scope.meterdetails.SolarPanel = populateProperData(meterData.SolarPanel);
+&nbsp;
+                $scope.meterdetails.applicationType = meterData.applicationType;
+                $scope.meterdetails.installationType = meterData.installationLocation;
+                $scope.meterdetails.ctRatio = meterData.ctRatioMeter;
+                $scope.meterdetails.ptRatio = meterData.ptRatioMeter;
+                $scope.meterdetails.phases = parseInt(meterData.phasesMeter);
+                $scope.meterdetails.frequency = parseInt(meterData.ratedFrequencyMeter);
+                $scope.meterdetails.ratedVoltage = parseInt(meterData.ratedVoltageMeter);
+&nbsp;
+                $scope.meterdetails.nominalCurrent = meterData.nominalCurrent;
+                $scope.meterdetails.maximumCurrent = meterData.maximumCurrent;
+                $scope.meterdetails.complaintStandardMeter = meterData.complaintStandardMeter;
+                $scope.meterdetails.wifiIpAdd = meterData.wifiIpAddMeter;
+                $scope.meterdetails.wifiMacId = meterData.wifiMacIdMeter;
+                $scope.meterdetails.wifiAccessPwd = meterData.wifiAccessPwdMeter;
+                $scope.meterdetails.meterAdminPwd = meterData.meterAdminPwd;
+                $scope.meterdetails.latitude = (meterData.latitudeMeter).toString();
+                $scope.meterdetails.longitude = (meterData.longitudeMeter).toString();
+                $scope.meterdetails.consumerNumber = meterData.consumerNumber;
+                $scope.meterdetails.consumerName = meterData.consumerName;
+                $scope.meterdetails.contactNumber = meterData.contactNumber;
+                $scope.meterdetails.consumerAddress = meterData.consumerAddress;
+                $scope.meterdetails.consumerContact = meterData.contactNumber;
+                $scope.meterdetails.consumerCountry = meterData.consumerCountry;
+                $scope.meterdetails.consumerState = meterData.consumerState;
+                $scope.meterdetails.consumerCity = meterData.consumerCity;
+                $scope.meterdetails.consumerZipcode = meterData.consumerZipcode;
+                $scope.meterdetails.billingDate = parseInt(meterData.billingDate);
+                $scope.meterdetails.billingTime = meterData.billingTime;
+                $scope.meterdetails.demandDate = parseInt(meterData.demandResetDate);
+                $scope.meterdetails.make = meterData.meterMake;
+                $scope.meterdetails.meterDisconnector = meterData.meterDisconnector;
+                $scope.meterdetails.impulseCountKW = meterData.ImpulseCountperKWh;
+                $scope.meterdetails.impulseCountKV = meterData.ImpulseCountPerKVARh;
+&nbsp;
+                $scope.meterdetails.measurementClass = meterData.MeasurementClass;
+                $scope.meterdetails.meterVersion = meterData.MeterVersion;
+&nbsp;
+                $scope.createUpdateStatus = false;
+                objCacheDetails.data.selectedData = null;
+&nbsp;
+            }
+&nbsp;
+            $scope.saveMeter = function () {
+                deviceService.create('NewMeterEntry', ['Add',[$scope.meterdetails.meterSl], [$scope.meterdetails.applicationType], [$scope.meterdetails.meterVersion], [$scope.meterdetails.installationType],
+                [$scope.meterdetails.ctRatio], [$scope.meterdetails.ptRatio], [($scope.meterdetails.phases).toString()], [($scope.meterdetails.frequency).toString()],
+                [($scope.meterdetails.ratedVoltage).toString()], [$scope.meterdetails.nominalCurrent], [$scope.meterdetails.maximumCurrent], [$scope.meterdetails.measurementClass],
+                [$scope.meterdetails.complaintStandardMeter], [$scope.meterdetails.wifiIpAdd], [$scope.meterdetails.wifiAccessPwd], [$scope.meterdetails.meterAdminPwd],
+                [parseFloat($scope.meterdetails.latitude)], [parseFloat($scope.meterdetails.longitude)], [$scope.meterdetails.consumerNumber], [$scope.meterdetails.consumerName],
+                [$scope.meterdetails.consumerAddress], [$scope.meterdetails.contactNumber], [parseInt($scope.meterdetails.billingDate)], [$scope.meterdetails.billingTime],
+                [parseInt($scope.meterdetails.demandDate)], [$scope.meterdetails.make], [$scope.meterdetails.meterDisconnector], [$scope.meterdetails.consumerCountry],
+                [$scope.meterdetails.consumerState], [$scope.meterdetails.consumerCity], [$scope.meterdetails.consumerZipcode], [$scope.meterdetails.wifiMacId],
+                [$scope.meterdetails.impulseCountKW], [$scope.meterdetails.impulseCountKV],
+                [$scope.meterdetails.SealID], [$scope.meterdetails.BiDirectional.id],
+                [$scope.meterdetails.EVMeter.id], [$scope.meterdetails.SolarPanel.id]]
+                ).then(function (resultMsg) {
+                    swal(resultMsg);
+                    $modalInstance.dismiss();
+                    $uibModalStack.clearFocusListCache();
+                    $state.reload();
+&nbsp;
+                });
+&nbsp;
+&nbsp;
+            };
+&nbsp;
+&nbsp;
+            $scope.updateMeter = function () {
+                var meterFlag = $scope.meterdetails.wifiAccessPwd === meterPassword ? 'N' : <span class="branch-1 cbranch-no" title="branch not covered" >'Y';</span>
+                deviceService.editMeter($scope.meterdetails.MeterID, $scope.meterdetails.meterSl, $scope.meterdetails.applicationType, $scope.meterdetails.meterVersion, $scope.meterdetails.installationType,
+                    $scope.meterdetails.ctRatio, $scope.meterdetails.ptRatio, ($scope.meterdetails.phases).toString(), ($scope.meterdetails.frequency).toString(),
+                    ($scope.meterdetails.ratedVoltage).toString(), $scope.meterdetails.nominalCurrent, $scope.meterdetails.maximumCurrent, $scope.meterdetails.measurementClass,
+                    $scope.meterdetails.complaintStandardMeter, $scope.meterdetails.wifiIpAdd, $scope.meterdetails.wifiAccessPwd, $scope.meterdetails.meterAdminPwd,
+                    parseFloat($scope.meterdetails.latitude), parseFloat($scope.meterdetails.longitude), $scope.meterdetails.consumerNumber, $scope.meterdetails.consumerName,
+                    $scope.meterdetails.consumerAddress, $scope.meterdetails.contactNumber, parseInt($scope.meterdetails.billingDate), $scope.meterdetails.billingTime,
+                    parseInt($scope.meterdetails.demandDate), $scope.meterdetails.make, $scope.meterdetails.meterDisconnector, $scope.meterdetails.consumerCountry,
+                    $scope.meterdetails.consumerState, $scope.meterdetails.consumerCity, $scope.meterdetails.consumerZipcode, $scope.meterdetails.wifiMacId,
+                    $scope.meterdetails.impulseCountKW, $scope.meterdetails.impulseCountKV,
+                    $scope.meterdetails.SealID, $scope.meterdetails.BiDirectional.id,
+                    $scope.meterdetails.EVMeter.id, $scope.meterdetails.SolarPanel.id, meterFlag).then(function (resultMsg) {
+                        swal(resultMsg);
+                        $modalInstance.dismiss();
+                        $uibModalStack.clearFocusListCache();
+                        $state.reload();
+&nbsp;
+                    });
+            };
+&nbsp;
+            $scope.cancel = function () {
+                $modalInstance.dismiss();
+                $uibModalStack.clearFocusListCache();
+            };
+&nbsp;
+            $scope.goBack = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                $state.go('system.transformerMeterGrouping');</span>
+&nbsp;
+            };
+            $scope.oneAtATime = true;
+            $scope.status = {
+                isCustomHeaderOpen: false,
+                isFirstOpen: true,
+                isFirstDisabled: false
+            };
+&nbsp;
+&nbsp;
+            $scope.showPassword = false;
+&nbsp;
+            var ipV4Reg = new RegExp('^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$');
+            var regLat = new RegExp("^(\\+|-)?(?:90(?:(?:\\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\\.[0-9]{1,6})?))$");
+            var regLon = new RegExp("^(\\+|-)?(?:180(?:(?:\\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\\.[0-9]{1,6})?))$");
+&nbsp;
+            $scope.focusValidate = function (field) {
+                if (field === 'meterSl') {
+                    if ($scope.meterdetails.meterSl === undefined) {
+                        $scope.errormeterSlMessage = 'Meter Serial is required!'
+                        $scope.errormeterSl = true;
+                        $scope.meterCreation.meterSl.$valid = false;
+                    } else if ($scope.meterdetails.meterSl.length &gt; 30) {
+                        $scope.errormeterSlMessage = 'Length of Meter Serial must be less than 30';
+                        $scope.errormeterSl = true;
+                        $scope.meterCreation.meterSl.$valid = false;
+&nbsp;
+                    } else {
+                        $scope.errormeterSl = false;
+                        $scope.meterCreation.meterSl.$valid = true;
+                    }
+                }
+                else if (field === 'meterVersion') {
+                    if ($scope.meterdetails.meterVersion === undefined) {
+                        $scope.errormeterVersionMessage = 'Meter Version is required!';
+                        $scope.errormeterVersion = true;
+                        $scope.meterCreation.meterVersion.$valid = false;
+                    } else if ($scope.meterdetails.meterVersion.length &gt; 20) {
+                        $scope.errormeterVersionMessage = 'Length of Meter Version should not exceed 20!';
+                        $scope.errormeterVersion = true;
+                        $scope.meterCreation.meterVersion.$valid = false;
+                    } else {
+                        $scope.errormeterVersion = false;
+                        $scope.meterCreation.meterVersion.$valid = true;
+                    }
+                }
+                else if (field === 'nominalCurrent') {
+                    if ($scope.meterdetails.nominalCurrent === undefined) {
+                        $scope.errornominalCurrentMessage = 'Nominal Current is required!';
+                        $scope.errornominalCurrent = true;
+                        $scope.meterCreation.nominalCurrent.$valid = false;
+                    } else if ($scope.meterdetails.nominalCurrent.length &gt; 4) {
+                        $scope.errornominalCurrentMessage = 'Length of Nominal Current should not exceed 4!';
+                        $scope.errornominalCurrent = true;
+                        $scope.meterCreation.nominalCurrent.$valid = false;
+                    } else {
+                        $scope.errornominalCurrent = false;
+                        $scope.meterCreation.nominalCurrent.$valid = true;
+                    }
+                }
+                else if (field === 'maximumCurrent') {
+                    if ($scope.meterdetails.maximumCurrent === undefined) {
+                        $scope.errormaximumCurrentMessage = 'Maximum Current is required!';
+                        $scope.errormaximumCurrent = true;
+                        $scope.meterCreation.maximumCurrent.$valid = false;
+                    } else if ($scope.meterdetails.maximumCurrent.length &gt; 4) {
+                        $scope.errormaximumCurrentMessage = 'Length of Maximum Current should not exceed 4!';
+                        $scope.errormaximumCurrent = true;
+                        $scope.meterCreation.maximumCurrent.$valid = false;
+                    } else {
+                        $scope.errormaximumCurrent = false;
+                        $scope.meterCreation.maximumCurrent.$valid = true;
+                    }
+                }
+                else if (field === 'SealID') {
+                    if ($scope.meterdetails.SealID === undefined) {
+                        $scope.errorSealIDMessage = 'Seal ID is required!';
+                        $scope.errorSealID = true;
+                        $scope.meterCreation.SealID.$valid = false;
+                    } else if ($scope.meterdetails.SealID.length &gt; 30) {
+                        $scope.errorSealID = true;
+                        $scope.errorSealIDMessage = 'Length of Seal ID should not exceed 30!';
+                        $scope.meterCreation.SealID.$valid = false;
+                    } else {
+                        $scope.errorSealID = false;
+                        $scope.meterCreation.SealID.$valid = true;
+                    }
+                }
+&nbsp;
+                else if (field === 'consumerName') {
+                    if ($scope.meterdetails.consumerName === undefined) {
+                        $scope.errorconsumerNameMessage = 'Consumer Name is required!';
+                        $scope.errorconsumerName = true;
+                        $scope.meterCreation.consumerName.$valid = false;
+                    } else if ($scope.meterdetails.consumerName.length &gt; 50) {
+                        $scope.errorconsumerNameMessage = 'Length of Consumer Name should not exceed 50!';
+                        $scope.errorconsumerName = true;
+                        $scope.meterCreation.consumerName.$valid = false;
+                    } else {
+                        $scope.errorconsumerName = false;
+                        $scope.meterCreation.consumerName.$valid = true;
+                    }
+                }
+                else if (field === 'consumerNumber') {
+                    if ($scope.meterdetails.consumerNumber === undefined) {
+                        $scope.errorconsumerNumberMessage = 'Consumer Number is required!';
+                        $scope.errorconsumerNumber = true;
+                        $scope.meterCreation.consumerNumber.$valid = false;
+                    } else if ($scope.meterdetails.consumerNumber.length &gt; 20) {
+                        $scope.errorconsumerNumberMessage = 'Length of Consumer Number should not exceed 20!';
+                        $scope.errorconsumerNumber = true;
+                        $scope.meterCreation.consumerNumber.$valid = false;
+                    } else {
+                        $scope.errorconsumerNumber = false;
+                        $scope.meterCreation.consumerNumber.$valid = true;
+                    }
+                }
+                else if (field === 'consumerAddress') {
+                    if ($scope.meterdetails.consumerAddress === undefined) {
+                        $scope.errorconsumerAddressMessage = 'Consumer Address is required!';
+                        $scope.errorconsumerAddress = true;
+                        $scope.meterCreation.consumerAddress.$valid = false;
+                    } else if ($scope.meterdetails.consumerAddress.length &gt; 100) {
+                        $scope.errorconsumerAddressMessage = 'Length of Consumer Address should not exceed 100!';
+                        $scope.errorconsumerAddress = true;
+                        $scope.meterCreation.consumerAddress.$valid = false;
+                    } else {
+                        $scope.errorconsumerAddress = false;
+                        $scope.meterCreation.consumerAddress.$valid = true;
+                    }
+                }
+                else if (field === 'contactNumber') {
+                    if ($scope.meterdetails.contactNumber === undefined) {
+                        $scope.errorcontactNumberMessage = 'Contact Number is required!';
+                        $scope.errorcontactNumber = true;
+                        $scope.meterCreation.contactNumber.$valid = false;
+                    } else if ($scope.meterdetails.contactNumber.length &lt; 15 || $scope.meterdetails.contactNumber.length &gt; 15) {
+                        $scope.errorcontactNumberMessage = 'Contact Number should be 15!';
+                        $scope.errorcontactNumber = true;
+                        $scope.meterCreation.contactNumber.$valid = false;
+                    } else {
+                        $scope.errorcontactNumber = false;
+                        $scope.meterCreation.contactNumber.$valid = true;
+                    }
+                }
+                else if (field === 'impulseCountKW') {
+                    if ($scope.meterdetails.impulseCountKW === undefined) {
+                        $scope.errorimpulseCountKWMessage = 'Impulse Count (per kWh) is required!';
+                        $scope.errorimpulseCountKW = true;
+                        $scope.meterCreation.impulseCountKW.$valid = false;
+                    } else if ($scope.meterdetails.impulseCountKW.length &gt; 8) {
+                        $scope.errorimpulseCountKWMessage = 'Length of Impulse Count (per kWh) should not exceed 8!';
+                        $scope.errorimpulseCountKW = true;
+                        $scope.meterCreation.impulseCountKW.$valid = false;
+                    } else {
+                        $scope.errorimpulseCountKW = false;
+                        $scope.meterCreation.impulseCountKW.$valid = true;
+                    }
+                }
+&nbsp;
+                else if (field === 'impulseCountKV') {
+                    if ($scope.meterdetails.impulseCountKV === undefined) {
+                        $scope.errorimpulseCountKVMessage = 'Impulse Count  is required!';
+                        $scope.errorimpulseCountKV = true;
+                        $scope.meterCreation.impulseCountKV.$valid = false;
+                    } else if ($scope.meterdetails.impulseCountKV.length &gt; 8) {
+                        $scope.errorimpulseCountKVMessage = 'Length of Impulse Count Impulse Count  should not exceed 8!';
+                        $scope.errorimpulseCountKV = true;
+                        $scope.meterCreation.impulseCountKV.$valid = false;
+                    } else {
+                        $scope.errorimpulseCountKV = false;
+                        $scope.meterCreation.impulseCountKV.$valid = true;
+                    }
+                }
+                else if (field === 'consumerCountry') {
+                    if ($scope.meterdetails.consumerCountry === undefined) {
+                        $scope.errorconsumerCountryMessage = 'Country is required!';
+                        $scope.errorconsumerCountry = true;
+                        $scope.meterCreation.consumerCountry.$valid = false;
+                    } else if ($scope.meterdetails.consumerCountry.length &gt; 50) {
+                        $scope.errorconsumerCountryMessage = 'Length of Country should not exceed 50!';
+                        $scope.errorconsumerCountry = true;
+                        $scope.meterCreation.consumerCountry.$valid = false;
+                    } else {
+                        $scope.errorconsumerCountry = false;
+                        $scope.meterCreation.consumerCountry.$valid = true;
+                    }
+                }
+&nbsp;
+                else if (field === 'consumerState') {
+                    if ($scope.meterdetails.consumerState === undefined) {
+                        $scope.errorconsumerStateMessage = 'State is required!';
+                        $scope.errorconsumerState = true;
+                        $scope.meterCreation.consumerState.$valid = false;
+                    } else if ($scope.meterdetails.consumerState.length &gt; 50) {
+                        $scope.errorconsumerStateMessage = 'Length of State should not exceed 50!';
+                        $scope.errorconsumerState = true;
+                        $scope.meterCreation.consumerState.$valid = false;
+                    } else {
+                        $scope.errorconsumerState = false;
+                        $scope.meterCreation.consumerState.$valid = true;
+                    }
+                }
+                else if (field === 'consumerCity') {
+                    if ($scope.meterdetails.consumerCity === undefined) {
+                        $scope.errorconsumerCityMessage = 'City is required!';
+                        $scope.errorconsumerCity = true;
+                        $scope.meterCreation.consumerCity.$valid = false;
+                    } else if ($scope.meterdetails.consumerCity.length &gt; 50) {
+                        $scope.errorconsumerCityMessage = 'Length of City should not exceed 50!';
+                        $scope.errorconsumerCity = true;
+                        $scope.meterCreation.consumerCity.$valid = false;
+                    } else {
+                        $scope.errorconsumerCity = false;
+                        $scope.meterCreation.consumerCity.$valid = true;
+                    }
+                }
+                else if (field === 'ctRatio') {
+                    if ($scope.meterdetails.ctRatio === undefined) {
+                        $scope.errorctRatioMessage = 'CT Ratio is required!';
+                        $scope.errorctRatio = true;
+                        $scope.meterCreation.ctRatio.$valid = false;
+                    } else if ($scope.meterdetails.ctRatio.length &gt; 20) {
+                        $scope.errorctRatioMessage = 'Length of CT Ratio should not exceed 20!';
+                        $scope.errorctRatio = true;
+                        $scope.meterCreation.ctRatio.$valid = false;
+                    } else {
+                        $scope.errorctRatio = false;
+                        $scope.meterCreation.ctRatio.$valid = true;
+                    }
+                }
+                else if (field === 'ptRatio') {
+                    if ($scope.meterdetails.ptRatio === undefined) {
+                        $scope.errorptRatioMessage = 'PT Ratio is required!';
+                        $scope.errorptRatio = true;
+                        $scope.meterCreation.ptRatio.$valid = false;
+                    } else if ($scope.meterdetails.ptRatio.length &gt; 20) {
+                        $scope.errorptRatioMessage = 'Length of PT Ratio should not exceed 20!';
+                        $scope.errorptRatio = true;
+                        $scope.meterCreation.ptRatio.$valid = false;
+                    } else {
+                        $scope.errorptRatio = false;
+                        $scope.meterCreation.ptRatio.$valid = true;
+                    }
+                }
+                else if (field === 'gprs') {
+                    if ($scope.meterdetails.gprs === undefined) {
+                        $scope.errorgprsMessage = 'GPRS is required!';
+                        $scope.errorgprs = true;
+                        $scope.meterCreation.gprs.$valid = false;
+                    } else if ($scope.meterdetails.gprs.length &gt; 30) {
+                        $scope.errorgprsMessage = 'Length of GPRS should not exceed 30!';
+                        $scope.errorgprs = true;
+                        $scope.meterCreation.gprs.$valid = false;
+                    } else {
+                        $scope.errorgprs = false;
+                        $scope.meterCreation.gprs.$valid = true;
+                    }
+                }
+                else if (field === 'latitude') {
+                    if ($scope.meterdetails.latitude === undefined) {
+                        $scope.errorlatitudeMessage = 'Latitude is required!';
+                        $scope.errorlatitude = true;
+                        $scope.meterCreation.latitude.$valid = false;
+                    } else if (regLat.exec($scope.meterdetails.latitude)) {
+                        $scope.errorlatitude = false;
+                        $scope.meterCreation.latitude.$valid = true;
+                    } else {
+                        $scope.errorlatitudeMessage = 'Invalid Latitude! The range of latitude is 0 to +/- 90';
+                        $scope.errorlatitude = true;
+                        $scope.meterCreation.latitude.$valid = false;
+&nbsp;
+                    }
+                }
+                else if (field === 'longitude') {
+                    if ($scope.meterdetails.longitude === undefined) {
+                        $scope.errorlongitudeMessage = 'Longitude is required!';
+                        $scope.errorlongitude = true;
+                        $scope.meterCreation.longitude.$valid = false;
+                    } else if (regLon.exec($scope.meterdetails.longitude)) {
+                        $scope.errorlongitude = false;
+                        $scope.meterCreation.longitude.$valid = true;
+                    } else {
+                        $scope.errorlongitudeMessage = 'Invalid Longitude! The range of longitude is 0 to +/- 180';
+                        $scope.errorlongitude = true;
+                        $scope.meterCreation.longitude.$valid = false;
+                    }
+                }
+                else if (field === 'wifiMacId') {
+                    if ($scope.meterdetails.wifiMacId === undefined) {
+                        $scope.errorwifiMacIdMessage = 'Wifi MAC ID is required!';
+                        $scope.errorwifiMacId = true;
+                        $scope.meterCreation.wifiMacId.$valid = false;
+                    } else if ($scope.meterdetails.wifiMacId.length &gt; 30) {
+                        $scope.errorwifiMacIdMessage = 'Length of Wifi MAC ID should not exceed 30!';
+                        $scope.errorwifiMacId = true;
+                        $scope.meterCreation.wifiMacId.$valid = false;
+                    } else {
+                        $scope.errorwifiMacId = false;
+                        $scope.meterCreation.wifiMacId.$valid = true;
+                    }
+                }
+                else if (field === 'wifiIpAdd') {
+                    if ($scope.meterdetails.wifiIpAdd === undefined) {
+                        $scope.errorwifiIpAddMessage = 'Wifi IP Address is required!';
+                        $scope.errorwifiIpAdd = true;
+                        $scope.meterCreation.wifiIpAdd.$valid = false;
+                    } else if (ipV4Reg.exec($scope.meterdetails.wifiIpAdd)) {
+                        $scope.errorwifiIpAdd = false;
+                        $scope.meterCreation.wifiIpAdd.$valid = true;
+                    } else {
+                        $scope.errorwifiIpAddMessage = 'Invalid Wifi IP Address!';
+                        $scope.errorwifiIpAdd = true;
+                        $scope.meterCreation.wifiIpAdd.$valid = false;
+                    }
+                }
+                else if (field === 'meterAdminPwd') {
+                    if ($scope.meterdetails.meterAdminPwd === undefined) {
+                        $scope.errormeterAdminPwdMessage = 'Meter Admin Password is required!';
+                        $scope.errormeterAdminPwd = true;
+                        $scope.meterCreation.meterAdminPwd.$valid = false;
+                    } else <span class="missing-if-branch" title="else path not taken" >E</span>if ($scope.meterdetails.meterAdminPwd.length !== 20) {
+                        $scope.errormeterAdminPwdMessage = 'Length of Meter Admin Password should be 20!';
+                        $scope.errormeterAdminPwd = true;
+                        $scope.meterCreation.meterAdminPwd.$valid = false;
+                    } else {
+<span class="cstat-no" title="statement not covered" >                        $scope.errormeterAdminPwd = false;</span>
+<span class="cstat-no" title="statement not covered" >                        $scope.meterCreation.meterAdminPwd.$valid = true;</span>
+                    }
+                }
+                else if (field === 'wifiAccessPwd') {
+                    if ($scope.meterdetails.wifiAccessPwd === undefined) {
+                        $scope.errorwifiAccessPwdMessage = 'WiFi Access Password is required!';
+                        $scope.errorwifiAccessPwd = true;
+                        $scope.meterCreation.wifiAccessPwd.$valid = false;
+                    } else if ($scope.meterdetails.wifiAccessPwd.length &lt; 6 || $scope.meterdetails.wifiAccessPwd.length &gt; 20) {
+                        $scope.errorwifiAccessPwdMessage = 'Length of password should between 6 to 20!';
+                        $scope.errorwifiAccessPwd = true;
+                        $scope.meterCreation.wifiAccessPwd.$valid = false;
+                    } else {
+                        $scope.errorwifiAccessPwd = false;
+                        $scope.meterCreation.wifiAccessPwd.$valid = true;
+                    }
+                    var spc=' ()-_+~,.?=`/\{}[]^';
+                    if(!angular.isUndefinedOrNull($scope.meterdetails.wifiAccessPwd)){
+                        for (var i = 0; i &lt; spc.length; i++) {
+                            <span class="missing-if-branch" title="if path not taken" >I</span>if ($scope.meterdetails.wifiAccessPwd.indexOf(spc[i]) !== 'undefined' &amp;&amp; $scope.meterdetails.wifiAccessPwd.indexOf(spc[i]) &gt; -1) {
+<span class="cstat-no" title="statement not covered" >                                $scope.errorwifiAccessPwdMessage = 'The character allowed for password are a-z, A-Z, 0-9 and !,@,#,$,%,&amp;,*';</span>
+<span class="cstat-no" title="statement not covered" >                                $scope.errorwifiAccessPwd = true;</span>
+<span class="cstat-no" title="statement not covered" >                                $scope.meterCreation.wifiAccessPwd.$valid = false;</span>
+<span class="cstat-no" title="statement not covered" >                                break;</span>
+                            }
+                        }
+                    }
+                }
+                else if (field === 'consumerZipcode') {
+                    if ($scope.meterdetails.consumerZipcode === undefined) {
+                        $scope.errorconsumerZipcodeMessage = 'Zipcode is required!';
+                        $scope.errorconsumerZipcode = true;
+                        $scope.meterCreation.consumerZipcode.$valid = false;
+                    } else if ($scope.meterdetails.consumerZipcode.length &lt; 6 || $scope.meterdetails.consumerZipcode.length &gt; 6) {
+                        $scope.errorconsumerZipcodeMessage = 'Zipcode length should be 6!';
+                        $scope.errorconsumerZipcode = true;
+                        $scope.meterCreation.consumerZipcode.$valid = false;
+                    } else {
+                        $scope.errorconsumerZipcode = false;
+                        $scope.meterCreation.consumerZipcode.$valid = true;
+                    }
+                }
+                else if (field === 'billingTime') {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if ($scope.meterdetails.billingTime === undefined) {
+<span class="cstat-no" title="statement not covered" >                        swal('Undefined');</span>
+                    } else {
+                        swal('Defined');
+                    }
+                }
+&nbsp;
+                $scope.create_meter_valid = $scope.errormeterSl || $scope.errormeterVersion || $scope.errornominalCurrent || $scope.errormaximumCurrent ||
+                    $scope.errorSealID || $scope.errorconsumerName || $scope.errorconsumerNumber || $scope.errorimpulseCountKW || $scope.errorimpulseCountKV ||
+                    $scope.errorconsumerCountry || $scope.errorconsumerState || $scope.errorconsumerCity || $scope.errorctRatio || $scope.errorptRatio ||
+                    $scope.errorgprs || $scope.errorlatitude || $scope.errorlongitude || $scope.errorwifiMacId || $scope.errorwifiIpAdd ||
+                    $scope.errormeterAdminPwd || $scope.errorwifiAccessPwd || $scope.errorconsumerZipcode || $scope.errorcontactNumber;
+&nbsp;
+            };
+            $scope.toggleShowPassword = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                $scope.showPassword = !$scope.showPassword;</span>
+            }
+            $scope.showPassword2 = false;
+&nbsp;
+            $scope.toggleShowPassword2 = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                $scope.showPassword2 = !$scope.showPassword2;</span>
+            }
+&nbsp;
+&nbsp;
+            $scope.hstep = 1;
+            $scope.mstep = 15;
+&nbsp;
+            $scope.options = {
+                hstep: [1, 2, 3],
+                mstep: [1, 5, 10, 15, 25, 30]
+            };
+&nbsp;
+            $scope.ismeridian = true;
+            $scope.toggleMode = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                $scope.ismeridian = !$scope.ismeridian;</span>
+            };
+&nbsp;
+            $scope.update = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                var d = new Date();</span>
+<span class="cstat-no" title="statement not covered" >                d.setHours(14);</span>
+<span class="cstat-no" title="statement not covered" >                d.setMinutes(0);</span>
+<span class="cstat-no" title="statement not covered" >                $scope.billingTime = d;</span>
+            };
+            $scope.clear = function () {
+                $scope.billingTime;
+            };
+        }]);
+})(window.angular);
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Aug 22 2017 16:49:25 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

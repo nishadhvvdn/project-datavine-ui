@@ -1,0 +1,104 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <div>
+            <a href='' class="imageBorder" style="margin-left: 80%;" ng-click="printCart()"><img src="../assets/images/Print.png" /></a>
+            <a href='' class="imageBorder" ng-click="pdf()"><img src="../assets/images/PDF.png" /><b class="anchorText">PDF</b>&nbsp;</a>
+            <a href='' class="imageBorder" ng-click="excel()"><img src="../assets/images/Excel.png" /><b class="anchorText">Excel</b>&nbsp;</a>
+        </div>
+    </div>
+    <hr />
+    <div class="modal-body">
+        <div class="row">
+            <!--<form name="new_configForm" novalidate>-->
+            <form name="config_form" novalidate>
+                <table class="table table-hover modalTableBorder">
+                    <tr>
+                        <td> 
+                            <h5>
+                                <strong>
+                                    Lockout: Login attempts, optical:
+                                    <i class="fa fa-asterisk" style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;" aria-hidden="true"></i>
+                                </strong>
+                            </h5>
+                        </td>
+                        <td><input class="form-control input-width" type="text" numbers-only ng-disabled="true" style="width:50%;" name="login_attempts_optical" ng-model="configObj['ConfigGroups_Info']['LockoutLoginattemptsOptical']"
+                                required /></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>
+                                <strong>
+                                    Lockout: Logout minutes, optical:
+                                    <i class="fa fa-asterisk" style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;" aria-hidden="true"></i>
+                                </strong>
+                            </h5>
+                        </td>
+                        <td><input class="form-control input-width" type="text" numbers-only ng-disabled="true" style="width:50%;" name="login_minutes_optical" ng-model="configObj['ConfigGroups_Info']['LockoutLogoutminutesOptical']"
+                                required /></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>
+                                <strong>
+                                    Lockout: Login attempts, lan:
+                                    <i class="fa fa-asterisk" style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;" aria-hidden="true"></i>
+                                </strong>
+                            </h5>
+                        </td>
+                        <td><input class="form-control input-width" type="text" numbers-only ng-disabled="true" style="width:50%;" name="login_attempts" ng-model="configObj['ConfigGroups_Info']['LockoutLoginattemptsLAN']"
+                                required /></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>
+                                <strong>
+                                    Lockout: Logout minutes, lan:
+                                    <i class="fa fa-asterisk" style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;" aria-hidden="true"></i>
+                                </strong>
+                            </h5>
+                        </td>
+                        <td><input class="form-control input-width" type="text" numbers-only ng-disabled="true" style="width:50%;" name="logout_minutes" ng-model="configObj['ConfigGroups_Info']['LockoutLogoutminutesLAN']"
+                                required /></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>
+                                <strong>
+                                    Consecutive LAN send messgae failure limit to cause features exceeded limit event to be logged:
+                                    <i class="fa fa-asterisk" style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;" aria-hidden="true"></i>
+                                </strong>
+                            </h5>
+                        </td>
+                        <td><input class="form-control input-width" type="text" numbers-only ng-disabled="true" style="width:50%;" name="lanMsg_Meter" ng-model="configObj['ConfigGroups_Info']['ConsecutiveLAN']"
+                                required /></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>
+                                <strong>
+                                    Lan Link Metric(quality) period in seconds:
+                                    <i class="fa fa-asterisk" style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;" aria-hidden="true"></i>
+                                </strong>
+                            </h5>
+                        </td>
+                        <td><input class="form-control input-width" type="text" numbers-only ng-disabled="true" style="width:50%;" name="lanQuality_Meter" ng-model="configObj['ConfigGroups_Info']['LanLinkMetric']"
+                                required /></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    <h5 style="color:red ; font-size:12px"><i class="fa fa-asterisk" style="font-size: 1vh; color: red; " aria-hidden="true"></i>All fields are mandatory</h5>
+    <!--<div class='modal-footer'>
+        <button type="button" class="btn btn-default btnColor" ng-click="Save()" ng-model="save"
+                ng-disabled=" new_configForm.login_attempts_optical.$error.required ||
+                new_configForm.login_minutes_optical.$error.required ||
+                new_configForm.login_attempts.$error.required ||
+                new_configForm.logout_minutes.$error.required||
+                new_configForm.lanMsg_Meter.$error.required ||
+                new_configForm.lanQuality_Meter.$error.required ">
+            Save
+        </button>
+        <button type="button" class="btn btn-default btnDefault" ng-click="cancel()" ng-model="cancel">Cancel</button>
+    </div>-->
+</div>

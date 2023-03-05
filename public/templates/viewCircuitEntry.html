@@ -1,0 +1,26 @@
+<div id="print-content">
+    <div class="modal-header">
+        <h4 class="modal-title"><strong>View (DTC Id - {{circuitId}})</strong></h4>
+    </div>
+    <div class="container-fluid modalBackground">
+        <div class="modal-body">
+            <form name="viewCircuitEntry_form" novalidate>
+                <div class="container-fluid">
+                    <uib-tabset active="active" class="editModalFont">
+                        <uib-tab index="0" heading="Distribution Transformer Circuit Details">
+                            <div ng-include="'/tabs/circuitDetails.html'"></div>
+                        </uib-tab>
+                        <uib-tab index="1" heading="Substation Details">
+                            <div ng-include="'/tabs/substationDetails.html'"></div>
+                        </uib-tab>
+                    </uib-tabset>
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class='modal-footer'>
+        <button type="button" class="btn btn-default btnDefault" ng-click="ok()">OK</button>
+    </div>
+</div>

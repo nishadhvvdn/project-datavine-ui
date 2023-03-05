@@ -1,0 +1,124 @@
+﻿/* CSS for Login */
+.tradeLoginTM {
+    margin-left: 46.5vh;
+    margin-top: -5vh;
+}
+
+.rowLogin {
+    background-color: #000000;
+    height: 100vh;
+}
+.margin-top{
+    margin-top:50%
+}
+.delta_logo {
+    width: 23vw;
+    margin-left: 16vh;
+    margin-top: 5vh;
+}
+.eci {
+    color: white;
+    margin-left: 18vh;
+    font-size: 1.7vh !important;
+    margin-top: -2.3vh;
+}
+
+.login_logo {
+    width: 29vw;
+    margin-left: 11vh;
+    margin-top: 10vh;
+}
+
+.loginfooter {
+    color: white;
+    margin-left: 11vh;
+    margin-left: 11vh;
+    font-size: 2vh !important;
+    margin-top: 8vh !important;
+}
+
+.loginTrademark {
+    background-color: #ffdd00;
+    height: 100vh;
+    /*margin-left: -5%;*/
+    margin-left: -9vh;
+}
+
+.dataVINE {
+    margin-top: 35vh;
+    margin-left: 28vh;
+    font-weight: bold;
+    font-size: 4vh !important;
+    margin-bottom: 1vh !important;
+    
+}
+.dataVINEText{
+    font-weight: bold;
+}
+.loginTextbox {
+    background-color: #ffff80 !important;
+    border-radius: 5px;
+    width: 40vw;
+    border: 0vh solid #ccc !important;
+    font-size: 1.6vh !important;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #ffff80 inset !important;
+}
+
+.errMsg {
+    color: red;
+    margin-left: 0%;
+    z-index: 1;
+}
+
+.rememberMe {
+    position: absolute;
+    width: 18vw;
+    /*margin-top: -1vh;*/
+    font-size: 1.6vh !important;
+}
+
+
+.checkbox_remember {
+    background-color: rgba(0, 255, 0, 0.87);
+    font-size: 1.6vh !important;
+    position: absolute !important;
+    margin: 8px;
+    cursor: pointer;
+}
+
+.loginBtn {
+    width: 38vw;
+    border-radius: 2vh;
+    margin-top: 2vh;
+    font-size: 1.6vh !important;
+    padding: 1vh 10vh !important;
+    border: 0vh solid #ccc !important;
+}
+
+.mainBody {
+    font-size: 1.6vh !important;
+    background-image: url('../../assets/images/Streaming Data.png');
+    max-width: 100%;
+    max-height: 100%
+    
+}
+
+.form-group {
+    /*margin-bottom: 15px;*/
+    margin-bottom: 1vh !important;
+}
+
+.remember {
+    margin-bottom: -2vh !important;
+}
+/* End Of Media Query for Login Screen */
+#load{
+    width:100%;
+    height:100%;
+    position:fixed;
+    z-index:9999;
+    /*background:url("https://www.creditmutuel.fr/cmne/fr/banques/webservices/nswr/images/loading.gif") no-repeat center center rgba(0,0,0,0.25)*/
+}

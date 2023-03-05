@@ -1,0 +1,79 @@
+﻿<div class="modal-header">
+	<h4 class="modal-title"><strong>Save As Configuration</strong></h4>
+</div>
+<div class="container-fluid modalBackground">
+	<div class="modal-body">
+		<form name="config_form" novalidate>
+			<div class="row">
+				<div class="col-sm-4 col-md-4 col-g-4">
+					<h5><strong>Config Programs</strong><i class="fa fa-asterisk mandatory"></i></h5>
+				</div>
+				<div class="col-sm-8 col-md-8 col-g-8">
+					<input class="form-control input-width" name="Config_prog" type="text" ng-maxlength="20"
+						ng-model="configObj['Name']" ng-keyup="check($event)" required><br>
+					<span ng-if="msg!=''" style="color:red ; font-size:12px">{{msg}}</span>
+					<span ng-show="specialChar" style="color:red ; font-size:12px ">Special Characters not
+						allowed</span>
+					<span style="color:red" ng-show="config_form.Config_prog.$error.maxlength">
+						Name should not contain more than 20 characters
+					</span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-4 col-md-4 col-g-4">
+					<h5><strong>Description:</strong></h5>
+				</div>
+				<div class="col-sm-8 col-md-8 col-g-8">
+					<input type="text" class="form-control input-width" ng-model="configObj['Description']">
+				</div>
+			</div>
+			<div class="row">
+				&nbsp;
+			</div>
+			<hr />
+			<div class="container-fluid">
+				<uib-tabset active="active" class="editModalFont">
+					<!--<uib-tab index="0" heading="TOU/Time" style="  ">
+                        <div ng-include="'/tabs/tou_meter.html'"></div>
+                    </uib-tab>-->
+					<uib-tab index="1" heading="Quantities">
+						<div ng-include="'/tabs/quantities_meter.html'"></div>
+					</uib-tab>
+					<!--<uib-tab index="2" heading="Meter Display" style="  width: 10%;">
+                        <div ng-include="'/tabs/display_meter.html'"></div>
+                    </uib-tab>-->
+					<uib-tab index="3" heading="Register Operation" style=" ">
+						<div ng-include="'/tabs/registerOperation_meter.html'"></div>
+					</uib-tab>
+					<uib-tab index="4" heading="Load Profile" style="  ">
+						<div ng-include="'/tabs/loadProfile_meter.html'"></div>
+					</uib-tab>
+					<uib-tab index="5" heading="Voltage Monitor" style="  ">
+						<div ng-include="'/tabs/voltageMonitor_meter.html'"></div>
+					</uib-tab>
+					<uib-tab index="6" heading="Events/Alarms" style="  ">
+						<div ng-include="'/tabs/eventsAlarms_meter.html'"></div>
+					</uib-tab>
+					<!--<uib-tab index="7" heading="User Data" style="  width: 10%;">
+                        <div ng-include="'/tabs/userData_meter.html'"></div>
+                    </uib-tab>-->
+					<uib-tab index="8" heading="Device Multiplier" style="   ">
+						<!--15%;-->
+						<div ng-include="'/tabs/deviceMultiplier_meter.html'"></div>
+					</uib-tab>
+					<uib-tab index="8" heading="Communication" style="  ">
+						<div ng-include="'/tabs/communication_meter.html'"></div>
+					</uib-tab>
+				</uib-tabset>
+			</div>
+		</form>
+	</div>
+	<div class='modal-footer'>
+		<button type="button" class="btn btn-default btnColor"
+			ng-disabled="specialChar||unique||config_form.Config_prog.$invalid||config_form.energy.$invalid||config_form.outageLength.$invalid||loadProfieObj.pulse1||loadProfieObj.pulse2||loadProfieObj.pulse3||loadProfieObj.pulse4||loadProfieObj.outageLength"
+			ng-click="Save()">
+			Save
+		</button>
+		<button type="button" class="btn btn-default btnDefault" ng-click="cancel(config_form.$dirty)">Cancel</button>
+	</div>
+</div>

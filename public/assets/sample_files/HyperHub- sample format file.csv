@@ -1,0 +1,2 @@
+HubSerialNumber,HubName,HardwareVersion,GprsMacID,WifiMacID,WifiIPAddress,WifiAccessPointPassword,SimCardNumber,Latitude,Longitude,GroupTransformerSerialNo
+sampleHHSerial00,sampleHHName00,1,D0:B3:5B:2C:C9:A9,D0:00:5B:2C:C9:A9,3.3.3.3,10000000,1234567890,14,14,sampleSerialNo

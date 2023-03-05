@@ -1,0 +1,651 @@
+<div class="container-fluid" id="transformerCreationDiv">
+    <section>
+        <div class="row circuit">
+            <h4 ng-show="createUpdateStatus"><strong>Create Transformer</strong></h4>
+            <h4 ng-hide="createUpdateStatus"><strong>Edit Transformer</strong></h4>
+
+        </div>
+    </section>
+    <form class="pure-form pure-form-aligned" name="transformerCreation" method="post" novalidate autocomplete="off">
+
+        <section>
+            <uib-accordion close-others="oneAtATime">
+                
+                <div uib-accordion-group class="panel-default" is-open="status.isFirstOpen">
+                    <uib-accordion-heading>
+                        Transformer Details <i class="fa fa-chevron-down" style="color:blue" aria-hidden="true"></i>
+                        <span
+                    ng-if="transformerCreation.transformerSl.$valid && transformerCreation.make.$valid &&
+                      errorKvaRating == false && transformerCreation.type.$valid &&
+                     transformerCreation.highLineV.$valid && transformerCreation.lowLineV.$valid &&
+                     transformerCreation.highLineCurrent.$valid &&  transformerCreation.lowLineCurrent.$valid &&
+                      transformerCreation.WireSize.$valid && transformerCreation.maxOil.$valid && transformerCreation.lowOil.$valid &&
+                      transformerCreation.TFMRName.$valid ">
+                    <span class="glyphicon_Trans glyphicon-ok-sign transformerDetails"></span>
+                </span>
+                    </uib-accordion-heading>
+                    <section style="margin-left:3%">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <h5><strong>Serial Number</strong><span class="validationRequired">*</span></h5>
+                                <input name="transformerSl" class="divthree" ng-model="transfomerdetails.transformerSl"
+                                    ng-blur="focusValidate('transformerSl')" ng-change="focusValidate('transformerSl')"
+                                    type="text" placeholder="Transformer Serial" maxlength=25 ng-trim="false" disallow-space required>
+                                <div class="field-message" ng-messages="transformerCreation.transformerSl.$error"
+                                    ng-if='transformerCreation.transformerSl.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorXmerSl" style="color:red;">{{errorXmerSlMessage}}</span>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>Transformer Name</strong><span class="validationRequired">*</span></h5>
+                                <input name="TFMRName" ng-model="transfomerdetails.TFMRName"
+                                    class="divthree" type="text" placeholder="Transformer Name"
+                                    ng-blur="focusValidate('TFMRName')"
+                                    ng-change="focusValidate('TFMRName')" maxlength=30 ng-trim="false" required>
+                                <div class="field-message" ng-messages="transformerCreation.TFMRName.$error"
+                                    ng-if='transformerCreation.TFMRName.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorTFMRName"
+                                    style="color:red;">{{errorTFMRNameMessage}}</span>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>Make</strong><span class="validationRequired">*</span></h5>
+                                <input name="make" class="divthree" ng-model="transfomerdetails.make" type="text"
+                                    placeholder="Make" ng-blur="focusValidate('make')" ng-change="focusValidate('make')"
+                                    maxlength=50 ng-trim="false" disallow-space required>
+                                <div class="field-message" ng-messages="transformerCreation.make.$error"
+                                    ng-if='transformerCreation.make.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorMake" style="color:red;">{{errorMakeMessage}}</span>
+                            </div>                            
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <h5><strong>Rating/Capacity (kVA)</strong><span class="validationRequired">*</span></h5>
+                                <input name="kvaRatingXmer" class="divthree" ng-model="transfomerdetails.kvaRating"
+                                    type="text" placeholder="Rating/Capacity" ng-blur="focusValidate('kvaRatingXmer')"
+                                    ng-change="focusValidate('kvaRatingXmer')" maxlength= 5 ng-trim="false" numbers-only
+                                    required>
+                                <div class="field-message" ng-messages="transformerCreation.kvaRating.$error"
+                                    ng-if='transformerCreation.kvaRating.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorKvaRating" style="color:red;">{{errorKvaRatingMessage}}</span>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>Type</strong><span class="validationRequired">*</span></h5>
+                                <select name="type" ng-model="transfomerdetails.type" class="divthree dropbox"
+                                    ng-options="x for x in types" required></select>
+                                <div class="field-message" ng-messages="transformerCreation.type.$error"
+                                    ng-if='transformerCreation.type.$dirty' ng-cloak>
+                                    <div ng-message="required">Type is required!</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>High Line Voltage (V)</strong><span class="validationRequired">*</span></h5>
+                                <input name="highLineV" class="divthree" ng-model="transfomerdetails.highLineV"
+                                    type="text" placeholder="High Line Voltage" ng-blur="focusValidate('highLineV')"
+                                    ng-change="focusValidate('highLineV')" maxlength=6 ng-trim="false" numbers-only
+                                    required>
+                                <div class="field-message" ng-messages="transformerCreation.highLineV.$error"
+                                    ng-if='transformerCreation.highLineV.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorhighLineV" style="color:red;">{{errorhighLineVMessage}}</span>
+                            </div>                            
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <h5><strong>Low Line Voltage (V)</strong><span class="validationRequired">*</span></h5>
+                                <input name="lowLineV" class="divthree" ng-model="transfomerdetails.lowLineV"
+                                    type="text" placeholder="Low Line Voltage" ng-blur="focusValidate('lowLineV')"
+                                    ng-change="focusValidate('lowLineV')" maxlength=6 ng-trim="false" numbers-only
+                                    required>
+                                <div class="field-message" ng-messages="transformerCreation.lowLineV.$error"
+                                    ng-if='transformerCreation.lowLineV.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorlowLineV" style="color:red;">{{errorlowLineVMessage}}</span>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>High Line Current (A)</strong><span class="validationRequired">*</span></h5>
+                                <input name="highLineCurrent" class="divthree"
+                                    ng-model="transfomerdetails.highLineCurrent" type="text"
+                                    placeholder="High Line Current" ng-blur="focusValidate('highLineCurrent')"
+                                    ng-change="focusValidate('highLineCurrent')" maxlength=6 ng-trim="false"
+                                    numbers-only required>
+                                <div class="field-message" ng-messages="transformerCreation.highLineCurrent.$error"
+                                    ng-if='transformerCreation.highLineCurrent.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorhighLineCurrent"
+                                    style="color:red;">{{errorhighLineCurrentMessage}}</span>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>Low Line Current (A)</strong><span class="validationRequired">*</span></h5>
+                                <input name="lowLineCurrent" class="divthree"
+                                    ng-model="transfomerdetails.lowLineCurrent" type="text"
+                                    placeholder="Low Line Current" ng-blur="focusValidate('lowLineCurrent')"
+                                    ng-change="focusValidate('lowLineCurrent')" maxlength=6 ng-trim="false" numbers-only
+                                    required>
+                                <div class="field-message" ng-messages="transformerCreation.lowLineCurrent.$error"
+                                    ng-if='transformerCreation.lowLineCurrent.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorlowLineCurrent"
+                                    style="color:red;">{{errorlowLineCurrentMessage}}</span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <h5><strong>Wire Size (mm)</strong><span class="validationRequired">*</span></h5>
+                                <input name="WireSize" class="divthree" ng-model="transfomerdetails.WireSize"
+                                    type="text" placeholder="Wire Size" ng-blur="focusValidate('WireSize')"
+                                    ng-change="focusValidate('WireSize')" maxlength=6 ng-trim="false" numbers-only
+                                    required>
+                                <div class="field-message" ng-messages="transformerCreation.WireSize.$error"
+                                    ng-if='transformerCreation.WireSize.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorWireSize" style="color:red;">{{errorWireSizeMessage}}</span>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>Max Oil Temperature ({{unit}})</strong><span
+                                        class="validationRequired">*</span> {{unit === "C" ? '[30 - 300]': '[86 - 572]'}} </h5>
+                                <input name="maxOil" class="divthree" ng-model="transfomerdetails.maxOil" type="text"
+                                    placeholder="Max Oil Temperature" ng-blur="focusValidate('maxOil')"
+                                    ng-change="focusValidate('maxOil')" maxlength=6 ng-trim="false" disallow-space
+                                    required>
+                                <div class="field-message" ng-messages="transformerCreation.maxOil.$error" ng-if='transformerCreation.maxOil.$dirty' ng-cloak></div>
+                                <span ng-if="errormaxOil" style="color:red;">{{errormaxOilMessage}}</span>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>Min Oil Temperature ({{unit}})</strong><span
+                                        class="validationRequired">*</span> {{unit === "C" ? '[30 - 300]': '[86 - 572]'}} </h5>
+                                <input name="lowOil" class="divthree" ng-model="transfomerdetails.lowOil" type="text"
+                                    placeholder="Min Oil Temperature" ng-blur="focusValidate('lowOil')"
+                                    ng-change="focusValidate('lowOil')" maxlength=6 ng-trim="false" disallow-space
+                                    required>
+                                <div class="field-message" ng-messages="transformerCreation.lowOil.$error" ng-if='transformerCreation.lowOil.$dirty' ng-cloak>
+                                </div>
+                                <span ng-if="errorlowOil" style="color:red;">{{errorlowOilMessage}}</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <h5><strong>Connected Camera</strong><span class="validationRequired">*</span></h5>
+                                <select ng-model="transfomerdetails.ConnectedCamera" ng-select=""
+                                        ng-options="sel as sel.value for sel in [{id:true,value:'True'},{id:false,value:'False'}] track by sel.id"
+                                        name="ConnectedCamera" class="divthree dropbox" ng-change="changeConnectedCamera()"></select>
+                                <div class="field-message" ng-messages="transformerCreation.ConnectedCamera.$error"
+                                     ng-if='transformerCreation.ConnectedCamera.$dirty' ng-cloak>
+                                    <div ng-message="required">Connected Camera is required!</div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <hr />
+
+                <div uib-accordion-group class="panel-default" is-disabled="status.isFirstDisabled">
+                    <uib-accordion-heading>
+                        Basic Info <i class="fa fa-chevron-down" style="color:blue" aria-hidden="true"></i>
+                        
+                <div class="ib"  ng-if="transfomerdetails.sensorRating && !sensorErrorFlag">
+                    <span ng-if="transformerCreation.hypSl.$valid && transformerCreation.hypersproutVersion.$valid &&
+                         transformerCreation.hypersproutMake.$valid &&  transformerCreation.phases.$valid &&
+                          transformerCreation.accuracy.$valid &&transformerCreation.ratedVoltage.$valid &&
+                         transformerCreation.frequency.$valid &&  transformerCreation.complaintStandard.$valid &&
+                              transformerCreation.ctRatio.$valid && transformerCreation.ptRatio.$valid &&
+                         transformerCreation.maxDemand.$valid &&  transformerCreation.maxDemandSWI.$valid &&
+                          transformerCreation.resetDate.$valid && sensorErrorFlag &&
+                          (
+                          (phaseSelection == 3 && (transfomerdetails.coil1 != '' && transfomerdetails.coil2 != '' && transfomerdetails.coil3 != ''))
+                          || (phaseSelection == 2 && (transfomerdetails.coil1 != '' && transfomerdetails.coil2 != ''))
+                          || (phaseSelection == 1 && transfomerdetails.coil1 != '')
+                          )"><!-- check condition for coil dropdown for Ok Sign -->
+                        <span class="glyphicon_Trans glyphicon-ok-sign basicInfo"></span>
+                    </span>
+                    </div>
+    
+                    <div  class="ib" ng-if="!transfomerdetails.sensorRating && !sensorErrorFlag">
+                        <span ng-if="transformerCreation.hypSl.$valid && transformerCreation.hypersproutVersion.$valid &&
+                         transformerCreation.hypersproutMake.$valid &&  transformerCreation.phases.$valid &&
+                          transformerCreation.accuracy.$valid &&transformerCreation.ratedVoltage.$valid &&
+                         transformerCreation.frequency.$valid &&  transformerCreation.complaintStandard.$valid &&
+                              transformerCreation.ctRatio.$valid && transformerCreation.ptRatio.$valid &&
+                         transformerCreation.maxDemand.$valid &&  transformerCreation.maxDemandSWI.$valid &&
+                          transformerCreation.resetDate.$valid &&
+                          (
+                          (phaseSelection == 3 && (transfomerdetails.coil1 != '' && transfomerdetails.coil2 != '' && transfomerdetails.coil3 != ''))
+                          || (phaseSelection == 2 && (transfomerdetails.coil1 != '' && transfomerdetails.coil2 != ''))
+                          || (phaseSelection == 1 && transfomerdetails.coil1 != '')
+                          )"><!-- check condition for coil dropdown for Ok Sign -->
+                        <span class="glyphicon_Trans glyphicon-ok-sign basicInfo"></span>
+                    </span>
+                    </div>
+    
+                    <div class="ib" ng-if="transfomerdetails.sensorRating && !sensorErrorFlag">
+                        <span ng-if="transformerCreation.hypSl.$valid && transformerCreation.hypersproutVersion.$valid &&
+                         transformerCreation.hypersproutMake.$valid &&  transformerCreation.phases.$valid &&
+                          transformerCreation.accuracy.$valid &&transformerCreation.ratedVoltage.$valid &&
+                         transformerCreation.frequency.$valid &&  transformerCreation.complaintStandard.$valid &&
+                              transformerCreation.ctRatio.$valid && transformerCreation.ptRatio.$valid &&
+                         transformerCreation.maxDemand.$valid &&  transformerCreation.maxDemandSWI.$valid &&
+                          transformerCreation.resetDate.$valid &&
+                          (
+                          (phaseSelection == 3 && (transfomerdetails.coil1 != '' && transfomerdetails.coil2 != '' && transfomerdetails.coil3 != ''))
+                          || (phaseSelection == 2 && (transfomerdetails.coil1 != '' && transfomerdetails.coil2 != ''))
+                          || (phaseSelection == 1 && transfomerdetails.coil1 != '')
+                          )"><!-- check condition for coil dropdown for Ok Sign -->
+                        <span class="glyphicon_Trans glyphicon-ok-sign basicInfo"></span>
+                    </span>
+                    </div>
+    
+                    </uib-accordion-heading>
+                    <section style="margin-left:3%">
+                        <div class="row col-lg-12">
+                            <div class="col-lg-4">
+                                <h5><strong>HS Serial Number</strong><span class="validationRequired">*</span></h5>
+                                <input name="hypSl" ng-model="transfomerdetails.hypSl" class="divthree" type="text"
+                                    placeholder="HS Serial Number" ng-blur="focusValidate('hypSl')"
+                                    ng-change="focusValidate('hypSl')" maxlength=25 ng-trim="false" disallow-space required>
+                                <div class="field-message" ng-messages="transformerCreation.hypSl.$error"
+                                    ng-if='transformerCreation.hypSl.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorhypSl" style="color:red;">{{errorhypSlMessage}}</span>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>HS Name</strong><span class="validationRequired">*</span></h5>
+                                <input name="hypersproutMake" ng-model="transfomerdetails.hypersproutMake"
+                                    class="divthree" type="text" placeholder="HyperSPROUT&trade; Name"
+                                    ng-blur="focusValidate('hypersproutMake')"
+                                    ng-change="focusValidate('hypersproutMake')" maxlength=30 ng-trim="false" required>
+                                <div class="field-message" ng-messages="transformerCreation.hypersproutMake.$error"
+                                    ng-if='transformerCreation.hypersproutMake.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorhypersproutMake"
+                                    style="color:red;">{{errorhypersproutMakeMessage}}</span>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>HS Version</strong><span class="validationRequired">*</span></h5>
+                                <input name="hypersproutVersion" ng-model="transfomerdetails.hypersproutVersion"
+                                    class="divthree" type="text" placeholder="HyperSPROUT&trade; Version"
+                                    ng-blur="focusValidate('hypersproutVersion')"
+                                    ng-change="focusValidate('hypersproutVersion')" maxlength=7
+                                    ng-trim="false"
+                                    required disallow-space>
+                                <div class="field-message" ng-messages="transformerCreation.hypersproutVersion.$error"
+                                    ng-if='transformerCreation.hypersproutVersion.$dirty' ng-cloak>
+                                </div>
+                                <span ng-if="errorhypersproutVersion" style="color:red;">{{errorhypersproutVersionMessage}}</span>
+                            </div>
+                        </div>
+
+                        <div class="row col-lg-12">
+                            <div class="col-lg-4">
+                                <h5><strong>Number of Phases</strong><span class="validationRequired">*</span></h5>
+
+                                <select ng-change="getphasedetails(transfomerdetails.phases)" ng-model="transfomerdetails.phases" name="phases" class="divthree dropbox"
+                                    ng-options="x for x in phases" placeholder="Phases" required></select>
+                                <div class="field-message" ng-messages="transformerCreation.phases.$error"
+                                    ng-if='transformerCreation.phases.$dirty' ng-cloak>
+                                    <div ng-message="required">Number of phases is required!</div>
+                                </div>
+                            </div>
+                            <!-- New Dropdown fields for Coil -->
+                            <div class="col-lg-4"  ng-if="phaseTypeSingle">
+                                <h5><strong>Coil 1</strong><span class="validationRequired">*</span></h5>
+                                <select  ng-model="transfomerdetails.coil1" name="coil1" class="divthree dropbox"
+                                    ng-options="x._id as x.coil_name for x in coilLists1"
+                                    ng-change="getCoilDetails('coil1')" placeholder="Coil 1" required></select>
+                                <div class="field-message" ng-messages="transformerCreation.coil1.$error"
+                                    ng-if='transformerCreation.coil1 ==' ng-cloak>
+                                    <div ng-message="required">Coil 1 is required!</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4"  ng-if="phaseTypeDouble">
+                                <h5><strong>Coil 2</strong><span class="validationRequired">*</span></h5>
+
+                                <select ng-model="transfomerdetails.coil2" name="coil2" class="divthree dropbox"
+                                    ng-options="x._id as x.coil_name for x in coilLists2"
+                                    ng-change="getCoilDetails('coil2')" placeholder="Coil 2" required></select>
+                                <div class="field-message" ng-messages="transformerCreation.coil2.$error"
+                                    ng-if='transformerCreation.coil2.$dirty' ng-cloak>
+                                    <div ng-message="required">Coil 2 is required!</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4"  ng-if="phaseTypeTriple">
+                                <h5><strong>Coil 3</strong><span class="validationRequired">*</span></h5>
+
+                                <select  ng-model="transfomerdetails.coil3" name="coil3" class="divthree dropbox"
+                                    ng-options="x._id as x.coil_name for x in coilLists3"
+                                    ng-change="getCoilDetails('coil3')" placeholder="Coil 3" required></select>
+                                <div class="field-message" ng-messages="transformerCreation.coil3.$error"
+                                    ng-if='transformerCreation.coil3.$dirty' ng-cloak>
+                                    <div ng-message="required">Coil 3 is required!</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>Accuracy</strong><span class="validationRequired">*</span></h5>
+
+                                <select ng-model="transfomerdetails.accuracy" name="accuracy" class="divthree dropbox"
+                                    ng-options="x for x in accuracy" placeholder="Accuracy" required></select>
+                                <div class="field-message" ng-messages="transformerCreation.accuracy.$error"
+                                    ng-if='transformerCreation.accuracy.$dirty' ng-cloak>
+                                    <div ng-message="required">Accuracy is required!</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>Rated Voltage (V)</strong><span class="validationRequired">*</span></h5>
+
+                                <select ng-model="transfomerdetails.ratedVoltage" name="ratedVoltage"
+                                    ng-options="x for x in ratedVoltage" class="divthree dropbox"
+                                    placeholder="Rated Voltage" required></select>
+                                <div class="field-message" ng-messages="transformerCreation.ratedVoltage.$error"
+                                    ng-if='transformerCreation.ratedVoltage.$dirty' ng-cloak>
+                                    <div ng-message="required">Rated Voltage is required!</div>
+                                </div>
+                            </div>
+
+                        <!-- </div>
+
+                        <div class="row col-lg-12"> -->
+                            <div class="col-lg-4">
+                                <h5><strong>Rated Frequency (Hz)</strong><span class="validationRequired">*</span></h5>
+                                <select ng-model="transfomerdetails.frequency" name="frequency"
+                                    ng-options="x for x in frequency" class="divthree dropbox" placeholder="Frequency"
+                                    required></select>
+                                <div class="field-message" ng-messages="transformerCreation.frequency.$error"
+                                    ng-if='transformerCreation.frequency.$dirty' ng-cloak>
+                                    <div ng-message="required">Frequency is required!</div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <h5><strong>Compliant of Standards</strong><span class="validationRequired">*</span>
+                                </h5>
+
+                                <select ng-model="transfomerdetails.complaintStandard" name="complaintStandard"
+                                    ng-options="x for x in complaintStandard" class="divthree dropbox"
+                                    placeholder="Compliant of Standards" required></select>
+                                <div class="field-message" ng-messages="transformerCreation.complaintStandard.$error"
+                                    ng-if='transformerCreation.complaintStandard.$dirty' ng-cloak>
+                                    <div ng-message="required">Compliant of Standards is required!</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>CT Ratio</strong><span class="validationRequired">*</span></h5>
+                                <input name="ctRatio" ng-model="transfomerdetails.ctRatio" class="divthree" type="text"
+                                    placeholder="CT Ratio" ng-blur="focusValidate('ctRatio')"
+                                    ng-change="focusValidate('ctRatio')" maxlength=7 ng-trim="false" required disallow-space>
+                                <div class="field-message" ng-messages="transformerCreation.ctRatio.$error"
+                                    ng-if='transformerCreation.ctRatio.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorctRatio" style="color:red;"><br/>{{errorctRatioMessage}}</span>
+                            </div>
+
+                        <!-- </div>
+
+                        <div class="row col-lg-12"> -->
+                            <div class="col-lg-4">
+                                <h5><strong>PT Ratio</strong><span class="validationRequired">*</span></h5>
+                                <input name="ptRatio" ng-model="transfomerdetails.ptRatio" class="divthree" type="text"
+                                    placeholder="PT Ratio" ng-blur="focusValidate('ptRatio')"
+                                    ng-change="focusValidate('ptRatio')" maxlength=7 ng-trim="false" required disallow-space>
+                                <div class="field-message" ng-messages="transformerCreation.ptRatio.$error"
+                                    ng-if='transformerCreation.ptRatio.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorptRatio" style="color:red;"><br/>{{errorptRatioMessage}}</span>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <h5><strong>Max Demand Window</strong><span class="validationRequired">*</span></h5>
+                                <select ng-model="transfomerdetails.maxDemand" name="maxDemand"
+                                    ng-options="x for x in maxDemand" class="divthree dropbox" placeholder="Max Demand"
+                                    required></select>
+                                <div class="field-message" ng-messages="transformerCreation.maxDemand.$error"
+                                    ng-if='transformerCreation.maxDemand.$dirty' ng-cloak>
+                                    <div ng-message="required">Max Demand is required!</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>Max. Demand Sliding Window Interval (min)</strong><span
+                                        class="validationRequired">*</span></h5>
+                                <select ng-model="transfomerdetails.maxDemandSWI" name="maxDemandSWI"
+                                    ng-options="x for x in maxDemandSWI" class="divthree dropbox"
+                                    placeholder="Max Demand" required></select>
+                                <div class="field-message" ng-messages="transformerCreation.maxDemandSWI.$error"
+                                    ng-if='transformerCreation.maxDemandSWI.$dirty' ng-cloak>
+                                    <div ng-message="required">Max. Demand Sliding Window Interval is required!</div>
+                                </div>
+                            </div>
+
+                        <!-- </div>
+                        <div class="row col-lg-12"> -->
+                            <div class="col-lg-4">
+                                <h5><strong>Demand Reset Day</strong><span class="validationRequired">*</span></h5>
+                                <div class="field-message" ng-messages="transformerCreation.resetDate.$error"
+                                    ng-if='transformerCreation.resetDate.$dirty' ng-cloak>
+                                    <div ng-message="required">Demand Reset Day is required!</div>
+                                </div>
+                                <select ng-model="transfomerdetails.resetDate" name="resetDate"
+                                    ng-options="x for x in resetDate" class="divthree dropbox" required> </select>
+
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>Sensor Details</strong></h5>
+                                <input  type="text"
+                                        name="sensorRating"
+                                        class="divthree"
+                                        ng-model="transfomerdetails.sensorRating"
+                                        placeholder="Sensor Min/Max Rating"
+                                        maxlength="250"
+                                        ng-change="sensorInputValidation(transfomerdetails.sensorRating)"/>
+                                <span ng-show="sensorErrorFlag" style="color:red;"><br/>Length should not exceed 250 characters</span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <hr />
+
+                <div uib-accordion-group class="panel-default" is-disabled="status.isFirstDisabled">
+                    <uib-accordion-heading>
+                        Communications <i class="fa fa-chevron-down" style="color:blue" aria-hidden="true"></i>
+                        <span ng-if="transformerCreation.gprs.$valid && transformerCreation.latitude.$valid &&
+                     transformerCreation.longitude.$valid && !errorgprs &&
+                      !errorwifiMacId && transformerCreation.wifiAccessPwd.$valid &&
+                      transformerCreation.simCard.$valid">
+                    <span class="glyphicon_Trans glyphicon-ok-sign communications"></span>
+                </span>
+                    </uib-accordion-heading>
+                    <section style="margin-left:3%">
+                        <div class="row col-lg-12">
+                            <div class="col-lg-4">
+                                <h5><strong>GPRS-MAC ID</strong><span class="validationRequired">*</span></h5>
+                                <input name="gprs" ng-model="transfomerdetails.gprs" class="divthree" type="text"
+                                    placeholder="GPRS MAC ID" ng-blur="focusValidate('gprs')" ng-change="focusValidate('gprs')"
+                                    ng-trim="false" maxlength=17 required disallow-space>
+                                <div class="field-message" ng-messages="transformerCreation.gprs.$error"
+                                    ng-if='transformerCreation.gprs.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorgprs" style="color:red;">{{errorgprsMessage}}</span>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>Latitude</strong><span class="validationRequired">*</span></h5>
+                                <input name="latitude" ng-model="transfomerdetails.latitude" class="divthree"
+                                    type="text" placeholder="Latitide" ng-blur="focusValidate('latitude')"
+                                    ng-change="focusValidate('latitude')" ng-trim="false" maxlength="10" required disallow-space>
+                                <div class="field-message"
+                                    ng-messages="transformerCreation.latitude.$error && transformerCreation.latitude.$valid"
+                                    ng-if='transformerCreation.latitude.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorlatitude" style="color:red;">{{errorlatitudeMessage}}</span>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>Longitude</strong><span class="validationRequired">*</span></h5>
+                                <input name="longitude" ng-model="transfomerdetails.longitude" class="divthree"
+                                    type="text" placeholder="Longitude" ng-blur="focusValidate('longitude')"
+                                    ng-change="focusValidate('longitude')" ng-trim="false" maxlength="11" required disallow-space>
+                                <div class="field-message"
+                                    ng-messages="transformerCreation.longitude.$error && transformerCreation.longitude.$valid"
+                                    ng-if='transformerCreation.longitude.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorlongitude" style="color:red;">{{errorlongitudeMessage}}</span>
+                            </div>
+                        </div>
+
+                        <div class="row col-lg-12">
+
+                            <div class="col-lg-4">
+                                <h5><strong>Wifi MAC ID</strong><span class="validationRequired">*</span></h5>
+                                <input name="wifiMacId" ng-model="transfomerdetails.wifiMacId" class="divthree"
+                                    type="text" placeholder="Wifi MAC ID" ng-blur="focusValidate('wifiMacId')"
+                                    ng-change="focusValidate('wifiMacId')" ng-trim="false" maxlength=17 required disallow-space>
+                                <div class="field-message" ng-messages="transformerCreation.wifiMacId.$error"
+                                    ng-if='transformerCreation.wifiMacId.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorwifiMacId" style="color:red;">{{errorwifiMacIdMessage}}</span>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>Wifi IP Address</strong><span class="validationRequired">*</span></h5>
+                                <input name="wifiIpAdd" ng-model="transfomerdetails.wifiIpAdd" class="divthree"
+                                    type="text" placeholder="Wifi IP Address" ng-blur="focusValidate('wifiIpAdd')"
+                                    ng-change="focusValidate('wifiIpAdd')" ng-trim="false" ng-autocomplete="off"
+                                    ng-readonly="editWifi" maxlength=15 required disallow-space>
+                                <div class="field-message" ng-messages="transformerCreation.wifiIpAdd.$error"
+                                    ng-if='transformerCreation.wifiIpAdd.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorwifiIpAdd" style="color:red;"><br/>{{errorwifiIpAddMessage}}</span>
+                            </div>
+
+                            <div class="col-lg-4"
+                                ng-if="(!createUpdateStatus&&!showPassword)&&transfomerStatus==='Registered'">
+                                <h5><strong>Wifi Access Point Password</strong><span class="validationRequired">*</span>
+                                </h5>
+                                <input name="wifiAccessPwd" ng-model="transfomerdetails.wifiAccessPwd" class="divthree"
+                                    type="password" placeholder="Wifi Access Point Password" autocomplete="new-password"
+                                    ng-blur="focusValidate('wifiAccessPwd')" ng-change="focusValidate('wifiAccessPwd')"
+                                    maxlength=21 ng-trim="false" required disallow-space disabled>
+                                <span ng-if="transfomerdetails.wifiAccessPwd" ng-click="toggleShowPassword()"
+                                    class="glyphicon glyphicon-eye-open eye_trans_pass"
+                                    style="cursor: pointer; pointer-events: all;">
+                                </span>
+                                <div class="field-message" ng-messages="transformerCreation.wifiAccessPwd.$error"
+                                    ng-if='transformerCreation.wifiAccessPwd.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorwifiAccessPwd"
+                                    style="color:red;">{{errorwifiAccessPwdMessage}}</span>
+                            </div>
+                            <div ng-if="createUpdateStatus||transfomerStatus==='NotRegistered'" class="col-lg-4">
+                                <h5><strong>SIM Card Number</strong><span class="validationRequired">*</span></h5>
+                                <input name="simCard" ng-model="transfomerdetails.simCard" type="text" class="divthree"
+                                    placeholder="SIM Card No." ng-blur="focusValidate('simCard')"
+                                    ng-change="focusValidate('simCard')"  maxlength=10 ng-trim="false"
+                                       numbers-only required disallow-space>
+                                <div class="field-message" ng-messages="transformerCreation.simCard.$error"
+                                    ng-if='transformerCreation.simCard.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorsimCard" style="color:red;"><br/>{{errorsimCardMessage}}</span>
+                            </div>
+                            <div class="col-lg-4"
+                                ng-if="(!createUpdateStatus&&showPassword)&&transfomerStatus==='Registered'">
+                                <h5><strong>Wifi Access Point Password</strong><span class="validationRequired">*</span>
+                                </h5>
+                                <input name="wifiAccessPwd" ng-model="transfomerdetails.wifiAccessPwd" class="divthree"
+                                    type="text" placeholder="Wifi Access Point Password"
+                                    ng-blur="focusValidate('wifiAccessPwd')" ng-change="focusValidate('wifiAccessPwd')"
+                                    maxlength=21 ng-autocomplete="off" ng-trim="false" required disabled>
+                                <span ng-if="transfomerdetails.wifiAccessPwd" ng-click="toggleShowPassword()"
+                                    class="glyphicon glyphicon-eye-close eye_trans_pass"
+                                    style="cursor: pointer; pointer-events: all;">
+                                </span>
+                                <div class="field-message" ng-messages="transformerCreation.wifiAccessPwd.$error"
+                                    ng-if='transformerCreation.wifiAccessPwd.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorwifiAccessPwd"
+                                    style="color:red;">{{errorwifiAccessPwdMessage}}</span>
+                            </div>
+                        </div>
+                        <div class="row col-lg-12" ng-if="!createUpdateStatus&&transfomerStatus==='Registered'">
+
+                            <div class="col-lg-4">
+                                <h5><strong>SIM Card Number</strong><span class="validationRequired">*</span></h5>
+                                <input name="simCard" ng-model="transfomerdetails.simCard" type="text" class="divthree"
+                                    placeholder="SIM Card No." ng-blur="focusValidate('simCard')"
+                                    ng-change="focusValidate('simCard')" ng-trim="false" maxlength=10 numbers-only disallow-space required>
+                                <div class="field-message" ng-messages="transformerCreation.simCard.$error"
+                                    ng-if='transformerCreation.simCard.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorsimCard" style="color:red;">{{errorsimCardMessage}}</span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </uib-accordion>
+        </section>
+    </form>
+    <section>
+        <div class="row">
+            <div class="btnRow">
+                <span>
+                    <button type="button" class="btn btn-default btnColor" ng-show="createUpdateStatus"
+                        ng-click="saveTransformer()"
+                        ng-disabled="create_transformer_valid || !((transformerCreation.transformerSl.$valid && transformerCreation.make.$valid &&
+                      errorKvaRating == false && transformerCreation.type.$valid &&
+                     transformerCreation.highLineV.$valid && transformerCreation.lowLineV.$valid &&
+                     transformerCreation.highLineCurrent.$valid &&  transformerCreation.lowLineCurrent.$valid &&
+                      transformerCreation.WireSize.$valid && transformerCreation.maxOil.$valid && transformerCreation.lowOil.$valid)
+&&(transformerCreation.hypSl.$valid && transformerCreation.hypersproutVersion.$valid &&
+                     transformerCreation.hypersproutMake.$valid &&  transformerCreation.phases.$valid &&
+                      transformerCreation.accuracy.$valid &&transformerCreation.ratedVoltage.$valid &&
+                     transformerCreation.frequency.$valid &&  transformerCreation.complaintStandard.$valid &&
+                          transformerCreation.ctRatio.$valid && transformerCreation.ptRatio.$valid &&
+                     transformerCreation.maxDemand.$valid &&  transformerCreation.maxDemandSWI.$valid &&
+                      transformerCreation.resetDate.$valid)
+&&(transformerCreation.gprs.$valid && transformerCreation.latitude.$valid &&
+                     transformerCreation.longitude.$valid && transformerCreation.wifiMacId.$valid &&
+                      transformerCreation.wifiIpAdd.$valid && transformerCreation.wifiAccessPwd.$valid &&
+                      transformerCreation.simCard.$valid && transformerCreation.TFMRName.$valid ) 
+                      &&
+                        (
+                        (phaseSelection == 3 && (transfomerdetails.coil1 != '' && transfomerdetails.coil2 != '' && transfomerdetails.coil3 != ''))
+                        || (phaseSelection == 2 && (transfomerdetails.coil1 != '' && transfomerdetails.coil2 != ''))
+                        || (phaseSelection == 1 && transfomerdetails.coil1 != '')
+                        )) || sensorErrorFlag == true">
+                        <!-- Added conditions for Create Button disable -->
+                        Create
+                    </button>
+                    <button type="button" class="btn btn-default btnColor" ng-hide="createUpdateStatus"
+                        ng-click="updateTransformer()"
+                        ng-disabled="!((transformerCreation.transformerSl.$valid && transformerCreation.make.$valid &&
+                      errorKvaRating == false && transformerCreation.type.$valid &&
+                     transformerCreation.highLineV.$valid && transformerCreation.lowLineV.$valid &&
+                     transformerCreation.highLineCurrent.$valid &&  transformerCreation.lowLineCurrent.$valid &&
+                      transformerCreation.WireSize.$valid && transformerCreation.maxOil.$valid && transformerCreation.lowOil.$valid)
+&&(transformerCreation.hypSl.$valid && transformerCreation.hypersproutVersion.$valid &&
+                     transformerCreation.hypersproutMake.$valid &&  transformerCreation.phases.$valid &&
+                      transformerCreation.accuracy.$valid &&transformerCreation.ratedVoltage.$valid &&
+                     transformerCreation.frequency.$valid &&  transformerCreation.complaintStandard.$valid &&
+                          transformerCreation.ctRatio.$valid && transformerCreation.ptRatio.$valid &&
+                     transformerCreation.maxDemand.$valid &&  transformerCreation.maxDemandSWI.$valid &&
+                      transformerCreation.resetDate.$valid)
+&&(transformerCreation.gprs.$valid && transformerCreation.latitude.$valid &&
+                     transformerCreation.longitude.$valid && transformerCreation.wifiMacId.$valid &&
+                      transformerCreation.wifiIpAdd.$valid && transformerCreation.wifiAccessPwd.$valid &&
+                      transformerCreation.simCard.$valid && transformerCreation.TFMRName.$valid)
+                      &&
+                        (
+                        (phaseSelection == 3 && (transfomerdetails.coil1 != '' && transfomerdetails.coil2 != '' && transfomerdetails.coil3 != ''))
+                        || (phaseSelection == 2 && (transfomerdetails.coil1 != '' && transfomerdetails.coil2 != ''))
+                        || (phaseSelection == 1 && transfomerdetails.coil1 != '')
+                        )) || create_transformer_valid || errorKvaRating == true || sensorErrorFlag == true || (!transformerCreation.$dirty &&
+                        ConnectedCameraBoolean) 
+                        "> 
+                        <!-- Added conditions for Update Button disable -->
+                        Update
+                    </button>
+                    <button type="button" class="btn btn-default btnDefault" ng-click="cancel()">Cancel</button>
+                </span>
+            </div>
+        </div>
+    </section>
+
+</div>
+<!--I ma an updated file-->

@@ -1,0 +1,123 @@
+﻿<div class="container-fluid">
+    <div class="row ">
+        <table class="table table-hover">
+            <tr>
+                <th style="background-color: black; color:white;text-align:center;width:9vw">Setting</th>
+                <th style="background-color: black; color:white;text-align:center">Description</th>
+                <th style="background-color: black; color:white;text-align:center;width:12vw">Value</th>
+            </tr>
+        </table>
+    </div>
+    <div class="row adminSettings">
+        <form name="forms.commSettingsForm" method="post" novalidate autocomplete="off">
+            <table class="table table-hover adminSettingsTable">
+                <!--<tr>
+                    <th style="background-color: black; color:white;">Setting</th>
+                    <th style="background-color: black; color:white;">Description</th>
+                    <th style="background-color: black; color:white;">Value</th>
+                </tr>-->
+                <tr>
+                    <td>
+                        <h5 style="margin-top:0.3vh"><strong>HyperSPROUT&trade; Transaction Polling Interval</strong></h5>
+                    </td>
+                    <td>
+                        <p>
+                            Transaction data polling inteval. This inteval is for the CE send request to HyperSPROUT&trade; for Transaction Data.
+                        </p>
+                    </td>
+                    <td>
+                        <select class="form-control cmmunicationSettingInput" name="HypersproutTransactionPoolingInterval" ng-model="obj.HypersproutTransactionPoolingInterval"
+                            ng-options="value for value in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]" ng-change="">
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5 style="margin-top:0.3vh"><strong>Retry attempts from CE to HS</strong></h5>
+                    </td>
+                    <td>
+                        <p>
+                            Number of retries should be made for Transaction data from CE to HS when HS doesn’t respond back.
+                        </p>
+                    </td>
+                    <td>
+                        <select class="form-control cmmunicationSettingInput" name="retryAttemtCEtoHS" ng-model="obj.RetryAttemtCEtoHS" ng-options="value for value in [1,2,3,4,5,6,7,8,9,10]"
+                            ng-change="">
+                        </select>
+                    </td>
+                </tr>
+               <!--  <tr>
+                    <td>
+                        <h5 style="margin-top:0.3vh"><strong>Configuration Discrepancy Handling</strong></h5>
+                    </td>
+                    <td>
+                        <p>
+                            Determine the type of action to take when a configuration discrepancy is found. The options are to flag the error, correct
+                            the endpoint.
+                        </p>
+                    </td>
+                    <td>
+                        <select class="form-control cmmunicationSettingInput" name="configDiscrepancy" ng-model="obj.configDiscrepancy" ng-options="obj as obj for obj in configDisc"
+                            ng-change="">
+                        </select>
+                    </td>
+                </tr> -->
+                <tr>
+                    <td>
+                        <h5 style="margin-top:0.3vh"><strong>Line Loss Factor (%)</strong></h5>
+                    </td>
+                    <td>
+                        <p>
+                            This factor is used in Network Loss Calculation for calculating the Line of Loss.
+                            <span style="color:red;" ng-show="errorLineLossFactor"><br>{{errorLineLossFactorMessage}} </span>
+                        </p>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control cmmunicationSettingInput" ng-model="obj.lineLossFactor" name="lineLossFactor"  
+                        disallow-space required ng-blur="validateFields('lineLossFactor')" ng-change="validateFields('lineLossFactor')" maxlength=6 />
+                       
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5 style="margin-top:0.3vh"><strong>HyperSPROUT&trade; Loss (Wh)</strong></h5>
+                    </td>
+                    <td>
+                        <p>
+                            HyperSPROUT&trade; Loss is the Power Consumed by HS for Network Loss Calculation.
+                            <span style="color:red;" ng-show="errorHyperSproutLoss"><br>{{errorHyperSproutLossMessage}} </span>
+                        </p>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control cmmunicationSettingInput" ng-model="obj.hyperSproutLoss" name="hyperSproutLoss" 
+                        disallow-space autocomplete="off" required ng-blur="validateFields('hyperSproutLoss')" ng-change="validateFields('hyperSproutLoss')" maxlength=6/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5 style="margin-top:0.3vh"><strong>HyperHUB&trade; Loss (Wh)</strong></h5>
+                    </td>
+                    <td>
+                        <p>
+                            HyperHUB&trade; Loss is the Power Consumed by HH for Network Loss Calculation.
+                            <span style="color:red;" ng-show="errorHyperHubLoss"><br>{{errorHyperHubLossMessage}} </span>
+                        </p>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control cmmunicationSettingInput" ng-model="obj.hyperHubLoss" name="hyperHubLoss" 
+                        disallow-space autocomplete="off" required ng-blur="validateFields('hyperHubLoss')" ng-change="validateFields('hyperHubLoss')"  maxlength=6 />
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+    </div>
+    <div class="row">
+        <div class="btnAdjust">
+            <button type="button" class="btn btn-default btnColor"  ng-disabled="system_setting_valid||forms.commSettingsForm.$invalid" ng-click="Save()">Save</button>&nbsp;
+            <button type="button" class="btn btn-default btnDefault" ng-click="restoreDefaults(resetValues)">Restore Defaults</button>
+        </div>
+    </div>
+    <div class="row">&nbsp;</div>
+    <div class="row">&nbsp;</div>
+</div>

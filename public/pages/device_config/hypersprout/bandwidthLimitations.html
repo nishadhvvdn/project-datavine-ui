@@ -1,0 +1,60 @@
+<div class="tab-content">
+    <div class="tab-form-wrapper">
+        <h3 class="no-border">Bandwidth Limitations</h3>
+        <form class="pure-form pure-form-aligned bandwidthlimitations-form" name="advancedBandwidthForm" method="post" novalidate autocomplete="off">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group switch-box green-switch">
+						<label>Status<span class="validationRequired">*</span></label>
+						<div class="input-wrap short-input"> 
+							<div class="toggle-button-cover">
+								<div class="button-cover">
+									<div class="button r" id="button-1">
+										<input type="checkbox" class="checkbox" name="status"
+										ng-model="configurationDetails.BandwidthStatus" ng-checked="configurationDetails.BandwidthStatus" ng-change="onchangeBandwidthStatus()">
+										<div class="knobs"></div>
+										<div class="layer"></div>
+									</div>
+								</div>
+							</div>
+							<span>{{configurationDetails.BandwidthStatus === true ? 'Enabled' : 'Disabled'}}</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12" ng-show="configurationDetails.BandwidthStatus">
+					<div class="form-group">
+						<label>Download Limit (Mbps)<span class="validationRequired">*</span></label>
+						<div class="input-wrap short-input">
+							<input type="text" class="form-control" name="downloadLimit" ng-model="configurationDetails.DownloadBandwidth" ng-blur="focusValidate('downloadLimit')"
+							ng-change="focusValidate('downloadLimit')" maxlength=4 numbers-only required disallow-space ng-trim="false">
+							<div class="field-message" ng-messages="advancedBandwidthForm.downloadLimit.$error"
+							ng-if='advancedBandwidthForm.downloadLimit.$dirty' ng-cloak></div>
+							<span ng-show="errorDownload" class="error-span" style="color:red;">{{errorDownloadMessage}}</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12" ng-show="configurationDetails.BandwidthStatus">
+					<div class="form-group">
+						<label>Upload Limit (Mbps)<span class="validationRequired">*</span></label>
+						<div class="input-wrap short-input">
+							<input type="text" class="form-control" name="uploadLimit" ng-model="configurationDetails.UploadBandwidth" ng-blur="focusValidate('uploadLimit')"
+							ng-change="focusValidate('uploadLimit')" maxlength=4 numbers-only required disallow-space ng-trim="false">
+							<div class="field-message" ng-messages="advancedBandwidthForm.uploadLimit.$error"
+							ng-if='advancedBandwidthForm.uploadLimit.$dirty' ng-cloak></div>
+							<span ng-show="errorUpload" class="error-span" style="color:red;">{{errorUploadMessage}}</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">									
+				<div class="col-sm-12">
+					<div class="form-btn text-right">
+						<button class="plain-btn" ng-click="resetDetails('bandwidth');">Cancel</button>
+						<button class="fill-btn" ng-click="saveBandwidthLimitationsConfig();" ng-disabled="(configurationDetails.BandwidthStatus && set_advance_bandwidth_valid) || advancedBandwidthForm.$invalid || !advancedBandwidthForm.$dirty">Save</button>
+					</div>
+				</div>
+			</div>
+		</form>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <h3 class="headingAlign">System Settings</h3>
+    </div><br />
+    <div class="row">
+        <uib-tabset active="active" class="editModalFont">
+            <uib-tab index="0" heading="Communications" ng-click="resetPreviousValues()">
+                <div ng-include="'/tabs/communicationsSettings.html'"></div>
+            </uib-tab>
+            <uib-tab index="4" heading="Miscellaneous" ng-click="resetPreviousValues()">
+                <div ng-include="'/tabs/miscellaneous.html'"></div>
+            </uib-tab>
+            <uib-tab index="6" heading="Reporting" ng-click="resetPreviousValues()">
+                <div ng-include="'/tabs/reportingSettings.html'"></div>
+            </uib-tab>
+
+        </uib-tabset>
+    </div>
+</div>

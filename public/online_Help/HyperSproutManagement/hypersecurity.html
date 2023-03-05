@@ -1,0 +1,92 @@
+<div class="container-fluid">
+
+    <!--=====================================================-->
+
+    <div class="row">
+        <div class="rectangleBox">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 your_col">
+                    <img alt="#" src="../assets/images/HypersproutManagement/SecurityCodeManagement.png" class="imgDimension-helpSub" />
+                </div>
+                <div class="col-xs-8 col-sm-98 col-md-8 col-lg-8 labelStyle">
+                    <label> Security Code Management </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--=====================================================-->
+
+    <div class="row" style="margin-top: 1%">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="pull-right">
+                <p><a ng-click="tabChange('readingReport')" href=""><strong> 1. &nbsp; Assign Device Security Codes </strong></a></p>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="pull-left">
+                <p><a ng-click="tabChange('exportingReport')" href=""><strong> 2. &nbsp; Set Encrpytion Keys </strong></a></p>
+            </div>
+        </div>
+    </div>
+    <!--=====================================================-->
+
+    <div class="hr" style="margin-top: 0"></div>
+
+    <!--===============================================================-->
+
+    <div class="row text-center scrollAdjust" ng-show="tabs.readingReport">
+        <label> <h1> <strong> 1. Assign Device Security Codes </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            To assign new security codes to a device class you must first click the Assign Device Security Codes button.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/securityAssign.png" />
+
+
+        <span> 
+        <p class="paragraph"  style= "margin-top:1%">
+            Clicking this button will open up the assigning window. From here select the device class you wish to update
+                and the security level from the dropdowns. Then click the Choose File button to input the path to the security
+                codes file and, finally, click Import. The result will be shown on the Import Result line.
+        </p>
+                </span>
+
+        <img alt="#" src="../assets/images/asignSecure.png" style=" width: 56% ;margin-top:1%" />
+
+    </div>
+    <!--=====================================================================================-->
+    <div class="row text-center scrollAdjust " ng-show="tabs.exportingReport">
+        <label> <h1> <strong> 2. Set Encrpytion Keys </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph" style= "margin-top:1%">
+            
+            To set the encryption keys for a device class first choose the device class from the dropdown in the Select Device Class
+                section.
+                </p>
+                </span>
+        <img alt="#" src="../assets/images/selectClass.png" style= "margin-top:1%" />
+        <span>
+        <p class="paragraph"  style= "margin-top:1%">
+            
+           Then change the values as needed in the Encryption Key Settings section and click Save.
+                </p>
+                </span>
+        <img alt="#" src="../assets/images/keySetting.png" style=" width: 56%;margin-top:1%" />
+
+    </div>
+    <!--=====================================================================================-->
+
+</div>
+
+
+
+
+
+
+

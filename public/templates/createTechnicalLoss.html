@@ -1,0 +1,185 @@
+<div class="container-fluid" id="transformerCreationDiv">
+    <section>
+        <div class="row circuit">
+            <h4 ng-if="createUpdateStatus == 'add'"><strong>Create Technical Loss</strong></h4>
+            <h4 ng-if="createUpdateStatus == 'edit'"><strong>Edit Technical Loss</strong></h4>
+            <h4><strong></strong></h4>
+
+        </div>
+    </section>
+    <form class="pure-form pure-form-aligned" name="technicalLossForm" method="post" novalidate autocomplete="off">
+        <section>
+            <div class="modalinfo-blk">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h4>Transformer Serial No.</h4>
+                        <h3>{{transformerData.transformerSl}}</h3>
+                    </div>
+                    <div class="col-sm-4">
+                        <h4>Latitude</h4>
+                        <h3>{{ transformerData.latitude }}</h3>
+                    </div>
+                    <div class="col-sm-4">
+                        <h4>Longitude</h4>
+                        <h3> {{transformerData.longitude}} </h3>
+                    </div>
+                </div>
+            </div>
+            <uib-accordion close-others="oneAtATime">
+                <div uib-accordion-group class="panel-default" is-open="status.isFirstOpen">
+                    <uib-accordion-heading>
+                        Item Details <i class="fa fa-chevron-down" style="color:blue" aria-hidden="true"></i>
+                        <span ng-if="technicalLossForm.technicalLossName.$valid && technicalLossForm.usagePerDay.$valid &&
+                     technicalLossForm.connectedItems.$valid &&  technicalLossForm.lowLineCurrent.$valid &&
+                     technicalLossForm.startHour.$valid && technicalLossForm.endHour.$valid">
+                    <span class="glyphicon_Trans glyphicon-ok-sign transformerDetails"></span>
+                </span>
+                    </uib-accordion-heading>
+                    <section style="margin-left:3%">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <h5><strong>Name</strong><span class="validationRequired">*</span></h5>
+                                <input name="technicalLossName"
+                                       class="divthree"
+                                       ng-model="technicalLossDetails.technicalLossName"
+                                       ng-blur="technicalLossValidation('technicalLossName')"
+                                       ng-change="technicalLossValidation('technicalLossName')"
+                                       type="text"
+                                       placeholder="Name"
+                                       maxlength=25
+                                       ng-trim="false"
+                                       required>
+                                <div class="field-message" ng-messages="technicalLossForm.technicalLossName.$error"
+                                     ng-if='technicalLossForm.technicalLossName.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorTechnicalLossName" style="color:red;">{{errorTechnicalLossNameMessage}}</span>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>Metered</strong><span class="validationRequired">*</span></h5>
+                                <select class="divthree dropbox"
+                                        name="metered"
+                                        ng-model="technicalLossDetails.metered"
+                                        ng-change="technicalLossValidation('metered')"
+                                        required>
+                                    <option value="true">True</option>
+                                    <option value="false">False</option>
+                                </select>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <h5><strong>Usage Per Day (kW)</strong><span class="validationRequired">*</span></h5>
+                                <input name="usagePerDay"
+                                       class="divthree"
+                                       ng-model="technicalLossDetails.usagePerDay"
+                                       type="text"
+                                       placeholder="Usage per day"
+                                       ng-blur="technicalLossValidation('usagePerDay')"
+                                       ng-change="technicalLossValidation('usagePerDay')"
+                                       maxlength=9
+                                       ng-trim="false"
+                                       disallow-space
+                                       required>
+                                <div class="field-message" ng-messages="technicalLossForm.usagePerDay.$error"
+                                     ng-if='technicalLossForm.usagePerDay.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorUsagePerDay" style="color:red;">{{errorUsagePerDayMessage}}</span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <h5><strong>No. of Connected Items</strong><span class="validationRequired">*</span>
+                                </h5>
+                                <input name="connectedItems"
+                                       class="divthree"
+                                       ng-model="technicalLossDetails.connectedItems"
+                                       ng-blur="technicalLossValidation('connectedItems')"
+                                       ng-change="technicalLossValidation('connectedItems')"
+                                       type="text"
+                                       placeholder="No. of Connected Items"
+                                       maxlength=5
+                                       ng-trim="false"
+                                       disallow-space
+                                       numbers-only
+                                       required>
+
+                                <div class="field-message" ng-messages="technicalLossForm.connectedItems.$error"
+                                     ng-if='technicalLossForm.connectedItems.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorConnectedItems"
+                                      style="color:red;">{{errorConnectedItemsMessage}}</span>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <h5><strong>Usage Time</strong><span class="validationRequired">*</span></h5>
+                                <select class="divthree dropbox"
+                                        name="usageTime"
+                                        ng-model="technicalLossDetails.usageTime"
+                                        required>
+                                    <option value="All Day">All Day</option>
+                                    <option value="Custom">Custom</option>
+                                </select>
+
+                            </div>
+
+                            <div class="col-lg-4" ng-show="hideHoursFields">
+                                <h5><strong>Start Hour</strong><span class="validationRequired">*</span></h5>
+                                <select ng-model="technicalLossDetails.startHour"
+                                        name="startHour"
+                                        ng-options="x for x in streetLightHours"
+                                        ng-change="technicalLossValidation('startHour')"
+                                        ng-blur="technicalLossValidation('startHour')"
+                                        class="divthree dropbox"
+                                        required>
+                                </select>
+
+                                <div class="field-message" ng-messages="technicalLossForm.startHour.$error"
+                                     ng-if='technicalLossForm.startHour.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorStartHour" style="color:red;">{{errorStartHourMessage}}</span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-4" ng-show="hideHoursFields">
+                                <h5><strong>End Hour</strong><span class="validationRequired">*</span></h5>
+                                <select ng-model="technicalLossDetails.endHour"
+                                        name="endHour"
+                                        ng-options="x for x in streetLightHours"
+                                        ng-change="technicalLossValidation('endHour')"
+                                        ng-blur="technicalLossValidation('endHour')"
+                                        class="divthree dropbox"
+                                        required>
+                                </select>
+
+                                <div class="field-message" ng-messages="technicalLossForm.endHour.$error"
+                                     ng-if='technicalLossForm.endHour.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorEndHour" style="color:red;">{{errorEndHourMessage}}</span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </uib-accordion>
+        </section>
+    </form>
+    <section>
+        <div class="row">
+            <div class="btnRow">
+                <span>
+                    <button type="button" class="btn btn-default btnColor" ng-if="createUpdateStatus == 'add'"
+                            ng-click="addTechnicalDetails()"
+                            ng-disabled="vaild_entry || technicalLossForm.$invalid">
+                        Create
+                    </button>
+                    <button type="button" class="btn btn-default btnColor" ng-if="createUpdateStatus == 'edit'"
+                            ng-click="updateTechnicalDetails()"
+                            ng-disabled="vaild_entry || technicalLossForm.$invalid || !technicalLossForm.$dirty">
+                        Update
+                    </button>
+                    <button type="button" class="btn btn-default btnDefault" ng-click="cancel()">Cancel</button>
+                </span>
+            </div>
+        </div>
+    </section>
+</div>

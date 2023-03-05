@@ -1,0 +1,87 @@
+﻿ <div class="container-fluid">
+	<div class="row rowLogin">
+		<!--<div id="load"></div>
+    <div id="contents"> </div>-->
+		<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">
+			<div class="row">
+				<img alt="#" src="../assets/images/delta_logo.png" class="delta_logo" />
+				<h5 class="eci">ENERGY &amp; COMMUNICATIONS, INC</h5>
+			</div>
+			<div class="row login_logo_row">
+				<img alt="#" src="../assets/images/login_logo.png" class="login_logo" />
+			</div>
+			<div class="row">
+				<h4 class="loginfooter navbar-fixed-bottom"><strong>&copy; All Rights Reserved. DataVINE&trade;
+					{{date| date:'yyyy'}}</strong></h4>
+			</div>
+		</div>
+		<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 loginTrademark">
+			<div class="row margin-top text-center">
+				<span ><strong style="font-size: 2em !important">DataVINE&trade;</strong></span>
+			</div>                                  
+			<br />
+			<div class="form_bg" style="margin-left: 8vw;margin-right:8%">
+				<form method="post" name="formLogin" ng-submit="loginForm(formLogin.$valid)">
+
+					<!-- Input for Email Address -->
+					<div class="form-group row">
+						<div class="input-group">
+							<input autofocus autocomplete="off" ng-blur	 = "userTyped = true" type="text" name="userName" data-ng-model="email"
+								placeholder="Username" data-ng-maxlength="30" maxlength="30" data-ng-minlength="8"
+								class="form-control loginTextbox" ng-required="true" id=""
+								ng-pattern="/^[a-zA-Z0-9\s]+$/">
+							<span class="input-group-addon"
+								style='background-color: #e5da59;border-top-right-radius:5px;border-bottom-right-radius:5px;'><i
+									class="fa fa-user"></i></span>
+						</div>
+						<div data-ng-show="formLogin.userName.$dirty && formLogin.userName.$invalid" class="errMsg"
+							style="float:left">
+							<span data-ng-show="formLogin.userName.$invalid && !formLogin.userName.$error.required"
+								class="errMsg">{{formLogin.userName.$error.pattern === true ? 'Special characters not allowed':(formLogin.userName.$error.minlength === true?' Minimum 8 characters required':'')}}</span>
+							<span data-ng-show="formLogin.userName.$error.required" class="errMsg">* Username is
+								required</span>
+						</div>
+					</div>
+					<br>
+					<!-- End of Email Address -->
+					<!-- Input for Password -->
+					<div class="form-group row">
+
+						<div class="input-group">
+							<input type="password" name="password" data-ng-model="password" id="password"
+								placeholder="Password" class="form-control loginTextbox" ng-required="true">
+							<span class="input-group-addon"
+								style='background-color: #e5da59;border-top-right-radius:5px;border-bottom-right-radius:5px;'><i
+									class="fa fa-lock"></i></span>
+						</div>
+						<div>
+							<div data-ng-show="formLogin.password.$invalid && formLogin.password.$dirty"
+								class="help errMsg">
+								<span data-ng-show="formLogin.password.$error.required">* Password required</span>
+							</div>
+						</div>
+					</div>
+					<!-- End of Password -->
+					<div class="form-group row remember">
+						<input type="checkbox" ng-model="rememberMe" style="max-height:15px" value="remember-me"
+							id="remember_me" />&nbsp;Remember
+						me
+					</div>
+					<br /><br />
+
+					<div class="form-group row">
+						<button type="submit" class="btn btn-default loginBtn"
+							ng-disabled="(formLogin.$invalid && userTyped) || enableLoading" id="login">
+							Login
+						</button>
+					</div>
+				</form>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+</div>

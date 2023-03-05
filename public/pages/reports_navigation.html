@@ -1,0 +1,54 @@
+﻿<div class="container-fluid">
+    <div class="row">
+
+        <div class="navbar-inverse sideNav">
+            <ul class="nav">
+                <li class="navigation_heading">
+                    <strong>
+                        Reports
+                    </strong>
+                </li>
+                <li ui-sref-active="activeState">
+                    <a ui-sref="reports.communicationStatistics" class="configNav_br" ng-click="selectHypersproutComm()">Communication Statistics</a>
+                </li>
+                 <!--<li ui-sref-active="activeState">
+                    <a ui-sref="reports.dataConsumption" class="configNav_br">Data Consumption </a>
+                </li>-->
+                <!--<li ui-sref-active="activeState">
+                    <a ui-sref="reports.dataVineHealth" class="configNav_br">DataVine Health</a>
+                </li>-->
+                <li ui-sref-active="activeState">
+                    <a ui-sref="reports.systemLogs" class="configNav_br">System Log</a>
+                </li>
+                <li  ng-hide= "(currentURL.current.name === 'reports.deviceFirmwareVersions.hyperhubEntry') || (currentURL.current.name === 'reports.deviceFirmwareVersions.meterEntry')" ui-sref-active="activeState">
+                    <a ui-sref="reports.deviceFirmwareVersions.hypersproutEntry" class="configNav_br" ng-click="selectHypersproutdevicefw()">Device Firmware Versions</a>
+                </li>
+                <li ng-show="currentURL.current.name === 'reports.deviceFirmwareVersions.hyperhubEntry'" ui-sref-active="activeState">
+                    <a ui-sref="reports.deviceFirmwareVersions.hyperhubEntry" class="configNav_br" ng-click="selectHypersproutdevicefw()">Device Firmware Versions</a>
+                </li>
+                <li ng-show="currentURL.current.name === 'reports.deviceFirmwareVersions.meterEntry'" ui-sref-active="activeState">
+                    <a ui-sref="reports.deviceFirmwareVersions.meterEntry" class="configNav_br" ng-click="selectHypersproutdevicefw()">Device Firmware Versions</a>
+                </li>
+                <!-- <li ui-sref-active="activeState">
+                    <a ui-sref="reports.deviceFirmwareVersions.hypersproutEntry" class="configNav_br" ng-click="selectHypersproutdevicefw()">Device Firmware Versions</a>
+                </li> -->
+                <li ui-sref-active="activeState">
+                    <a ui-sref="reports.newAccounts_Report" class="configNav_br">New Accounts </a>
+                </li>
+                 <!--<li ui-sref-active="activeState">
+                    <a ui-sref="reports.changedData_Report" class="configNav_br">Changed Data </a>
+                </li>-->
+                <!--<li ui-sref-active="activeState">
+                    <a ui-sref="reports.deviceRegistrationStatus" class="configNav_br">Device Registration Status</a>
+                </li>-->
+                <li ui-sref-active="activeState">
+                    <a ui-sref="reports.systemAuditLog" class="configNav_br">System Audit Log</a>
+                </li>
+                <li ui-sref-active="activeState">
+                    <a ui-sref="reports.message" class="configNav_br message-count-cont">Message <span class="message-count">{{messageCount}}</span></a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,580 @@
+<div class="container-fluid" id="meterCreationDiv">
+
+    <section>
+        <div class="row circuit">
+            <h4 ng-show="createUpdateStatus"><strong>Create Meter</strong></h4>
+            <h4 ng-hide="createUpdateStatus"><strong>Edit Meter</strong></h4>
+
+        </div>
+    </section>
+    <form class="pure-form pure-form-aligned" name="meterCreation" method="post" novalidate autocomplete="off">
+        <section>
+            <uib-accordion close-others="oneAtATime">
+                
+                <div uib-accordion-group class="panel-default" is-open="status.isFirstOpen">
+                    <uib-accordion-heading>
+                        Basic Info <i class="fa fa-chevron-down" style="color:blue" aria-hidden="true"></i>
+                        <span
+                    ng-if="meterCreation.meterSl.$valid && meterCreation.meterVersion.$valid &&
+                             meterCreation.make.$valid && meterCreation.phases.$valid &&
+                             meterCreation.applicationType.$valid && meterCreation.installationType.$valid &&
+                             meterCreation.ratedVoltage.$valid && meterCreation.frequency.$valid &&
+                             meterCreation.nominalCurrent.$valid && meterCreation.maximumCurrent.$valid &&
+                             meterCreation.complaintStandardMeter.$valid && meterCreation.measurementClass.$valid &&
+                             meterCreation.meterDisconnector.$valid &&  meterCreation.ctRatio.$valid &&
+                             meterCreation.ptRatio.$valid && meterCreation.BiDirectional.$valid &&
+                             meterCreation.EVMeter.$valid && meterCreation.SealID.$valid && meterCreation.SolarPanel.$valid">
+                    <span class="glyphicon_Meter glyphicon-ok-sign basicInfo"></span>
+                </span>
+                    </uib-accordion-heading>
+                    <section style="margin-left:3%">
+                        <div class="row col-lg-12">
+                            <div class="col-lg-4">
+                                <h5><strong>Serial Number</strong><span class="validationRequired">*</span></h5>
+                                <input name="meterSl" class="divthree" ng-model="meterdetails.meterSl" type="text"
+                                    placeholder="Meter Serial Number" ng-blur="focusValidate('meterSl')"
+                                    ng-change="focusValidate('meterSl')" maxlength=25 ng-trim="false" disallow-space required>
+                                <div class="field-message" ng-messages="meterCreation.meterSl.$error"
+                                    ng-if='meterCreation.meterSl.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errormeterSl" style="color:red;">{{errormeterSlMessage}}</span>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>Version</strong><span class="validationRequired">*</span></h5>
+                                <input name="meterVersion" class="divthree" ng-model="meterdetails.meterVersion"
+                                    type="text" placeholder="Meter Version" ng-blur="focusValidate('meterVersion')"
+                                    ng-change="focusValidate('meterVersion')" maxlength=7 ng-trim="false"
+                                    required disallow-space>
+                                <div class="field-message" ng-messages="meterCreation.meterVersion.$error"
+                                    ng-if='meterCreation.meterVersion.$dirty' ng-cloak>
+                                </div>
+                                <span ng-if="errormeterVersion" style="color:red;">{{errormeterVersionMessage}}</span>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>Make</strong><span class="validationRequired">*</span></h5>
+                                <select ng-model="meterdetails.make" name="make" class="divthree dropbox"
+                                    ng-options="x for x in make" required></select>
+                                <div class="field-message" ng-messages="meterCreation.make.$error"
+                                    ng-if='meterCreation.make.$dirty' ng-cloak>
+                                    <div ng-message="required">Make is required</div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row col-lg-12">
+                            <div class="col-lg-4">
+                                <h5><strong>Number of Phases</strong><span class="validationRequired">*</span></h5>
+
+                                <select ng-model="meterdetails.phases" name="phases" class="divthree dropbox"
+                                    ng-options="x for x in phases" required></select>
+                                <div class="field-message" ng-messages="meterCreation.phases.$error"
+                                    ng-if='meterCreation.phases.$dirty' ng-cloak>
+                                    <div ng-message="required">Number of phases is required!</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>Application Type</strong><span class="validationRequired">*</span></h5>
+                                <select ng-model="meterdetails.applicationType" name="applicationType"
+                                    ng-options="x for x in applicationType" class="divthree dropbox" required></select>
+                                <div class="field-message" ng-messages="meterCreation.applicationType.$error"
+                                    ng-if='meterCreation.applicationType.$dirty' ng-cloak>
+                                    <div ng-message="required">Application Type is required!</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>Installation Type</strong><span class="validationRequired">*</span></h5>
+                                <select ng-model="meterdetails.installationType" name="installationType"
+                                    ng-options="x for x in installationType" class="divthree dropbox" required></select>
+                                <div class="field-message" ng-messages="meterCreation.installationType.$error"
+                                    ng-if='meterCreation.installationType.$dirty' ng-cloak>
+                                    <div ng-message="required">Installation Type is required!</div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row col-lg-12">
+                            <div class="col-lg-4">
+                                <h5><strong>Rated Voltage (V)</strong><span class="validationRequired">*</span></h5>
+                                <select ng-model="meterdetails.ratedVoltage" name="ratedVoltage"
+                                    class="divthree dropbox" ng-options="x for x in ratedVoltage" required></select>
+                                <div class="field-message" ng-messages="meterCreation.ratedVoltage.$error"
+                                    ng-if='meterCreation.ratedVoltage.$dirty' ng-cloak>
+                                    <div ng-message="required">Rated Voltage is required!</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>Rated Frequency (Hz)</strong><span class="validationRequired">*</span></h5>
+                                <select ng-model="meterdetails.frequency" name="frequency" class="divthree dropbox"
+                                    ng-options="x for x in frequency" required></select>
+                                <div class="field-message" ng-messages="meterCreation.frequency.$error"
+                                    ng-if='meterCreation.frequency.$dirty' ng-cloak>
+                                    <div ng-message="required">Frequency is required!</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>Nominal Current (Ib)</strong><span class="validationRequired">*</span></h5>
+                                <input name="nominalCurrent" class="divthree" ng-model="meterdetails.nominalCurrent"
+                                    type="text" placeholder="Nominal Current" ng-blur="focusValidate('nominalCurrent')"
+                                    ng-change="focusValidate('nominalCurrent')" maxlength=4 ng-trim="false" numbers-only
+                                    required>
+                                <div class="field-message" ng-messages="meterCreation.nominalCurrent.$error"
+                                    ng-if='meterCreation.nominalCurrent.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errornominalCurrent"
+                                    style="color:red;">{{errornominalCurrentMessage}}</span>
+                            </div>
+                        </div>
+                        <div class="row col-lg-12">
+                            <div class="col-lg-4">
+
+                                <h5><strong>Maximum Current (I max)</strong><span class="validationRequired">*</span>
+                                </h5>
+                                <input name="maximumCurrent" class="divthree" ng-model="meterdetails.maximumCurrent"
+                                    type="text" placeholder="Maximum Current" ng-blur="focusValidate('maximumCurrent')"
+                                    ng-change="focusValidate('maximumCurrent')" maxlength=4 ng-trim="false" numbers-only
+                                    required disallow-space>
+                                <div class="field-message" ng-messages="meterCreation.maximumCurrent.$error"
+                                    ng-if='meterCreation.maximumCurrent.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errormaximumCurrent"
+                                    style="color:red;">{{errormaximumCurrentMessage}}</span>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>Compliant of Standards</strong><span class="validationRequired">*</span>
+                                </h5>
+                                <select ng-model="meterdetails.complaintStandardMeter" name="complaintStandardMeter"
+                                    class="divthree dropbox" ng-options="x for x in complaintStandardMeter"
+                                    required></select>
+                                <div class="field-message" ng-messages="meterCreation.complaintStandardMeter.$error"
+                                    ng-if='meterCreation.complaintStandardMeter.$dirty' ng-cloak>
+                                    <div ng-message="required">Compliant of Standards is required!</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>Accuracy</strong><span class="validationRequired">*</span></h5>
+                                <select ng-model="meterdetails.measurementClass" name="measurementClass"
+                                    class="divthree dropbox" ng-options="x for x in measurementClass" required></select>
+                                <div class="field-message" ng-messages="meterCreation.measurementClass.$error"
+                                    ng-if='meterCreation.measurementClass.$dirty' ng-cloak>
+                                    <div ng-message="required">Accuracy is required!</div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row col-lg-12">
+                            <div class="col-lg-4">
+                                <h5><strong>Disconnector Available</strong><span class="validationRequired">*</span>
+                                </h5>
+                                <select ng-model="meterdetails.meterDisconnector" name="meterDisconnector"
+                                    class="divthree dropbox" ng-options="x for x in meterDisconnector"
+                                    required></select>
+                                <div class="field-message" ng-messages="meterCreation.meterDisconnector.$error"
+                                    ng-if='meterCreation.meterDisconnector.$dirty' ng-cloak>
+                                    <div ng-message="required">Disconnector Available is required!</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>CT Ratio</strong><span class="validationRequired">*</span></h5>
+                                <input name="ctRatio" ng-model="meterdetails.ctRatio" class="divthree" type="text"
+                                    placeholder="CT Ratio" ng-blur="focusValidate('ctRatio')"
+                                    ng-change="focusValidate('ctRatio')" maxlength=7 ng-trim="false" disallow-space required>
+                                <div class="field-message" ng-messages="meterCreation.ctRatio.$error"
+                                    ng-if='meterCreation.ctRatio.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorctRatio" style="color:red;">{{errorctRatioMessage}}</span>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>PT Ratio</strong><span class="validationRequired">*</span></h5>
+                                <input name="ptRatio" ng-model="meterdetails.ptRatio" class="divthree" type="text"
+                                    placeholder="PT Ratio" ng-blur="focusValidate('ptRatio')"
+                                    ng-change="focusValidate('ptRatio')" maxlength=7 ng-trim="false" disallow-space required>
+                                <div class="field-message" ng-messages="meterCreation.ptRatio.$error"
+                                    ng-if='meterCreation.ptRatio.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorptRatio" style="color:red;">{{errorptRatioMessage}}</span>
+                            </div>
+                        </div>
+
+                        <div class="row col-lg-12">
+                            <div class="col-lg-4">
+                                <h5><strong>Bi-Directional</strong><span class="validationRequired">*</span></h5>
+                                <select ng-model="meterdetails.BiDirectional" name="BiDirectional" ng-select=""
+                                    ng-options="sel as sel.value for sel in [{id:true,value:'True'},{id:false,value:'False'}] track by sel.id"
+                                    class="divthree dropbox" ng-change="changeBiDirectional()" required> </select>
+                                <div class="field-message" ng-messages="meterCreation.BiDirectional.$error"
+                                    ng-if='meterCreation.BiDirectional.$dirty' ng-cloak>
+                                    <div ng-message="required">Bi-Directional is required!</div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <h5><strong>Seal ID</strong><span class="validationRequired">*</span></h5>
+                                <input name="SealID" ng-model="meterdetails.SealID" class="divthree" type="text"
+                                    placeholder="Seal ID" ng-blur="focusValidate('SealID')"
+                                    ng-change="focusValidate('SealID')" maxlength=30 ng-trim="false" disallow-space required>
+                                <div class="field-message" ng-messages="meterCreation.SealID.$error"
+                                    ng-if='meterCreation.SealID.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorSealID" style="color:red;">{{errorSealIDMessage}}</span>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>EV Meter</strong><span class="validationRequired">*</span></h5>
+
+                                <select ng-model="meterdetails.EVMeter" name="EVMeter" ng-select=""
+                                    ng-options="sel as sel.value for sel in [{id:true,value:'True'},{id:false,value:'False'}] track by sel.id"
+                                    class="divthree dropbox" ng-change="changeEVMeter()" required></select>
+                                <div class="field-message" ng-messages="meterCreation.EVMeter.$error"
+                                    ng-if='meterCreation.EVMeter.$dirty' ng-cloak>
+                                    <div class="field-message" ng-messages="meterCreation.EVMeter.$error"
+                                        ng-if='meterCreation.EVMeter.$dirty' ng-cloak>
+                                        <div ng-message="required">EVMeter is required!</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row col-lg-12">
+                            <div class="col-lg-4">
+                                <h5><strong>Solar Return</strong><span class="validationRequired">*</span></h5>
+                                <select ng-model="meterdetails.SolarPanel" name="SolarPanel" ng-select=""
+                                    ng-options="sel as sel.value for sel in [{id:true,value:'True'},{id:false,value:'False'}] track by sel.id"
+                                    class="divthree dropbox" ng-change="changeSolarPanel()" required> </select>
+                                <div class="field-message" ng-messages="meterCreation.SolarPanel.$error"
+                                    ng-if='meterCreation.SolarPanel.$dirty' ng-cloak>
+                                    <div ng-message="required">Solar Return is required!</div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <hr />
+                <div uib-accordion-group class="panel-default" is-disabled="status.isFirstDisabled">
+                    <uib-accordion-heading>
+                        Communications <i class="fa fa-chevron-down" style="color:blue" aria-hidden="true"></i>
+                        
+                <span ng-if="meterCreation.latitude.$valid && meterCreation.longitude.$valid &&
+                meterCreation.wifiMacId.$valid && !errorwifiMacId && meterCreation.wifiIpAdd.$valid &&
+                meterCreation.wifiAccessPwd.$valid && meterCreation.meterAdminPwd.$valid">
+               <span class="glyphicon_Meter glyphicon-ok-sign communications"></span>
+           </span>
+                    </uib-accordion-heading>
+                    <section style="margin-left:3%">
+                        <div class="row col-lg-12">
+                            <div class="col-lg-4">
+                                <h5><strong>Latitude</strong><span class="validationRequired">*</span></h5>
+                                <input name="latitude" ng-model="meterdetails.latitude" class="divthree" type="text"
+                                    placeholder="Latitude" ng-blur="focusValidate('latitude')"
+                                    ng-change="focusValidate('latitude')" ng-trim="false" maxlength="10" disallow-space required>
+                                <span ng-show="errorlatitude" style="color:red;">{{errorlatitudeMessage}}</span>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>Longitude</strong><span class="validationRequired">*</span></h5>
+                                <input name="longitude" ng-model="meterdetails.longitude" class="divthree" type="text"
+                                    placeholder="Longitude" ng-blur="focusValidate('longitude')"
+                                    ng-change="focusValidate('longitude')" ng-trim="false" maxlength="11" disallow-space required>
+                                <span ng-show="errorlongitude" style="color:red;">{{errorlongitudeMessage}}</span>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>Wifi MAC ID</strong><span class="validationRequired">*</span></h5>
+                                <input name="wifiMacId" ng-model="meterdetails.wifiMacId" class="divthree" type="text"
+                                    placeholder="Wifi MAC ID" ng-blur="focusValidate('wifiMacId')"
+                                    ng-change="focusValidate('wifiMacId')" maxlength=17 ng-trim="false" disallow-space required>
+                                <span ng-show="errorwifiMacId" style="color:red;">{{errorwifiMacIdMessage}}</span>
+                            </div>
+                        </div>
+
+                        <div class="row col-lg-12">
+                            <div class="col-lg-4">
+                                <h5><strong>Wifi IP Address</strong><span class="validationRequired">*</span></h5>
+                                <input name="wifiIpAdd" ng-model="meterdetails.wifiIpAdd" class="divthree" type="text"
+                                    placeholder="Wifi IP Address" ng-blur="focusValidate('wifiIpAdd')"
+                                    ng-change="focusValidate('wifiIpAdd')" maxlength=15 ng-trim="false" ng-readonly="editWifi"
+                                       disallow-space required>
+                                <span ng-show="errorwifiIpAdd" style="color:red;">{{errorwifiIpAddMessage}}</span>
+                            </div>
+
+                            <div class="col-lg-4"
+                                ng-if="(!createUpdateStatus&&!showPassword)&&meterStatus=='Registered'">
+                                <h5><strong>Wifi Access Point Password</strong><span class="validationRequired">*</span>
+                                </h5>
+                                <input name="wifiAccessPwd" ng-model="meterdetails.wifiAccessPwd" class="divthree"
+                                    type="password" placeholder="Wifi Access Point Password"
+                                    ng-blur="focusValidate('wifiAccessPwd')" ng-change="focusValidate('wifiAccessPwd')"
+                                    maxlength=21 ng-trim="false" disallow-space required disabled>
+                                <span ng-if="meterdetails.wifiAccessPwd" ng-click="toggleShowPassword()"
+                                    class="glyphicon glyphicon-eye-open eye_trans_pass"
+                                    style="cursor: pointer; pointer-events: all;">
+                                </span>
+                                <span ng-show="errorwifiAccessPwd"
+                                    style="color:red;">{{errorwifiAccessPwdMessage}}</span>
+                            </div>
+                            <div class="col-lg-4"
+                                ng-if="(!createUpdateStatus&&showPassword)&&meterStatus=='Registered'">
+                                <h5><strong>Wifi Access Point Password</strong><span class="validationRequired">*</span>
+                                </h5>
+                                <input name="wifiAccessPwd" ng-model="meterdetails.wifiAccessPwd" class="divthree"
+                                    type="text" placeholder="Wifi Access Point Password"
+                                    ng-blur="focusValidate('wifiAccessPwd')" ng-change="focusValidate('wifiAccessPwd')"
+                                    maxlength=21 ng-trim="false" disallow-space required disabled>
+                                <span ng-if="meterdetails.wifiAccessPwd" ng-click="toggleShowPassword()"
+                                    class="glyphicon glyphicon-eye-close eye_trans_pass"
+                                    style="cursor: pointer; pointer-events: all;">
+                                </span>
+                                <span ng-show="errorwifiAccessPwd"
+                                    style="color:red;">{{errorwifiAccessPwdMessage}}</span>
+                            </div>
+
+                            <div class="col-lg-4" ng-if="!showPassword2">
+                                <h5><strong>Meter Admin Password</strong><span class="validationRequired">*</span></h5>
+                                <input name="meterAdminPwd" ng-disabled="true" ng-model="meterdetails.meterAdminPwd"
+                                    class="divthree" type="password" placeholder="Wifi Access Point Password"
+                                    ng-change="focusValidate('meterAdminPwd')" maxlength=20 ng-trim="false"
+                                    autocomplete="new-password" disallow-space required>
+                                <span ng-if="meterdetails.meterAdminPwd" ng-click="toggleShowPassword2()"
+                                    class="glyphicon glyphicon-eye-open eye_trans_pass"
+                                    style="cursor: pointer; pointer-events: all;">
+                                </span>
+                                <div class="field-message" ng-messages="meterdetails.meterAdminPwd.$error"
+                                    ng-if='meterdetails.meterAdminPwd.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errormeterAdminPwd"
+                                    style="color:red;">{{errormeterAdminPwdMessage}}</span>
+                            </div>
+                            <div class="col-lg-4" ng-if="showPassword2">
+                                <h5><strong>Meter Admin Password</strong><span class="validationRequired">*</span></h5>
+                                <input name="meterAdminPwd" ng-disabled="true" ng-model="meterdetails.meterAdminPwd"
+                                    class="divthree" type="text" placeholder="Wifi Access Point Password"
+                                    ng-change="focusValidate('meterAdminPwd')" maxlength=20 ng-trim="false" disallow-space required>
+                                <span ng-if="meterdetails.meterAdminPwd" ng-click="toggleShowPassword2()"
+                                    class="glyphicon glyphicon-eye-close eye_trans_pass"
+                                    style="cursor: pointer; pointer-events: all;">
+                                </span>
+                                <div class="field-message" ng-messages="meterdetails.meterAdminPwd.$error"
+                                    ng-if='meterdetails.meterAdminPwd.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errormeterAdminPwd"
+                                    style="color:red;">{{errormeterAdminPwdMessage}}</span>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+                <hr />
+
+                <div uib-accordion-group class="panel-default" is-disabled="status.isFirstDisabled">
+                    <uib-accordion-heading>
+                        Consumer Details <i class="fa fa-chevron-down" style="color:blue" aria-hidden="true"></i>
+                        
+                <span ng-if="meterCreation.consumerName.$valid && meterCreation.consumerNumber.$valid &&
+                meterCreation.consumerAddress.$valid &&  meterCreation.contactNumber.$valid &&
+                meterCreation.impulseCountKW.$valid &&  meterCreation.impulseCountKV.$valid &&
+                meterCreation.consumerCountry.$valid &&
+                meterCreation.consumerCity.$valid && meterCreation.consumerZipcode.$valid &&
+                meterCreation.billingDate.$valid && meterCreation.billingTime.$valid &&
+                meterCreation.demandDate.$valid && meterCreation.consumerState.$valid">
+       <span class="glyphicon_Meter glyphicon-ok-sign consumerDetails"></span>
+   </span>
+                    </uib-accordion-heading>
+                    <section style="margin-left:3%">
+                        <div class="row col-lg-12">
+                            <div class="col-lg-4">
+                                <h5><strong>Name</strong><span class="validationRequired">*</span></h5>
+                                <input name="consumerName" ng-model="meterdetails.consumerName" class="divthree"
+                                    type="text" placeholder="Consumer Name" ng-blur="focusValidate('consumerName')"
+                                    ng-change="focusValidate('consumerName')" maxlength=50 ng-trim="false" required>
+                                <div class="field-message" ng-messages="meterCreation.consumerName.$error"
+                                    ng-if='meterCreation.consumerName.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorconsumerName" style="color:red;">{{errorconsumerNameMessage}}</span>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>Consumer Number</strong><span class="validationRequired">*</span></h5>
+                                <input name="consumerNumber" ng-model="meterdetails.consumerNumber" class="divthree"
+                                    type="text" placeholder="Consumer Number" ng-blur="focusValidate('consumerNumber')"
+                                    ng-change="focusValidate('consumerNumber')" maxlength=20 ng-trim="false" disallow-space required>
+                                <div class="field-message" ng-messages="meterCreation.consumerNumber.$error"
+                                    ng-if='meterCreation.consumerNumber.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorconsumerNumber"
+                                    style="color:red;">{{errorconsumerNumberMessage}}</span>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>Address</strong><span class="validationRequired">*</span></h5>
+                                <input name="consumerAddress" ng-model="meterdetails.consumerAddress" class="divthree"
+                                    type="text" placeholder="Consumer Address"
+                                    ng-blur="focusValidate('consumerAddress')"
+                                    ng-change="focusValidate('consumerAddress')" maxlength=100 ng-trim="false" required>
+                                <div class="field-message" ng-messages="meterCreation.consumerAddress.$error"
+                                    ng-if='meterCreation.consumerAddress.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorconsumerAddress"
+                                    style="color:red;">{{errorconsumerAddressMessage}}</span>
+                            </div>
+
+                        </div>
+
+                        <div class="row col-lg-12">
+                            <div class="col-lg-4">
+                                <h5><strong>Contact Number</strong><span class="validationRequired">*</span></h5>
+                                <div class="row">
+                                    <div class="col-lg-12">
+
+                                    <div class="col-lg-4 pr-1 pl-0">
+                                        <select  ng-model="meterdetails.countryCode" name="countriesCode"
+                                                ng-options="x for x in countriesCode" class="divthree country-code dropbox" required></select>
+                                    </div>
+                                    <div class="col-lg-8 pr-8 pl-0">
+                                <input name="contactNumber" ng-model="meterdetails.contactNumber" class="divthree"
+                                       type="text" placeholder="Contact Number" ng-blur="focusValidate('contactNumber')"
+                                       ng-change="focusValidate('contactNumber')" maxlength=15 ng-trim="false" disallow-space numbers-only
+                                       required>
+                                </div>
+<!--                                    <div class="field-message" ng-messages="meterCreation.contactNumber.$error"-->
+<!--                                         ng-if='meterCreation.contactNumber.$dirty' ng-cloak>-->
+<!--                                    </div>-->
+                                <span ng-show="errorcontactNumber"
+                                      style="color:red;">{{errorcontactNumberMessage}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>Impulse Count (per kWh)</strong><span class="validationRequired">*</span>
+                                </h5>
+                                <input name="impulseCountKW" ng-model="meterdetails.impulseCountKW" class="divthree"
+                                    type="text" placeholder="Impluse Count" ng-blur="focusValidate('impulseCountKW')"
+                                    ng-change="focusValidate('impulseCountKW')" maxlength=8 ng-trim="false" disallow-space numbers-only
+                                    required>
+                                <div class="field-message" ng-messages="meterCreation.impulseCountKW.$error"
+                                    ng-if='meterCreation.impulseCountKW.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorimpulseCountKW"
+                                    style="color:red;">{{errorimpulseCountKWMessage}}</span>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>Impulse Count (per kVArh)</strong><span class="validationRequired">*</span>
+                                </h5>
+                                <input name="impulseCountKV" ng-model="meterdetails.impulseCountKV" class="divthree"
+                                    type="text" placeholder="Impluse Count" ng-blur="focusValidate('impulseCountKV')"
+                                    ng-change="focusValidate('impulseCountKV')" maxlength=8 ng-trim="false" numbers-only disallow-space
+                                    required>
+                                <div class="field-message" ng-messages="meterCreation.impulseCountKV.$error"
+                                    ng-if='meterCreation.impulseCountKV.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorimpulseCountKV"
+                                    style="color:red;">{{errorimpulseCountKVMessage}}</span>
+                            </div>
+
+                        </div>
+                        <div class="row col-lg-12">
+                            <div class="col-lg-4">
+                                <h5><strong>Country</strong><span class="validationRequired">*</span></h5>
+                                <input name="consumerCountry" ng-model="meterdetails.consumerCountry" class="divthree"
+                                    type="text" placeholder="Consumer Country"
+                                    ng-blur="focusValidate('consumerCountry')"
+                                    ng-change="focusValidate('consumerCountry')" maxlength=50 ng-trim="false" required>
+                                <div class="field-message" ng-messages="meterCreation.consumerCountry.$error"
+                                    ng-if='meterCreation.consumerCountry.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorconsumerCountry"
+                                    style="color:red;">{{errorconsumerCountryMessage}}</span>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>State</strong><span class="validationRequired">*</span></h5>
+
+                                <input name="consumerState" ng-model="meterdetails.consumerState" class="divthree"
+                                    type="text" placeholder="Consumer Contact State" ng-trim="false"
+                                    ng-blur="focusValidate('consumerState')" ng-change="focusValidate('consumerState')"
+                                    maxlength=50 required>
+                                <div class="field-message" ng-messages="meterCreation.consumerState.$error"
+                                    ng-if='meterCreation.consumerState.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorconsumerState"
+                                    style="color:red;">{{errorconsumerStateMessage}}</span>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>City</strong><span class="validationRequired">*</span></h5>
+                                <input name="consumerCity" ng-model="meterdetails.consumerCity" class="divthree"
+                                    type="text" placeholder="Consumer City" ng-blur="focusValidate('consumerCity')"
+                                    ng-change="focusValidate('consumerCity')" maxlength=50 ng-trim="false" required>
+                                <div class="field-message" ng-messages="meterCreation.consumerCity.$error"
+                                    ng-if='meterCreation.consumerCity.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorconsumerCity" style="color:red;">{{errorconsumerCityMessage}}</span>
+                            </div>
+
+                            <!--consumerContact-->
+                        </div>
+                        <div class="row col-lg-12">
+                            <div class="col-lg-4">
+                                <h5><strong>Zipcode</strong><span class="validationRequired">*</span></h5>
+                                <input name="consumerZipcode" ng-model="meterdetails.consumerZipcode" class="divthree"
+                                    type="text" placeholder="Consumer Zipcode"
+                                    ng-blur="focusValidate('consumerZipcode')"
+                                    ng-change="focusValidate('consumerZipcode')" maxlength=6 ng-trim="false"
+                                    disallow-space required>
+                                <div class="field-message" ng-messages="meterCreation.consumerZipcode.$error"
+                                    ng-if='meterCreation.consumerZipcode.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorconsumerZipcode"
+                                    style="color:red;">{{errorconsumerZipcodeMessage}}</span>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>Billing Cycle Day</strong><span class="validationRequired">*</span></h5>
+                                <select ng-model="meterdetails.billingDate" name="billingDate"
+                                    ng-options="x for x in billingDate" class="divthree dropbox" required></select>
+                                <div class="field-message" ng-messages="meterCreation.billingDate.$error"
+                                    ng-if='meterCreation.billingDate.$dirty' ng-cloak>
+                                    <div ng-message="required">Billing Cycle Day is required!</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>Demand Reset Day</strong><span class="validationRequired">*</span></h5>
+                                <select ng-model="meterdetails.demandDate" name="demandDate"
+                                    ng-options="x for x in demandDate" class="divthree dropbox" required></select>
+                                <div class="field-message" ng-messages="meterCreation.demandDate.$error"
+                                    ng-if='meterCreation.demandDate.$dirty' ng-cloak>
+                                    <div ng-message="required">Demand Reset Day is required!</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row timepickerPosition col-lg-12">
+                            <div class="col-lg-4">
+                                <h5><strong>Billing Time</strong><span class="validationRequired">*</span></h5>
+                                <div class="row billingTime">
+                                    <div uib-timepicker ng-model="meterdetails.billingTime" name="billingTime"
+                                        ng-change="changed()" hour-step="hstep" minute-step="mstep"
+                                        show-meridian="ismeridian"></div>
+                                </div>
+                                <div style="color:red;" ng-show = "!meterdetails.billingTime">Invalid value of Billing Time </div>
+                                <div class="field-message" ng-messages="meterCreation.billingTime.$error"
+                                    ng-if='meterCreation.billingTime.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorbillingTime" style="color:red;">{{errorbillingTimeMessage}}</span>
+                            </div>
+                        </div>
+
+                    </section>
+                </div>
+            </uib-accordion>
+        </section>
+    </form>
+    <section>
+        <div class="row">
+            <div class="btnRow">
+                <span>
+                    <button type="button" class="btn btn-default btnColor" ng-show="createUpdateStatus"
+                        ng-click="saveMeter()" ng-disabled="meterCreation.$invalid ||  create_meter_valid">
+                        Create
+                    </button>
+                    <button type="button" class="btn btn-default btnColor" ng-hide="createUpdateStatus"
+                        ng-click="updateMeter()" ng-disabled="meterCreation.$invalid ||  create_meter_valid|| (!meterCreation.$dirty && SolarPanelBoolean && EVMeterBoolean && BiDirectionalBoolean )">
+                        Update
+                    </button>
+                    <button type="button" class="btn btn-default btnDefault" ng-click="cancel()">Cancel</button>
+                </span>
+            </div>
+        </div>
+    </section>
+</div>
+<!--I am an updated file-->

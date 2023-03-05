@@ -1,0 +1,149 @@
+<div class="container-fluid">
+    <div class="row">
+        <form name="config_form" novalidate>
+            <div class="col-md-12">
+                <table class="table table-hover modalTableBorder view-tbl-fixed-label">
+                    <tr>
+                        <td>
+                            <label>Serial Number</label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="transfomerdetails.hypSl"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>HS Name</label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="transfomerdetails.HypersproutMake"></span></label>
+                        </td>
+                    </tr> 
+                    <tr>
+                        <td>
+                            <label>HyperSPROUT&trade; Version</label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="transfomerdetails.HypersproutVersion"></span></label>
+                        </td>
+                    </tr>                                       
+                    <tr>
+                        <td>
+                            <label>Number of Phases</label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="transfomerdetails.phasesValue"></span></label>
+                        </td>
+                    </tr>
+                    <tr ng-if="transfomerdetails.Coils && transfomerdetails.Coils.length >= 1">
+                        <td>
+                            <label>Coil 1</label> 
+                        </td>
+                        <td>
+                            <label><span ng-bind="transfomerdetails.Coils[0].coil_name"></span></label>
+                        </td>
+                    </tr>
+                    <tr ng-if="transfomerdetails.Coils && transfomerdetails.Coils.length >= 2">
+                        <td>
+                            <label>Coil 2</label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="transfomerdetails.Coils[1].coil_name"></span></label>
+                        </td>
+                    </tr>
+                    <tr ng-if="transfomerdetails.Coils && transfomerdetails.Coils.length >= 3">
+                        <td>
+                            <label>Coil 3</label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="transfomerdetails.Coils[2].coil_name"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Accuracy</label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="transfomerdetails.Accuracy"></span></label>
+                        </td>
+                    </tr>                    
+                    <tr>
+                        <td>
+                            <label>Rated Voltage</label>
+
+                        </td>
+                        <td>
+                            <label><span ng-bind="transfomerdetails.ratedVoltage"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Rated Frequency</label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="transfomerdetails.frequency"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Compliant of Standards</label>
+
+                        </td>
+                        <td>
+                            <label><span ng-bind="transfomerdetails.complaintStandard"></span></label>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label>CT Ratio </label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="transfomerdetails.ctRatio"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>PT Ratio</label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="transfomerdetails.ptRatio"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Max Demand Window</label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="transfomerdetails.maxDemand"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Max. Demand  Sliding Window Interval</label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="transfomerdetails.MaxDemandSlidingWindowInterval"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Demand Reset Day</label>
+                        </td>
+                        <td>
+                            <label><span ng-bind="transfomerdetails.HSDemandResetDate"></span></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Sensor Details</label>
+                        </td>
+                        <td>
+                            <label><span class="fixed-span" ng-bind="transfomerdetails.sensorRating"></span></label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    </div>
+</div>

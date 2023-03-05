@@ -1,0 +1,53 @@
+<div class="tab-content">
+    <div class="tab-form-wrapper">
+        <h3 class="no-border">System Settings</h3>
+        <form class="pure-form pure-form-aligned" name="systemSettingsForm" method="post" novalidate autocomplete="off">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>System Name<span class="validationRequired">*</span></label>
+                        <div class="input-wrap">
+                            <input type="text" class="form-control" name="systemName" ng-model="configurationDetails.SettingsSystemName" ng-blur="focusValidate('systemName')"
+                            ng-change="focusValidate('systemName')" required ng-trim="false" maxlength=16>
+                            <div class="field-message" ng-messages="systemSettingsForm.systemName.$error"
+                            ng-if='systemSettingsForm.systemName.$dirty' ng-cloak></div>
+                            <span ng-show="errorSystemName" class="error-span" style="color:red;">{{errorSystemNameMessage}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Country<span class="validationRequired">*</span></label>
+                        <div class="input-wrap">
+                            <select name="country" ng-model="configurationDetails.SettingsCountry" class="form-control"
+                            ng-options="x for x in countries" ng-change="getTimezoneListByCountry()" required></select>
+                            <div class="field-message" ng-messages="systemSettingsForm.country.$error"
+							ng-if='systemSettingsForm.country.$dirty' ng-cloak>
+						    <div ng-message="required">Country is required!</div>
+							</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>TimeZone<span class="validationRequired">*</span></label>
+                        <div class="input-wrap">
+                            <select name="timezone" ng-model="configurationDetails.SettingsTimezone" class="form-control"
+                            ng-options="x for x in timezoneList" required></select>
+                            <div class="field-message" ng-messages="systemSettingsForm.timezone.$error"
+							ng-if='systemSettingsForm.timezone.$dirty' ng-cloak>
+						    <div ng-message="required">TimeZone is required!</div>
+							</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-btn text-right">
+                        <button class="plain-btn" ng-click="resetDetails('settings');">Cancel</button>
+                        <button class="fill-btn" ng-click="saveSystemSettingsConfig();"  ng-disabled="set_systemsettings_valid || systemSettingsForm.$invalid || !systemSettingsForm.$dirty">Save</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

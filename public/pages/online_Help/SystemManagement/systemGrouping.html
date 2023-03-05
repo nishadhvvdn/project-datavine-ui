@@ -1,0 +1,490 @@
+<div class="container-fluid">
+
+    <!--=====================================================-->
+
+    <div class="row">
+        <div class="rectangleBox">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 your_col">
+                    <img alt="#" src="../assets/images/SystemManagement/Grouping.png" class="imgDimension-helpSub" />
+                </div>
+                <div class="col-xs-8 col-sm-98 col-md-8 col-lg-8 labelStyle">
+                    <label> Grouping </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--=====================================================-->
+
+    <div class="row" style="margin-top: 1%">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="pull-right">
+                <p><a ng-click="tabChange('readingReport')" href=""><strong> 1. &nbsp; Reading The List </strong></a></p>
+                <p><a ng-click="tabChange('sortReport')" href=""><strong> 2. &nbsp; Sorting The List </strong></a></p>
+                <p><a ng-click="tabChange('exportingReport')" href=""><strong> 3. &nbsp; Exporting The List </strong></a></p>
+                <p><a ng-click="tabChange('printReport')" href=""><strong> 4. &nbsp;  Search For a Device </strong></a></p>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="pull-left">
+                <p><a ng-click="tabChange('setReport')" href=""><strong> 5. &nbsp; Group a device </strong></a></p>
+                <p><a ng-click="tabChange('addReport')" href=""><strong> 6. &nbsp; Ungroup a Device </strong></a></p>
+                <p><a ng-click="tabChange('editReport')" href=""><strong> 7. &nbsp; Viewing a Device </strong></a></p>
+            </div>
+        </div>
+    </div>
+    <!--=====================================================-->
+
+    <div class="hr" style="margin-top: 0"></div>
+
+    <!--===============================================================-->
+
+    <div class="row text-center scrollAdjust" ng-show="tabs.readingReport">
+        <label> <h1> <strong> 1. Reading The List </strong> </h1> </label> 
+
+        <span>
+        <p class="paragraph">
+        
+        
+        
+               The registration list shows all DTCs, transformers, or meters (depending on which tab you have clicked) registered to
+                the system.
+            </br>The list contains different columns depending on which tab you have clicked.
+        </br>The DTC's list has five columns.
+
+        <br><strong>1.	DTC ID:</strong> The ID of the DTC is shown here.
+        <br><strong>2.	KVA Rating:</strong> The KVA rating of the DTC is shown in this column.
+        <br><strong>3.	Sub-Station ID:</strong> The ID associated with the substation is located here.
+        <br><strong>4.	Sub-Station Address:</strong> The physical address of the substation is in this column.
+        <br><strong>5.	Actions: </strong>A user can view, edit, or delete a DTC from this column.
+        <br> The HyperHUB&trade; list contains six columns
+        <br><strong>1.	HyperHUB&trade; Serial Number:</strong> This contain HyperHUB&trade; Serial Number.
+        <br><strong>2.	Hub Name:</strong> This contain Hub Name.
+        <br><strong>3.	Hardware Version: </strong>This contain Hardware Version of the device.
+        <br><strong>4.	Latitude:</strong> The latitude for the transformer’s physical location is in this column.
+        <br><strong>5.	Longitude:</strong> The longitude for the transformer’s physical location is in this column.
+        <br><strong>6.	Actions:</strong> A user can view, edit, or delete a HyperHUB&trade; from this column.
+        <br> The transformer list contains eight columns
+
+        <br><strong>1.	Transformer ID:</strong> The ID of the transformer is shown here.
+        <br><strong>2.	KVA Rating:</strong> This column shows the KVA rating of the transformer.
+        <br><strong>3.	HS Serial Number: </strong>This column contains the HyperSPROUT&trade; serial number.
+        <br><strong>4.	HS Name: </strong>This one contains the HyperSPROUT's&trade; name.
+        <br><strong>5.	Hardware Version: </strong>The version of the hardware currently on the device is shown here.
+        <br><strong>6.	Latitude:</strong> The latitude for the transformer’s physical location is in this column.
+        <br><strong>7.	Longitude:</strong> The longitude for the transformer’s physical location is in this column.
+        <br><strong>8.	Actions:</strong> A user can view, edit, or delete a transformer from this column.
+
+        <br>The meter list contains seven columns.
+
+        <br><strong>1.	Meter ID: </strong>The ID of the meter is shown here.
+        <br><strong>2.	Make:</strong> This column shows who makes the meter. For instance, Vision or Tatung.
+        <br><strong>3.	Consumer Number: </strong>The consumer ID number is shown in this column.
+        <br><strong>4.	No of Phases:</strong> The number of phases supported by the meter.
+        <br><strong>5.	Latitude: </strong>The latitude for the meter’s physical location is in this column.
+        <br><strong>6.	Longitude: </strong>The longitude for the meter’s physical location is in this column.
+        <br><strong>7.	Actions: </strong>A user can view, edit, or delete a meter from this column.
+        </br>The endpoint list has five columns.
+
+        <br><strong>1.	MAC ID:</strong> This contain MAC ID of the endpoint device.
+        <br><strong>2.	DTC:</strong> The ID of the DTC is shown here.
+        <br><strong>3.	Owner:</strong> This contain Name of the owner details.
+        <br><strong>4.	Description:</strong> This contain detailed information of the endpoint device.
+        <br><strong>5.	Actions: </strong>A user can view, edit, or delete a endpoint from this column. 
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/listGroup.png" style=" width: 56%" />
+
+
+        <span> 
+        <p class="paragraph"  style= "margin-top:1%">
+                   If the list has a large amount of data, it might separate into pages. In this case, the user can choose how many entries
+                to display or which page to show from the pagination tool bar in the bottom left of the report.
+        </p>
+                </span>
+
+
+
+        <img alt="#" src="../assets/images/commPage.png" style=" width: 56% ;margin-top:1%" />
+
+    </div>
+    <!--=====================================================================================-->
+
+    <div class="row text-center" ng-show="tabs.sortReport">
+        <label> <h1> <strong> 2. Sorting The List </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+              To sort the list, the user must click the header of whichever column they would like to sort by. For instance, clicking on
+                the meter make  header will switch the column between the default display, ascending alphabetically, and descending
+                alphabetically.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/sortGrouping.png" />
+
+    </div>
+    <!--================================================================================-->
+
+    <div class="row text-center" ng-show="tabs.exportingReport">
+        <label> <h1> <strong> 3. Exporting The List </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+            The report gives four different options for exporting. The user may export either all the data in the report or just the
+                currently displayed data in either a CSV format or a PDF format. To do this the user simply has to click
+                on the export button in the top right corner of the report after filtering it for the desired data.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/exportMenu.png" />
+
+    </div>
+    <!--====================================================================-->
+
+    <div class="row text-center" ng-show="tabs.printReport">
+        <label> <h1> <strong> 4. Search For a Device </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+            To search for a device, first click the tab of the device type you wish to search for. Then enter the entire ID or a portion
+                of it into the search bar above the top left corner of the list. Immediately upon typing the list will filter
+                out anything that doesn’t match the ID.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/searchDeviceReg.png" />
+
+
+    </div>
+    <!--===================================================================-->
+
+        <div class="row text-center " ng-show="tabs.setReport" >
+            <label> <h1> <strong> 5. Group a device </strong> </h1> </label>
+
+            <span>
+        <p class="paragraph">
+            
+           To group a device navigate to the device you want to group by clicking on the “list connected devices” button of the DTC you want to group
+                 (If you are grouping a meter to a transformer do this one more time in the next list with the transformer).
+        </p>
+                </span>
+
+
+            <img alt="#" src="../assets/images/groupT.png" style= "margin-top:1%" />
+
+             <span>
+        <p class="paragraph" style= "margin-top:2%">
+            
+            Next click the Find Transformer or Find Meter button above the top right corner of the list.
+        </p>
+                </span>
+
+
+            <img alt="#" src="../assets/images/findTransformer.png" style= "margin-top:1%" />
+            <span>
+        <p class="paragraph" style= "margin-top:1%">
+            
+           Choose the transformer or meter you wish to group to the device by clicking on the checkmark to the left of the device’s entry within the list. 
+               Then click the Assign Selected Transformers (or meters) button to group the devices together. Note, you can checkmark more then one device at a time 
+               to assign multiple devices at once.
+        </p>
+                </span>
+                 <img alt="#" src="../assets/images/assignTransformer.png" style= "margin-top:1%" />
+
+        </div>
+
+        <!--=====================================================================================-->
+        <div class="row text-center" ng-show="tabs.addReport" >
+            <label> <h1> <strong> 6. Ungroup a Device</strong> </h1> </label>
+
+            <span>
+        <p class="paragraph">
+            
+             To ungroup a device simply navigate to it in the list and click the ungroup button and confirm when prompted. This will remove the meter or transformer
+                from the grouping. Note, you can also remove multiple devices at once by using the checkboxes and then clicking the Un-Group button above the top right 
+                corner of the list.
+        </p>
+                </span>
+
+
+            <img alt="#" src="../assets/images/editWindow.png" style=" width: 56% ;margin-top:1%" />
+             
+
+    </div>
+    <!--=====================================================================================-->
+    
+    <div class="row text-center" ng-show="tabs.editReport">
+        <label> <h1> <strong> 7. View Device Details </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+            To view a device’s details locate in the device list and click the view button in the Actions column for the device.
+        </p>
+                </span>
+
+
+            <img alt="#" src="../assets/images/editRegistration.png" style="margin-top:1%" />
+
+            <span>
+        <p class="paragraph" style="margin-top:1%">
+            
+           This will open a new window with the device’s details. Click the OK button when you are done to return to the previous screen.
+        </p>
+                </span>
+
+
+            <img alt="#" src="../assets/images/viewRegistration.png" style=" width: 56% ;margin-top:1%" />
+
+
+        </div>
+        <!--===============================================================================-->
+
+    </div>
+
+
+
+
+<!--<div class="continer-fluid">
+<div style="height: auto">
+    <div style="padding-top:2%">
+        <div class="rectangleBox">
+            <div id="dvId" class="divImage">
+                <div class="row">
+                <img alt="#" src="../assets/images/SystemManagement/Grouping.png" class="imgDimension-helpSub" />
+                </div>
+            </div>
+            <div class="your_col"></div>
+            <div style="align-content: center">
+                <div class="row">
+                <label style="font-size: 30px; color: white; padding-top: 30px; padding-left: 150px"> <h1><b>Grouping</b></h1></label>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-left:31%;margin-top:30px">
+            <div style="width: 120%">
+                <div style="width: 42.3%;">
+                    <div style="float: left;">
+                        <p><a ng-click="tabChange('readingReport')" href=""><strong>1. Reading The List </strong></a></p>
+                    </div>
+                    <div style="float: right; ">
+                        <p><a ng-click="tabChange('setReport')" href=""><strong>5.	Group A device</strong></a></p>
+                    </div>
+                </div>
+            </div>
+            <div style="width: 120%">
+                <div style="width: 44%; float: left;">
+                    <div style="float: left;">
+                        <p><a ng-click="tabChange('sortReport')" href=""><strong>2. Sorting The List</strong></a></p>
+                    </div>
+                    <div style="float: right;">
+                        <p><a ng-click="tabChange('addReport')" href=""><strong>6. Ungroup a Device</strong></a></p>
+                    </div>
+                </div>
+            </div>
+            <div style="width: 120%">
+                <div style="width: 45%;">
+                    <div style="float: left;">
+                        <p><a ng-click="tabChange('exportingReport')" href=""><strong>3. Exporting The List</strong></a></p>
+                    </div>
+                    <div style="float: right;">
+                        <p><a ng-click="tabChange('editReport')" href=""><strong>7. View Device Details</strong></a></p>
+                    </div>
+
+                </div>
+            </div>
+            <div style="width: 120%">
+                <div style="width: 44.4%; float: left;">
+                    <div style="float: left;">
+                        <p><a ng-click="tabChange('printReport')" href=""><strong>4. Search For a Device</strong></a></p>
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="hr" style="margin-top:1%"></div>
+
+    <div ng-show="tabs.readingReport" class="scrollAdjust">
+        <div>
+            
+            <label class="row adjustHead"><strong>I. Reading The List </strong></label>
+            
+            <p style="padding-left:20%;padding-right:10%;padding-top:0%">
+                The registration list shows all circuits, transformers, or meters (depending on which tab you have clicked) registered to
+                the system.
+                </br>The list contains different columns depending on which tab you have clicked.
+                </br>The circuits list has five columns.
+
+                <br><strong>1.	Circuit ID:</strong> The ID of the circuit is shown here.
+                <br><strong>2.	KVA Rating:</strong> The KVA rating of the circuit is shown in this column.
+                <br><strong>3.	Sub-Station ID:</strong> The ID associated with the substation is located here.
+                <br><strong>4.	Sub-Station Address:</strong> The physical address of the substation is in this column.
+                <br><strong>5.	Actions: </strong>A user can view, edit, or delete a circuit from this column.
+
+                <br> The transformer list contains eight columns
+
+                <br><strong>1.	Transformer ID:</strong> The ID of the transformer is shown here.
+                <br><strong>2.	KVA Rating:</strong> This column shows the KVA rating of the transformer.
+                <br><strong>3.	HS Serial Number: </strong>This column contains the HyperSprout serial number.
+                <br><strong>4.	HS Name: </strong>This one contains the HyperSprout’s name.
+                <br><strong>5.	Hardware Version: </strong>The version of the hardware currently on the device is shown here.
+                <br><strong>6.	Latitude:</strong> The latitude for the transformer’s physical location is in this column.
+                <br><strong>7.	Longitude:</strong> The longitude for the transformer’s physical location is in this column.
+                <br><strong>8.	Actions:</strong> A user can view, edit, or delete a transformer from this column.
+
+                <br>The meter list contains seven columns.
+
+                <br><strong>1.	Meter ID: </strong>The ID of the meter is shown here.
+                <br><strong>2.	Make:</strong> This column shows who makes the meter. For instance, Vision or Tatung.
+                <br><strong>3.	Consumer Number: </strong>The consumer ID number is shown in this column.
+                <br><strong>4.	No of Phases:</strong> The number of phases supported by the meter.
+                <br><strong>5.	Latitude: </strong>The latitude for the meter’s physical location is in this column.
+                <br><strong>6.	Longitude: </strong>The longitude for the meter’s physical location is in this column.
+                <br><strong>7.	Actions: </strong>A user can view, edit, or delete a meter from this column.
+            </p>
+            <div class="row">
+                <img  alt="#" src="../assets/images/listGroup.png" class="listSize" />
+            </div>
+            <p style="padding-left:20%;padding-right:10%;padding-top:2%">
+                If the list has a large amount of data, it might separate into pages. In this case, the user can choose how many entries
+                to display or which page to show from the pagination tool bar in the bottom left of the report.
+            </p>
+            <div class="row">
+                <img  alt="#" src="../assets/images/commPage.png" class="paginationSize"/>
+            </div>
+
+
+        </div>
+    </div>
+    <div ng-show="tabs.setReport" class="scrollAdjust">
+        <div>
+            <label class="row adjustHead"><strong>V. Group a device</strong></label>
+            <p style="padding-left:10%;padding-right:10%;padding-top:2%">
+                To group a device navigate to the device you want to group by clicking on the “list connected devices” button of the circuit you want to group
+                 (If you are grouping a meter to a transformer do this one more time in the next list with the transformer).
+            </p>
+            <div class="row">
+                <img style="padding-left:25%;padding-top:0%" alt="#" src="../assets/images/listFindTransformer.png" />
+            </div>
+            <p style="padding-left:10%;padding-right:10%;padding-top:2%">
+            Next click the Find Transformer or Find Meter button above the top right corner of the list.
+
+
+            </p>
+            <div class="row">
+                <img style="padding-left:40%;padding-top:3%" alt="#" src="../assets/images/findTransformer.png" />
+            </div>
+            <p style="padding-left:10%;padding-right:10%;padding-top:2%">
+               Choose the transformer or meter you wish to group to the device by clicking on the checkmark to the left of the device’s entry within the list. 
+               Then click the Assign Selected Transformers (or meters) button to group the devices together. Note, you can checkmark more then one device at a time 
+               to assign multiple devices at once.
+
+
+            </p>
+            <div class="row">
+                <img style="padding-left:4%;padding-top:4%" alt="#" src="../assets/images/assignedTransformer.png" />
+            </div>
+        </div>
+    </div>
+    <div ng-show="tabs.sortReport">
+        <div>
+            <div class="row">
+            <label class="adjustHead"><strong>II. Sorting The List</strong></label>
+            </div>
+            <p style="padding-left:10%;padding-right:10%;padding-top:2%">
+                To sort the list, the user must click the header of whichever column they would like to sort by. For instance, clicking on
+                the meter make  header will switch the column between the default display, ascending alphabetically, and descending
+                alphabetically.
+            </p>
+            <div class="row">
+                <img style="padding-left:42%" alt="#" src="../assets/images/sortGrouping.png" />
+            </div> 
+
+        </div>
+    </div>
+    <div ng-show="tabs.addReport" class="scrollAdjust">
+        <div>
+            <div class="row">
+            <label class="adjustHead"><strong>VI.	Ungroup a Device</strong></label>
+            </div>
+            <p style="padding-left:10%;padding-right:10%;padding-top:0%">
+               To ungroup a device simply navigate to it in the list and click the ungroup button and confirm when prompted. This will remove the meter or transformer
+                from the grouping. Note, you can also remove multiple devices at once by using the checkboxes and then clicking the Un-Group button above the top right 
+                corner of the list.
+
+
+            </p>
+
+            <div class="row">
+                <img style="padding-left:5%" alt="#" src="../assets/images/editWindow.png" />
+            </div>
+
+
+
+        </div>
+    </div>
+    <div ng-show="tabs.exportingReport">
+        <div>
+            <div class="row">
+            <label class="adjustHead"><strong>III. Exporting The List</strong></label>
+            </div>
+            <p style="padding-left:10%;padding-right:10%;padding-top:2%">
+                The list gives four different options for exporting. The user may export either all the data in the list or just the currently
+                displayed data in either a CSV format or a PDF format. To do this the user simply has to click on the export
+                button in the top right corner of the list after filtering it for the desired data.
+            </p>
+            <div>
+                <img style="padding-left:40%" alt="#" src="../assets/images/exportMenu.png" />
+            </div>
+        
+    </div>
+    </div>
+    <div ng-show="tabs.editReport" class="scrollAdjust">
+        <div>
+            <div class="row">
+            <label class="adjustHead"><strong>VII. View Device Details</strong></label>
+            </div>
+            <p style="padding-left:10%;padding-right:10%;padding-top:0%">
+                To view a device’s details locate in the device list and click the view button in the Actions column for the device.
+            </p>
+            <div class="row">
+                <img style="padding-left:45%" alt="#" src="../assets/images/editRegistration.png" />
+            </div>
+            <p style="padding-left:10%;padding-right:10%;padding-top:2%">
+                This will open a new window with the device’s details. Click the OK button when you are done to return to the previous screen.
+            </p>
+            <div class="row">
+                <img style="padding-left:3%" alt="#" src="../assets/images/viewRegistration.png" />
+            </div>
+        </div>
+    </div>
+    <div ng-show="tabs.printReport">
+        <div>
+            <div class="row">
+            <label class="adjustHead"><strong>IV. Search For a Device</strong></label>
+            </div>
+            <p style="padding-left:10%;padding-right:10%;padding-top:2%">
+                To search for a device, first click the tab of the device type you wish to search for. Then enter the entire ID or a portion
+                of it into the search bar above the top left corner of the list. Immediately upon typing the list will filter
+                out anything that doesn’t match the ID.
+            </p>
+            <div class="row">
+                <img style="padding-left:40%" alt="#" src="../assets/images/searchDevice.png" />
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>-->

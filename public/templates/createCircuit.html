@@ -1,0 +1,195 @@
+<div class="container-fluid" id="circuitCreationDiv">
+    <section>
+        <div class="row circuit">
+            <h4 ng-show="createUpdateStatus"><strong>Create Distribution Transformer Circuit</strong></h4>
+            <h4 ng-hide="createUpdateStatus"><strong>Edit Distribution Transformer Circuit</strong></h4>
+        </div>
+    </section>
+    <form class="pure-form pure-form-aligned" name="circuitEdit" method="post" novalidate autocomplete="off">
+        <section>
+            <uib-accordion close-others="oneAtATime">
+                <div uib-accordion-group class="panel-default" is-open="status.isFirstOpen">
+                    <uib-accordion-heading>
+                        Distribution Transformer Circuit Details <i class="fa fa-chevron-down" style="color:blue"
+                            aria-hidden="true"></i>
+                        <span ng-if="circuitEdit.circuitId.$valid && circuitEdit.kvaRating.$valid &&
+                      circuitEdit.longitude.$valid && circuitEdit.latitude.$valid">
+                    <span class="glyphicon_Ckt glyphicon-ok-sign circuitDetails"></span>
+                </span>
+                    </uib-accordion-heading>
+                    <section style="margin-left:3%">
+                        <div class="row col-lg-12">
+                            <div class="col-lg-4">
+                                <h5><strong>DTC ID</strong><span class="validationRequired">*</span></h5>
+                                <input name="circuitId" class="dropbox" ng-model="meterdetails.circuitId"
+                                    ng-blur="focusValidate('circuitId')" ng-change="focusValidate('circuitId')"
+                                    type="text" placeholder="DTC ID" maxlength=30 ng-trim="false" ng-readonly="editDTCId" disallow-space required>
+                                <div class="field-message" ng-messages="circuitEdit.circuitid.$error"
+                                    ng-if='circuitEdit.circuitid.$dirty' ng-cloak>
+                                </div><br>
+                                <span style="color:red;" ng-show="errorCktId">{{errorMessageCktId}} </span>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <h5><strong>KVA Rating</strong><span class="validationRequired">*</span></h5>
+                                <input name="kvaRating" class="dropbox" ng-model="meterdetails.kvaRating" type="text"
+                                    placeholder="KVA Rating" required ng-blur="focusValidate('kvaRating')"
+                                    ng-change="focusValidate('kvaRating')" maxlength=6 ng-trim="false" numbers-only disallow-space>
+                                <div class="field-message" ng-messages="circuitEdit.kvaRating.$error"
+                                    ng-if='circuitCreation.kvaRating.$dirty' ng-cloak>
+                                </div><br>
+                                <span style="color:red;" ng-show="errorKvaRating">{{errorMessageKvaRating}} </span>
+                            </div>
+                        </div>
+                        <div class="row col-lg-12">
+                            <div class="col-lg-4">
+                                <h5><strong>Latitude</strong><span class="validationRequired">*</span></h5>
+                                <input name="latitude" class="dropbox" ng-model="meterdetails.latitude" type="text"
+                                    placeholder="Latitude" ng-blur="focusValidate('latitude')"
+                                    ng-change="focusValidate('latitude')" ng-trim="false" maxlength="10" required disallow-space>
+                                <div class="field-message" ng-messages="circuitEdit.latitude.$error"
+                                    ng-if='circuitCreation.latitude.$dirty' ng-cloak>
+                                </div><br>
+                                <span style="color:red;" ng-show="errorLatitude">{{errorMessageLatitude}} </span>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <h5><strong>Longitude</strong><span class="validationRequired">*</span></h5>
+                                <input name="longitude" class="dropbox" ng-model="meterdetails.longitude" type="text"
+                                    placeholder="Longitude" ng-blur="focusValidate('longitude')"
+                                    ng-change="focusValidate('longitude')" ng-trim="false" maxlength="11" required disallow-space>
+                                <div class="field-message" ng-messages="circuitEdit.longitude.$error"
+                                    ng-if='circuitCreation.longitude.$dirty' ng-cloak>
+                                </div><br>
+                                <span style="color:red;" ng-show="errorLongitude">{{errorMessageLongitude}} </span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <hr />
+
+                <div uib-accordion-group class="panel-default" heading="Substation Details"
+                    is-disabled="status.isFirstDisabled">
+                    <uib-accordion-heading>
+                        Substation Details <i class="fa fa-chevron-down" style="color:blue" aria-hidden="true"></i>
+                        <span ng-if="circuitEdit.substationId.$valid && circuitEdit.substationName.$valid &&  circuitEdit.substationAdd.$valid &&
+                         circuitEdit.country.$valid &&  circuitEdit.state.$valid &&circuitEdit.city.$valid && circuitEdit.zipcode.$valid">
+                    <span class="glyphicon_Ckt glyphicon-ok-sign substationDetails"></span>
+                </span>
+                    </uib-accordion-heading>
+                    <section style="margin-left:3%">
+                        <div class="row col-lg-12">
+
+                            <div class="col-lg-4">
+                                <h5><strong>ID</strong><span class="validationRequired">*</span></h5>
+                                <input name="substationId" class="divthree" ng-model="meterdetails.substationId"
+                                    type="text" placeholder="Sub-Station ID" ng-blur="focusValidate('substationId')"
+                                    ng-change="focusValidate('substationId')" maxlength=30 ng-trim="false" disallow-space required>
+                                <div class="field-message" ng-messages="circuitEdit.substationId.$error"
+                                    ng-if='circuitEdit.substationId.$dirty' ng-cloak>
+                                </div><br>
+                                <span style="color:red;" ng-show="errorSubstnId">{{errorMessageSubstnId}} </span>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>Name</strong><span class="validationRequired">*</span></h5>
+                                <input name="substationName" class="divthree" ng-model="meterdetails.substationName"
+                                    type="text" placeholder="Sub-Station Name" ng-blur="focusValidate('substationName')"
+                                    ng-change="focusValidate('substationName')" maxlength=30 ng-trim="false" required >
+                                <div class="field-message" ng-messages="circuitEdit.substationName.$error"
+                                    ng-if='circuitEdit.substationName.$dirty' ng-cloak>
+                                </div><br>
+                                <span style="color:red;" ng-show="errorSubstnName">{{errorMessageSubstnName}} </span>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>Address</strong><span class="validationRequired">*</span></h5>
+                                <input name="substationAdd" class="divthree" ng-model="meterdetails.substationAdd"
+                                    placeholder="Sub-Station Address" ng-blur="focusValidate('substationAdd')"
+                                    ng-change="focusValidate('substationAdd')" maxlength=100 ng-trim="false" required/>
+                                <div class="field-message" ng-messages="circuitEdit.substationAdd.$error"
+                                    ng-if='circuitEdit.substationAdd.$dirty' ng-cloak>
+                                </div><br>
+                                <span style="color:red;" ng-show="errorsubstationAdd">{{errorMessagesubstationAdd}}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row col-lg-12">
+                            <div class="col-lg-4">
+                                <h5><strong>Country</strong><span class="validationRequired">*</span></h5>
+                                <input name="country" class="divthree" ng-model="meterdetails.country" type="text"
+                                    placeholder="Country" ng-blur="focusValidate('country')"
+                                    ng-change="focusValidate('country')" maxlength=50 ng-trim="false" required>
+                                <div class="field-message" ng-messages="circuitEdit.country.$error"
+                                    ng-if='circuitEdit.country.$dirty' ng-cloak>
+                                </div><br>
+                                <span style="color:red;" ng-show="errorCountry">{{errorMessageCountry}} </span>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>State</strong><span class="validationRequired">*</span></h5>
+                                <input name="state" class="divthree" ng-model="meterdetails.state" type="text"
+                                    placeholder="State" ng-trim="false" ng-blur="focusValidate('state')"
+                                    ng-change="focusValidate('state')" maxlength=50 required>
+                                <div class="field-message" ng-messages="circuitEdit.state.$error"
+                                    ng-if='circuitEdit.state.$dirty' ng-cloak>
+                                </div><br>
+                                <span style="color:red;" ng-show="errorState">{{errorMessageState}} </span>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5><strong>City</strong><span class="validationRequired">*</span></h5>
+                                <input name="city" class="divthree" ng-model="meterdetails.city" type="text"
+                                    placeholder="City" ng-blur="focusValidate('city')" ng-change="focusValidate('city')"
+                                    maxlength=50 ng-trim="false" required>
+                                <div class="field-message" ng-messages="circuitEdit.city.$error"
+                                    ng-if='circuitEdit.city.$dirty' ng-cloak>
+                                </div>
+                                <div>
+                                    <span style="color:red;" ng-show="errorCity">{{errorMessageCity}} </span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row col-lg-12">
+                            <div class="col-lg-4">
+                                <h5><strong>Zip Code</strong><span class="validationRequired">*</span></h5>
+                                <input name="zipcode" class="divthree"
+                                       ng-model="meterdetails.zipcode"
+                                       type="text"
+                                       placeholder="Zip Code"
+                                       ng-blur="focusValidate('zipcode')"
+                                       ng-change="focusValidate('zipcode')" maxlength=6 ng-trim="false"
+                                       disallow-space required/>
+                                <div class="field-message" ng-messages="meterCreation.consumerZipcode.$error"
+                                     ng-if='circuitEdit.zipcode.$dirty' ng-cloak>
+                                </div>
+                                <div>
+                                    <span ng-show="errorZipcode" style="color:red;">{{errorZipcodeMessage}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </uib-accordion>
+        </section>
+    </form>
+    <section>
+        <div class="row">
+            <div class="btnRow">
+                <span>
+                    <button type="button" class="btn btn-default btnColor" ng-show="createUpdateStatus"
+                        ng-click=" save()"
+                        ng-disabled="circuitEdit.$invalid || create_circuit_valid || errorsubstationAdd == true">
+                        Create
+                    </button>
+                    <!--ng-show="createUpdateStatus"-->
+                    <button type="button" class="btn btn-default btnColor" ng-hide="createUpdateStatus"
+                        ng-click="update()"
+                        ng-disabled="circuitEdit.$invalid || create_circuit_valid || errorsubstationAdd == true || !circuitEdit.$dirty">
+                        Update
+                    </button>
+                    <button type="button" class="btn btn-default btnDefault" ng-click="cancel()">Cancel</button>
+                </span>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!--I ma an updated file-->

@@ -1,0 +1,101 @@
+<div class="right-section">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="deviceConfig-tabs">
+				<div class="tab-content">
+					<h3 class="no-border">Radio Configuration</h3>
+					<div class="tab-form-wrapper disable-field">
+						<form class="pure-form pure-form-aligned" name="fronthaulRadioForm" method="post" novalidate autocomplete="off">
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="form-group">
+										<label>Radio Band<span class="validationRequired">*</span></label>
+										<div class="input-wrap short-input"> 
+											<select name="radioBand" ng-model="meterConfigurationDetails.FronthaulRadioRadioBand" class="form-control"
+											ng-options="x for x in radioBands" required ng-change="updateRadioBand()"></select>
+											<div class="field-message" ng-messages="fronthaulRadioForm.radioBand.$error"
+											ng-if='fronthaulRadioForm.radioBand.$dirty' ng-cloak>
+											<div ng-message="required">Radio Band is required!</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-12">
+									<div class="form-group">
+										<label>Radio Mode<span class="validationRequired">*</span></label>
+										<div class="input-wrap short-input"> 
+											<select name="radioMode" ng-model="meterConfigurationDetails.FronthaulRadioRadioMode" class="form-control"
+											ng-options="x for x in radioModes" required ng-change="updateRadioMode()"></select>
+											<div class="field-message" ng-messages="fronthaulRadioForm.radioMode.$error"
+											ng-if='fronthaulRadioForm.radioMode.$dirty' ng-cloak>
+											<div ng-message="required">Radio Mode is required!</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-12">
+									<div class="form-group">
+										<label>Channel Width<span class="validationRequired">*</span></label>
+										<div class="input-wrap short-input">
+											<select name="channelWidth" ng-model="meterConfigurationDetails.FronthaulRadioChannelWidth" class="form-control"
+											ng-options="x for x in channelWidths" required ng-change="updateChannelWidth()"></select>
+											<div class="field-message" ng-messages="fronthaulRadioForm.channelWidth.$error"
+											ng-if='fronthaulRadioForm.channelWidth.$dirty' ng-cloak>
+											<div ng-message="required">Channel Width is required!</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-12">
+									<div class="form-group">
+										<label>Channel<span class="validationRequired">*</span></label>
+										<div class="input-wrap short-input"> 
+											<select name="channel" ng-model="meterConfigurationDetails.FronthaulRadioChannel" class="form-control"
+											ng-options="x for x in channels" required></select>
+											<div class="field-message" ng-messages="fronthaulRadioForm.channel.$error"
+											ng-if='fronthaulRadioForm.channel.$dirty' ng-cloak>
+											<div ng-message="required">Channel is required!</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-12">
+									<div class="form-group">
+										<label>Transmit Power<span class="validationRequired">*</span></label>
+										<div class="input-wrap short-input">
+											<input type="text" class="form-control" name="transmitPower" ng-model="meterConfigurationDetails.FronthaulRadioTransmitPower" ng-blur="focusValidate('transmitPower')"
+											ng-change="focusValidate('transmitPower')" numbers-only ng-trim="false"
+											required disallow-space placeholder="1 to 20 in dBM">
+											<div class="field-message" ng-messages="fronthaulRadioForm.transmitPower.$error"
+											ng-if='fronthaulRadioForm.transmitPower.$dirty' ng-cloak></div>
+											<span ng-show="errorTransmitPower" class="error-span" style="color:red;">{{errorTransmitPowerMessage}}</span>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-12">
+									<div class="form-group"> 
+										<label>Stream Selection<span class="validationRequired">*</span></label>
+										<div class="input-wrap short-input"> 
+											<select name="streamSelection" ng-model="meterConfigurationDetails.FronthaulRadioStreamSelection" class="form-control"
+											ng-options="x for x in streamSelections" required></select>
+											<div class="field-message" ng-messages="fronthaulRadioForm.streamSelection.$error"
+											ng-if='fronthaulRadioForm.streamSelection.$dirty' ng-cloak>
+											<div ng-message="required">Stream Selection is required!</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-12">
+									<div class="form-btn text-right">
+										<button class="plain-btn" ng-click="resetDetails('radio');">Cancel</button>
+										<button class="fill-btn" ng-click="saveFronthaulConfig('Radio');" ng-disabled="set_radio_valid || fronthaulRadioForm.$invalid || !fronthaulRadioForm.$dirty">Save</button>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

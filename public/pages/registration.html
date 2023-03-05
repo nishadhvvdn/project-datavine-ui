@@ -1,0 +1,30 @@
+<div id="header" ng-include="'pages/homePage_footer.html'"></div>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="navbar navbar-default customNav">
+            <ul class="nav navbar-nav">
+                <li ui-sref-active="activeMenu">
+                   <a ui-sref="system.registration.circuitEntry" id="registration" class="configNav">DTC</a>
+                </li>
+                <li ui-sref-active="activeMenu">
+                    <a ui-sref="system.registration.transformerEntry" class="configNav">Transformer</a>
+                </li>
+                <li ui-sref-active="activeMenu">
+                   <a ui-sref="system.registration.hyperHubEntry" class="configNav">HyperHUB&trade;</a>
+                </li>                
+                <li ui-sref-active="activeMenu">
+                   <a ui-sref="system.registration.meterEntry" class="configNav">Meter</a>
+                </li>
+                <li ui-sref-active="activeMenu">
+                    <a ui-sref="system.registration.deltaLinkEntry" class="configNav">DeltaLINK&trade;</a>
+                </li>
+                <li ui-sref-active="activeMenu">
+                   <a ui-sref="system.registration.endpointEntry" class="configNav">Endpoint</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<div class="container-fluid">
+    <div ui-view></div>
+</div>

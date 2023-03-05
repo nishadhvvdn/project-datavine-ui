@@ -1,0 +1,74 @@
+﻿<div class="modal-header">
+    <h4 class="modal-title"><strong>Assign Endpoint Group Membership</strong></h4>
+</div>
+<div class="container-fluid modalBackground">
+    <div class="modal-body">
+        <form name="assign_configForm" novalidate>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="row">
+                        <h5><strong>Select Group</strong></h5>
+                        <select class="selectGroup" ng-model="selectDeviceClass"
+                            ng-options="value.Group_Name for value in groupList" ng-change="GetValue()" required>
+                            <option value="">Select One</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <button type="button" ng-click="openCreateApplicationGroup()" ng-model="createApp"
+                            class="btn btn-default btnColor create_application_button">
+                            <strong>+</strong>
+                        </button>
+                    </div>
+                    <div class="row">
+                        <h5><strong>Select Action</strong></h5>
+                        <select class="selectGroup" ng-model="selectAction">
+                            <option value="Add">Add</option>
+                            <option value="Remove">Remove</option>
+                        </select>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <h5><strong>Select File</strong></h5>
+                    </div><br />
+                    <div class="row">
+                        <input type="file" class="fileUpload" ng-model="file" file-model="fileMod" name="uploadfile"
+                            file-reader="fileContent" />
+                        <!--<span style="font-size: 11px; color:blue"><i>Select files only with .txt extension </i></span>-->
+                        <span style="font-size: 11px; color:red ">{{fileUpload.errMessage}}</span>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <h5><strong>Assign Endpoint Group Memebership</strong></h5>
+                    </div>
+                    <div class="row">
+                        <button type="button" class="btn btn-default btnColor">Assign Endpoint</button>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-7">
+                    <div class="row">
+                        <h5><strong>Results</strong></h5>
+                    </div>
+                    <div class="row modalTable">
+                        <table class="table result_table" ng-model="results">
+                            <tr ng-repeat="assignEndpoints_meter in assignEndpoints_meter">
+                                <td>{{assignEndpoints_meter.key}}</td>
+                                <td> {{assignEndpoints_meter.value}} </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <button type="button" class="btn btn-default btnColor" ng-model="export" ng-click="Export()"
+                        style="margin-left: 68%;">Export Failed</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class='modal-footer'>
+    <button type="button" class="btn btn-default btnColor" ng-click="Save()" ng-model="save" ng-disabled="    
+            (fileUpload.errMessage) ||
+            (assign_configForm.group.$dirty && import_configForm.group.$invalid ||
+            assign_configForm.group.$error.required) ">Save</button>
+    <button type="button" class="btn btn-default btnDefault" ng-click="cancel()" ng-model="cancel">Cancel</button>
+</div>

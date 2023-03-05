@@ -1,0 +1,88 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <div>
+            <a href='' class="imageBorder" style="margin-left: 80%;" ng-click="printCart()"><img src="../assets/images/Print.png" /></a>
+            <a href='' class="imageBorder" ng-click="pdf()"><img src="../assets/images/PDF.png" /><b class="anchorText">PDF</b>&nbsp;</a>
+            <a href='' class="imageBorder" ng-click="excel()"><img src="../assets/images/Excel.png" /><b class="anchorText">Excel</b>&nbsp;</a>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <!--<form name="quantitiesForm">-->
+        <form name="config_form" novalidate>
+            <table class="table modalTableBorder">
+                <tr>
+                    <td>
+                        <label>Energy1</label>
+                        <i class="fa fa-asterisk" style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;" aria-hidden="true"></i>
+                    </td>
+                    <td>
+                        <select ng-disabled="true" class="form-control select-input" style="width:50%;" ng-model="configObj['ConfigGroups_Info']['Energy1']" ng-options="obj.value for obj in quantities_energy track by obj.id"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Energy2</label>
+                        <i class="fa fa-asterisk" style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;" aria-hidden="true"></i>
+                    </td>
+                    <td>
+                        <select ng-disabled="true" class="form-control select-input" style="width:50%;" ng-model="configObj['ConfigGroups_Info']['Energy2']" ng-options="obj.value for obj in quantities_energy track by obj.id"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Energy3</label>
+                        <i class="fa fa-asterisk" style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;" aria-hidden="true"></i>
+                    </td>
+                    <td>
+                        <select ng-disabled="true" class="form-control select-input" style="width:50%;" ng-model="configObj['ConfigGroups_Info']['Energy3']" ng-options="obj.value for obj in quantities_energy track by obj.id"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Energy4</label>
+                        <i class="fa fa-asterisk" style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;" aria-hidden="true"></i>
+                    </td>
+                    <td>
+                        <select ng-disabled="true" class="form-control select-input" style="width:50%;" ng-model="configObj['ConfigGroups_Info']['Energy4']" ng-options="obj.value for obj in quantities_energy track by obj.id"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Demand</label>
+                        <i class="fa fa-asterisk" style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;" aria-hidden="true"></i>
+                    </td>
+                    <td>
+                        <select ng-disabled="true" class="form-control select-input" style="width:50%;" ng-model="configObj['ConfigGroups_Info']['Demand']" ng-options="obj.value for obj in quantities_demand track by obj.id">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div class="row">
+        <h4>Load Control Disconnect Threshold</h4>
+        <table>
+            <tr>
+                <td><label>Load Control Disconnect Threshold (Max Demand)</label></td>
+                <td>
+                    <select ng-disabled="true" class="form-control select-input" style="width:100%;" ng-model="configObj['ConfigGroups_Info']['LoadControlDisconnectThreshold']" ng-options="obj.value for obj in quantities_loadControl track by obj.id">
+                        <!--<select style="width:100%;" ng-model="loadControl">
+                            <option value="State">Disabled</option>
+                            <option value="State1">Enabled</option>
+                        </select>-->
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Reconnect Method</label></td>
+                    <td>
+                        <select ng-disabled="true" class="form-control select-input" style="width:100%;" ng-model="configObj['ConfigGroups_Info']['ReconnectMethod']" ng-options="obj.value for obj in quantities_reconnect track by obj.id">
+                </td>
+            </tr>
+        </table>
+    </div>
+    <h5 style="color:red ; font-size:12px; margin-left:2%"><i class="fa fa-asterisk" style="font-size: 1vh; color: red; " aria-hidden="true"></i>All fields are mandatory</h5>
+    <!--<div class='modal-footer'>
+        <button type="button" class="btn btn-default btnColor" ng-click="Save()" ng-model="save">Save</button>
+        <button type="button" class="btn btn-default btnDefault" ng-click="cancel()" ng-model="cancel">Cancel</button>
+    </div>-->
+</div>

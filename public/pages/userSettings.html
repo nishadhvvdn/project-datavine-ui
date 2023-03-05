@@ -1,0 +1,130 @@
+﻿<div class="container-fluid">
+	<div class="row">
+		<h3 class="headingAlign">User Settings</h3>
+	</div>
+	<form name="userSettingsForm" novalidate>
+		<table class="table modalTableBorder">
+			<tr>
+				<td>
+					<h5><strong>First Name:</strong><i class="fa fa-asterisk mandatory"></i></h5>
+
+				</td>
+				<td>
+					<input allow-pattern="[a-z]" type="text" class="form-control userSettingsInput" ng-model="firstName" name="firstName" data-ng-minlength="4" data-ng-maxlength="20"
+						maxlength="30" required />
+					<span data-ng-show="userSettingsForm.firstName.$dirty && userSettingsForm.firstName.$invalid" class="help">
+                        <span data-ng-show="userSettingsForm.firstName.$error.required"class="userSettingsErrMsg">First Name is required</span>
+
+					<span class="userSettingsErrMsg" ng-show="userSettingsForm.firstName.$error.minlength">
+							First name should contain at least 4 characters
+						</span></br>
+					<span class="userSettingsErrMsg" ng-show="userSettingsForm.firstName.$error.maxlength">
+							First name should not contain more than 20 characters
+						</span></br>
+					</span><br />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h5><strong>Last Name:</strong><i class="fa fa-asterisk mandatory"></i></h5>
+				</td>
+				<td>
+					<input allow-pattern="[a-z]" type="text" class="form-control userSettingsInput" ng-model="lastName" name="lastName" data-ng-minlength="4" data-ng-maxlength="20"
+						maxlength="30" required />
+					<span data-ng-show="userSettingsForm.lastName.$dirty && userSettingsForm.lastName.$invalid" class="help">
+                        <span data-ng-show="userSettingsForm.lastName.$error.required" class="userSettingsErrMsg">Last Name is required</span>
+					<span class="userSettingsErrMsg"  ng-show="userSettingsForm.lastName.$error.minlength">
+							Last name should contain at least 4 characters
+						</span></br>
+						<span class="userSettingsErrMsg" ng-show="userSettingsForm.lastName.$error.maxlength">
+							Last name should not contain more than 20 characters
+						</span></br>
+					</span><br />
+
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h5><strong>E-mail Address:</strong><i class="fa fa-asterisk mandatory"></i></h5>
+				</td>
+				<td>
+					<input type="email" ng-model="email" name="email" data-ng-maxlength="40" maxlength="40" class="form-control userSettingsInput"
+						data-ng-pattern="/^[_a-zA-Z0-9]+(\.[_a-zA-Z0-9]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,4})$/" ng-required="true"
+					/>
+
+					<span data-ng-show="userSettingsForm.email.$dirty && userSettingsForm.email.$invalid" class="help">
+                        <span data-ng-show="userSettingsForm.email.$error.required" class="userSettingsErrMsg">* Email address is required</span>
+					<span data-ng-show="userSettingsForm.email.$error.pattern" class="userSettingsErrMsg">* Invalid email address</span>
+					</span><br />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h5><strong>Default Page:</strong><i class="fa fa-asterisk mandatory"></i></h5>
+				</td>
+				<td>
+					<select class="form-control userSettingsInput" name="homePage" ng-model="homePage" ng-options="value for value in allowedPages"
+						required>
+                        <option value="">Select One</option>
+                    </select>
+					<span data-ng-show="userSettingsForm.homePage.$dirty && userSettingsForm.homePage.$invalid" class="help">
+                        <span data-ng-show="userSettingsForm.homePage.$error.required" class="userSettingsErrMsg">* Home page is required</span>
+					</span><br />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h5><strong>Temperature:</strong><i class="fa fa-asterisk mandatory"></i></h5>
+				</td>
+				<td>
+					<select class="form-control userSettingsInput" name="temprature" ng-model="temprature" ng-options="value for value in ['Celsius', 'Fahrenheit']"
+						required>
+						<option value="">Select One</option>
+                    </select>
+					<span data-ng-show="userSettingsForm.temprature.$dirty && userSettingsForm.temprature.$invalid" class="help">
+                        <span data-ng-show="userSettingsForm.temprature.$error.required" class="userSettingsErrMsg">* Temperature is required</span>
+					</span><br />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h5><strong>Time Zone:</strong><i class="fa fa-asterisk mandatory"></i></h5>
+				</td>
+				<td>
+					<timezone-selector ng-model="timezone" display-utc="true" sort-by="offset" width="400px"></timezone-selector>
+				</td>
+			</tr>
+			<tr>
+				<td><br>
+					<h5><strong>Password:</strong><i class="fa fa-asterisk mandatory"></i></h5>
+				</td>
+				<td><br>
+					<input type="password" class="form-control userSettingsInput" ng-model="oldPswd" name="oldPswd" autocomplete="off" required
+					/>
+					<span data-ng-show="userSettingsForm.oldPswd.$invalid && userSettingsForm.oldPswd.$dirty" class="help">
+                        <span data-ng-show="userSettingsForm.oldPswd.$error.required" class="userSettingsErrMsg">*Password Required</span>
+					</span><br>
+
+				</td>
+			</tr>
+		</table>
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-1">
+				<button type="submit" ng-click="submit()" class="btn btn-primary btnColor userSettingsBtn" ng-disabled="userSettingsForm.firstName.$error.required ||
+                        userSettingsForm.lastName.$error.required ||
+                        userSettingsForm.email.$error.required ||
+                        userSettingsForm.homePage.$error.required ||!timezone || !homePage ||
+                        userSettingsForm.timezone.$error.required ||
+                        userSettingsForm.oldPswd.$error.required||userSettingsForm.$invalid || !userSettingsForm.$dirty">
+                Save
+            </button>
+			</div>
+			<div class="col-md-1">
+				<button type="button" ng-click="changePassWord()" class="btn btn-primary btnColor">Change Password</button>
+			</div>
+			<div class="col-md-7"></div>
+		</div>
+	</form>
+
+</div>

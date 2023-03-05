@@ -1,0 +1,135 @@
+<div class="tab-content">
+    <div class="tab-form-wrapper">
+        <h3 class="no-border">DHCP Server Configuration</h3>
+        <form class="pure-form pure-form-aligned" name="fronthaulDHCPForm" method="post" novalidate autocomplete="off">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label>DHCP<span class="validationRequired">*</span></label>
+                        <div class="input-wrap">
+                            <div class="radio-wrap">
+                                <input type="radio" id="true" ng-value="true" name="DHCP" ng-model="meterConfigurationDetails.FronthaulDHCPStatus"  ng-change="onchangeDHCP(meterConfigurationDetails.FronthaulDHCPStatus)">
+                                <label for="true">Enable</label>
+                            </div>
+                            <div class="radio-wrap">
+                                <input type="radio" id="false" ng-value="false" name="DHCP" ng-model="meterConfigurationDetails.FronthaulDHCPStatus"  ng-change="onchangeDHCP(meterConfigurationDetails.FronthaulDHCPStatus)">
+                                <label for="false">Disable</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="meterConfigurationDetails.FronthaulDHCPStatus">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Default Gateway<span class="validationRequired">*</span></label>
+                        <div class="input-wrap"><input type="text" class="form-control" name="defaultGateway" ng-model="meterConfigurationDetails.FronthaulDHCPDefaultGateway" ng-blur="focusValidate('defaultGatewayDHCP')"
+                            ng-change="focusValidate('defaultGatewayDHCP')" disallow-space maxlength=15 placeholder="192.168.x.x">	
+                            <div class="field-message" ng-messages="fronthaulDHCPForm.defaultGateway.$error"
+                            ng-if='fronthaulDHCPForm.defaultGateway.$dirty' ng-cloak></div>
+                            <span ng-show="errorDefaultGatewayDHCP" class="error-span" style="color:red;">{{errorDefaultGatewayDHCPMessage}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Subnet Mask<span class="validationRequired">*</span></label>
+                        <div class="input-wrap"><input type="text" class="form-control" name="subnetMask" ng-model="meterConfigurationDetails.FronthaulDHCPSubnetMask" ng-blur="focusValidate('subnetMaskDHCP')"
+                            ng-change="focusValidate('subnetMaskDHCP')" ng-required="meterConfigurationDetails.FronthaulDHCPStatus" disallow-space maxlength=15 placeholder="255.255.255.x">
+                        	<div class="field-message" ng-messages="fronthaulDHCPForm.subnetMask.$error"
+							ng-if='fronthaulDHCPForm.subnetMask.$dirty' ng-cloak></div>
+							<span ng-show="errorSubnetMaskDHCP" class="error-span" style="color:red;">{{errorSubnetMaskDHCPMessage}}</span>
+						</div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Start Address<span class="validationRequired">*</span></label>
+                        <div class="input-wrap"><input type="text" class="form-control" name="startAddress" ng-model="meterConfigurationDetails.FronthaulDHCPStartAddress" ng-blur="focusValidate('startAddress')"
+                            ng-change="focusValidate('startAddress')" disallow-space maxlength=15 placeholder="192.168.x.x">
+                        	<div class="field-message" ng-messages="fronthaulDHCPForm.startAddress.$error"
+							ng-if='fronthaulDHCPForm.startAddress.$dirty' ng-cloak></div>
+							<span ng-show="errorStartAddress" class="error-span" style="color:red;">{{errorStartAddressMessage}}</span>
+						</div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>End Address<span class="validationRequired">*</span></label>
+                        <div class="input-wrap"><input type="text" class="form-control" name="endAddress" ng-model="meterConfigurationDetails.FronthaulDHCPEndAddress" ng-blur="focusValidate('endAddress')"
+                            ng-change="focusValidate('endAddress')" disallow-space maxlength=15 placeholder="192.168.x.x">
+                        	<div class="field-message" ng-messages="fronthaulDHCPForm.endAddress.$error"
+							ng-if='fronthaulDHCPForm.endAddress.$dirty' ng-cloak></div>
+							<span ng-show="errorEndAddress" class="error-span" style="color:red;">{{errorEndAddressMessage}}</span>
+						</div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Primary DNS<span class="validationRequired">*</span></label>
+                        <div class="input-wrap"><input type="text" class="form-control" name="primaryDNS" ng-model="meterConfigurationDetails.FronthaulDHCPPrimaryDNS" ng-blur="focusValidate('primaryDNSDHCP')"
+                            ng-change="focusValidate('primaryDNSDHCP')" ng-required="meterConfigurationDetails.FronthaulDHCPStatus" disallow-space maxlength=15 placeholder="8.8.8.8">	
+                            <div class="field-message" ng-messages="fronthaulDHCPForm.primaryDNS.$error"
+                            ng-if='fronthaulDHCPForm.primaryDNS.$dirty' ng-cloak></div>
+                            <span ng-show="errorPrimaryDNSDHCP" class="error-span" style="color:red;">{{errorPrimaryDNSDHCPMessage}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Secondary DNS<span class="validationRequired">*</span></label>
+                        <div class="input-wrap"><input type="text" class="form-control" name="secondaryDNS" ng-model="meterConfigurationDetails.FronthaulDHCPSecondaryDNS" ng-blur="focusValidate('secondaryDNSDHCP')"
+                            ng-change="focusValidate('secondaryDNSDHCP')" ng-required="meterConfigurationDetails.FronthaulDHCPStatus" disallow-space maxlength=15 placeholder="1.0.0.1">	
+                            <div class="field-message" ng-messages="fronthaulDHCPForm.secondaryDNS.$error"
+                            ng-if='fronthaulDHCPForm.secondaryDNS.$dirty' ng-cloak></div>
+                            <span ng-show="errorSecondaryDNSDHCP" class="error-span" style="color:red;">{{errorSecondaryDNSDHCPMessage}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-show="!meterConfigurationDetails.FronthaulDHCPStatus">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Default IP</label>
+                        <div class="input-wrap"><input type="text" class="form-control" name="startAddress" ng-model="meterConfigurationDetails.FronthaulDHCPStartAddress" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Subnet Mask</label>
+                        <div class="input-wrap"><input type="text" class="form-control" name="subnetMask" ng-model="meterConfigurationDetails.FronthaulDHCPSubnetMask" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Primary DNS</label>
+                        <div class="input-wrap"><input type="text" class="form-control" name="primaryDNS" ng-model="meterConfigurationDetails.FronthaulDHCPPrimaryDNS" disabled>	
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Default Gateway</label>
+                        <div class="input-wrap"><input type="text" class="form-control" name="defaultGateway" ng-model="meterConfigurationDetails.FronthaulDHCPDefaultGateway" disabled>	
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Secondary DNS</label>
+                        <div class="input-wrap"><input type="text" class="form-control" name="secondaryDNS" ng-model="meterConfigurationDetails.FronthaulDHCPSecondaryDNS" disabled>	
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="col-sm-12">
+                    <div class="form-btn text-right">
+                        <button class="plain-btn" ng-click="resetDetails('dhcp');">Cancel</button>
+                        <button class="fill-btn" ng-click="saveFronthaulConfig('DHCP');" ng-disabled="fronthaulDHCPForm.$invalid || (meterConfigurationDetails.FronthaulDHCPStatus && set_DHCP_valid) || !fronthaulDHCPForm.$dirty">Save</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,235 @@
+<div class="container-fluid">
+
+    <!--=====================================================-->
+
+    <div class="row">
+        <div class="rectangleBox">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 your_col">
+                    <img alt="#" src="../assets/images/SystemManagement/device management.png" class="imgDimension-helpSub" />
+                </div>
+                <div class="col-xs-8 col-sm-98 col-md-8 col-lg-8 labelStyle">
+                    <label> Device Management </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--=====================================================-->
+
+    <div class="row" style="margin-top: 1%">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="pull-right">
+                <p><a ng-click="tabChange('readingReport')" href=""><strong> 1. &nbsp; Reading The List </strong></a></p>
+                <p><a ng-click="tabChange('sortReport')" href=""><strong> 2. &nbsp; Sorting The List </strong></a></p>
+                <p><a ng-click="tabChange('exportingReport')" href=""><strong> 3. &nbsp; Exporting The List </strong></a></p>
+                <p><a ng-click="tabChange('setReport')" href=""><strong> 4. &nbsp; Filtering The List </strong></a></p>
+                <p><a ng-click="tabChange('addReport')" href=""><strong> 5. &nbsp; Searching For a Device </strong></a></p>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="pull-left">
+                <p><a ng-click="tabChange('editReport')" href=""><strong> 6. &nbsp; Viewing a Device </strong></a></p>
+                <p><a ng-click="tabChange('rebootdeviceIcon')" href=""><strong> 7. &nbsp; Reboot Device </strong></a></p>
+                <p><a ng-click="tabChange('lockunlockIcon')" href=""><strong> 8. &nbsp; Lock/Unlock Device UI </strong></a></p>
+                <p><a ng-click="tabChange('logsIcon')" href=""><strong> 9. &nbsp; Device Logs </strong></a></p>
+                <p><a ng-click="tabChange('factoryresetIcon')" href=""><strong> 10. &nbsp; Device Factory Reset </strong></a></p>
+            </div>
+        </div>
+    </div>
+    <!--=====================================================-->
+
+    <div class="hr" style="margin-top: 0"></div>
+
+    <!--===============================================================-->
+
+    <div class="row text-center" ng-show="tabs.readingReport">
+        <label> <h1> <strong> 1. Reading The List </strong> </h1> </label> 
+
+        <span>
+        <p class="paragraph">
+        
+        
+        
+                The device management list shows every device that have communicated with the system.
+                </br>The list contains six columns.
+
+                <br><strong>1.Serial Number:</strong> This column shows unique serial number of the device.
+                <br><strong>2.HyperSPROUT&trade; ID:</strong> This column shows unique ID of the device.
+                <br><strong>3.Name:</strong>This column shows the name given to the device.
+                <br><strong>4.Hardware Version: </strong> : This column shows the version number of the hardware on the
+                device.
+                <br><strong>5.Registered: </strong> This column shows whether or not the device has fully registered with
+                the system.
+                <br><strong>5.Actions: </strong> User can perform Device logs, Reboot Device, Factory reset , Lock / Unlock the device from this column..
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/devicelisthelp.png" style=" width: 56%" />
+
+
+        <span> 
+        <p class="paragraph"  style= "margin-top:1%">
+                   If the list has a large amount of data, it might separate into pages. In this case, the user can choose how many entries
+                to display or which page to show from the pagination tool bar in the bottom left of the report.
+        </p>
+                </span>
+
+
+
+        <img alt="#" src="../assets/images/commPage.png" style=" width: 56% ;margin-top:1%" />
+
+    </div>
+    <!--=====================================================================================-->
+
+    <div class="row text-center" ng-show="tabs.sortReport">
+        <label> <h1> <strong> 2. Sorting The List </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+              To sort the list, the user must click the header of whichever column they would like to sort by. For instance, clicking on
+                the Group header will switch the column between the default display, ascending alphabetically, and descending
+                alphabetically.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/sortSystemDevice.png" />
+
+    </div>
+    <!--================================================================================-->
+
+    <div class="row text-center" ng-show="tabs.exportingReport">
+        <label> <h1> <strong> 3. Exporting The List </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+            The report gives four different options for exporting. The user may export either all the data in the report or just the
+                currently displayed data in either a CSV format or a PDF format. To do this the user simply has to click
+                on the export button in the top right corner of the report after filtering it for the desired data.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/exportMenu.png" />
+
+    </div>
+    <!--===================================================================-->
+
+        <div class="row text-center " ng-show="tabs.setReport" >
+            <label> <h1> <strong> 4. Filtering The List </strong> </h1> </label>
+
+            <span>
+        <p class="paragraph">
+            
+           The filter for the device management page contains only one section. This is a checkbox to remove or show non-registered
+                devices from the list.
+        </p>
+                </span>
+
+
+            <img alt="#" src="../assets/images/filterDevice.png" />
+
+        </div>
+
+        <!--=====================================================================================-->
+
+        <div class="row text-center" ng-show="tabs.addReport" >
+            <label> <h1> <strong> 5. Searching For a Device </strong> </h1> </label>
+
+            <span>
+        <p class="paragraph">
+            
+            To search for a device simply click the tab corresponding to the device type user would like to look up (HyperSPROUT&trade; or meter).
+                Then enter the entire serial number or a portion of it and click search button for pull up matching devices.
+        </p>
+                </span>
+
+
+            <img alt="#" src="../assets/images/searchdevicehelp.png" />
+             
+
+    </div>
+    <!--=====================================================================================-->
+    
+    <div class="row text-center" ng-show="tabs.editReport">
+        <label> <h1> <strong> 6. Viewing a Device </strong> </h1> </label>
+        <span>
+            <p class="paragraph">
+                To view a device’s basic details search for it in the device list and then click its serial number. This will pull up a window
+                    with the device details. Note, user can also ping the node from this window.
+            </p>
+        </span>
+            <img alt="#" src="../assets/images/viewSystemDevice.png" style="width:40vw;height:40vh" />
+    </div>
+    <!--===============================================================================-->
+        <div class="row text-center" ng-show="tabs.rebootdeviceIcon">
+            <label> <h1> <strong> 7. Reboot Device  </strong> </h1> </label>
+            <span>
+            <p class="paragraph">   
+                Reboot Device functionality is applicable for HyperSPROUT&trade;, HyperHUB&trade;, Meter (Mesh Card) and DeltaLINK&trade;. With this functionality the Devices will be remotely Bootable from the Cloud and there is no need to go to the field. User can search Device by serial number or by Device ID from UI and send reset command to the Device.
+            </p>
+                    </span>
+                    <img alt="#" src="../assets/images/deviceactionhelp.png" />
+                    <span> 
+                    <p class="paragraph"  style= "margin-top:1%">
+                               Confirmation Popup For Device Reboot
+                    </p>
+                            </span>
+                    <img alt="#" src="../assets/images/reboothelp.png" style=" width: 56% ;margin-top:1%" />
+        </div>
+        <!--===============================================================================-->
+    
+        <div class="row text-center" ng-show="tabs.lockunlockIcon">
+                <label> <h1> <strong> 8. Lock/Unlock Device UI</strong> </h1> </label>
+                <span>
+                <p class="paragraph">   
+                    Lock/Unlock Device functionality is applicable for HyperSPROUT&trade;, HyperHUB&trade; and Meter. With this functionality, the Device GUI interface (HTML Pages) can be locked from Cloud. If anyone connects to the device then he/she should not see the Device GUI until it is not enabled from cloud.  
+                </p></span>
+        
+                <img alt="#" src="../assets/images/deviceactionhelp.png" />
+                <span> 
+                <p class="paragraph"  style= "margin-top:1%">
+                           Confirmation Popup For Lock/ Unlock Device UI
+                </p>
+                        </span>
+                <img alt="#" src="../assets/images/devicelockhelp.png" style=" width: 56% ;margin-top:1%" />
+        </div>
+        <!--===============================================================================-->
+        <div class="row text-center" ng-show="tabs.logsIcon">
+            <label> <h1> <strong> 9. Device Logs</strong> </h1> </label>
+            <span>
+            <p class="paragraph">   
+                Delta Device Log functionality is applicable for HyperSPROUT&trade;, HyperHUB&trade;, Meter and DeltaLINK&trade;. With this functionality, the Logs of any Device can be fetched from the Device and stored to the cloud and if any error is device user can check it from the logs. User can enable different types of logs.  
+            </p>
+                    </span>
+                    <img alt="#" src="../assets/images/deviceactionhelp.png" />
+                    <span> 
+                    <p class="paragraph"  style= "margin-top:1%">
+                               List of Device Logs
+                    </p>
+                            </span>
+                    <img alt="#" src="../assets/images/loghelp.png" style=" width: 56% ;margin-top:1%" />
+        </div>
+        <!--===============================================================================-->
+        <div class="row text-center" ng-show="tabs.factoryresetIcon">
+            <label> <h1> <strong> 10. Device Factory Reset</strong> </h1> </label>
+            <span>
+            <p class="paragraph">   
+                Delta Factory Reset Device functionality is applicable for HyperSPROUT&trade;, HyperHUB&trade;, Meter (Mesh Card) and DeltaLINK&trade;, with this functionality user can remotely factory reset any device from the cloud.  
+            </p>
+                    </span>
+                    <img alt="#" src="../assets/images/deviceactionhelp.png" />
+                    <span> 
+                    <p class="paragraph"  style= "margin-top:1%">
+                               Confirmation Popup For Device Factory Reset
+                    </p>
+                            </span>
+                    <img alt="#" src="../assets/images/factoryresethelp.png" style=" width: 56% ;margin-top:1%" />
+        </div>
+        <!--===============================================================================-->
+       
+    </div>

@@ -1,0 +1,19 @@
+﻿<div class="container-fluid">
+    <div ncy-breadcrumb></div>
+    <div class="row">
+        <div class="pull-left headingAlign" style="margin-top:1%">
+            <a ng-click="printCart()"><img alt="#" src="../assets/images/Print.png" class="anchorText" /><strong class="anchorText">Print</strong></a>
+        </div>
+        <h5 class="pull-right filterBy" ng-model="filter">
+            <strong> Filter Devices By&nbsp;</strong>
+            <select style="width:39%;">
+                <option value="Critical">Critical</option>
+                <option value="Warning">Warning</option>
+                <option value="Ok">OK</option>
+            </select>
+        </h5>
+    </div>
+</div>
+<div class="container-fluid">
+    <div ui-grid="nodeDevicesOptions" ui-grid-resize-columns ui-grid-pagination ui-grid-exporter class="grid"></div>
+</div>

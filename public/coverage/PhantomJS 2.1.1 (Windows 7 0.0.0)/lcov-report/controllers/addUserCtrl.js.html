@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for controllers\addUserCtrl.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">controllers/</a> addUserCtrl.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">90.16% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>55/61</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">80% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>16/20</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>9/9</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">90.16% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>55/61</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">﻿(function (angular) {
+&nbsp;
+    "use strict";
+&nbsp;
+    angular.module('dataVINEApp')
+        .controller('addUserCtrl', ['$scope', '$modalInstance', '$state', 'administrationService', 'actionType', 'record', 'securityGroupDropDown', 'userIdsList', '$sessionStorage', function ($scope, $modalInstance, $state, administrationService, actionType, record, securityGroupDropDown, userIdsList, $sessionStorage) {
+            $scope.obj = {};
+            $scope.securityGroups = securityGroupDropDown.output;
+            $scope.editmode = false;
+            $scope.userObj = {};
+            $scope.userObj.accountLocked = false;
+            $scope.viewMode = false;
+            $scope.editEnable = false;
+            $scope.accessEdit = true;
+            function setUserdata(obj) {
+                $scope.userObj.userID = obj.entity.UserID;
+                $scope.userObj.firstName = obj.entity.Name;
+                $scope.userObj.lastName = obj.entity.LastName;
+                $scope.userObj.email = obj.entity['E-Mail Address'];
+                $scope.userObj.accountLocked = obj.entity['Account Locked'];
+                $scope.userObj.homePage = obj.entity.HomePage;
+                $scope.userObj.timezone = obj.entity.TimeZone;
+                $scope.userObj.securityGroup = obj.entity['Security Group'];
+                $scope.userObj.temprature = obj.entity.Temprature;
+                $scope.accessEdit = obj.entity.access;
+            }
+            if (actionType === 'Edit') {
+                $scope.editmode = true;
+                $scope.editEnable = true;
+                <span class="missing-if-branch" title="else path not taken" >E</span>if (objCacheDetails.userDetails.security_groupName === 'Administrator') {
+                    $scope.editEnable = false;
+                }
+                setUserdata(record);
+            } else <span class="missing-if-branch" title="if path not taken" >I</span>if (actionType === 'View') {
+<span class="cstat-no" title="statement not covered" >                $scope.viewMode = true;</span>
+<span class="cstat-no" title="statement not covered" >                setUserdata(record);</span>
+            }
+&nbsp;
+            $scope.userCheck = false;
+            $scope.check = function () {
+                for (var i = 0; i &lt; userIdsList.length; i++) {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (userIdsList[i].UserID === $scope.userObj.userID) {
+<span class="cstat-no" title="statement not covered" >                        $scope.userCheck = true;</span>
+<span class="cstat-no" title="statement not covered" >                        break;</span>
+                    } else {
+                        $scope.userCheck = false;
+                    }
+                }
+            };
+            $scope.cancel = function () {
+                $modalInstance.dismiss();
+            }
+            function reload() {
+                $state.reload();
+                $modalInstance.dismiss();
+            }
+            $scope.Save = function () {
+&nbsp;
+                if (actionType === 'Edit') {
+                    administrationService.EditUser($scope.userObj.userID, $scope.userObj.firstName, $scope.userObj.lastName, $scope.userObj.email, $scope.userObj.securityGroup, $scope.userObj.homePage, $scope.userObj.timezone, $scope.userObj.accountLocked, record.entity.loginID, $scope.userObj.temprature).then(function (objData) {
+                        if (!angular.isUndefinedOrNull(objData) &amp;&amp; (objData.type === true)) {
+                            $sessionStorage.put('temprature', $scope.userObj.temprature);
+                            <span class="missing-if-branch" title="if path not taken" >I</span>if (objCacheDetails.userDetails.userID === $scope.userObj.userID) {
+<span class="cstat-no" title="statement not covered" >                                swal('User is Updated Successfully. Please re-login to reflect the changes!');</span>
+<span class="cstat-no" title="statement not covered" >                                $state.go('login');</span>
+                            } else{
+                                swal(objData.output);
+                                reload();
+                            }
+                        } else {
+                            swal(objData.Message);
+                            reload();
+                        }
+                    });
+&nbsp;
+                } else {
+                    administrationService.AddUser($scope.userObj.userID, $scope.userObj.firstName, $scope.userObj.lastName, $scope.userObj.email, $scope.userObj.securityGroup, $scope.userObj.homePage, $scope.userObj.timezone, $scope.userObj.accountLocked, $scope.userObj.temprature).then(function (objData) {
+                        if (!angular.isUndefinedOrNull(objData) &amp;&amp; (objData.type === true)) {
+                            $sessionStorage.put('temprature', $scope.userObj.temprature);
+                            swal(objData.output);
+                        } else {
+                            swal(objData.Message);
+                        }
+                        $state.reload();
+                        $modalInstance.dismiss();
+                    });
+                }
+            }
+        }]);
+})(window.angular);</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Aug 22 2017 16:49:25 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+﻿<form name="firmwareDownload">
+	<div class="modal-header">
+		<h4 class="modal-title"><strong>Enter {{name}} Firmware Download Mode</strong></h4>
+	</div>
+	<div class="container-fluid modalBackground">
+		<div class="modal-body">
+			<div class="modalTableBorder">
+				<div class="row">
+					<div class="col-md-5">
+						<h5><strong>Select Device Type</strong></h5>
+					</div>
+					<div class="col-md-7" style="margin-top:4px">
+						<select class="select-width selectGroup" name="deviceList" ng-model="deviceType"
+								style="height:30px;width:80%;" required ng-change="deviceTypeChanged()">
+							<option ng-if="typeOfDevice === 'HyperSprout'" value="iTM">iTM</option>
+							<option ng-if="typeOfDevice === 'HyperSprout'" value="iNC">iNC</option>
+							<option ng-if="typeOfDevice === 'HyperSprout'" value="Cellular">Cellular</option>
+							<option ng-if="typeOfDevice === 'HyperSprout'" value="Bluetooth">Bluetooth</option>
+							<option ng-if="typeOfDevice === 'Meter'" value="MeshCard">MeshCard</option>
+							<option ng-if="typeOfDevice === 'Meter'" value="MeterCard">MeterCard</option>
+							<option ng-if="typeOfDevice === 'DeltaLink'" value="DeltaLink">DeltaLINK&trade;</option>
+						</select>
+					</div>
+				</div>
+				<div class="row" style="margin-top:10px">
+					<div class="col-md-5">
+						<h5><strong>Select {{name}} Firmware</strong></h5>
+					</div>
+					<div class="col-md-7" style="margin-top:4px">
+						<select class="select-width selectGroup" name="firmwareList" ng-model="selectedFirmware"
+							ng-options="obj.FirmwareName for obj in selectFirmwareDropDown"
+							style="height:30px;width:80%;" required>
+							<option value="">Select One</option>
+						</select>
+					</div>
+				</div>
+				<div class="row" style="margin-top:10px">
+					<div class="col-md-5">
+						<h5><strong>Select {{name}} Firmware Group</strong></h5>
+					</div>
+					<div class="col-md-7" style="margin-top:4px">
+						<select class="select-width" name="groupList" ng-model="selectedGroup"
+							ng-options="obj.GroupName for obj in GroupDetailsDropDown" style="height:30px;width:80%;"
+							required>
+							<option value="">Select One</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button type="button" ng-disabled="firmwareDownload.$invalid" class="btn btn-default btnColor"
+			ng-click="enterFirmwareDownload(selectedFirmware,selectedGroup)">
+			Enter Firmware Download Mode
+		</button>
+		<button type="button" class="btn btn-default btnDefault" ng-click="cancel()">Cancel</button>
+	</div>
+</form>

@@ -1,0 +1,150 @@
+<div class="container-fluid">
+  <div class="page-container">
+    <div class="delta-card">
+      <div class="card-header">
+        <div class="page-title">
+          <h3>Message</h3>
+        </div>
+      </div>
+      <div class="message">
+        <div class="row m-flex">
+          <div class="col-lg-4">
+            <div class="m-card" id="m-card">
+              <div ng-repeat="item in messageData">
+                <div class="m-item" ng-class="{'m-item not-read': item.is_read == true , 'm-item':item.is_read == false}">
+                  
+                    <div>
+                      <img
+                        src="../assets/images/Message/icons8-person-80.png"
+                        alt="Profile"
+                        class="profile-pic"
+                      />
+                    </div>
+                    <div class="msg-box" ng-click="getMessageItemDetails(item)">
+                      <div class="name-date">
+                        <p>{{item.recipient}}</p>
+                        <p>{{getFormatedDate(item.date)}}</p>
+                      </div>
+                      <div class="message-status">
+                        <p>{{item.message}}</p>
+                        <div>
+                          <span class="m-Minor" ng-if="item.severity == 'Minor'"
+                            >{{item.severity}}</span
+                          >
+                          <span
+                            class="m-Warning"
+                            ng-if="item.severity == 'Warning'"
+                            >{{item.severity}}</span
+                          >
+                          <span
+                            class="m-Critical"
+                            ng-if="item.severity == 'Critical'"
+                            >{{item.severity}}</span
+                          >
+                          <span class="m-Minor" ng-if="!item.severity"
+                            >No Severity</span
+                          >
+                        </div>
+                      </div>
+                      
+                    </div>
+                    <div class="m-action-icon-item">
+                      <span
+                        class="d-tooltip"
+                        ng-click="updateMessageItem('list',item)"
+                      >
+                        <img
+                          ng-if="item.is_read"
+                          src="../assets/images/Message/envelope.svg"
+                          alt="env-open"
+                        />
+                        <img
+                          ng-if="!item.is_read"
+                          src="../assets/images/Message/envelope-open.svg"
+                          alt="env-open"
+                        />
+                        <div class="tooltiptext" ng-if="item.is_read">
+                          Mark as Unread
+                        </div>
+                        <div class="tooltiptext" ng-if="!item.is_read">
+                          Mark as Read
+                        </div>
+                      </span>
+                      <span
+                        class="d-tooltip"
+                        ng-click="deleteMessageItem('list',item)"
+                        ><i class="fa fa-trash-o"></i>
+                        <div class="tooltiptext">Delete</div></span
+                      >
+                    </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <div class="m-card">
+              <div ng-show="showMessageDetails">
+                <div class="message-details">
+                  <div class="message-header">
+                    <div class="message-info">
+                      <div class="m-action-icon">
+                        <span
+                          class="d-tooltip"
+                          ng-click="updateMessageItem('card')"
+                        >
+                          <img
+                            ng-if="messageSelectedItem.is_read"
+                            src="../assets/images/Message/envelope.svg"
+                            alt="env-open"
+                          />
+                          <img
+                            ng-if="!messageSelectedItem.is_read"
+                            src="../assets/images/Message/envelope-open.svg"
+                            alt="env-open"
+                          />
+                          <div class="tooltiptext" ng-if="messageSelectedItem.is_read">
+                            Mark as Unread
+                          </div>
+                          <div class="tooltiptext" ng-if="!messageSelectedItem.is_read">
+                            Mark as Read
+                          </div> </span
+                        ><span
+                          class="d-tooltip"
+                          ng-click="deleteMessageItem('card')"
+                          ><i class="fa fa-trash-o" style="font-size:16px;"></i>
+                          <div class="tooltiptext">Delete</div></span
+                        >
+                      </div>
+                      <div>
+                        <img
+                          src="../assets/images/Message/icons8-person-80.png"
+                          alt="Profile"
+                          class="m-profile-pic"
+                        />
+                      </div>
+                      <div>
+                        <div>
+                          <p>{{messageSelectedItem.recipient}}</p>
+                        </div>
+                        <p>{{getFormatedDate(messageSelectedItem.date)}}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <p>{{messageSelectedItem.message}}</p>
+                </div>
+              </div>
+              <div
+                ng-show="!showMessageDetails"
+                class="no-message"
+                style="display: flex; align-items: center"
+              >
+                <img src="../assets/images/Message/mesage.svg" />Inbox
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

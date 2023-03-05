@@ -1,0 +1,227 @@
+<div class="right-section">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="deviceConfig-tabs">
+				<ul class="nav nav-tabs" role="tablist">
+					<li ng-class="path==='2.4' ? 'active' : '' "><a ng-click="changeTab('2.4', 'mesh');">Mesh Profile</a></li>
+					<li ng-class="path==='5' ? 'active' : '' "><a ng-click="changeTab('5', '');">Mesh Scan</a></li>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane" ng-class="path==='2.4' ? 'active' : '' " id="first">
+                        <h3>Primary Profile</h3>
+						<div class="tab-form-wrapper hotspotForm">
+							<form class="pure-form pure-form-aligned" name="fronthaulMeshForm" method="post" novalidate autocomplete="off">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="form-group">
+											<label>Mesh ID<span class="validationRequired">*</span></label>
+											<div class="input-wrap short-input"> 
+												<input type="text" class="form-control" name="meshID" ng-model="meterConfigurationDetails.FronthaulPrimMeshID" ng-blur="focusValidate('meshIDPrim')"
+												ng-change="focusValidate('meshIDPrim')" maxlength=32 ng-trim="false" required>
+												<div class="field-message" ng-messages="fronthaulMeshForm.meshID.$error"
+												ng-if='fronthaulMeshForm.meshID.$dirty' ng-cloak></div>
+												<span ng-show="errorMeshIDPrim" class="error-span" style="color:red;">{{errorMeshIDPrimMessage}}</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-12">
+										<div class="form-group">
+											<label>Security Type<span class="validationRequired">*</span></label>
+											<div class="input-wrap short-input">
+												<select name="securityType" ng-model="meterConfigurationDetails.FronthaulPrimSecurityType" class="form-control"
+												required  ng-change="focusValidate('securityTypeMesh21')">
+												<option value="Open">Open</option>
+												<option value="SAE">SAE</option></select>
+												<div class="field-message" ng-messages="fronthaulMeshForm.securityType.$error"
+												ng-if='fronthaulMeshForm.securityType.$dirty' ng-cloak>
+												<div ng-message="required">Security Type is required!</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-12" ng-show="meterConfigurationDetails.FronthaulPrimSecurityType.toLowerCase() === 'sae'">
+										<div class="form-group">
+											<label>Pre-shared Key<span class="validationRequired">*</span></label>
+											<div class="input-wrap short-input icon-input">
+												<input type="{{passwordIconOne}}" class="form-control" name="preSharedKey" ng-model="meterConfigurationDetails.FronthaulPrimPresharedKey" ng-blur="focusValidate('pskPrim')"
+												ng-change="focusValidate('pskPrim')" maxlength=63 ng-trim="false"><i ng-class="passwordIconOne === 'text' ? 'fa fa-eye' : 'fa fa-eye-slash' " ng-click="passwordIconOne === 'text' ? passwordIconOne = 'password' :passwordIconOne = 'text'"></i>
+												<div class="field-message" ng-messages="fronthaulMeshForm.preSharedKey.$error"
+												ng-if='fronthaulMeshForm.preSharedKey.$dirty' ng-cloak></div>
+												<span ng-show="errorPreSharedKeyPrim" class="error-span" style="color:red;">{{errorPreSharedKeyPrimMessage}}</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-12">
+										<div class="form-group">
+											<label>MAC Address<span class="validationRequired">*</span></label>
+											<div class="input-wrap short-input"> 
+												<input type="text" class="form-control" name="macAddress" ng-model="meterConfigurationDetails.FronthaulPrimMacAddress" ng-blur="focusValidate('macAddressPrim')"
+												ng-change="focusValidate('macAddressPrim')" maxlength=17 ng-trim="false" required>
+												<div class="field-message" ng-messages="fronthaulMeshForm.macAddress.$error"
+												ng-if='fronthaulMeshForm.macAddress.$dirty' ng-cloak></div>
+												<span ng-show="errorMacAddressPrim" class="error-span" style="color:red;">{{errorMacAddressPrimMessage}}</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-12">
+										<div class="form-group">
+											<label>Primary Serial Number<span class="validationRequired">*</span></label>
+											<div class="input-wrap short-input"> 
+												<input type="text" class="form-control" name="serialNumber" ng-model="meterConfigurationDetails.FronthaulPrimSerialNumber" ng-blur="focusValidate('serialNumberPrim')"
+												ng-change="focusValidate('serialNumberPrim')" maxlength=25 ng-trim="false" required>
+												<div class="field-message" ng-messages="fronthaulMeshForm.serialNumber.$error"
+												ng-if='fronthaulMeshForm.serialNumber.$dirty' ng-cloak></div>
+												<span ng-show="errorSerialNumberPrim" class="error-span" style="color:red;">{{errorSerialNumberPrimMessage}}</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-12">
+										<div class="form-group">
+											<label>Device Type<span class="validationRequired">*</span></label>
+											<div class="input-wrap short-input">
+												<select name="deviceType" ng-model="meterConfigurationDetails.FronthaulPrimDeviceType" class="form-control"
+												required >
+												<option value="0">HyperSPROUT&trade;</option>
+												<option value="1">HyperHUB&trade;</option>
+												<option value="2">Meshcard</option></select>
+												<div class="field-message" ng-messages="fronthaulMeshForm.deviceType.$error"
+												ng-if='fronthaulMeshForm.deviceType.$dirty' ng-cloak>
+												<div ng-message="required">Device Type is required!</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<h3>Secondary Profile</h3>
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="form-group">
+											<label>Mesh ID<span class="validationRequired">*</span></label>
+											<div class="input-wrap short-input"> 
+												<input type="text" class="form-control" name="meshIDSec" ng-model="meterConfigurationDetails.FronthaulSecMeshID" ng-blur="focusValidate('meshIDSec')"
+												ng-change="focusValidate('meshIDSec')" maxlength=32 ng-trim="false" required>
+												<div class="field-message" ng-messages="fronthaulMeshForm.meshIDSec.$error"
+												ng-if='fronthaulMeshForm.meshIDSec.$dirty' ng-cloak></div>
+												<span ng-show="errorMeshIDSec" class="error-span" style="color:red;">{{errorMeshIDSecMessage}}</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-12">
+										<div class="form-group">
+											<label>Security Type<span class="validationRequired">*</span></label>
+											<div class="input-wrap short-input">
+												<select name="securityTypeSec" ng-model="meterConfigurationDetails.FronthaulSecSecurityType" class="form-control"
+												required  ng-change="focusValidate('securityTypeMesh22')">
+												<option value="Open">Open</option>
+												<option value="SAE">SAE</option></select>
+												<div class="field-message" ng-messages="fronthaulMeshForm.securityTypeSec.$error"
+												ng-if='fronthaulMeshForm.securityTypeSec.$dirty' ng-cloak>
+												<div ng-message="required">Security Type is required!</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-12" ng-show="meterConfigurationDetails.FronthaulSecSecurityType.toLowerCase() === 'sae'">
+										<div class="form-group">
+											<label>Pre-shared Key<span class="validationRequired">*</span></label>
+											<div class="input-wrap short-input icon-input">
+												<input type="{{passwordIconTwo}}" class="form-control" name="preSharedKeySec" ng-model="meterConfigurationDetails.FronthaulSecPresharedKey" ng-blur="focusValidate('preSharedKeySec')"
+												ng-change="focusValidate('preSharedKeySec')" maxlength=63 ng-trim="false"><i ng-class="passwordIconTwo === 'text' ? 'fa fa-eye' : 'fa fa-eye-slash' " ng-click="passwordIconTwo === 'text' ? passwordIconTwo = 'password' :passwordIconTwo = 'text'"></i>
+												<div class="field-message" ng-messages="fronthaulMeshForm.preSharedKeySec.$error"
+												ng-if='fronthaulMeshForm.preSharedKeySec.$dirty' ng-cloak></div>
+												<span ng-show="errorPreSharedKeySec" class="error-span" style="color:red;">{{errorPreSharedKeySecMessage}}</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-12">
+										<div class="form-group">
+											<label>MAC Address<span class="validationRequired">*</span></label>
+											<div class="input-wrap short-input"> 
+												<input type="text" class="form-control" name="macAddressSec" ng-model="meterConfigurationDetails.FronthaulSecMACAddress" ng-blur="focusValidate('macAddressSec')"
+												ng-change="focusValidate('macAddressSec')" maxlength=17 ng-trim="false" required>
+												<div class="field-message" ng-messages="fronthaulMeshForm.macAddressSec.$error"
+												ng-if='fronthaulMeshForm.macAddressSec.$dirty' ng-cloak></div>
+												<span ng-show="errorMACAddressSec" class="error-span" style="color:red;">{{errorMACAddressSecMessage}}</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-12">
+										<div class="form-group">
+											<label>Secondary Serial Number<span class="validationRequired">*</span></label>
+											<div class="input-wrap short-input"> 
+												<input type="text" class="form-control" name="serialNumberSec" ng-model="meterConfigurationDetails.FronthaulSecSerialNumber" ng-blur="focusValidate('serialNumberSec')"
+												ng-change="focusValidate('serialNumberSec')" maxlength=25 ng-trim="false" required>
+												<div class="field-message" ng-messages="fronthaulMeshForm.serialNumberSec.$error"
+												ng-if='fronthaulMeshForm.serialNumberSec.$dirty' ng-cloak></div>
+												<span ng-show="errorSerialNumberSec" class="error-span" style="color:red;">{{errorSerialNumberSecMessage}}</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-12">
+										<div class="form-group">
+											<label>Device Type<span class="validationRequired">*</span></label>
+											<div class="input-wrap short-input">
+												<select name="deviceTypeSec" ng-model="meterConfigurationDetails.FronthaulSecDeviceType" class="form-control"
+												required>
+												<option value="0">HyperSPROUT&trade;</option>
+												<option value="1">HyperHUB&trade;</option>
+												<option value="2">Meshcard</option></select>
+												<div class="field-message" ng-messages="fronthaulMeshForm.deviceTypeSec.$error"
+												ng-if='fronthaulMeshForm.deviceTypeSec.$dirty' ng-cloak>
+												<div ng-message="required">Device Type is required!</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">									
+									<div class="col-sm-12">
+										<div class="form-btn text-right">
+											<button class="plain-btn" ng-click="resetDetails('mesh');">Cancel</button>
+											<button class="fill-btn"  ng-click="saveFronthaulConfig('Mesh');" ng-disabled="set_mesh_valid || fronthaulMeshForm.$invalid || !fronthaulMeshForm.$dirty">Save</button>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div role="tabpanel" class="tab-pane" ng-class="path==='5' ? 'active' : '' " id="second">
+                        <h3>Available Mesh Profile</h3>
+						<div class="tab-form-wrapper">
+							<div class="meshtablewrapper">
+							<table class="table table-hover table-bordered" style="border:1px solid;">
+								<tr>
+									<th style="background-color: black; color:white;">Mesh ID</th>
+									<th style="background-color: black; color:white;">Serial Number</th>
+									<th style="background-color: black; color:white;">Device</th>
+									<th style="background-color: black; color:white;">MAC Address</th>
+									<th style="background-color: black; color:white;">Encryption</th>
+									<th style="background-color: black; color:white;">Channel</th>
+									<th style="background-color: black; color:white;">RSSI(dBm)</th>
+									<th style="background-color: black; color:white;">Score</th>
+									<th style="background-color: black; color:white;">Self Healing</th>
+								</tr>
+								<tr ng-repeat="ScanDetail in availableMeshProfiles">
+									<td>{{ScanDetail.MeshID}}</td>
+									<td>{{ScanDetail.SerialNumber}}</td>
+									<td>{{ScanDetail.Device}}</td>
+									<td>{{ScanDetail.MacAddress}}</td>
+									<td>{{ScanDetail.Encryption}}</td>
+									<td>{{ScanDetail.Channel}}</td>
+									<td>{{ScanDetail.RSSI}}</td>
+									<td>{{ScanDetail.Score}}</td>
+									<td>{{ScanDetail.SelfHealing}}</td>
+								</tr>
+							</table>
+						</div>
+								<div class="form-btn text-right pr-0">
+									<button class="fill-btn mr-0" ng-click="scanMeshProfile();">Scan</button>
+								</div>
+						</div>
+					</div>					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

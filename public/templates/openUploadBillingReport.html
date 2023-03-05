@@ -1,0 +1,30 @@
+﻿<!--New Code - 02112016-->
+<form name="upload_form">
+    <div class="modal-header">
+        <h4 class="modal-title"><strong>Import File</strong></h4>
+    </div>
+    <div class="container-fluid modalBackground">
+        <div class="modal-body">
+            <div class="row import">
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="row">
+                            <h5 class=""><strong>Select a .CSV File</strong></h5>
+                        </div>
+                        <div class="row">
+                            <input type="file" name="file" ngf-pattern="'.csv'" accept=".csv" ng-model="file" ngf-select
+                                onchange="angular.element(this).scope().fileNameChanged(this)" />
+                        </div>
+                        <p>{{Progress}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default btnColor" ng-disabled="disableImport"
+            ng-click="uploadFile()">Import</button>
+        <button type="button" class="btn btn-default btnDefault" ng-click="cancel()">Cancel</button>
+    </div>
+</form>

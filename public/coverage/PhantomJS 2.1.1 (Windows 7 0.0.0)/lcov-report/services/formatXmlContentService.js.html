@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for services\formatXmlContentService.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">services/</a> formatXmlContentService.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">86.67% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>91/105</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">75.57% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>99/131</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>5/5</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">86.67% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>91/105</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">(function (angular) {
+&nbsp;
+    "use strict";
+&nbsp;
+    angular.module('dataVINEApp').service('formatXmlContent', ['commonService',
+        function (commonService) {
+            var energyDataValues = [{ "id": 1, "value": "None" }, { "id": 2, "value": "Wh delivered" }, { "id": 3, "value": "Wh received" }, { "id": 4, "value": "VAh delivered Arith" }, { "id": 5, "value": "VAh received Arith" }, { "id": 6, "value": "Wh Net" }, { "id": 7, "value": "Wh Uni-Directional" }, { "id": 8, "value": "Vh" }];
+            var demandDataValues = [{ "id": 1, "value": "Max VA delivered Arith" }, { "id": 2, "value": "Max VA received Arith" }, { "id": 3, "value": "Max W delivered" }, { "id": 4, "value": "Max W received" }];
+            var energyDataValues_q = [{ "id": 1, "value": "None" }, { "id": 2, "value": "Wh delivered" }, { "id": 3, "value": "Wh received" }, { "id": 4, "value": "VAh delivered Arith" }, { "id": 5, "value": "VAh received Arith" }, { "id": 6, "value": "Wh Net" }, { "id": 7, "value": "Wh Uni-Directional" }, { "id": 8, "value": "Vh" }];
+            var intervalLengthValues = [{ "id": 1, "value": 1 }, { "id": 2, "value": 5 }, { "id": 3, "value": 15 }, { "id": 4, "value": 30 }, { "id": 5, "value": 60 }];
+            var coldPickuptimeValues = [{ "id": 1, "value": 1 }, { "id": 2, "value": 15 }, { "id": 3, "value": 30 }, { "id": 4, "value": 45 }, { "id": 5, "value": 60 }, { "id": 6, "value": 75 }, { "id": 7, "value": 90 }, { "id": 8, "value": 105 }, { "id": 9, "value": 120 }];
+            var powerOutageRecognitionTimeValues = [{ "id": 1, "value": 1 }, { "id": 2, "value": 15 }, { "id": 3, "value": 30 }, { "id": 4, "value": 45 }, { "id": 5, "value": 60 }, { "id": 6, "value": 75 }, { "id": 7, "value": 90 }, { "id": 8, "value": 105 }, { "id": 9, "value": 120 }];
+            var intervalLengthLoadValues = [{ "id": 1, "value": 15 }, { "id": 2, "value": 30 }, { "id": 3, "value": 60 }];
+            var quantityValues = [{ "id": 1, "value": "Default" }, { "id": 2, "value": "Quantity1" }, { "id": 3, "value": "Quantity2" }, { "id": 4, "value": "Quantity3" }];
+            var phaseSelectionValues = [{ "id": 1, "value": "Phase A" }, { "id": 2, "value": "Phase B" }, { "id": 3, "value": "Phase C" }];
+            var voltageIntervalLengthValues = [{ "id": 1, "value": "Default" }, { "id": 2, "value": "1 minute" }, { "id": 3, "value": "5 minutes" }, { "id": 4, "value": "15 minutes" }, { "id": 5, "value": "30 minutes" }, { "id": 6, "value": "60 minutes" }];
+            var quantities_loadControlValues = [{ "id": 1, "value": "Disabled" }, { "id": 2, "value": "Enabled" }];
+            var reconnectMethod_Values = [{ "id": 1, "value": "Option1" }, { "id": 2, "value": "Option2" }, { "id": 3, "value": "Option3" }];
+            var outageLengthDropDown = [{ "id": 1, "value": 15 }, { "id": 2, "value": 30 }, { "id": 3, "value": 45 }, { "id": 4, "value": 60 }, { "id": 5, "value": 75 }, { "id": 6, "value": 90 }, { "id": 7, "value": 105 }, { "id": 8, "value": 120 }];
+            this.getDropDownData = function () {
+                return { 'energyDataValues': energyDataValues, 'demandDataValues': demandDataValues, 'energyDataValues_q': energyDataValues_q, 'intervalLengthValues': intervalLengthValues, 'coldPickuptimeValues': coldPickuptimeValues, 'powerOutageRecognitionTimeValues': powerOutageRecognitionTimeValues, 'intervalLengthLoadValues': intervalLengthLoadValues, 'quantityValues': quantityValues, 'phaseSelectionValues': phaseSelectionValues, 'voltageIntervalLengthValues': voltageIntervalLengthValues, 'quantities_loadControlValues': quantities_loadControlValues, 'reconnectMethod_Values': reconnectMethod_Values, 'outageLengthDropDown': outageLengthDropDown };
+            }
+            this.validate = function (xmlContent) {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (isNaN(xmlContent.PulseWeight1)) {
+<span class="cstat-no" title="statement not covered" >                    return { "valid": false, 'msg': "Pulse Weight1 should be numeric" };</span>
+                } else {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (!(parseInt(xmlContent.PulseWeight1) &gt;= 0 &amp;&amp; parseInt(xmlContent.PulseWeight1) &lt;= 65535)) {
+<span class="cstat-no" title="statement not covered" >                        return { "valid": false, 'msg': "Pulse Weight1 range should be in 0 to 65535" };</span>
+                    }
+                }
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (isNaN(xmlContent.PulseWeight2)) {
+<span class="cstat-no" title="statement not covered" >                    return { "valid": false, 'msg': "Pulse Weight2 should be numeric" };</span>
+                } else {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (!(parseInt(xmlContent.PulseWeight2) &gt;= 0 &amp;&amp; parseInt(xmlContent.PulseWeight2) &lt;= 65535)) {
+<span class="cstat-no" title="statement not covered" >                        return { "valid": false, 'msg': "Pulse Weight2 range should be in 0 to 65535" };</span>
+                    }
+                }
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (isNaN(xmlContent.PulseWeight3)) {
+<span class="cstat-no" title="statement not covered" >                    return { "valid": false, 'msg': "Pulse Weight3 should be numeric" };</span>
+                } else {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (!(parseInt(xmlContent.PulseWeight3) &gt;= 0 &amp;&amp; parseInt(xmlContent.PulseWeight3) &lt;= 65535)) {
+<span class="cstat-no" title="statement not covered" >                        return { "valid": false, 'msg': "Pulse Weight3 range should be in 0 to 65535" };</span>
+                    }
+                }
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (isNaN(xmlContent.PulseWeight4)) {
+<span class="cstat-no" title="statement not covered" >                    return { "valid": false, 'msg': "Pulse Weight4 should be numeric" };</span>
+                } else {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (!(parseInt(xmlContent.PulseWeight4) &gt;= 0 &amp;&amp; parseInt(xmlContent.PulseWeight4) &lt;= 65535)) {
+<span class="cstat-no" title="statement not covered" >                        return { "valid": false, 'msg': "Pulse Weight4 range should be in 0 to 65535" };</span>
+                    }
+                }
+                return {};
+            }
+            this.formatMeterOrHyperSproutData = function (xmlContent, configType) {
+                var obj = {};
+                <span class="missing-if-branch" title="else path not taken" >E</span>if (configType === 'Meter') {
+                    xmlContent.Energy1 = commonService.getObjectByValue(energyDataValues, xmlContent.Energy1).id;
+                    xmlContent.Energy2 = commonService.getObjectByValue(energyDataValues, xmlContent.Energy2).id;
+                    xmlContent.Energy3 = commonService.getObjectByValue(energyDataValues, xmlContent.Energy3).id;
+                    xmlContent.Energy4 = commonService.getObjectByValue(energyDataValues, xmlContent.Energy4).id;
+                    xmlContent.LoadControlDisconnectThreshold = commonService.getObjectByValue(quantities_loadControlValues, xmlContent.LoadControlDisconnectThreshold).id;
+                    xmlContent.ReconnectMethod = commonService.getObjectByValue(reconnectMethod_Values, xmlContent.ReconnectMethod).id;
+                    xmlContent.VoltageMointorIntervalLength = commonService.getObjectByValue(voltageIntervalLengthValues, xmlContent.VoltageMointorIntervalLength).id;
+                    xmlContent.OTMultiplier = parseInt(xmlContent.OTMultiplier);
+                } else {
+<span class="cstat-no" title="statement not covered" >                    xmlContent.IntervalLengthVoltage = commonService.getObjectByValue(voltageIntervalLengthValues, xmlContent.IntervalLengthVoltage).id;</span>
+<span class="cstat-no" title="statement not covered" >                    xmlContent.CTMultiplier = parseInt(xmlContent.CTMultiplier);</span>
+<span class="cstat-no" title="statement not covered" >                    xmlContent.Energy = commonService.getObjectByValue(energyDataValues, xmlContent.Energy).id;</span>
+                }
+                xmlContent.Demand = commonService.getObjectByValue(demandDataValues, xmlContent.Demand).id;
+                xmlContent.DemandIntervalLength = commonService.getObjectByValue(intervalLengthValues, parseInt(xmlContent.DemandIntervalLength)).id;
+                xmlContent.NumberofSubIntervals = commonService.getObjectByValue(intervalLengthValues, parseInt(xmlContent.NumberofSubIntervals)).id;
+                xmlContent.ColdLoadPickupTimes = commonService.getObjectByValue(coldPickuptimeValues, parseInt(xmlContent.ColdLoadPickupTimes)).id;
+                xmlContent.PowerOutageRecognitionTime = commonService.getObjectByValue(powerOutageRecognitionTimeValues, parseInt(xmlContent.PowerOutageRecognitionTime)).id;
+                xmlContent.TestModeDemandIntervalLength = commonService.getObjectByValue(quantityValues, xmlContent.TestModeDemandIntervalLength).id;
+                xmlContent.NumberofTestModeSubintervals = commonService.getObjectByValue(quantityValues, xmlContent.NumberofTestModeSubintervals).id;
+                xmlContent.Quantity1 = commonService.getObjectByValue(energyDataValues_q, xmlContent.Quantity1).id;
+                xmlContent.Quantity2 = commonService.getObjectByValue(energyDataValues_q, xmlContent.Quantity2).id;
+                xmlContent.Quantity3 = commonService.getObjectByValue(energyDataValues_q, xmlContent.Quantity3).id;
+                xmlContent.Quantity4 = commonService.getObjectByValue(energyDataValues_q, xmlContent.Quantity4).id;
+                xmlContent.IntervalLength = commonService.getObjectByValue(intervalLengthLoadValues, parseInt(xmlContent.IntervalLength)).id;
+                xmlContent.PhaseSelection = commonService.getObjectByValue(phaseSelectionValues, xmlContent.PhaseSelection).id;
+                xmlContent.PulseWeight1 = parseInt(xmlContent.PulseWeight1);
+                xmlContent.PulseWeight2 = parseInt(xmlContent.PulseWeight2);
+                xmlContent.PulseWeight3 = parseInt(xmlContent.PulseWeight3);
+                xmlContent.PulseWeight4 = parseInt(xmlContent.PulseWeight4);
+                xmlContent.OutageLength = commonService.getObjectByValue(outageLengthDropDown, parseInt(xmlContent.OutageLength)).id;
+                xmlContent.VTMultiplier = parseInt(xmlContent.VTMultiplier);
+                xmlContent.TimetoremaininTestMode = parseInt(xmlContent.TimetoremaininTestMode);
+                xmlContent.RegisterMultiplier = parseInt(xmlContent.RegisterMultiplier);
+                xmlContent.RMSVoltHighThreshold = parseInt(xmlContent.RMSVoltHighThreshold);
+                xmlContent.RMSVoltLoadThreshold = parseInt(xmlContent.RMSVoltLoadThreshold);
+                xmlContent.LowVoltageThreshold = parseInt(xmlContent.LowVoltageThreshold);
+                xmlContent.LowVoltageThresholdDeviation = parseInt(xmlContent.LowVoltageThresholdDeviation);
+                xmlContent.HighVoltageThresholdDeviation = parseInt(xmlContent.HighVoltageThresholdDeviation);
+                xmlContent.AllEvents = xmlContent.AllEvents === 'true' ? 1 : <span class="branch-1 cbranch-no" title="branch not covered" >0;</span>
+                xmlContent.LinkFailure = xmlContent.LinkFailure === 'true' ? 1 : <span class="branch-1 cbranch-no" title="branch not covered" >0;</span>
+                xmlContent.LinkMetric = xmlContent.LinkMetric === 'true' ? 1 : <span class="branch-1 cbranch-no" title="branch not covered" >0;</span>
+                xmlContent.BillingDateCleard = xmlContent.BillingDateCleard === 'true' ? <span class="branch-0 cbranch-no" title="branch not covered" >1 </span>: 0;
+                xmlContent.BillingScheduleExpiration = xmlContent.BillingScheduleExpiration === 'true' ? <span class="branch-0 cbranch-no" title="branch not covered" >1 </span>: 0;
+                xmlContent.DemandResetOccured = xmlContent.DemandResetOccured === 'true' ? <span class="branch-0 cbranch-no" title="branch not covered" >1 </span>: 0;
+                xmlContent.HistoryLogCleared = xmlContent.HistoryLogCleared === 'true' ? 1 : <span class="branch-1 cbranch-no" title="branch not covered" >0;</span>
+                xmlContent.ConfigurationErrorDetected = xmlContent.ConfigurationErrorDetected === 'true' ? 1 : <span class="branch-1 cbranch-no" title="branch not covered" >0;</span>
+                xmlContent.LoadProfileError = xmlContent.LoadProfileError === 'true' ? <span class="branch-0 cbranch-no" title="branch not covered" >1 </span>: 0;
+                xmlContent.LowBatteryDetected = xmlContent.LowBatteryDetected === 'true' ? 1 : <span class="branch-1 cbranch-no" title="branch not covered" >0;</span>
+                xmlContent.PrimaryPowerDown = xmlContent.PrimaryPowerDown === 'true' ? <span class="branch-0 cbranch-no" title="branch not covered" >1 </span>: 0;
+                xmlContent.EnableVoltageMonitor = xmlContent.EnableVoltageMonitor === 'true' ? <span class="branch-0 cbranch-no" title="branch not covered" >1 </span>: 0;
+                xmlContent.InterrogationSendSucceeded = xmlContent.InterrogationSendSucceeded === 'true' ? <span class="branch-0 cbranch-no" title="branch not covered" >1 </span>: 0;
+                xmlContent.SendResponseFailed = xmlContent.SendResponseFailed === 'true' ? 1 : <span class="branch-1 cbranch-no" title="branch not covered" >0;</span>
+                xmlContent.DeregistrationResult = xmlContent.DeregistrationResult === 'true' ? 1 : <span class="branch-1 cbranch-no" title="branch not covered" >0;</span>
+                xmlContent.ReceivedMessageFrom = xmlContent.ReceivedMessageFrom === 'true' ? <span class="branch-0 cbranch-no" title="branch not covered" >1 </span>: 0;
+                xmlContent.DataVineHyperSproutChange = xmlContent.DataVineHyperSproutChange === 'true' ? 1 : <span class="branch-1 cbranch-no" title="branch not covered" >0;</span>
+                xmlContent.DataVineSyncFatherChange = xmlContent.DataVineSyncFatherChange === 'true' ? 1 : <span class="branch-1 cbranch-no" title="branch not covered" >0;</span>
+                xmlContent.ZigbeeSETunnelingMessage = xmlContent.ZigbeeSETunnelingMessage === 'true' ? 1 : <span class="branch-1 cbranch-no" title="branch not covered" >0;</span>
+                xmlContent.ZigbeeSimpleMeteringMessage = xmlContent.ZigbeeSimpleMeteringMessage === 'true' ? <span class="branch-0 cbranch-no" title="branch not covered" >1 </span>: 0;
+                xmlContent.TableSendRequestFailed = xmlContent.TableSendRequestFailed === 'true' ? 1 : <span class="branch-1 cbranch-no" title="branch not covered" >0;</span>
+                var msgObj = this.validate(xmlContent);
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (!angular.isUndefined(msgObj.valid))
+<span class="cstat-no" title="statement not covered" >                    return msgObj;</span>
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (xmlContent.ColdLoadPickupTimes === null || xmlContent.ColdLoadPickupTimes === undefined || xmlContent.Demand === null || xmlContent.DemandIntervalLength === undefined || xmlContent.DemandIntervalLength === null || xmlContent.Energy === null || xmlContent.HighVoltageThresholdDeviation === null || xmlContent.IntervalLength === null || xmlContent.LowVoltageThreshold === null || xmlContent.LowVoltageThresholdDeviation === null || xmlContent.NumberofSubIntervals === null || xmlContent.NumberofTestModeSubintervals === null || xmlContent.OutageLength === undefined || xmlContent.OutageLength === null || xmlContent.PhaseSelection === null || xmlContent.PowerOutageRecognitionTime === undefined || xmlContent.PowerOutageRecognitionTime === null || xmlContent.PulseWeight1 === null || xmlContent.PulseWeight2 === null || xmlContent.PulseWeight3 === null || xmlContent.PulseWeight4 === null || xmlContent.Quantity1 === null || xmlContent.Quantity2 === null || xmlContent.Quantity3 === null || xmlContent.Quantity4 === null || xmlContent.RMSVoltHighThreshold === null || xmlContent.RMSVoltLoadThreshold === null || xmlContent.RegisterMultiplier === null || xmlContent.TestModeDemandIntervalLength === null || xmlContent.TimetoremaininTestMode === null || xmlContent.VTMultiplier === null ||
+                    xmlContent.ColdLoadPickupTimes === "" || xmlContent.Demand === "" || xmlContent.DemandIntervalLength === "" || xmlContent.Energy === "" || xmlContent.HighVoltageThresholdDeviation === "" || xmlContent.IntervalLength === "" || xmlContent.LowVoltageThreshold === "" || xmlContent.LowVoltageThresholdDeviation === "" || xmlContent.NumberofSubIntervals === undefined || xmlContent.NumberofSubIntervals === "" || xmlContent.NumberofTestModeSubintervals === "" ||
+                    xmlContent.OutageLength === "" || xmlContent.PhaseSelection === "" || xmlContent.PowerOutageRecognitionTime === "" || xmlContent.PulseWeight1 === "" || xmlContent.PulseWeight2 === "" || xmlContent.PulseWeight3 === "" || xmlContent.PulseWeight4 === "" || xmlContent.Quantity1 === "" ||
+                    xmlContent.Quantity2 === "" || xmlContent.Quantity3 === "" || xmlContent.Quantity4 === "" || xmlContent.RMSVoltHighThreshold === "" || xmlContent.RMSVoltLoadThreshold === "" || xmlContent.RegisterMultiplier === "" || xmlContent.TestModeDemandIntervalLength === "" || xmlContent.TimetoremaininTestMode === "" || xmlContent.VTMultiplier === "") {
+<span class="cstat-no" title="statement not covered" >                    obj.valid = false;</span>
+<span class="cstat-no" title="statement not covered" >                    return obj;</span>
+                } else {
+                    obj = xmlContent;
+                    obj.valid = true;
+                    return obj;
+                }
+&nbsp;
+            }
+        }
+    ]);
+})(window.angular);</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Aug 22 2017 16:49:25 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

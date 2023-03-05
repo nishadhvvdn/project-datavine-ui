@@ -1,0 +1,24 @@
+﻿<div class="row" style="margin-left:-1%">
+	<h3 class="headingAlign">Meter Program</h3>
+</div>
+<div class="row">
+	<div class="container-fluid">
+		<div class="pull-left headingAlign_print print-button">
+			<a ng-click="printCart()">
+				<img alt="#" src="../assets/images/Print.png" class="anchorText" />
+				<strong class="anchorText">Print</strong>
+			</a>
+		</div>
+		<div class="pull-right" style="margin-right: -4px;">
+			<button type="button" ng-click="openConfigPrgm()" class="btn btn-default btnColor">
+                Upload Program 
+            </button>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="container-fluid">
+		<div ui-grid="configPrgmOptions" ui-grid-exporter ui-grid-pagination ui-grid-resize-columns class="grid"></div>
+	</div>
+
+</div>

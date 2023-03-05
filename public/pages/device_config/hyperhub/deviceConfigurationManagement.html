@@ -1,0 +1,67 @@
+<div class="device-config-page">
+    <div class="container-fluid" id="unassignedMeterListDiv">
+        <div class="row ">
+            <div class="back-btn-wrapper">
+                <button type="button" class="btn btn-default bk-button" ng-click="goBack()">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    Back
+                </button>
+                <div class="backBtnText">
+                    HyperHUB&trade; > {{serialNumber}}
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 col-md-3">
+                <nav class="navbar navbar-default">
+                    <h3>Device Configuration</h3>
+                    <ul class="nav navbar-nav">
+                        <li ui-sref-active="activeMenu">
+                            <a ui-sref="system.hyperhubconfig.systeminformation" id="registration" class="configNav" ng-click="check('system')">System
+                                Information</a>
+                        </li>
+                        <li ui-sref-active="activeMenu"  ng-class="currentURL.current.name === 'system.hyperhubconfig.frontHaulRadio' || currentURL.current.name === 'system.hyperhubconfig.frontHaulMesh' || 
+                        currentURL.current.name === 'system.hyperhubconfig.frontHaulHotspot' || currentURL.current.name === 'system.hyperhubconfig.frontHaulDhcp' ? 'activeState' : '' ">
+                            <a class="configNav collapsed" role="button" data-toggle="collapse" data-target="#frontHallMenu"
+                                aria-expanded="false" aria-controls="frontHallMenu">Fronthaul Configuration <i class="fa fa-angle-down"></i></a>
+                            <div class="collapse innerDropMenu" id="frontHallMenu">
+                                <ul>
+                                    <li ui-sref-active="activeMenu"><a ui-sref="system.hyperhubconfig.frontHaulRadio" ng-click="check('front')"> Radio Configuration</a></li>
+                                    <li ui-sref-active="activeMenu"><a ui-sref="system.hyperhubconfig.frontHaulMesh">Mesh Configuration</a></li>
+                                    <li ui-sref-active="activeMenu"><a ui-sref="system.hyperhubconfig.frontHaulHotspot">Hotspot Configuration</a></li>
+                                    <li ui-sref-active="activeMenu"><a ui-sref="system.hyperhubconfig.frontHaulDhcp">DHCP Server Configuration</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li ui-sref-active="activeMenu">
+                            <a ui-sref="system.hyperhubconfig.backHaul" class="configNav">Backhaul Configuration</a>
+                        </li>
+                        <li ui-sref-active="activeMenu">
+                            <a ui-sref="system.hyperhubconfig.cloudConnectivity" class="configNav">Cloud Connectivity
+                                Settings</a>
+                        </li>
+                        <li ui-sref-active="activeMenu" ng-class="currentURL.current.name === 'system.hyperhubconfig.bandwidthLimitations' ? 'activeState' : '' ">
+                            <a class="configNav collapsed" role="button" data-toggle="collapse" data-target="#advancedmenu"
+                                aria-expanded="false" aria-controls="advancedmenu">Advanced <i class="fa fa-angle-down"></i></a>
+                            <div class="collapse innerDropMenu" id="advancedmenu">
+                                <ul>
+                                    <li ui-sref-active="activeMenu"><a ui-sref="system.hyperhubconfig.bandwidthLimitations"> Bandwidth Limitations</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li ui-sref-active="activeMenu">
+                            <a ui-sref="system.hyperhubconfig.alarms" class="configNav">Alarms</a>
+                        </li>
+                        <li ui-sref-active="activeMenu">
+                            <a ui-sref="system.hyperhubconfig.systemSettings" class="configNav">System Settings</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-sm-12 col-md-9">
+                <div ui-view></div>
+            </div>
+        </div>
+    </div>
+</div>

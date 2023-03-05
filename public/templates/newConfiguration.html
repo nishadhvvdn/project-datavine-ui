@@ -1,0 +1,87 @@
+﻿<div class="modal-header">
+    <h4 class="modal-title"><b>New Configuration</b></h4>
+</div>
+<div class="container-fluid modalBackground">
+    <div class="modal-body">
+        <form name="new_configForm" novalidate>
+            <div class="row">
+                <div class="col-md-4 col-lg-4">
+                    <h5 class="name"><strong>Name: <i class="fa fa-asterisk"
+                                style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;"
+                                aria-hidden="true"></i></strong></h5>
+                </div>
+                <div class="col-md-8 col-lg-8">
+
+                    <input name="name" type="text" autocomplete='off' ng-model="name" ng-keyup="check($event)"
+                        class="form-control input-width" ng-maxlength="20" required><br>
+                    <span ng-if="msg!=''" style="color:red ; font-size:12px">{{msg}}</span>
+                    <span ng-show="specialChar" style="color:red ; font-size:12px ">Special Characters not
+                        allowed</span>
+                    <span style="color:red" ng-show="new_configForm.name.$error.maxlength">
+                        Name should not contain more than 20 characters
+                    </span>
+                </div>
+            </div>
+            <div class="row" style="margin-bottom:25px">
+                <div class="col-md-4 col-lg-4">
+                    <h5><strong>Device Class: <i class="fa fa-asterisk"
+                                style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;"
+                                aria-hidden="true"></i></strong></h5>
+                </div>
+                <div class="col-md-8 col-lg-8">
+                    <select class="form-control select-width" ng-model="deviceClass" ng-disabled="true"
+                        name="device_class" ng-options="value for value in ['ANSI','IEC']" required>
+                        <option value="">Select One</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row" style="margin-bottom:25px">
+                <div class="col-md-4 col-lg-4">
+                    <h5><strong>Config Program: <i class="fa fa-asterisk"
+                                style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;"
+                                aria-hidden="true"></i></strong></h5>
+                </div>
+                <div class="col-md-4 col-lg-8">
+                    <select class="form-control select-width" ng-model="config_program" name="config_program"
+                        ng-options="value for value in config_programs" ng-change="GetConfigProgramValue()" required>
+                        <option value="">Select One</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-lg-4">
+                    <h5><strong>Description: <i class="fa fa-asterisk"
+                                style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;"
+                                aria-hidden="true"></i></strong></h5>
+                </div>
+                <div class="col-md-8 col-lg-8">
+                    <textarea ng-model="description" name="description" ng-keyup="wordCheck($event)"
+                        class="importResultArea stop-resize" ng-minlength="1" ng-maxlength="100"
+                        ng-pattern="/^[a-zA-Z0-9(),. ;/]+$/" required></textarea><br />
+                    <span ng-if="wordMsg!=''" style="color:red ; font-size:12px">{{wordMsg}}</span>
+                    <span style="color:red ; font-size:12px" ng-show="new_configForm.description.$error.pattern">
+                        Special characters are not allowed
+                    </span><br />
+                    <span style="color:red ; font-size:12px" ng-show="new_configForm.description.$error.maxlength">
+                        Description should not contain more than 100 characters
+                    </span>
+                </div>
+            </div>
+    </div>
+    </form>
+</div>
+</div>
+<h5 style="color:red ; font-size:12px; margin-left:2%"><i class="fa fa-asterisk" style="font-size: 1vh; color: red; "
+        aria-hidden="true"></i>All fields are mandatory</h5>
+<div class='modal-footer'>
+    <button type="button" class="btn btn-default btnColor" ng-click="Save()" ng-disabled="wordMsg||unique||specialChar||new_configForm.name.$dirty && new_configForm.name.$invalid || new_configForm.name.$error.required ||
+            new_configForm.device_class.$dirty && new_configForm.device_class.$invalid ||
+            new_configForm.device_class.$error.required ||
+            new_configForm.config_program.$dirty && new_configForm.config_program.$invalid ||
+            new_configForm.config_program.$error.required ||
+            new_configForm.description.$dirty && new_configForm.description.$invalid ||
+            new_configForm.description.$error.required ">
+        Save
+    </button>
+    <button type="button" class="btn btn-default btnDefault" ng-click="cancel(new_configForm.$dirty)">Cancel</button>
+</div>

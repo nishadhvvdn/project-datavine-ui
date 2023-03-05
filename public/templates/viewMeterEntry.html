@@ -1,0 +1,29 @@
+<div id="print-content">
+    <div class="modal-header">
+        <h4 class="modal-title"><strong>View (Serial Number -{{meterdetails.meterSl}})</strong></h4>
+    </div>
+    <div class="container-fluid modalBackground">
+        <div class="modal-body">
+            <form name="viewTransEntry_form" novalidate>
+                <div class="container-fluid">
+                    <uib-tabset active="active" class="editModalFont">
+                        <uib-tab index="0" heading="Basic Info">
+                            <div ng-include="'/tabs/basicInfo.html'"></div>
+                        </uib-tab>
+                        <uib-tab index="1" heading="Communications">
+                            <div ng-include="'/tabs/communications_meter.html'"></div>
+                        </uib-tab>
+                        <uib-tab index="1" heading="Consumer Details">
+                            <div ng-include="'/tabs/billingDetails.html'"></div>
+                        </uib-tab>
+                    </uib-tabset>
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class='modal-footer'>
+        <button type="button" class="btn btn-default btnDefault" ng-click="ok()">OK</button>
+    </div>
+</div>

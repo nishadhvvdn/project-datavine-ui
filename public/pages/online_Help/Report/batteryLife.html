@@ -1,0 +1,339 @@
+<div class="container-fluid">
+
+    <!--=====================================================-->
+
+    <div class="row">
+        <div class="rectangleBox">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 your_col">
+                    <img alt="#" src="../assets/images/Report/Battery life.png" class="imgDimension-helpSub" />
+                </div>
+                <div class="col-xs-8 col-sm-98 col-md-8 col-lg-8 labelStyle">
+                    <label> Battery Life </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--=====================================================-->
+
+
+    <div class="row" style="margin-top: 1%">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="pull-right">
+                <p><a ng-click="tabChange('readingReport')" href=""><strong>1. Reading The Report</strong></a></p>
+                <p><a ng-click="tabChange('filterReport')" href=""><strong>2. Filtering The Report</strong></a></p>
+                <p><a ng-click="tabChange('sortReport')" href=""><strong>3. Sorting The Report</strong></a></p>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="pull-left">
+                <p><a ng-click="tabChange('exportingReport')" href=""><strong>4. Exporting The Report</strong></a></p>
+                <p><a ng-click="tabChange('printReport')" href=""><strong>5. Printing The Report</strong></a></p>
+            </div>
+        </div>
+    </div>
+    <!--=====================================================-->
+
+    <div class="hr" style="margin-top: 0"></div>
+
+    <!--===============================================================-->
+
+    <div class="row text-center" ng-show="tabs.readingReport">
+        <label> <h1> <strong> I. Reading The Report </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+            The battery life report shows how long devices have run on a single battery charge. The report contains three columns.
+                <br><strong>1. Serial Number:</strong> This column shows the serial number of the device associated with
+                the battery.
+                <br><strong>2. Type:</strong>The type of device the battery is contained in will be shown here.
+                <br><strong>3. Minutes On Battery: </strong> This column shows how many minutes the device has been running
+                since the battery was last replaces or charged.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/batteryLife.png" style=" width: 56%; height:27vh" />
+
+
+        <span> 
+        <p class="paragraph"  style= "margin-top:1%">
+                    If the report has a large amount of data, it might separate into pages. In this case, the user can choose how
+                many entries to display or which page to show from the pagination tool bar in the bottom left of the report.
+        </p>
+                </span>
+
+
+
+        <img alt="#" src="../assets/images/commPage.png" style=" width: 56% ;margin-top:1%" />
+
+    </div>
+    <!--=====================================================================================-->
+
+    <div class="row text-center scrollAdjust" ng-show="tabs.filterReport" style=" height: 67vh">
+        <label> <h1> <strong> II. Filtering The Report </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+            The filter for the communication statistics report contains two sections. The first allows a user to select the specific
+                devices they would like to view rather than the default of all devices. To open the device selection window
+                a user just has to click the Add button.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/filterComm.png" />
+
+
+        <span> 
+        <p class="paragraph">
+                    The user will then be able to select the device or devices they would like to be displayed.
+        </p>
+                </span>
+
+
+
+        <img alt="#" src="../assets/images/deviceSearch.png" />
+        <span> 
+        <p class="paragraph">
+                    The user can then further filter the report with the second section. From this section a user can choose to display
+                records where the last read time is prior to whatever datetime the user inputs.
+        </p>
+                </span>
+        <img alt="#" src="../assets/images/lastRead.png" />
+
+    </div>
+    <!--===================================================================================-->
+
+    <div class="row text-center" ng-show="tabs.sortReport">
+        <label> <h1> <strong> III. Sorting The Report </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+            To sort the report, the user must click the header of whichever column they would like to sort by. For instance, clicking
+                on the Last Read Time header will switch the column between the default display, ascending read times, and
+                descending read times.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/lastSort.png" />
+
+    </div>
+    <!--==========================================================================-->
+
+    <div class="row text-center" ng-show="tabs.exportingReport">
+        <label> <h1> <strong> IV. Exporting The Report </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+            The report gives four different options for exporting. The user may export either all the data in the report or just the
+                currently displayed data in either a CSV format or a PDF format. To do this the user simply has to click
+                on the export button in the top right corner of the report after filtering it for the desired data.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/exportMenu.png" />
+
+    </div>
+    <!--=================================================================================-->
+
+    <div class="row text-center" ng-show="tabs.printReport">
+        <label> <h1> <strong> V. Printing The Report </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+            The report can easily be prepared for printing by using the provided printing button. This button will open up a standard
+                printing window with the report displayed.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/savePrint.png" />
+
+
+    </div>
+
+
+
+    <!--=====================================================================================-->
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<div class="continer-fluid">
+<div style="height: auto">
+    <div style="padding-top:1%">
+        <div class="rectangleBox">
+            <div id="dvId" class="divImage">
+                <div class="row">
+                <img alt="#" src="../assets/images/Report/Battery life.png" class="imgDimension-helpSub" />
+                </div>
+            </div>
+            <div class="your_col"></div>
+            <div class="row" style="align-content: center">
+                <label style="font-size: 30px; color: white; padding-top: 30px; padding-left:200px">Battery Life</label>
+            </div>
+        </div>
+        <div class="row" style="margin-left:28%;margin-top:30px">
+            <div style="width: 120%">
+                <div style="width: 50%;">
+                    <div style="float: left;">
+                        <p><a ng-click="tabChange('readingReport')" href=""><strong>1. Reading The Report</strong></a></p>
+                    </div>
+                    <div style="float: right;">
+                        <p><a ng-click="tabChange('exportingReport')" href=""><strong>4. Exporting The Report</strong></a></p>
+                    </div>
+                </div>
+            </div>
+            <div style="width: 120%">
+                <div style="width: 48.5%; float: left;">
+                    <div style="float: left;">
+                        <p><a ng-click="tabChange('filterReport')" href=""><strong>2. Filtering The Report</strong></a></p>
+                    </div>
+                    <div style="float: right;">
+                        <p><a ng-click="tabChange('printReport')" href=""><strong>5. Printing The Report</strong></a></p>
+                    </div>
+                </div>
+            </div>
+            <div style="width: 120%">
+                <div style="width: 40%;">
+                    <div style="float: left;">
+                        <p><a ng-click="tabChange('sortReport')" href=""><strong>3. Sorting The Report</strong></a></p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="hr" style="margin-top: 1%"></div>
+    <div ng-show="tabs.readingReport">
+        <div style="margin-top:-6px">
+            <div class="row">
+            <label class="adjustHead">I. Reading The Report</label>
+            </div>
+            <p class="paragraph">
+                The battery life report shows how long devices have run on a single battery charge. The report contains three columns.
+                <br><strong>1. Serial Number:</strong> This column shows the serial number of the device associated with
+                the battery.
+                <br><strong>2. Type:</strong>The type of device the battery is contained in will be shown here.
+                <br><strong>3. Minutes On Battery: </strong> This column shows how many minutes the device has been running
+                since the battery was last replaces or charged.
+            </p>
+            <div class="row">
+            <img alt="#" src="../assets/images/batteryLife.png" class="listSize"  />
+            </div>
+            <p class="paragraph">If the report has a large amount of data, it might separate into pages. In this case, the user can choose how
+                many entries to display or which page to show from the pagination tool bar in the bottom left of the report.</p>
+                <div class="row">
+            <img alt="#" src="../assets/images/commPage.png" class="paginationSize" />
+                </div>
+        </div>
+    </div>
+    <div ng-show="tabs.exportingReport">
+        <div>
+            <div class="row">
+            <label class="adjustHead">IV. Exporting The Report</label>
+            </div>
+            <p class="paragraph">
+                The report gives four different options for exporting. The user may export either all the data in the report or just the
+                currently displayed data in either a CSV format or a PDF format. To do this the user simply has to click
+                on the export button in the top right corner of the report after filtering it for the desired data.
+            </p>
+            <div class="row">
+            <img alt="#" src="../assets/images/exportMenu.png" class="" style="padding-left: 38%;padding-top:70px" />
+            </div>
+        </div>
+    </div>
+    <div ng-show="tabs.filterReport">
+        <div>
+            <div class="row">
+            <label class="adjustHead">II. Filtering The Report</label>
+            </div>
+            <p class="paragraph">
+                The filter for the battery life report contains one section. This section allows a user to specify a minimum threshold for
+                the Minutes On Battery column. In other words, setting this to ten minutes would only show devices that have
+                been on a single battery charge for greater then ten minutes.
+            </p>
+            <div class="row">
+            <img alt="#" src="../assets/images/batteryFilter.png" class="" style="padding-left: 39%;margin-top: 39px" />
+            </div>
+        </div>
+    </div>
+    <div ng-show="tabs.printReport">
+        <div>
+            <div class="row">
+            <label class="adjustHead">V. Printing The Report</label>
+            </div>
+            <p class="paragraph">
+                The report can easily be prepared for printing by using the provided printing button. This button will open up a standard
+                printing window with the report displayed.
+            </p>
+            <div class="row">
+            <img alt="#" src="../assets/images/savePrint.png" class="" style="padding-left: 43%;padding-top:50px" />
+            </div>
+        </div>
+    </div>
+    <div ng-show="tabs.sortReport">
+        <div>
+            <div class="row">
+            <label class="adjustHead">III. Sorting The Report</label>
+            </div>
+            <p class="paragraph">
+                To sort the report, the user must click the header of whichever column they would like to sort by. For instance, clicking
+                on the Minutes On Battery header will switch the column between the default display, ascending battery times,
+                and descending battery times.
+            </p>
+            <div class="row">
+            <img alt="#" src="../assets/images/batterySort.png" class="" style="padding-left: 40%;" />
+            </div>
+        </div>
+    </div>
+</div>
+</div>-->

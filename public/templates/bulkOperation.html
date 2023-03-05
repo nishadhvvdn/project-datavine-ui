@@ -1,0 +1,61 @@
+<div class="modal-header">
+    <h4 class="modal-title"><strong>Bulk Operations</strong></h4>
+</div>
+<div class="container-fluid modalBackground">
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-4">                
+               <div class="row">
+                    <h5 class=""><strong>Select Action</strong></h5>
+                </div>
+                <div class="row">
+                    <select class="selectGroup" ng-model="selectAction">
+                        <option value="Read">Read</option>
+                        <option value="Connect">Connect</option>
+                        <option value="Disconnect">Disconnect</option>
+                    </select>
+                </div>
+                <br />
+                <div class="row">
+                    <h5 class=""><strong>Select File</strong></h5>
+                </div>
+                <div class="row">
+                    <label class="btn custom-input-btn">
+                        <input type="file" class="fileUpload" ng-model="file" file-model="fileMod" name="uploadfile"
+                            file-reader="fileContent" accept=".txt" style="display:none;" onchange="angular.element(this).scope().fileNameChanged(this.files)" />
+                        <i class="fa fa-cloud-upload"></i> Upload Files
+                    </label><br />
+                    
+                    <span title = {{browsedFileName}} class="filename-property"
+                        style="font-size: 11px;margin-left: 15px;">{{browsedFileName}}</span>
+                    <span style="font-size: 11px; color:red ">{{fileUpload.errMessage}}</span>
+                    <span style="font-size: 11px; color:red " ng-if="fileValidation">File is empty!</span>
+                </div>
+                <br />
+                
+                <div class="row">
+                    <button type="button" class="btn btn-default btnColor" ng-click="uploadBulkOperationfile()"
+                        ng-disabled="(!isFileBrowsed || !selectAction || fileUpload.errMessage || fileValidation) ? true :false">Save</button>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-7">
+                <div class="row">
+                    <h5 class=""><strong>Results</strong></h5>
+                </div>
+                <div class="row modalTable">
+                    <table class="table result_table">
+                        <tr ng-repeat="assignEndpoint in assignEndpoints">                            
+                            <td>{{assignEndpoint.key}}</td>
+                            <td> {{assignEndpoint.value}} </td>
+                        </tr>
+                    </table>
+                </div>              
+            </div>
+        </div>
+    </div>
+</div>
+<div class='modal-footer'>    
+    <span class="pull-left cursor-pointer" ng-click="downloadSampleFile()"><i class="fa fa-download" aria-hidden="true"></i>&nbsp;Download Sample File</span>
+    <button type="button" class="btn btn-default btnDefault" ng-click="cancel()">Cancel</button>
+</div>

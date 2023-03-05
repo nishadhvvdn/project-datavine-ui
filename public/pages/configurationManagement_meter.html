@@ -1,0 +1,25 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <nav class="navbar navbar-default customNav">
+            <ul class="nav navbar-nav">
+                <li ui-sref-active="activeMenu">
+                    <a ui-sref="meter.configurationManagement.configPrgm"  id="configurationManagement">Config Program</a>
+                </li>
+                <li ui-sref-active="activeMenu">
+                    <a ui-sref="meter.configurationManagement.configurations" 
+                      >Configurations</a>
+                </li>
+                <li ui-sref-active="activeMenu">
+                    <a ui-sref="meter.configurationManagement.downloads">Downloads </a>
+                </li>
+                <li ui-sref-active="activeMenu">
+                    <a ui-sref="meter.configurationManagement.discrepancies">Tag Discrepancies </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div ui-view></div>
+</div>

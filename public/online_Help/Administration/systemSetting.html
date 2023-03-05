@@ -1,0 +1,84 @@
+<div class="container-fluid">
+
+    <!--=====================================================-->
+
+    <div class="row">
+        <div class="rectangleBox">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 your_col">
+                    <img alt="#" src="../assets/images/Administration/SystemSettings.png" class="imgDimension-helpSub" />
+                </div>
+                <div class="col-xs-8 col-sm-98 col-md-8 col-lg-8 labelStyle">
+                    <label> System Settings </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--=====================================================-->
+
+
+    <div class="row" style="margin-top: 1%">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="pull-right">
+                <p><a ng-click="tabChange('readingReport')" href=""><strong>1. &nbsp; Changing A Setting</strong></a></p>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="pull-left">
+                <p><a ng-click="tabChange('exportingReport')" href=""><strong>2. &nbsp; Restoring Defaults </strong></a></p>
+            </div>
+        </div>
+    </div>
+    <!--=====================================================-->
+
+    <div class="hr" style="margin-top: 0"></div>
+
+    <!--===============================================================-->
+
+    <div class="row text-center" ng-show="tabs.readingReport">
+        <label> <h1> <strong> 1. Changing A Setting </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+            To change a system settings simply navigate through the tabs till user find the setting user wish to change. Note, each row
+                has a description of the setting next to it if user are unsure what it does. Then change the value in the
+                box next to the setting and click Save.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/systemsethelp.png" style="margin-top:1%;width:56%" />
+
+    </div>
+    <!--=================================================================================-->
+
+    <div class="row text-center" ng-show="tabs.exportingReport">
+        <label> <h1> <strong> 2. Restoring Defaults </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+           To restore all settings to their defaults user only have to click the restore defaults button at the bottom of the screen.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/tableAdminRestore.png" style="margin-top:2%" />
+
+
+    </div>
+
+
+
+    <!--=====================================================================================-->
+
+</div>
+
+
+
+
+
+
+

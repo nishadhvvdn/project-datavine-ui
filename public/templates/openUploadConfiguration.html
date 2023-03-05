@@ -1,0 +1,64 @@
+<div class="modal-header">
+	<h4 class="modal-title" ng-show="type==='hyperhubConfig' || type==='transformerConfig' || type==='meterConfig'"><strong>Upload Config</strong></h4>
+	<h4 class="modal-title" ng-hide="type==='hyperhubConfig' || type==='transformerConfig' || type==='meterConfig'"><strong>Upload </strong></h4>
+</div>
+<div class="container-fluid modalBackground">
+	<div class="modal-body">
+		<form name="import_configForm" novalidate>
+			<div class="row">
+				<div class="col-md-5">
+					<div class="row">
+						<h5 class=""><b>Select CSV file to Import {{ModalHeader}}</b></h5>
+					</div>
+					<div class="row <wrap></wrap>">
+						<label class="btn custom-input-btn">
+							<input type="file" registration-file-reader="fileContent" ng-model="file" file-model="fileMod" style="display:none;" />
+							<i class="fa fa-cloud-upload"></i> Upload Files
+						</label><br />
+						<span class="filename-property"
+							style="font-size: 10px;margin-left: 7%;">{{fileContent.name}}</span>
+					</div>
+				</div>
+				<div class="col-md-7" ng-show="type==='endpointReg'">
+					<h5><strong>DTC</strong><span class="validationRequired">*</span></h5>
+					<select ng-model="circuitSelection" name="circuitSelection" class="divthree dropbox" ng-select=""
+						ng-options="sel as sel.circuitId for sel in circuitList track by sel.circuitId" required>
+						<option value="">Select DTC</option>
+					</select>
+
+					<div class="field-message" ng-messages="endpoint.circuitSelection.$error"
+						ng-if='endpoint.circuitSelection.$dirty' ng-cloak>
+						<div ng-message="required">DTC is required</div>
+					</div>
+				</div>
+			</div>
+			<div class="row"> <div class="col-md-12">
+				<span ng-if="invalidFile" style="color:red;">{{ fileErrMessage }}</span>
+			</div>
+			</div>
+			<div class="row" ng-if="status!=''">
+				<h5 style="margin-left: 16px;"><strong>Import Result</strong></h5>
+			</div>
+			<!-- <div class="row">
+				<h5 ng-if="type== false" ng-hide="(payloaderror.length!=0 && payloaderror.length!= undefined)" style="margin-left: 14px; color:red;">{{status}}</h5>
+			</div> -->
+			<div ng-if="(duplicateIds.length!=0 && duplicateIds.length!= undefined) || (ResultArry.length!=0 && ResultArry.length!= undefined) || (payloaderror.length!=0 && payloaderror.length!= undefined)"  ui-grid="csvDetails" class="grid" id="csvdetailsgrid"></div>
+		</form>
+	</div>
+</div>
+<div class="modal-footer">
+		<div class="download-sample-blk"> <a href="{{type == 'circuit' ? '../assets/sample_files/DTC- sample format file.csv' :
+			            type == 'meter' ? '../assets/sample_files/Meter- sample file format.csv' :
+			            type == 'endpointReg' ? '../assets/sample_files/Endpoint- sample file format.csv' :
+			            type == 'transformer' ? '../assets/sample_files/Transformer- sample format file.csv' :
+						type == 'hyperHub' ? '../assets/sample_files/HyperHub- sample format file.csv' :
+						type == 'deltaLink' ?'../assets/sample_files/DeltaLink- sample file format.csv' :
+						type == 'hyperhubConfig' ?'../assets/sample_files/HyperHub_Configuration_Sample_File.csv' :
+						type == 'transformerConfig' ?'../assets/sample_files/Hypersprout_Configuration_Sample_File.csv' :
+						type == 'meterConfig' ?'../assets/sample_files/Meter_Configuration_Sample_File.csv' :
+						'../assets/sample_files/TechnicalLoss- sample file format.csv' }}" download> <i class="fa fa-download"></i>Download Sample File</a></div>
+	<button type="button" class="btn btn-default btnColor"
+		ng-disabled="importStatus|| invalidFile || filestatus ||((type==='endpointReg')&&import_configForm.$invalid)"
+		ng-click="uploadFile()">Import</button>
+	<button type="button" class="btn btn-default btnDefault" ng-click="cancel()">Close</button>
+</div>

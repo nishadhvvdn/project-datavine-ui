@@ -1,0 +1,96 @@
+﻿<!--<div class="row select_Group">
+
+    <a class="btn btn-default pull-right dvhealth_popoverClose" ng-click="dynamicPopover.close()">
+        <span class="glyphicon glyphicon-remove"></span>
+    </a>
+
+</div>
+<div class="row">
+    <div name="endpointSelection" class="well well-sm readOptions  endpointSelection">
+        <strong> Endpoint Selection </strong>
+    </div>
+    </br>
+    <input type="text" ng-model="endPoints" class="form-control dvhealth-input" style="height : 30px"></input>
+    </br>
+    <button class="btn btn-default btnColor dvhealth-input" ng-click="searchEndPoints(endPoints)" style="margin-top:-4%">
+        Select Endpoints
+        </button>
+</div>-->
+
+<div class="row">
+    <div name="healthStatus" class="well well-sm readOptions  healthStatus">
+        <strong> Health Status </strong>
+        <a class="btn btn-default pull-right dvhealth_popoverClose" ng-click="dynamicPopover.close()">
+            <span class="glyphicon glyphicon-remove"></span>
+        </a>
+    </div>
+    </br>
+</div>
+
+<div>
+    <input type="checkbox" ng-change="selectAll(list[0].isSelected,'All')" ng-model="list[0].isSelected">All</input>
+    <input type="checkbox" ng-change="selectAll(list[1].isSelected,'Single')" ng-model="list[1].isSelected"
+        class="dv-healthErrorChechbox">Error</input>
+</div>
+<div>
+    <input type="checkbox" ng-change="selectAll(list[2].isSelected,'Single')" ng-model="list[2].isSelected">Ok</input>
+    <input type="checkbox" ng-change="selectAll(list[3].isSelected,'Single')" ng-model="list[3].isSelected"
+        class="dv-healthUnknownChechbox">Unknown</input>
+</div>
+<div>
+    <input type="checkbox" ng-change="selectAll(list[4].isSelected,'all')" ng-model="list[4].isSelected">Warning</input>
+</div>
+
+<div class="row createReport_row">
+    <button type="button" name="filterConfig" class="btn btn-default btnColor dvhealth-input "
+        ng-click="tagFilterConfig()" ng-disabled="(invalidDate || invalidTime) == true">Filter Table</button>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!--=============================Original===============================================-->
+
+<!--<div class="row select_Group">
+   
+    <a class="btn btn-default pull-right dvhealth_popoverClose" ng-click="dynamicPopover.close()">
+        <span class="glyphicon glyphicon-remove"></span>
+    </a>
+   
+</div>
+<div class="row">
+    <button type="button" name="endpointSelection" class="btn btn-default btnColor endpointSelection">Endpoint Selection</button></br>
+
+    <input type = "text" ng-model = "endPoints"  class = "dvhealth-input"  style = "height : 30px"></input></br>
+    <button class = "btn btn-default dvhealth-input" ng-click = "searchEndPoints(endPoints)">Select Endpoints</button>
+</div>
+
+<div class="row">
+     <button type="button" name="healthStatus" class="btn btn-default btnColor healthStatus" >Health Status</button></br>
+</div>
+
+<div >
+    <input type = "checkbox" ng-change="selectAll(list[0].isSelected,'All')" ng-model= "list[0].isSelected">All</input>
+    <input type = "checkbox" ng-change="selectAll(list[1].isSelected,'Single')" ng-model = "list[1].isSelected"  class = "dv-healthErrorChechbox">Error</input>
+</div>
+<div >
+    <input type = "checkbox" ng-change="selectAll(list[2].isSelected,'Single')" ng-model = "list[2].isSelected">Ok</input>
+    <input type = "checkbox" ng-change="selectAll(list[3].isSelected,'Single')" ng-model = "list[3].isSelected" class = "dv-healthUnknownChechbox">Unknown</input>
+</div>
+<div>
+    <input type = "checkbox" ng-change="selectAll(list[4].isSelected,'all')" ng-model = "list[4].isSelected">Warning</input>
+</div>
+<div class="row createReport_row">
+    <button type="button" name="filterConfig" class="btn btn-default dvhealth-input " ng-click="tagFilterConfig()" ng-disabled="(invalidDate || invalidTime) == true">Filter Table</button>
+</div>
+
+
+
+
+-->

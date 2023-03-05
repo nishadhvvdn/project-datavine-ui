@@ -1,0 +1,39 @@
+<div class="container-fluid">
+    <div class="row">
+        <h3 class="headingAlign" style="margin-left: 1.2%">New Accounts </h3>
+    </div>
+    <div class="row">
+        <div class="row">
+            <input class="form-control searchBoxAdjust ng-pristine ng-valid ng-touched dvhealth-input" style="margin-top: 0.8%;margin-left: 2.5%;margin-right: 1%;
+            vertical-align: bottom; margin-bottom: 0%;" ng-model="filterByRoute" placeholder="Search by Serial Number"
+                type="search" ng-change="searchButtonClear(filterByRoute)">
+                <button type="button" ng-click="filterRoute(filterByRoute)" class="btn btn-default btnColor" ng-disabled="!filterByRoute">
+                    Search
+                </button>
+        </div>
+
+
+        <div class="pull-right filterBtn" style="margin-top: -2.9%">
+
+            <!--<button type="button" class="btn btn-default btnColor newAccountSettings" popover-append-to-body='false' ng-click="reset()"> 
+                Reset 
+                </button>-->
+
+            <button type="button" class="btn btn-default btnColor demandReadSettings" popover-append-to-body='false' popover-animation='true'
+                popover-placement='bottom' popover-is-open="dynamicPopover.isOpen" uib-popover-template='dynamicPopover.templateUrl'
+                ng-click="today()">
+                Filter
+            </button>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="container-fluid" style="margin-top: 1vh;">
+            <div ui-grid="newAccounts_ReportOptions" ui-grid-edit ui-grid-exporter ui-grid-pagination
+             ui-grid-resize-columns class="grid"></div>
+            <div class="watermark" ng-if="!newAccounts_ReportOptions.data.length">{{commonMsg}}</div>
+        </div>
+    </div>
+</div>
+

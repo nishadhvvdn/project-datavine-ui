@@ -1,0 +1,278 @@
+﻿<div class="container-fluid">
+	<div class="custom-toast" id="toast">
+		{{messageDetails.recipient}}
+		<div class="custom-toast-header">
+		  <strong class="toast-me-auto" id="messageDetails-recipient"></strong>
+		  <small class="toast-small" id="messageDetails-date"></small>
+		  <button class="ml-2 mb-1 btn-close-custom-toast" >
+		  </button>
+		</div>
+		<div class="custom-toast-body" id="messageDetails-message">		 
+		</div>
+	</div>
+	<div class="row">
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a ui-sref="master" href="#/master">
+						<img alt="#" src="../assets/images/logo_Delta.png" class="delta_logo_home" />
+					</a>
+				</div>
+				<div class="collapse navbar-collapse " id="myNavbar">
+
+					<ul class="nav navbar-nav" style="margin-top:2.4vh">
+						<li>
+							<h2 class="dataVINE_word"><strong>DataVINE&trade;</strong></h2>
+						</li>
+						<li>
+							<h3 class="collectionEngine_word">CollectionENGINE&trade;</h3>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li class="homeImage" style="margin-top:2.5vh">
+							<h4 class="welcomeUser"><strong>&nbsp; Welcome, {{userName}} &nbsp; </strong></h4>
+						</li>
+						<li class="profile hovertip hovertipback logout_icon"><img alt="#" popover-animation='true'
+																				   popover-placement='bottom' popover-is-open="dynamicPopover.isOpen"
+																				   uib-popover-template='dynamicPopover.templateUrl'
+																				   src="../assets/images/Administration/profileIcon.png" class="imgDimension-profile"
+																				   style="margin-top:0.5vh" />
+						</li>
+						<!--<li>
+					<div valign="bottom" logout></div>
+				</li>-->
+					</ul>
+
+				</div>
+			</div>
+		</nav>
+	</div>
+	<div class="homescreen-wrap pad-top">
+		<div class="row homecontainer">
+			<div class="col-lg-6 col-md-6 col-xs-6 colWidth">
+				<div class="heading">
+					<img alt="#" src="../assets/images/System_Management.png" class="imgDimension" />
+					<h3 class="system_text textColor textFont">System </h3>
+					<h3 class="management_text textColor textFont">Management</h3>
+				</div>
+				<div class="sub_top">
+					<a ng-click="Obj[5].values.DeviceManagement==='true'&&redirect('system.deviceManagement');"
+					   ng-class=" Obj[5].values.DeviceManagement==='true' ? 'allow' : 'not-allow'"
+					   class="text_other anchorLogin">Device Management</a>
+				</div>
+				<div class="sub_other">
+					<a ng-click="Obj[5].values.JobStatus==='true'&&redirect('system.networkJobStatus');"
+					   ng-class=" Obj[5].values.JobStatus==='true' ? 'allow' : 'not-allow'"
+					   class="text_other anchorLogin">Job Status</a>
+				</div>
+				<!--<div class="sub_other">
+				<a ng-click="Obj[5].values.NetworkStatistics==='true'&&redirect('system.networkStatistics');" ng-class=" Obj[5].values.NetworkStatistics==='true' ? 'allow' : 'not-allow'"
+					class="text_other anchorLogin">Network Statistics</a>
+			</div>-->
+				<!--
+            <div class="sub_other">
+                <a ng-click="Obj[5].values.EndpointCleanup==='true'&&redirect('system.endpointCleanup');" ng-class=" Obj[5].values.EndpointCleanup==='true' ? 'allow' : 'not-allow'" class="text_other anchorLogin">Endpoint Cleanup</a>
+            </div>
+            -->
+				<div class="sub_other">
+					<a ng-click="Obj[5].values.Registration==='true'&&redirect('system.registration');"
+					   ng-class=" Obj[5].values.Registration==='true' ? 'allow' : 'not-allow'"
+					   class="text_other anchorLogin">Add Devices</a>
+				</div>
+				<div class="sub_other">
+					<a ng-click="Obj[5].values.Grouping==='true'&&redirect('system.grouping');"
+					   ng-class=" Obj[5].values.Grouping==='true' ? 'allow' : 'not-allow'"
+					   class="text_other anchorLogin">Grouping</a>
+				</div>
+				<!--<div class="sub_other">
+                <a ui-sref="system.nodeStatusOverview" class="text_other anchorLogin">Node Status Overview</a>
+            </div>-->
+			</div>
+			<div class="col-lg-6 col-md-6 col-xs-6 colWidthRight">
+				<div class="heading">
+					<img alt="#" src="../assets/images/hyperSprout_management.png" class="imgDimension" />
+					<h3 class="hyperSprout_text textColor textFont">HyperSPROUT&trade;</h3>
+					<h3 class="management_text textColor textFont">Management</h3>
+				</div>
+				<div class="sub_top">
+					<!-- <a ng-click="Obj[1].values.ModifyHypersproutConfigurations==='true'&&redirect('hyperSprout.configurationManagement');"
+					   ng-class=" Obj[1].values.ModifyHypersproutConfigurations==='true' ? 'allow' : 'not-allow'"
+					   class="text_other anchorLogin">Configuration Management</a> -->
+				</div>
+				<div class="sub_other">
+					<a ng-click="Obj[1].values.ModifyHypersproutFirmware==='true'&&redirect('hyperSprout.groupManagement');"
+					   ng-class=" Obj[1].values.ModifyHypersproutFirmware==='true' ? 'allow' : 'not-allow'"
+					   class="text_other anchorLogin">Firmware Group Management</a>
+				</div>
+				<div class="sub_other">
+					<a ng-click="Obj[1].values.HypersproutFirmwareManagement==='true'&&redirect('hyperSprout.firmwareManagement');"
+					   ng-class=" Obj[1].values.HypersproutFirmwareManagement==='true' ? 'allow' : 'not-allow'"
+					   class="text_other anchorLogin">Firmware Management</a>
+				</div>
+				<div class="sub_other">
+					<a ng-click="Obj[1].values.HypersproutJobStatus==='true'&&redirect('hyperSprout.hyperSproutJobStatus');"
+					   ng-class=" Obj[1].values.HypersproutJobStatus==='true' ? 'allow' : 'not-allow'"
+					   class="text_other anchorLogin">HyperSPROUT&trade; Job Status</a>
+				</div>
+			</div>
+		</div>
+		<div class="row homecontainer">
+			<div class="col-lg-6 col-md-6 col-xs-6 colWidth">
+				<div class="heading">
+					<img alt="#" src="../assets/images/meter_managment.png" class="imgDimension" />
+					<h3 class="meter_text textColor textFont">Meter</h3>
+					<h3 class="management_text textColor textFont">Management</h3>
+				</div>
+				<div class="sub_top">
+					<!-- <a ng-click="Obj[2].values.ModifyMeterConfigurations==='true'&&redirect('meter.configurationManagement');"
+					   ng-class=" Obj[2].values.ModifyMeterConfigurations==='true' ? 'allow' : 'not-allow'"
+					   class="text_other anchorLogin">Configuration Management</a> -->
+				</div>
+				<div class="sub_other">
+					<a ng-click="Obj[2].values.ModifyMeterFirmware==='true'&&redirect('meter.groupManagement');"
+					   ng-class=" Obj[2].values.ModifyMeterFirmware==='true' ? 'allow' : 'not-allow'"
+					   class="text_other anchorLogin">Firmware Group Management</a>
+				</div>
+				<div class="sub_other">
+					<a ng-click="Obj[2].values.MeterFirmwareManagement==='true'&&redirect('meter.firmwareManagement');"
+					   ng-class=" Obj[2].values.MeterFirmwareManagement==='true' ? 'allow' : 'not-allow'"
+					   class="text_other anchorLogin">Firmware Management</a>
+				</div>
+				<div class="sub_other">
+					<a ng-click="Obj[2].values.MeterJobStatus==='true'&&redirect('meter.JobStatus');"
+					   ng-class=" Obj[2].values.MeterJobStatus==='true' ? 'allow' : 'not-allow'"
+					   class="text_other anchorLogin">Meter Job Status</a>
+				</div>
+				<div class="sub_other">
+					<a ng-click="Obj[2].values.MeterBulkOperation==='true'&&redirect('meter.MeterBulkOperation');"
+						ng-class=" Obj[2].values.MeterBulkOperation==='true' ? 'allow' : 'not-allow'"
+						class="text_other anchorLogin">Meter Bulk Operations</a>
+				</div>				
+			</div>
+			<div class="col-lg-6 col-md-6 col-xs-6 colWidthRight">
+				<div class="heading">
+					<img alt="#" src="../assets/images/delta-link-icon.png" class="imgDimension" />
+					<h3 class="meter_text textColor textFont">DeltaLINK&trade;</h3>
+					<h3 class="management_text textColor textFont">Management</h3>
+				</div>
+				<div class="sub_top">
+					<a ng-click="Obj[6].values.deltaLinkGroupManagement==='true'&&redirect('deltaLink.groupManagement');"
+					   ng-class=" Obj[6].values.deltaLinkGroupManagement==='true' ? 'allow' : 'not-allow'"
+					   class="text_other anchorLogin">Firmware Group Management</a>
+				</div>
+				<div class="sub_other">
+					<a ng-click="Obj[6].values.DeltaLinkFirmwareManagement==='true'&&redirect('deltaLink.firmwareManagement');"
+					   ng-class=" Obj[6].values.DeltaLinkFirmwareManagement==='true' ? 'allow' : 'not-allow'"
+					   class="text_other anchorLogin">Firmware Management</a>
+				</div>
+				<div class="sub_other">
+					<a ng-click="Obj[6].values.DeltaLinkJobStatus==='true'&&redirect('deltaLink.JobStatus');"
+					   ng-class=" Obj[6].values.DeltaLinkJobStatus==='true' ? 'allow' : 'not-allow'"
+					   class="text_other anchorLogin">DeltaLINK&trade; Job Status</a>
+				</div>
+			</div>
+		</div>
+		<div class="row homecontainer">
+			<div class="col-lg-6 col-md-6 col-xs-6 colWidth">
+				<div class="heading">
+					<img alt="#" src="../assets/images/report.png" class="imgDimension" />
+					<h3 class="textColor reports_text textFont">Reports</h3>
+				</div>
+				<div class="sub_top_Report">
+					<a ng-click="Obj[4].values.CommunicationStatistics==='true'&&redirect('reports.communicationStatistics');"
+					   ng-class=" Obj[4].values.CommunicationStatistics==='true' ? 'allow' : 'not-allow'"
+					   class="text_top_Report anchorLogin">Communication Statistics</a>
+				</div>
+				<!--<div class="sub_other">
+				<a ng-click="redirect('reports.dataConsumption');" ng-class="'allow'"
+					class="text_other anchorLogin">Data Consumption</a>
+			</div>-->
+
+				<!--<div class="sub_other">
+				<a ng-click="Obj[4].values.DataVINEHealth==='true'&&redirect('reports.dataVineHealth');" ng-class=" Obj[4].values.DataVINEHealth==='true' ? 'allow' : 'not-allow'"
+					class="text_other anchorLogin">DataVINE Health</a>
+			</div>-->
+				<div class="sub_other">
+					<a ng-click="Obj[4].values.SystemLog==='true'&&redirect('reports.systemLogs');"
+					   ng-class=" Obj[4].values.SystemLog==='true' ? 'allow' : 'not-allow'"
+					   class="text_other anchorLogin">System Log</a>
+				</div>
+				<div class="sub_other">
+					<a ng-click="Obj[4].values.DeviceFirmwareVersions==='true'&&redirect('reports.deviceFirmwareVersions');"
+					   ng-class=" Obj[4].values.DeviceFirmwareVersions==='true' ? 'allow' : 'not-allow'"
+					   class="text_other anchorLogin">Device Firmware Versions</a>
+				</div>
+				<div class="sub_other">
+					<a ng-click="Obj[4].values.NewAccountsReport==='true'&&redirect('reports.newAccounts_Report');"
+					   ng-class=" Obj[4].values.NewAccountsReport==='true' ? 'allow' : 'not-allow'"
+					   class="text_other anchorLogin">New Accounts </a>
+				</div>
+				<!--<div class="sub_other">
+				<a ng-click="redirect('reports.changedData_Report');" ng-class="'allow'"
+					class="text_other anchorLogin">Changed Data </a>
+			</div>-->
+				<!--<div class="sub_other">
+				<a ng-click="Obj[4].values.DeviceRegistrationStatus==='true'&&redirect('reports.deviceRegistrationStatus');" ng-class=" Obj[4].values.DeviceRegistrationStatus==='true' ? 'allow' : 'not-allow'"
+					class="text_other anchorLogin">Device Registration Status</a>
+			</div>-->
+				<div class="sub_other">
+					<a ng-click="Obj[4].values.SystemAuditLog==='true'&&redirect('reports.systemAuditLog');"
+					   ng-class=" Obj[4].values.SystemAuditLog==='true' ? 'allow' : 'not-allow'"
+					   class="text_other anchorLogin">System Audit Log</a>
+				</div>
+				<div class="sub_other">					
+					<a ng-click="redirect('reports.message');"					   
+					   class="text_other anchorLogin allow">Message</a>
+				</div>
+			</div>
+			<div class="col-lg-6 col-md-6 col-xs-6 colWidthRight">
+				<div class="heading">
+					<img alt="#" src="../assets/images/Administration.png" class="imgDimension" />
+					<h3 class="administration_text textColor textFont">Administration</h3>
+				</div>
+				<div class="sub_top">
+					<a ng-click="Obj[3].values.ModifySecurity==='true'&&redirect('administration.security');"
+					   ng-class=" Obj[3].values.ModifySecurity==='true' ? 'allow' : 'not-allow'"
+					   class="text_other anchorLogin">Security</a>
+				</div>
+				<div class="sub_other">
+					<a ng-click="Obj[3].values.ModifySystemSettings==='true'&&redirect('administration.systemSettings');"
+					   ng-class=" Obj[3].values.ModifySystemSettings==='true' ? 'allow' : 'not-allow'"
+					   class="text_other anchorLogin">System Settings</a>
+				</div>
+				<div class="sub_other">
+					<a ng-click="Obj[3].values.ModifyUsers==='true'&&redirect('administration.defineUsers');"
+					   ng-class=" Obj[3].values.ModifyUsers==='true' ? 'allow' : 'not-allow'"
+					   class="text_other anchorLogin">Users</a>
+				</div>
+				<div class="sub_other">
+					<a ng-click="redirect('dashboard')" class="text_other anchorLogin allow">Dashboard</a>
+				</div>
+			</div>
+		</div>
+<!--		<div class="row homecontainer">-->
+<!--			<div class="col-lg-6 col-md-6 col-xs-6 colWidth">-->
+<!--				<div class="heading">-->
+<!--					<img alt="#" src="../assets/images/tools.png" class="imgDimension" />-->
+<!--					<h3 class="textColor tools_text textFont">Tools</h3>-->
+<!--				</div>-->
+<!--				<div class="sub_top">-->
+<!--					&lt;!&ndash;<a ui-sref="tools.onDemandRead" class="text_other anchorLogin">On Demand Read</a>&ndash;&gt;-->
+<!--				</div>-->
+<!--				<div class="sub_other">-->
+<!--					<a ui-sref="tools.userSettings" class="text_other anchorLogin">My Settings</a>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--		</div>-->
+		<div class="row">&nbsp;</div>
+	</div>
+
+	<footer class="navbar-fixed-bottom homeFooter text-center">
+		<span style="color:white;">Copyright © {{date| date:'yyyy'}} Delta. All Rights Reserved.Ver 2.5.1</span>
+	</footer>
+</div>

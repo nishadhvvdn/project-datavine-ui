@@ -1,0 +1,31 @@
+<div class="row right-section">
+    <div class="col-sm-12 tab-content">
+        <div class="tab-form-wrapper alarm-table">
+        <h3 class="no-border">Alarms</h3>
+        <form name="config_form" novalidate>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="tablewrapper">
+                        <table class="table table-hover table-bordered" style="border:1px solid;">
+                            <tr>
+                                <th style="background-color: black; color:white;">Alarms</th>
+                                <th style="background-color: black; color:white;"><input type="checkbox" ng-model="IsAllChecked" ng-change="CheckUncheckAll();buttondisable()" /></th>
+                            </tr>
+                            <tr ng-repeat="alarm in Alarms">
+                                <td>{{alarm.Name}}</td>
+                                <td><input type="checkbox" ng-model="alarm.Selected" ng-change="CheckUncheckHeader();buttondisable()" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-btn text-right">
+                        <button class="plain-btn" ng-click="resetDetails('alarms');">Cancel</button>
+                        <button class="fill-btn" ng-click="saveAlarmsConfig();" ng-disabled="alarmsavebutton">Save</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>

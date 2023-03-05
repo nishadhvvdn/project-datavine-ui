@@ -1,0 +1,20 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <h3 class="headingAlign">System Log</h3>
+    </div>
+    <div class="row">
+        <div class="">
+            <input type="text" class="form-control searchBoxAdjust ng-pristine ng-valid ng-touched dvhealth-input ng-untouched" style="margin-top:0.8%; margin-right: 1%;" name="endpoint" ng-model="endpoint" type="search"
+                ng-keyup="" ng-change="searchButtonClear(endpoint)" placeholder="Search by Serial Number" />
+                <button type="button" ng-click="addEndpoint(endpoint)" class="btn btn-default btnColor" ng-disabled="!endpoint">
+                    Search
+                </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="container-fluid" style="margin-top:1.2vh">
+            <div ui-grid="systemLogOptions" ui-grid-exporter ui-grid-pagination ui-grid-resize-columns class="grid"></div>
+            <div class="watermark" ng-if="!systemLogOptions.data.length">{{commonMsg}}</div>
+        </div>
+    </div>
+</div>

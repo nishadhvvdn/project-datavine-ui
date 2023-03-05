@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for controllers\transformerRegistrationCtrl.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">controllers/</a> transformerRegistrationCtrl.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">92% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>69/75</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">70% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>7/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">75% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>18/24</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">92% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>69/75</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
+(function(angular){
+&nbsp;
+ "use strict";
+&nbsp;
+angular.module('dataVINEApp').controller('transformerRegistrationCtrl', ['$scope', '$uibModal', '$state', '$rootScope', '$timeout', '$filter', 'DeviceService', 'ParseService','refreshservice','commonService',
+    function ($scope, $uibModal, $state, $rootScope, $timeout, $filter, deviceService, parseService,refreshservice,commonService) {
+        
+        var vm = this;
+        var transfomerData;
+        var configurationData;
+        var modalInstance = null;
+        init();
+        $scope.isSelected = false;
+        $scope.mySelectedRows = []; 
+        $scope.downloadOptions = angular.copy(objCacheDetails.grid);
+        $scope.downloadOptions.data = [];
+        $scope.downloadOptions.columnDefs =[
+                { field: 'transformerSl', displayName : 'Transformer SerialNumber', enableHiding: false },
+                { field: 'TransformerID', displayName : 'Transformer ID', enableHiding: false },
+                { field: 'kvaRating', displayName : 'KVA Rating', enableHiding: false },
+                { field: 'type', displayName : 'Type' , enableHiding: false, visible: false },
+                { field: 'hvlv', displayName : 'HV/LV' , enableHiding: false, visible: false },
+                { field: 'hypSl', displayName : 'HS Serial Number' , type: 'number', enableHiding: false }, 
+                { field: 'HypersproutMake', displayName : 'HS Name' , type: 'number', enableHiding: false }, //field unassigned
+                { field: 'HypersproutVersion', displayName : 'Hardware Version' , type: 'number', enableHiding: false }, //field unassigned
+                { field: 'latitude', displayName : 'Latitude' , enableHiding: false },
+                { field: 'longitude', displayName : 'Longitude' , enableHiding: false },           
+                { field: 'ctRatio', displayName : 'CT ratio' , type: 'number', enableHiding: false, visible: false },
+                { field: 'ptRatio', displayName : 'PT Ratio', type: 'number', enableHiding: false, visible: false },
+                { field: 'ratedVoltage', displayName : 'Rated Voltage', enableHiding: false, visible: false },  
+                { field: 'phases', displayName : 'Phases' , enableHiding: false, visible: false },
+                { field: 'maxDemand', displayName : 'Max Demand' , type: 'number', enableHiding: false, visible: false },
+                { field: 'frequency', displayName : 'Frequency' , type: 'number', enableHiding: false, visible: false },
+                { field: 'measurementClass', displayName : 'Measurement Class' , enableHiding: false, visible: false },
+                { field: 'complaintStandard', displayName : 'Complaint of Standard.' , enableHiding: false, visible: false },
+                { field: 'gprs', displayName : 'GPRS' , enableHiding: false, visible: false },
+                { field: 'wifiMacId', displayName : 'Wifi Mac ID' , enableHiding: false, visible: false },
+                { field: 'wifiIpAdd', displayName : 'Wifi IP' , enableHiding: false, visible: false },
+                { field: 'wifiAccessPwd', displayName : 'WIfi Access Point Password' , enableHiding: false, visible: false },
+                { field: 'simCard', displayName : 'SIM Card Number' , enableHiding: false, visible: false },
+                { field: 'sensorRating', displayName : 'Sensor Min/Max Rating' , type: 'number', enableHiding: false, visible: false },
+                { field: 'maxOilTemp', displayName : 'MaxOilTemp' , type: 'number', enableHiding: false, visible: false },
+                { field: 'minOilTemp', displayName : 'MinOilTemp' , type: 'number', enableHiding: false, visible: false },
+                { field: 'CameraConnect', enableHiding: false, visible: false },
+                { field: 'StreetlightsMetered', enableHiding: false, visible: false },
+                {
+                    field : 'Actions',
+                    cellTemplate : '&lt;div class="ui-grid-cell-contents"&gt;&lt;button type="button" class="btn btn-xs btn-primary cellBtn" ng-click="grid.appScope.vm.viewTransformerEntry(row)"&gt;  &lt;i class="fa fa-eye"&gt;&lt;/i&gt;&lt;/button&gt; &amp;nbsp |&amp;nbsp &lt;button type="button" class="btn btn-xs btn-primary cellBtn" ng-click="grid.appScope.editTransformer(row)"&gt; &lt;i class="fa fa-pencil-square-o" aria-hidden="true"&gt;&lt;/i&gt;&lt;/button&gt; |  &amp;nbsp &lt;button class="btn btn-xs btn-primary cellBtn" ng-click="grid.appScope.vm.deleteTransformer(row)"&gt; &lt;i class="fa fa-trash-o" aria-hidden="true"&gt;&lt;/i&gt;&lt;/button&gt;&lt;/div&gt;',
+                    enableColumnMenu : false,enableSorting: false, enableHiding : false, width: 150
+                }
+            ];     
+            $scope.downloadOptions.onRegisterApi=<span class="fstat-no" title="function not covered" >function (gridApi) {</span>
+<span class="cstat-no" title="statement not covered" >                $scope.gridApi = gridApi;</span>
+<span class="cstat-no" title="statement not covered" >                commonService.getGridApi($scope,gridApi);</span>
+            };              
+&nbsp;
+        function init() {
+            transfomerData = [];
+            configurationData = [];
+            deviceService.getAllTransformers().then(function (objData) {
+                transfomerData = parseService.getParsedTransformerData(objData, null, false);
+                $scope.downloadOptions.data = transfomerData;
+            });
+        }        
+        $rootScope.updateTransformerConfigOptions = <span class="fstat-no" title="function not covered" >function () {</span>
+&nbsp;
+        };
+        vm.viewTransformerEntry = function (row) {
+            objCacheDetails.data.ID = row.entity.ID;
+            objCacheDetails.data.selectedData = row.entity;
+           
+            modalInstance = $uibModal.open({
+                templateUrl: '/templates/viewTransformerEntry.html',
+                controller: 'viewTransformerEntryCtrl',
+                size: 'lg',
+                backdrop: 'static',
+                keyboard: true,
+            });
+        }
+      
+        vm.deleteTransformer = function (row) {
+            
+            swal({
+                title: "Delete Transformer", text: "Deleting the Transformer will remove connection between the devices. Are you sure you want to remove ?", 
+                showCancelButton: true,
+                confirmButtonColor: 'black',
+                confirmButtonText: 'Delete',
+                cancelButtonText: "Cancel",
+                cancelButtonColor : 'white',
+            }, 
+                function (isConfirm) {
+                <span class="missing-if-branch" title="else path not taken" >E</span>if (isConfirm) {
+                    var selectedTransformers = [row.entity.TransformerID];
+                    var selectedHypersprouts = [row.entity.HypersproutID];
+                    deviceService.deleteTransformers(selectedTransformers, selectedHypersprouts).then(function (objData) {
+                        swal(objData);
+                        init();
+                    });
+                }
+            });
+&nbsp;
+          
+        };
+        
+        $scope.deleteSelectedTransformers = function () {
+            
+            swal({
+                title: "Delete Transformer", text: "Deleting the Transformer will remove connection between the devices. Are you sure you want to remove ?", 
+                showCancelButton: true,
+                confirmButtonColor: 'black',
+                confirmButtonText: 'Delete',
+                cancelButtonText: "Cancel",
+                cancelButtonColor : 'white',
+            }, 
+                function (isConfirm) {
+                <span class="missing-if-branch" title="else path not taken" >E</span>if (isConfirm) {
+                    var selectedTransformers = [];
+                    var selectedHypersprouts = [];
+                    for (var i = 0; i &lt; $scope.mySelectedRows.length; i++) {
+                        selectedTransformers.push($scope.mySelectedRows[i].TransformerID);
+                        selectedHypersprouts.push($scope.mySelectedRows[i].HypersproutID);
+                    }
+                    deviceService.deleteTransformers(selectedTransformers, selectedHypersprouts).then(function (objData) {
+                        $scope.mySelectedRows = [];
+                        swal(objData); 
+                        init();
+                    });
+                }
+            });
+&nbsp;
+           
+        };
+        
+           $scope.editTransformer = function(row) {
+                 objCacheDetails.data.selectedData = row.entity;
+                modalInstance = $uibModal.open({
+                    templateUrl: 'templates/createTransformer.html',
+                    controller  : 'newXfmerConfigurationCtrl',
+                    size: 'lg',
+                    backdrop: 'static',
+                    keyboard: true
+                });
+                modalInstance.result.then(<span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                    init();</span>
+                }, <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                    init();</span>
+                });
+            };
+&nbsp;
+            $scope.createTransformer = function () {
+                objCacheDetails.data.configurationData = configurationData;
+                modalInstance = $uibModal.open({
+                    templateUrl: 'templates/createTransformer.html',
+                    controller  :'newXfmerConfigurationCtrl',
+                    size: 'lg',
+                    backdrop: 'static',
+                    keyboard: true,
+                });
+            };
+      
+        $scope.openXfmerUploadConfiguration = function(size) {
+              modalInstance = $uibModal.open({
+                templateUrl: '/templates/openUploadConfiguration.html',
+                controller: 'uploadCtrl',
+                size: size,
+                backdrop  : 'static',
+                keyboard  : true,
+                resolve: {
+                        uploadParam: function () {
+                            return {type:'transformer',endPoint:'NewTransformerHypersproutEntry'};
+                        }
+                    }                
+            });
+            modalInstance.result.then(<span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                init();</span>
+            }, <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                init();</span>
+            });
+        };
+        
+        $scope.status = {
+            isopen: false
+        };
+        
+        $scope.searchTransformerEntry = 'all';
+        $scope.searchGrid = function (searchTerm) {
+            var filter_tsn = {'transformerSl': searchTerm };
+            var filter_hsn = {'hypSl' : searchTerm };
+            if ($scope.searchTransformerEntry === 'tsn') {
+                $scope.downloadOptions.data = $filter('filter')(transfomerData, filter_tsn, undefined);
+            }
+            else if ($scope.searchTransformerEntry === 'hsn') {
+                $scope.downloadOptions.data = $filter('filter')(transfomerData, filter_hsn, undefined);
+            } else <span class="missing-if-branch" title="else path not taken" >E</span>if ($scope.searchTransformerEntry === 'all') {
+                $scope.downloadOptions.data = $filter('transformerSearchAllFilter')(transfomerData, searchTerm);
+            }
+        };
+        $scope.$on('$destroy', function() {
+&nbsp;
+        });
+        $scope.clearText = function () {
+            $scope.searchterm = null;
+        }
+    }]); 
+})(window.angular);</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Aug 22 2017 16:49:25 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

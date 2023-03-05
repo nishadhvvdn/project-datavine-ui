@@ -1,0 +1,228 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="navbar-inverse sideNav-help">
+            <ul class="nav">
+                <div class="navigation_heading">
+                    <strong class="hyperSproutMgmt_hypernavigation_text"> CollectionENGINE&trade; </strong>
+                </div>
+                <li ui-sref-active="activeState">
+                    <a href="" ui-sref="help.home" ng-click="homePage()" class="configNav">Home</a>
+                </li>
+                <li ui-sref-active="activeState" class="menuStyle configNav" ng-click="displaySystem()">
+                    <a ui-sref="help.systemManage" href="" class="parentText" ng-click="enableSystem()">
+                        <i class="fa fa-plus symbol" ng-show="showSystem"></i>
+                        <i class="fa fa-minus symbol" ng-hide="showSystem"></i>
+                        <span>System Management</span>
+
+                    </a>
+                </li>
+                <li ui-sref-active="activeState" ng-hide="showSystem" ng-click="gotoDeviceManagement()"
+                    class="childStyle configNav">
+                    <a ui-sref="help.systemDevice" href="" class="configNav"><label class="cursorpoint"
+                            style="padding-left:25px">Device Management</label></a>
+                </li>
+                <li ui-sref-active="activeState" ng-hide="showSystem" ng-click="gotoJobStatus()"
+                    class="childStyle configNav">
+                    <a ui-sref="help.systemJob" href="" class="configNav"><label class="cursorpoint"
+                            style="padding-left:25px">Job Status</label></a>
+                </li>
+                <!--<li ui-sref-active="activeState" ng-hide="showSystem" ng-click="gotoNetworkStatistics()" class="childStyle configNav">
+                    <a ui-sref="help.systemNetwork" href="" class="configNav"><label class="cursorpoint" style="padding-left:25px">Network Statistics</label></a>
+                </li>-->
+                <li ui-sref-active="activeState" ng-hide="showSystem" ng-click="gotoRegistration()"
+                    class="childStyle configNav">
+                    <a ui-sref="help.systemRegistration" href="" class="configNav"><label class="cursorpoint"
+                            style="padding-left:25px">Add Devices</label></a>
+                </li>
+                <li ui-sref-active="activeState" ng-hide="showSystem" ng-click="gotoGrouping()"
+                    class="childStyle configNav">
+                    <a ui-sref="help.systemGrouping" href="" class="configNav"><label class="cursorpoint"
+                            style="padding-left:25px">Grouping</label></a>
+                </li>
+
+                <li ui-sref-active="activeState" class="menuStyle configNav" ng-click="displayHypersprout()">
+                    <a ui-sref="help.hyperSprout" href="" class="parentText" ng-click="enableHyper()">
+                        <i class="fa fa-plus symbol" ng-show="showHyper"></i>
+                        <i class="fa fa-minus symbol" ng-hide="showHyper"></i>
+                        <span>HyperSPROUT&trade; Management</span>
+
+                    </a>
+                </li>
+                <!--=====================adding suvb module ends=================================-->
+
+                <li ui-sref-active="activeState" ng-hide="showHyper" ng-click="gotoGroupManagement()"
+                    class="childStyle configNav">
+                    <a ui-sref="help.hyperGroup" href="" class="configNav"><label class="cursorpoint"
+                            style="padding-left:25px">Group Management</label></a>
+                </li>
+                <!--<li ui-sref-active="activeState" ng-hide="showHyper" ng-click="gotoSecurityCodeManagement()" class="childStyle configNav">
+                    <a ui-sref="help.hypersecurity" href="" class="configNav"><label class="cursorpoint" style="padding-left:25px">Security Code Management</label></a>
+                </li>-->
+                <li ui-sref-active="activeState" ng-hide="showHyper" ng-click="gotoFirmwareManagement()"
+                    class="childStyle configNav">
+                    <a ui-sref="help.hyperFirmware" href="" class="configNav"><label
+                            class="cursorpoint" style="padding-left:25px">Firmware Management</label></a>
+                </li>
+                <li ui-sref-active="activeState" ng-hide="showHyper" ng-click="gotoHyperSproutJobStatus()"
+                    class="childStyle configNav">
+                    <a ui-sref="help.hyperJob" href="" class="configNav"><label class="cursorpoint"
+                            style="padding-left:25px">HyperSPROUT&trade; Job Status</label></a>
+                </li>
+
+                <li ui-sref-active="activeState" class="menuStyle configNav" ng-click="displayMeter()">
+                    <a ui-sref="help.meterManage" href="" class="parentText" ng-click="enableMeter()">
+                        <i class="fa fa-plus symbol" ng-show="showMeter"></i>
+                        <i class="fa fa-minus symbol" ng-hide="showMeter"></i>
+                        <span>Meter Management</span>
+
+                    </a>
+                </li>
+                <!--=====================================MM sub module ends==========================================================-->
+                <li ui-sref-active="activeState" ng-hide="showMeter" ng-click="gotoGroupManagement()"
+                    class="childStyle configNav">
+                    <a ui-sref="help.meterGroup" href="" class="configNav"><label class="cursorpoint"
+                            style="padding-left:25px">Group Management</label></a>
+                </li>
+                <!--<li ui-sref-active="activeState" ng-hide="showMeter" ng-click="gotoSecurityCodeManagement()" class="childStyle configNav">
+                    <a ui-sref="help.meterSecurity" href="" class="configNav"><label class="cursorpoint" style="padding-left:25px">Security Code Management</label></a>
+                </li>-->
+                <li ui-sref-active="activeState" ng-hide="showMeter" ng-click="gotoFirmwareManagement()"
+                    class="childStyle configNav">
+                    <a ui-sref="help.meterFirmware" href="" class="configNav"><label class="cursorpoint"
+                            style="padding-left:25px">Firmware Management</label></a>
+                </li>
+                <li ui-sref-active="activeState" ng-hide="showMeter" ng-click="gotoHyperSproutJobStatus()"
+                    class="childStyle configNav">
+                    <a ui-sref="help.meterJob" href="" class="configNav"><label class="cursorpoint"
+                            style="padding-left:25px">Meter Job Status</label></a>
+                </li>
+                <li ui-sref-active="activeState" ng-hide="showMeter" ng-click="gotoMeterBulkJobStatus()"
+                class="childStyle configNav">
+                <a ui-sref="help.meterBulk" href="" class="configNav"><label class="cursorpoint"
+                        style="padding-left:25px">Meter Bulk Operations</label></a>
+                </li>
+                <li ui-sref-active="activeState" class="menuStyle configNav" ng-click="displayDeltaLink()">
+                    <a ui-sref="help.deltalinkManage" href="" class="parentText" ng-click="enableHyper()">
+                        <i class="fa fa-plus symbol" ng-show="showDeltaLink"></i>
+                        <i class="fa fa-minus symbol" ng-hide="showDeltaLink"></i>
+                        <span>DeltaLINK&trade; Management</span>
+
+                    </a>
+                </li>
+                <!--=====================adding suvb module ends=================================-->
+
+                <li ui-sref-active="activeState" ng-hide="showDeltaLink" ng-click="gotoGroupManagement()"
+                    class="childStyle configNav">
+                    <a ui-sref="help.deltalinkGroup" href="" class="configNav"><label class="cursorpoint"
+                            style="padding-left:25px">Group Management</label></a>
+                </li>
+                <!--<li ui-sref-active="activeState" ng-hide="showHyper" ng-click="gotoSecurityCodeManagement()" class="childStyle configNav">
+                    <a ui-sref="help.hypersecurity" href="" class="configNav"><label class="cursorpoint" style="padding-left:25px">Security Code Management</label></a>
+                </li>-->
+                <li ui-sref-active="activeState" ng-hide="showDeltaLink" ng-click="gotoFirmwareManagement()"
+                    class="childStyle configNav">
+                    <a ui-sref="help.deltalinkFirmware" href="" class="configNav"><label
+                            class="cursorpoint" style="padding-left:25px">Firmware Management</label></a>
+                </li>
+                <li ui-sref-active="activeState" ng-hide="showDeltaLink" ng-click="gotoHyperSproutJobStatus()"
+                    class="childStyle configNav">
+                    <a ui-sref="help.deltalinkJob" href="" class="configNav"><label class="cursorpoint"
+                            style="padding-left:25px">DeltaLINK&trade; Job Status</label></a>
+                </li>
+
+
+                <li ui-sref-active="activeState" class="menuStyle configNav" ng-click="displayReport()">
+                    <a ui-sref="help.report" href="" class="parentText" ui-sref="" ng-click="enableReport()">
+                        <i class="fa fa-plus symbol" ng-show="showReport"></i>
+                        <i class="fa fa-minus symbol" ng-hide="showReport"></i>
+                        <span>Reports</span>
+
+                    </a>
+                </li>
+                <li ui-sref-active="activeState" ng-hide="showReport" ng-click="gotoCommunication()"
+                    class="childStyle configNav">
+                    <a ui-sref="help.communicationStatistics" href="" class="configNav "><label class="cursorpoint"
+                            style="padding-left:25px">Communication Statistics</label></a>
+                </li>
+                <!--<li ui-sref-active="activeState" ng-hide="showReport" ng-click="gotoDataVINEHealth()" class="childStyle configNav">
+                    <a ui-sref="help.dataVINEHealth" href="" class="configNav"><label class="cursorpoint" style="padding-left:25px">DataVINE Health</label></a>
+                </li>-->
+                <li ui-sref-active="activeState" ng-hide="showReport" ng-click="gotoSystemLog()"
+                    class="childStyle configNav">
+                    <a ui-sref="help.systemLog" href="" class="configNav"><label class="cursorpoint"
+                            style="padding-left:25px">System Log</label></a>
+                </li>
+                <!--<li ui-sref-active="activeState" ng-hide="showReport" ng-click="gotoBatteryLife()" class="childStyle configNav">
+                    <a ui-sref="help.batteryLife" href="" class="configNav"><label class="cursorpoint" style="padding-left:25px">Battery Life</label></a>
+                </li>-->
+                <li ui-sref-active="activeState" ng-hide="showReport" ng-click="gotoDeviceFirmware()"
+                    class="childStyle configNav">
+                    <a ui-sref="help.deviceFirmware" href="" class="configNav"><label class="cursorpoint"
+                            style="padding-left:25px">Device Firmware Versions</label></a>
+                </li>
+                <li ui-sref-active="activeState" ng-hide="showReport" ng-click="gotoNewAccounts()"
+                    class="childStyle configNav">
+                    <a ui-sref="help.newAccounts" href="" class="configNav"><label class="cursorpoint"
+                            style="padding-left:25px">New Accounts</label></a>
+                </li>
+                <!--<li ui-sref-active="activeState" ng-hide="showReport" ng-click="gotoSystemUpdate()" class="childStyle configNav">
+                    <a ui-sref="help.systemUpdate" href="" class="configNav"><label class="cursorpoint" style="padding-left:25px">System Updates</label></a>
+                </li>-->
+                <!--<li ui-sref-active="activeState" ng-hide="showReport" ng-click="gotoDeviceRegistrationStatus()" class="childStyle configNav">
+                    <a ui-sref="help.deviceRegistrationStatus" href="" class="configNav"><label class="cursorpoint" style="padding-left:25px">Device Registration Status</label></a>
+                </li>-->
+                <li ui-sref-active="activeState" ng-hide="showReport" ng-click="gotoSystemAuditLog()"
+                    class="childStyle configNav">
+                    <a ui-sref="help.systemAuditLog" href="" class="configNav"><label class="cursorpoint"
+                            style="padding-left:25px">System Audit Log</label></a>
+                </li>
+
+                <li ui-sref-active="activeState" class="menuStyle configNav" ng-click="displayTools()">
+                    <a ui-sref="help.tools" href="" class="parentText" ng-click="enableTools()">
+                        <i class="fa fa-plus symbol" ng-show="showTools"></i>
+                        <i class="fa fa-minus symbol" ng-hide="showTools"></i>
+                        <span>Tools</span>
+
+                    </a>
+                </li>
+                <li ui-sref-active="activeState" ng-hide="showTools" ng-click="gotoSettings()"
+                    class="childStyle configNav">
+                    <a ui-sref="help.mySettings" href="" class="configNav"><label class="cursorpoint"
+                            style="padding-left:25px">My Settings</label></a>
+                </li>
+
+                <li ui-sref-active="activeState" class="menuStyle configNav" ng-click="displayAdministration()">
+                    <a ui-sref="help.administration" href="" class="parentText" ng-click="enableAdmin()">
+                        <i class="fa fa-plus symbol" ng-show="showAdministration"></i>
+                        <i class="fa fa-minus symbol" ng-hide="showAdministration"></i>
+                        <span>Administration</span>
+
+                    </a>
+                </li>
+                <li ui-sref-active="activeState" ng-hide="showAdministration" ng-click="gotoSecurity()"
+                    class="childStyle configNav">
+                    <a ui-sref="help.security" href="" class="configNav"><label class="cursorpoint"
+                            style="padding-left:25px">Security</label></a>
+                </li>
+                <li ui-sref-active="activeState" ng-hide="showAdministration" ng-click="gotoSystemSettings()"
+                    class="childStyle configNav">
+                    <a ui-sref="help.systemSetting" href="" class="configNav"><label class="cursorpoint"
+                            style="padding-left:25px">System Settings</label></a>
+                </li>
+                <li ui-sref-active="activeState" ng-hide="showAdministration" ng-click="gotoDefineUsers()"
+                    class="childStyle configNav">
+                    <a ui-sref="help.defineUser" href="" class="configNav"><label class="cursorpoint"
+                            style="padding-left:25px">Users</label></a>
+                </li>
+                <li ui-sref-active="activeState" ng-hide="showAdministration" ng-click="gotoSystemSettings()"
+                    class="childStyle configNav">
+                    <a ui-sref="help.dashboard" href="" class="configNav"><label class="cursorpoint"
+                            style="padding-left:25px">Dashboard</label></a>
+                </li>
+                <!--<li ui-sref-active="activeState">
+                    <a  href="" ng-click="extras()" class="configNav">Miscellaneous</a>
+                </li>-->
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,130 @@
+
+<div class="container-fluid" id="circuitCreationDiv">
+	<section>
+		<div class="row circuit">
+			<h4 ng-show="type==='add'"><strong>Create Endpoint</strong></h4>
+			<h4 ng-show="type==='edit'"><strong>Edit Endpoint</strong></h4>
+		</div>
+	</section>
+	<form class="pure-form pure-form-aligned" name="endpoint" method="post" novalidate autocomplete="off">
+		<section>
+			<uib-accordion close-others="oneAtATime">
+				
+				<div uib-accordion-group class="panel-default" is-open="status.isFirstOpen">
+					<uib-accordion-heading>
+						Endpoint Details <i class="fa fa-chevron-down" style="color:blue" aria-hidden="true"></i>
+						<span ng-if="endpoint.owner.$valid && endpoint.macId.$valid &&
+                      endpoint.description.$valid&&endpoint.circuitSelection.$valid&&!errorMacid">
+							<span class="glyphicon_Ckt glyphicon-ok-sign circuitDetails"></span>
+						</span>
+					</uib-accordion-heading>
+					<section style="margin-left:3%">
+						<div class="row">
+							<div class="col-lg-4">
+								<h5><strong>DTC</strong><span class="validationRequired">*</span></h5>
+								<select ng-class="allow" ng-model="endpointDetails.circuitSelection"
+									name="circuitSelection" class="divthree dropbox"
+									ng-change="changecircuitSelection()" ng-select=""
+									ng-options="sel as sel.circuitId for sel in circuitList track by sel.circuitId"
+									required>
+									<option value="">Select DTC</option>
+								</select>
+
+								<div class="field-message" ng-messages="endpoint.circuitSelection.$error"
+									ng-if='endpoint.circuitSelection.$dirty' ng-cloak>
+									<div ng-message="required">DTC is required</div>
+								</div>
+							</div>
+
+							<div class="col-lg-4">
+								<h5><strong>Owner</strong><span class="validationRequired">*</span></h5>
+								<input name="owner" class="divthree dropbox" ng-blur="endpointValidation('owner')"
+									ng-change="endpointValidation('owner')" ng-model="endpointDetails.Owner" type="text"
+									placeholder="Owner" maxlength=15 ng-trim="false" required>
+								<div class="field-message" ng-messages="endpoint.owner.$error"
+									ng-if='endpoint.owner.$dirty' ng-cloak>
+								</div>
+								<span style="color:red;" ng-show="errorOwner"><br>{{errorOwnerMessage}} </span>
+							</div>
+							<div class="col-lg-4">
+
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-4">
+								<h5><strong>MAC ID</strong><span class="validationRequired">*</span></h5>
+								<input name="macId" class="divthree dropbox" ng-model="endpointDetails.MacID"
+									type="text" placeholder="MAC ID" maxlength=17
+									ng-change="endpointValidation('macid')" ng-blur="endpointValidation('macid')"
+									required ng-trim="false" disallow-space>
+								<div class="field-message" ng-messages="endpoint.macId.$error"
+									ng-if='endpoint.macId.$dirty' ng-cloak>
+
+								</div>
+								<span style="color:red;" ng-show="errorMacid"><br>{{errorMacIDMessage}} </span>
+							</div>
+
+							<div class="col-lg-4">
+								<h5><strong>Description</strong><span class="validationRequired">*</span></h5>
+								<input name="description" class="divthree dropbox"
+									ng-model="endpointDetails.Description" ng-blur="endpointValidation('description')"
+									ng-change="endpointValidation('description')" type="text" placeholder="Description"
+									maxlength=250 ng-trim="false" required>
+								<div class="field-message" ng-messages="endpoint.description.$error"
+									ng-if='endpoint.description.$dirty' ng-cloak>
+								</div>
+								<span style="color:red;" ng-show="errorDescription"><br>{{errorDescriptionMessage}}
+								</span>
+							</div>
+							<div class="col-lg-4">
+
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-4">
+								<h5><strong>Type</strong></h5>
+							</div>
+						</div>
+						<!-- radio button insertion -->
+						<div class="row">
+							<div class="col-lg-2">
+								<input type="radio" ng-disabled="type == 'edit'" ng-model="endpointDetails.DeviceType"  id="Roaming_Devices" value="Roaming Devices" name="devicetype" style="vertical-align: middle; margin-top: 1px;">
+								<label>Roaming Devices</label>
+							</div>
+							<div class="col-lg-2">
+								<input type="radio" ng-disabled="type == 'edit'" ng-model="endpointDetails.DeviceType" id="Secondary_Network" value="Secondary Network" name="devicetype" style="vertical-align: middle;margin-top: 1px;">
+								<label>Secondary Network</label>
+							</div>
+						</div>
+						<!---end of radio button insertion-->
+					</section>
+				</div>
+		</section>
+		</uib-accordion>
+		</section>
+	</form>
+	<section>
+		<div class="row">
+			<div class="btnRow">
+				<span>
+					<button type="button" class="btn btn-default btnColor" ng-show="type==='add'"
+						ng-click="saveEndpointDetails(endpointDetails)"
+						ng-disabled="create_endpoint_valid||endpoint.$invalid">
+						Create
+					</button>
+					<!--ng-show="createUpdateStatus"-->
+					<button type="button" class="btn btn-default btnColor" ng-show="type==='edit'"
+						ng-click="updateEndpointDetails(endpointDetails)"
+						ng-disabled="create_endpoint_valid||endpoint.$invalid || (!endpoint.$dirty && circuitSelectionBoolean)"
+						>
+						Update
+					</button>
+					<button type="button" class="btn btn-default btnDefault"
+						ng-click="cancelModalWindow()">Cancel</button>
+				</span>
+			</div>
+		</div>
+	</section>
+</div>
+
+<!--I ma an updated file-->

@@ -1,0 +1,1642 @@
+﻿{
+  "timeout": "300000",
+  "regEx" : {
+    "MAC_ID" : "^(?!01|FF:FF:FF:FF:FF:FF)([0-9a-fA-F]{2}[:]){5}[0-9a-fA-F]{2}"
+  },
+  "allowedFirmwareFileSize": "100",
+  "endpoints": {
+    "ListCoils":{
+      "name" : "ListCoils",
+      "method":"get",
+      "data":{}
+    },
+    "GetMessages":{
+      "name" : "GetMessages",
+      "method":"get"
+    },
+    "GetMessageById":{
+      "name" : "GetMessageById",
+      "method":"get"
+    },
+    "EditMessageStatus":{
+      "name" : "EditMessageStatus",
+      "method":"put",
+      "data": {
+        "is_read": "?"
+      }
+    },
+    "DeleteMessage":{
+      "name" : "DeleteMessage",
+      "method":"delete",
+      "data": {
+        "message_id": "?"
+      }
+    },
+    "GetMessageCount":{
+      "name" : "GetMessageCount",
+      "method":"get"
+    },
+    "login": {
+      "name": "login",
+      "method": "post",
+      "data": {
+        "email": "?",
+        "password": "?"
+      }
+    },
+    "HSGroupDelete": {
+      "name": "HSGroupDelete",
+      "method": "post",
+      "data": {
+        "ID": "?",
+        "Type": "?",
+        "DeviceType": "?"
+      }
+    },
+    "ConfNewConfSave": {
+      "name": "ConfNewConfSave",
+      "method": "post",
+      "data": {
+        "configName": "?",
+        "ClassName": "?",
+        "Description": "?",
+        "configProgramName": "?",
+        "Type": "?"
+      }
+    },
+    "HSMDownDownloadConfSave": {
+      "name": "HSMDownDownloadConfSave",
+      "method": "post",
+      "data": {
+        "configName": "?",
+        "SerialNumber": "?"
+      }
+    },
+    "HSMGrpMgmtAssignGrpMembershipCreateAppGrp": {
+      "name": "HSMGrpMgmtAssignGrpMembershipCreateAppGrp",
+      "method": "post",
+      "data": {
+        "GroupName": "?",
+        "Description": "?",
+        "Type": "?"
+      }
+    },
+    "HSMSecurityAssignDeviceSecCodeSave": {
+      "name": "HSMSecurityAssignDeviceSecCodeSave",
+      "method": "post",
+      "data": {
+        "updateHSMAssignDeviceSecCodeValues": {
+          "DeviceClassID": "?",
+          "SecurityCodeLevels": "?",
+          "Primary": "?",
+          "Secondary": "?",
+          "Tertiary": "?",
+          "Quarternary": "?"
+        }
+      }
+    },
+    "MMSecurityAssignDeviceSecCodeSave": {
+      "name": "MMSecurityAssignDeviceSecCodeSave",
+      "method": "post",
+      "data": {
+        "updateMMAssignDeviceSecCodeValues": {
+          "DeviceClassID": "?",
+          "SecurityCodeLevels": "?",
+          "Primary": "?",
+          "Secondary": "?",
+          "Tertiary": "?",
+          "Quarternary": "?"
+        }
+      }
+    },
+    "HSMSecuritySave": {
+      "name": "HSMSecuritySave",
+      "method": "post",
+      "data": {
+        "updateHSMSecuritySaveValues": {
+          "DeviceClassID": "?",
+          "EncryptionType1": "?",
+          "EncryptionKeyID1": "?",
+          "EncryptionKey1": "?",
+          "EncryptionType2": "?",
+          "EncryptionKeyID2": "?",
+          "EncryptionKey2": "?",
+          "EncryptionType3": "?",
+          "EncryptionKeyID3": "?",
+          "EncryptionKey3": "?"
+        }
+      }
+    },
+    "MMSecuritySave": {
+      "name": "MMSecuritySave",
+      "method": "post",
+      "data": {
+        "updateMMSecuritySaveValues": {
+          "DeviceClassID": "?",
+          "EncryptionType1": "?",
+          "EncryptionKeyID1": "?",
+          "EncryptionKey1": "?",
+          "EncryptionType2": "?",
+          "EncryptionKeyID2": "?",
+          "EncryptionKey2": "?",
+          "EncryptionType3": "?",
+          "EncryptionKeyID3": "?",
+          "EncryptionKey3": "?"
+        }
+      }
+    },
+    "MMConfNewConfSave": {
+      "name": "MMConfNewConfSave",
+      "method": "post",
+      "data": {
+        "configName": "?",
+        "ClassName": "?",
+        "Description": "?",
+        "configProgramName": "?",
+        "Type": "?"
+      }
+    },
+    "MMDownDownloadConfSave": {
+      "name": "MMDownDownloadConfSave",
+      "method": "post",
+      "data": {
+        "configName": "?",
+        "SerialNumber": "?"
+      }
+    },
+    "HSMConfEdit": {
+      "name": "HSMConfEdit",
+      "method": "post",
+      "data": {
+        "ConfigID": "?"
+      }
+    },
+    "HSMConfEditSave": {
+      "name": "HSMConfEditSave",
+      "method": "post",
+      "data": {
+        "updatevalues": "?"
+      }
+    },
+    "HSMTagDiscrepancies": {
+      "name": "HSMTagDiscrepancies",
+      "method": "post",
+      "data": {
+        "StartTime": "?",
+        "EndTime": "?"
+      }
+    },
+    "MMTagDiscrepancies": {
+      "name": "MMTagDiscrepancies",
+      "method": "post",
+      "data": {
+        "StartTime": "?",
+        "EndTime": "?"
+      }
+    },
+    "HSMConf": {
+      "name": "HSMConf",
+      "method": "get"
+    },
+    "MMConf": {
+      "name": "MMConf",
+      "method": "get"
+    },
+    "HSMGrpMgmt": {
+      "name": "HSMGrpMgmt",
+      "method": "get"
+    },
+    "MMGrpMgmt": {
+      "name": "MMGrpMgmt",
+      "method": "get"
+    },
+    "HSMSecurityCodeMgmt": {
+      "name": "HSMSecurityCodeMgmt",
+      "method": "get"
+    },
+    "MMSecurityCodeMgmt": {
+      "name": "MMSecurityCodeMgmt",
+      "method": "get"
+    },
+    "SMNetworkJobStatus": {
+      "name": "SMNetworkJobStatus",
+      "method": "get"
+    },
+    "SMHyperSprout": {
+      "name": "SMHyperSprout",
+      "method": "post",
+      "data": {
+        "PartSerialNo": "?",
+        "Type": "?"
+      }
+    },
+    "JobsList": {
+      "name": "JobsList",
+      "method": "post",
+      "data": {
+        "StartTime": "?",
+        "EndTime": "?",
+        "Type": "?"
+      }
+    },
+    "ListDownloadJobs": {
+      "name": "ListDownloadJobs",
+      "method": "post",
+      "data": {
+        "Type": "?",
+        "StartTime": "?",
+        "EndTime": "?"
+      }
+    },
+    "SMMeters": {
+      "name": "SMMeters",
+      "method": "post",
+      "data": {
+        "PartSerialNo": "?"
+      }
+    },
+    "DataVINEHealthReport": {
+      "name": "DataVINEHealthReport",
+      "method": "post",
+      "data": {
+        "Type": "?"
+      }
+    },
+    "HSMConfImportConfSave": {
+      "name": "HSMConfImportConfSave",
+      "method": "post",
+      "data": {
+        "configName": "?",
+        "listHS": "?",
+        "Action": "?",
+        "Type": "?"
+      }
+    },
+    "MMConfImportConfSave": {
+      "name": "MMConfImportConfSave",
+      "method": "post",
+      "data": {
+        "configName": "?",
+        "listMeters": "?",
+        "Action": "?"
+      }
+    },
+    "HSMGrpMgmtAssignGrpMembershipAssignEndpoint": {
+      "name": "HSMGrpMgmtAssignGrpMembershipAssignEndpoint",
+      "method": "post",
+      "data": {
+        "GroupName": "?",
+        "Action": "?",
+        "listHS": "?",
+        "Type": "?"
+      }
+    },
+    "MMGrpMgmtAssignGrpMembershipAssignEndpoint": {
+      "name": "MMGrpMgmtAssignGrpMembershipAssignEndpoint",
+      "method": "post",
+      "data": {
+        "GroupName": "?",
+        "Action": "?",
+        "listMeters": "?",
+        "Type": "?"
+      }
+    },
+    "SMEndpointCleanup": {
+      "name": "SMEndpointCleanup",
+      "method": "get"
+    },
+    "SMNodePing": {
+      "name": "SMNodePing",
+      "method": "post",
+      "data": {
+        "SerialNumber": "?",
+        "Type": "?"
+      }
+    },
+    "SMMeterNodePing": {
+      "name": "SMMeterNodePing",
+      "method": "post",
+      "data": {
+        "MeterID": "?"
+      }
+    },
+    "RestoreDefaultSettings": {
+      "name": "RestoreDefaultSettings",
+      "method": "post",
+      "data": {
+        "tabHeading": "?"
+      }
+    },
+    "GetSecurityGroups": {
+      "name": "GetSecurityGroups",
+      "method": "get"
+    },
+    "ReturnSecurityGroups": {
+      "name": "ReturnSecurityGroups",
+      "method": "post",
+      "data": {
+        "SecurityID": "?"
+      }
+    },
+    "DeleteSecurityGroups": {
+      "name": "DeleteSecurityGroups",
+      "method": "post",
+      "data": {
+        "SecurityID": "?"
+      }
+    },
+    "AddSecurityGroups": {
+      "name": "AddSecurityGroups",
+      "method": "post",
+      "data": {
+        "SecurityID": "?",
+        "Description": "?",
+        "Functions": "?"
+      }
+    },
+    "UpdatedSystemSettings": {
+      "name": "UpdatedSystemSettings",
+      "method": "get"
+    },
+    "UpdatedPasswordSettings": {
+      "name": "UpdatedPasswordSettings",
+      "method": "get"
+    },
+    "RestoreDefaultPasswordSettings": {
+      "name": "RestoreDefaultPasswordSettings",
+      "method": "get"
+    },
+    "SavePasswordSettings": {
+      "name": "SavePasswordSettings",
+      "method": "post",
+      "data": {
+        "PasswordSettings": "?"
+      }
+    },
+    "GetUsers": {
+      "name": "GetUsers",
+      "method": "get"
+    },
+    "AddUser": {
+      "name": "AddUser",
+      "method": "post",
+      "data": {
+        "UserID": "?",
+        "FirstName": "?",
+        "LastName": "?",
+        "EmailAddress": "?",
+        "SecurityGroup": "?",
+        "HomePage": "?",
+        "TimeZone": "?",
+        "AccountLocked": "?",
+        "Temprature": "?",
+        "MobileNumber": "?"
+      }
+    },
+    "SaveSystemSettings": {
+      "name": "SaveSystemSettings",
+      "method": "post",
+      "data": {
+        "tabHeading": "?",
+        "saveSettings": "?"
+      }
+    },
+    "UpdateUserSettings": {
+      "name": "UpdateUserSettings",
+      "method": "post",
+      "data": {
+        "UserID": "?",
+        "FirstName": "?",
+        "LastName": "?",
+        "EmailAddress": "?",
+        "HomePage": "?",
+        "TimeZone": "?",
+        "Password": "?",
+        "LoginID": "?",
+        "Temprature": "?"
+      }
+    },
+    "UserSettings": {
+      "name": "UserSettings",
+      "method": "post",
+      "data": {
+        "UserID": "?"
+      }
+    },
+    "configPrograms": {
+      "name": "configPrograms",
+      "method": "post",
+      "data": {
+        "Type": "?"
+      }
+    },
+    "ConfigProgramsDelete": {
+      "name": "ConfigProgramsDelete",
+      "method": "post",
+      "data": {
+        "configProgramName": "?",
+        "Type": "?"
+      }
+    },
+    "EditUser": {
+      "name": "EditUser",
+      "method": "post",
+      "data": {
+        "UserID": "?",
+        "FirstName": "?",
+        "LastName": "?",
+        "EmailAddress": "?",
+        "SecurityGroup": "?",
+        "HomePage": "?",
+        "TimeZone": "?",
+        "AccountLocked": "?",
+        "LoginID": "?",
+        "Temprature": "?",
+        "MobileNumber": "?"
+      }
+    },
+    "ListSecurityID": {
+      "name": "ListSecurityID",
+      "method": "get"
+    },
+    "ConfigProgramsEdit": {
+      "name": "ConfigProgramsEdit",
+      "method": "post",
+      "data": {
+        "configProgramName": "?",
+        "Type": "?"
+      }
+    },
+    "ConfUploadConfigProgram": {
+      "name": "ConfUploadConfigProgram",
+      "method": "post",
+      "data": {
+        "configProgramName": "?",
+        "configProgramDetails": "?",
+        "Description": "?",
+        "Type": "?"
+      }
+    },
+    "ChangePassword": {
+      "name": "ChangePassword",
+      "method": "post",
+      "data": {
+        "UserID": "?",
+        "OldPassword": "?",
+        "NewPassword": "?",
+        "LoginID": "?",
+        "isPasswordExpired": "?"
+      }
+    },
+    "ListDevicesAttached": {
+      "name": "ListDevicesAttached",
+      "method": "post",
+      "data": {
+        "GroupID": "?",
+        "Type": "?",
+        "GroupType": "?"
+      }
+    },
+    "EditSecurityGroups": {
+      "name": "EditSecurityGroups",
+      "method": "post",
+      "data": {
+        "SecurityID": "?",
+        "Description": "?",
+        "Functions": "?"
+      }
+    },
+    "HsmGroupDownload": {
+      "name": "HsmGroupDownload",
+      "method": "post",
+      "data": {
+        "configName": "?"
+      }
+    },
+    "ResetPassword": {
+      "name": "ResetPassword",
+      "method": "post",
+      "data": {
+        "UserID": "?"
+      }
+    },
+    "DeleteUser": {
+      "name": "DeleteUser",
+      "method": "post",
+      "data": {
+        "UserID": "?"
+      }
+    },
+    "communicationStatistics": {
+      "name": "communicationStatistics",
+      "method": "get"
+    },
+    "datavineHealth": {
+      "name": "datavineHealth",
+      "method": "get"
+    },
+    "systemLog": {
+      "name": "systemLog",
+      "method": "get"
+    },
+    "batteryLife": {
+      "name": "batteryLife",
+      "method": "get"
+    },
+    "deviceFirmwareVersions": {
+      "name": "deviceFirmwareVersions",
+      "method": "get"
+    },
+    "systemUpdates": {
+      "name": "deviceFirmwareVersions",
+      "method": "get"
+    },
+    "deviceRegistrationStatus": {
+      "name": "deviceRegistrationStatus",
+      "method": "get"
+    },
+    "auditLog": {
+      "name": "auditLog",
+      "method": "get"
+    },
+    "EditCircuitDetails": {
+      "name": "EditCircuitDetails",
+      "method": "post",
+      "data": {
+        "updateCircuitValues": {
+          "CircuitNumber": "?",
+          "CircuitID": "?",
+          "KVARating": "?",
+          "SubstationID": "?",
+          "SubstationName": "?",
+          "Address": "?",
+          "Country": "?",
+          "State": "?",
+          "City": "?",
+          "ZipCode": "?",
+          "Latitude": "?",
+          "Longitude": "?"
+        }
+      }
+    },
+    "NewMeterEntry": {
+      "name": "NewMeterEntry",
+      "method": "post",
+      "data": {
+        "insertNewMeterDetails": {
+          "Type": "?",
+          "MeterSerialNumber": "?",
+          "MeterApptype": "?",
+          "MeterVersion": "?",
+          "MeterInstallationLocation": "?",
+          "MeterCTRatio": "?",
+          "MeterPTRatio": "?",
+          "MeterNumberOfPhases": "?",
+          "MeterRatedFrequency": "?",
+          "MeterRatedVoltage": "?",
+          "MeterNominalCurrent": "?",
+          "MeterMaximumCurrent": "?",
+          "MeterAccuracy": "?",
+          "MeterCompliantToStandards": "?",
+          "MeterWiFiIpAddress": "?",
+          "MeterWiFiAccessPointPassword": "?",
+          "MeterAdminPassword": "?",
+          "MeterLatitude": "?",
+          "MeterLongitude": "?",
+          "MeterConsumerNumber": "?",
+          "MeterConsumerName": "?",
+          "MeterConsumerAddress": "?",
+          "MeterConsumerContactNumber": "?",
+          "MeterBillingCycleDate": "?",
+          "MeterBillingTime": "?",
+          "MeterDemandResetDate": "?",
+          "MeterMake": "?",
+          "MeterDisconnector": "?",
+          "MeterConsumerCountry": "?",
+          "MeterConsumerState": "?",
+          "MeterConsumerCity": "?",
+          "MeterConsumerZipCode": "?",
+          "MeterWiFiMacID": "?",
+          "ImpulseCountKWh": "?",
+          "ImpulseCountKVARh": "?",
+          "SealID": "?",
+          "BiDirectional": "?",
+          "EVMeter": "?",
+          "SolarPanel": "?",
+          "GroupTransformerSerialNo": "?"
+        }
+      }
+    },
+    "DeleteMeterDetails": {
+      "name": "DeleteMeterDetails",
+      "method": "post",
+      "data": {
+        "deleteMeterValues": {
+          "MeterID": "?"
+        }
+      }
+    },
+    "EditMeterDetails": {
+      "name": "EditMeterDetails",
+      "method": "post",
+      "data": {
+        "updateMeterValues": {
+          "MeterID": "?",
+          "MeterSerialNumber": "?",
+          "MeterApptype": "?",
+          "MeterVersion": "?",
+          "MeterInstallationLocation": "?",
+          "MeterCTRatio": "?",
+          "MeterPTRatio": "?",
+          "MeterNumberOfPhases": "?",
+          "MeterRatedFrequency": "?",
+          "MeterRatedVoltage": "?",
+          "MeterNominalCurrent": "?",
+          "MeterMaximumCurrent": "?",
+          "MeterAccuracy": "?",
+          "MeterCompliantToStandards": "?",
+          "MeterWiFiIpAddress": "?",
+          "MeterWiFiAccessPointPassword": "?",
+          "MeterAdminPassword": "?",
+          "MeterLatitude": "?",
+          "MeterLongitude": "?",
+          "MeterConsumerNumber": "?",
+          "MeterConsumerName": "?",
+          "MeterConsumerAddress": "?",
+          "MeterConsumerContactNumber": "?",
+          "MeterBillingCycleDate": "?",
+          "MeterBillingTime": "?",
+          "MeterDemandResetDate": "?",
+          "MeterMake": "?",
+          "MeterDisconnector": "?",
+          "MeterConsumerCountry": "?",
+          "MeterConsumerState": "?",
+          "MeterConsumerCity": "?",
+          "MeterConsumerZipCode": "?",
+          "MeterWiFiMacID": "?",
+          "ImpulseCountKWh": "?",
+          "ImpulseCountKVARh": "?",
+          "SealID": "?",
+          "BiDirectional": "?",
+          "EVMeter": "?",
+          "SolarPanel": "?",
+          "MeterWiFiPassFlag": "?"
+        }
+      }
+    },
+    "DisplayAllCircuitDetails": {
+      "name": "DisplayAllCircuitDetails",
+      "method": "get",
+      "data": {}
+    },
+    "RemovingTransformerFromCircuit": {
+      "name": "RemovingTransformerFromCircuit",
+      "method": "post",
+      "data": {
+        "removeTransformerFromCircuitValues": {
+          "CircuitID": "?",
+          "TransformerID": "?"
+        }
+      }
+    },
+    "NetworkStatisticsHS": {
+      "name": "NetworkStatisticsHS",
+      "method": "get",
+      "data": {}
+    },
+    "DisplayAllTransformerDetails": {
+      "name": "DisplayAllTransformerDetails",
+      "method": "get",
+      "data": {}
+    },
+    "NewCircuitEntry": {
+      "name": "NewCircuitEntry",
+      "method": "post",
+      "data": {
+        "insertNewCircuitDetails": {
+          "Type": "?",
+          "CircuitID": "?",
+          "KVARating": "?",
+          "SubstationID": "?",
+          "SubstationName": "?",
+          "Address": "?",
+          "Country": "?",
+          "State": "?",
+          "City": "?",
+          "ZipCode": "?",
+          "Latitude": "?",
+          "Longitude": "?"
+        }
+      }
+    },
+    "DeleteCircuitDetails": {
+      "name": "DeleteCircuitDetails",
+      "method": "post",
+      "data": {
+        "deleteCircuitValues": {
+          "CircuitID": "?"
+        }
+      }
+    },
+    "DeleteTransformerHypersproutDetails": {
+      "name": "DeleteTransformerHypersproutDetails",
+      "method": "post",
+      "data": {
+        "deleteTransformerHypersproutValues": {
+          "TransformerID": "?",
+          "HypersproutID": "?"
+        }
+      }
+    },
+    "EditTransformerHypersproutDetails": {
+      "name": "EditTransformerHypersproutDetails",
+      "method": "post",
+      "data": {
+        "updateTransformerHypersproutValues": {
+          "TransformerID": "?",
+          "HypersproutID": "?",
+          "TFMRSerialNumber": "?",
+          "TFMRName": "?",
+          "TFMRMake": "?",
+          "TFMRRatingCapacity": "?",
+          "TFMRHighLineVoltage": "?",
+          "TFMRLowLineVoltage": "?",
+          "TFMRHighLineCurrent": "?",
+          "TFMRLowLineCurrent": "?",
+          "TFMRType": "?",
+          "HypersproutSerialNumber": "?",
+          "HypersproutVersion": "?",
+          "HypersproutMake": "?",
+          "HSCTRatio": "?",
+          "HSPTRatio": "?",
+          "HSRatedVoltage": "?",
+          "HSNumberOfPhases": "?",
+          "HSRatedFrequency": "?",
+          "HSAccuracy": "?",
+          "HSDemandResetDate": "?",
+          "HSCompliantToStandards": "?",
+          "HSMaxDemandWindow": "?",
+          "HSMaxDemandSlidingWindowInterval": "?",
+          "HSSensorDetails": "?",
+          "HSGPRSMacID": "?",
+          "HSWiFiMacID": "?",
+          "HSWiFiIpAddress": "?",
+          "HSWiFiAccessPointPassword": "?",
+          "HSSimCardNumber": "?",
+          "HSLatitude": "?",
+          "HSLongitude": "?",
+          "MaxOilTemp": "?",
+          "MinOilTemp": "?",
+          "WireSize": "?",
+          "HSWifiPassFlag": "?",
+          "CameraConnect": "?",
+          "HSCoils": "?",
+          "otp": "?"
+        }
+      }
+    },
+    "NewTransformerHypersproutEntry": {
+      "name": "NewTransformerHypersproutEntry",
+      "method": "post",
+      "data": {
+        "insertNewTransformerHypersproutDetails": {
+          "Type": "?",
+          "TFMRSerialNumber": "?",
+          "TFMRName": "?",
+          "TFMRMake": "?",
+          "TFMRRatingCapacity": "?",
+          "TFMRHighLineVoltage": "?",
+          "TFMRLowLineVoltage": "?",
+          "TFMRHighLineCurrent": "?",
+          "TFMRLowLineCurrent": "?",
+          "TFMRType": "?",
+          "HypersproutSerialNumber": "?",
+          "HypersproutVersion": "?",
+          "HypersproutMake": "?",
+          "HSCTRatio": "?",
+          "HSPTRatio": "?",
+          "HSRatedVoltage": "?",
+          "HSNumberOfPhases": "?",
+          "HSRatedFrequency": "?",
+          "HSAccuracy": "?",
+          "HSDemandResetDate": "?",
+          "HSCompliantToStandards": "?",
+          "HSMaxDemandWindow": "?",
+          "HSMaxDemandSlidingWindowInterval": "?",
+          "HSSensorDetails": "?",
+          "HSGPRSMacID": "?",
+          "HSWiFiMacID": "?",
+          "HSWiFiIpAddress": "?",
+          "HSWiFiAccessPointPassword": "?",
+          "HSSimCardNumber": "?",
+          "HSLatitude": "?",
+          "HSLongitude": "?",
+          "MaxOilTemp": "?",
+          "MinOilTemp": "?",
+          "WireSize": "?",
+          "CameraConnect": "?",
+          "GroupCircuitID":"?",
+          "HSCoils": "?",
+          "otp": "?"
+        }
+      }
+    },
+    "AddingTransformerToCircuit": {
+      "name": "AddingTransformerToCircuit",
+      "method": "post",
+      "data": {
+        "addTransformerToCircuitValues": {
+          "CircuitID": "?",
+          "TransformerID": "?"
+        }
+      }
+    },
+    "AddingMeterToTransformer": {
+      "name": "AddingMeterToTransformer",
+      "method": "post",
+      "data": {
+        "addMeterToTransformerValues": {
+          "TransformerID": "?",
+          "MeterID": "?"
+        }
+      }
+    },
+    "RemovingMeterFromTransformer": {
+      "name": "RemovingMeterFromTransformer",
+      "method": "post",
+      "data": {
+        "removeMeterFromTransformerValues": {
+          "SelectedMeterID": "?",
+          "IsForceGrouping": "?"
+        }
+      }
+    },
+    "FirmwareMgmtJobStatus": {
+      "name": "FirmwareMgmtJobStatus",
+      "method": "post",
+      "data": {
+        "DeviceType": "?"
+      }
+    },
+    "FirmwareMgmtFirmGroup": {
+      "name": "FirmwareMgmtFirmGroup",
+      "method": "post",
+      "data": {
+        "DeviceType": "?"
+      }
+    },
+    "FirmwareMgmtUpload": {
+      "name": "FirmwareMgmtUpload",
+      "method": "post",
+      "data": {
+        "FirmwareType": "?",
+        "FirmwareBinary": "?",
+        "FirmwareNameVersion": "?"
+      }
+    },
+    "FirmwareMgmtFirmGroupSubmit": {
+      "name": "FirmwareMgmtFirmGroupSubmit",
+      "method": "post",
+      "data": {
+        "DeviceType": "?",
+        "Firmware": "?",
+        "Url": "?",
+        "Group": "?",
+        "CardType": "?"
+      }
+    },
+    "ResendFirmwareMgmntJob": {
+      "name": "ResendFirmwareMgmntJob",
+      "method": "post",
+      "data": {
+        "JobID": "?",
+        "CardType": "?"
+      }
+    },
+    "DeviceFirmwareVersionReport": {
+      "name": "DeviceFirmwareVersionReport",
+      "method": "get"
+    },
+    "CommunicationsStatisticsReport": {
+      "name": "CommunicationsStatisticsReport",
+      "method": "post",
+      "data": {
+        "IfHyperhub": "?"
+      }
+    },
+    "MeterCommunicationsStatisticsReport": {
+      "name": "MeterCommunicationsStatisticsReport",
+      "method": "get"
+    },
+    "NewAccountReport": {
+      "name": "NewAccountReport",
+      "method": "post",
+      "data": {
+        "StartTime": "?",
+        "EndTime": "?"
+      }
+    },
+    "MeterBillingUploadDisplay": {
+      "name": "MeterBillingUploadDisplay",
+      "method": "get",
+      "data": {}
+    },
+    "SystemLogReport": {
+      "name": "SystemLogReport",
+      "method": "get",
+      "data": {
+      }
+    },
+    "SystemAuditLogReport": {
+      "name": "SystemAuditLogReport",
+      "method": "get",
+      "data": {
+        
+      }
+    },
+    "MMGroupDownload": {
+      "name": "MMGroupDownload",
+      "method": "post",
+      "data": {
+        "configName": "?"
+      }
+    },
+    "AppGroupDownload": {
+      "name": "AppGroupDownload",
+      "method": "post",
+      "data": {
+        "GroupID": "?",
+        "Type": "?"
+      }
+    },
+    "NewHyperHubEntry": {
+      "name": "NewHyperHubEntry",
+      "method": "post",
+      "data": {
+        "insertNewHyperHubDetails": {
+          "HubSerialNumber": "?",
+          "HubName": "?",
+          "HardwareVersion": "?",
+          "GprsMacID": "?",
+          "WifiMacID": "?",
+          "WifiIPAddress": "?",
+          "WifiAccessPointPassword": "?",
+          "Latitude": "?",
+          "Longitude": "?",
+          "SimCardNumber": "?",
+          "GroupTransformerSerialNo": "",
+          "Type": "?"
+        }
+      }
+    },
+    "EditHyperHubDetails": {
+      "name": "EditHyperHubDetails",
+      "method": "post",
+      "data": {
+        "updateHyperHubValues": {
+          "HyperHubID": "?",
+          "HubSerialNumber": "?",
+          "HubName": "?",
+          "HardwareVersion": "?",
+          "GprsMacID": "?",
+          "WifiMacID": "?",
+          "WifiIPAddress": "?",
+          "WifiAccessPointPassword": "?",
+          "Latitude": "?",
+          "Longitude": "?",
+          "SimCardNumber": "?",
+          "HHWifiPassFlag": "?"
+        }
+      }
+    },
+    "DisplayAllHyperHubDetails": {
+      "name": "DisplayAllHyperHubDetails",
+      "method": "post",
+      "data": {
+        "HyperHubDetails": {
+          "Type": "?"
+        }
+      }
+    },
+    "DeleteHyperHubDetails": {
+      "name": "DeleteHyperHubDetails",
+      "method": "post",
+      "data": {
+        "deleteHyperHubValues": {
+          "HyperHubID": "?"
+        }
+      }
+    },
+    "GetAllHyperHubAttachedToTransformer": {
+      "name": "GetAllHyperHubAttachedToTransformer",
+      "method": "post",
+      "data": {
+        "TransformerDetails": {
+          "TransformerID": "?"
+        }
+      }
+    },
+    "AddingHyperHubToTransformer": {
+      "name": "AddingHyperHubToTransformer",
+      "method": "post",
+      "data": {
+        "addHyperHubToTransformerValues": {
+          "TransformerID": "?",
+          "HyperHubID": "?"
+        }
+      }
+    },
+    "RemovingHyperHubFromTransformer": {
+      "name": "RemovingHyperHubFromTransformer",
+      "method": "post",
+      "data": {
+        "removeHyperHubFromTransformerValues": {
+          "TransformerID": "?",
+          "HyperHubID": "?"
+        }
+      }
+    },
+    "UserDetails": {
+      "name": "UserDetails",
+      "method": "get",
+      "data": {}
+    },
+    "logout": {
+      "name": "logout",
+      "method": "get",
+      "data": {}
+    },
+    "NewEndpointEntry": {
+      "name": "NewEndpointEntry",
+      "method": "post",
+      "data": {
+        "insertNewEndpointDetails": {
+          "Type": "?",
+          "Owner": "?",
+          "MacID": "?",
+          "Description": "?",
+          "CircuitID": "?",
+          "DeviceType": "?"
+        }
+      }
+    },
+    "EditEndpointDetails": {
+      "name": "EditEndpointDetails",
+      "method": "post",
+      "data": {
+        "updateEndpointValues": {
+          "EndpointID": "?",
+          "Owner": "?",
+          "MacID": "?",
+          "Description": "?",
+          "CircuitID": "?",
+          "DeviceType": "?"
+        }
+      }
+    },
+    "DisplayAllEndpointDetails": {
+      "name": "DisplayAllEndpointDetails",
+      "method": "get",
+      "data": {}
+    },
+    "DeleteEndpointDetails": {
+      "name": "DeleteEndpointDetails",
+      "method": "post",
+      "data": {
+        "EndpointIDs": "?"
+      }
+    },
+    "LockUnlockDevice": {
+      "name": "LockUnlockDevice",
+      "method": "post",
+      "data": {
+        "deviceId": "?",
+        "serialNumber": "?",
+        "DeviceType": "?",
+        "Action": "?"
+      }
+    },
+    "remoteRebootDevice": {
+      "name": "remoteRebootDevice",
+      "method": "post",
+      "data": {
+        "deviceId": "?",
+        "serialNumber": "?",
+        "DeviceType": "?"
+      }
+    },
+    "DeleteDeviceLogsDetails": {
+      "name": "DeleteDeviceLogsDetails",
+      "method": "post",
+      "data": {
+        "DeleteDeviceLogsDetails": {
+          "DeviceType": "?",
+          "DeviceId": "?",
+          "LogID": "?"
+        }
+      }
+    },
+    "ClearLogs": {
+      "name": "ClearLogs",
+      "method": "post",
+      "data": {
+        "ClearLogs": {
+          "DeviceType": "?",
+          "DeviceId": "?"
+        }
+      }
+    },
+    "FetchDeviceLog": {
+      "name": "FetchDeviceLog",
+      "method": "post",
+      "data": {
+        "DeviceLogUpload": {
+          "DeviceType": "?",
+          "DeviceId": "?"
+        }
+      }
+    },
+    "VerbosityLogs": {
+      "name": "VerbosityLogs",
+      "method": "post",
+      "data": {
+        "VerbosityLogs": {
+          "DeviceType": "?",
+          "DeviceId": "?",
+          "LogType": "?"
+        }
+      }
+    },
+    "VerbosityDetails": {
+      "name": "VerbosityLogs",
+      "method": "get",
+      "data": {}
+    },
+    "DeviceLogsList": {
+      "name": "DeviceLogsList",
+      "method": "get",
+      "data": {}
+    },
+    "DisplayAllDeltalinkDetails": {
+      "name": "DisplayAllDeltalinkDetails",
+      "method": "get",
+      "data": {}
+    },
+    "NewDeltalinkEntry": {
+      "name": "NewDeltalinkEntry",
+      "method": "post",
+      "data": {
+        "insertNewDeltalinkEntry": {
+          "Type": "?",
+          "DeltalinkSerialNumber": "?",
+          "DeltalinkVersion": "?",
+          "DeltalinkWiFiMacID": "?",
+          "Bandwidth": "?",
+          "DownloadBandwidth": "?",
+          "UploadBandwidth": "?",
+          "GroupMeterSerialNo":"?"
+        }
+      }
+    },
+    "EditDeltalinkDetails": {
+      "name": "EditDeltalinkDetails",
+      "method": "post",
+      "data": {
+        "editDeltalinkDetails": {
+          "DeltalinkID": "?",
+          "DeltalinkSerialNumber": "?",
+          "DeltalinkVersion": "?",
+          "DeltalinkWiFiMacID": "?",
+          "Bandwidth": "?",
+          "DownloadBandwidth": "?",
+          "UploadBandwidth": "?",
+          "DeltalinkBandwidthFlag": "?"
+        }
+      }
+    },
+    "DeleteDeltalinkDetails": {
+      "name": "DeleteDeltalinkDetails",
+      "method": "post",
+      "data": {
+        "DeleteDeltalinkDetails": {
+          "DeltalinkID": "?"
+        }
+      }
+    },
+    "SMDeltalinkNodePing": {
+      "name": "SMDeltalinkNodePing",
+      "method": "post",
+      "data": {
+        "DeltalinkID": "?"
+      }
+    },
+    "DLMGrpMgmt": {
+      "name": "DLMGrpMgmt",
+      "method": "get",
+      "data": {}
+    },
+    "DLMGrpMgmtAssignGrpMembershipCreateAppGrp": {
+      "name": "DLMGrpMgmtAssignGrpMembershipCreateAppGrp",
+      "method": "post",
+      "data": {
+        "GroupName": "?",
+        "Description": "?",
+        "Type": "?"
+      }
+    },
+    "DLMGrpMgmtAssignGrpMembershipAssignEndpoint": {
+      "name": "DLMGrpMgmtAssignGrpMembershipAssignEndpoint",
+      "method": "post",
+      "data": {
+        "GroupName": "?",
+        "Action": "?",
+        "listDeltalinks": "?",
+        "Type": "?"
+      }
+    },
+    "DeltalinkFirmwareMgmtJobStatus": {
+      "name": "DeltalinkFirmwareMgmtJobStatus",
+      "method": "get",
+      "data": {}
+    },
+    "UploadMeterData": {
+      "name": "UploadMeterData",
+      "method": "post",
+      "data": {     
+        "List":"?",
+        "Type":"?"
+      }
+    },  
+    
+    "ListOfJobBulkOperations": {
+      "name": "ListOfJobBulkOperations",
+      "method": "get",
+      "data": {      
+        "Page":"?",
+        "Limit":"?",
+        "startTime":"?",
+        "endTime":"?"
+      }
+    },
+    
+    "ListOfBulkOperationsByDate":{
+      "name":"ListOfBulkOperationsByDate",
+      "method":"get",
+      "data":{
+        "startTime":"?"
+      }
+    },
+
+    "RemovingDeltalinkFromMeter": {
+      "name": "RemovingDeltalinkFromMeter",
+      "method": "post",
+      "data": {
+        "removeDeltalinkFromMeterValues": {
+          "MeterID": "?",
+         "DeltalinkID": "?"
+          }
+      }
+    },
+    "DeltalinkJobList": {
+      "name": "DeltalinkJobList",
+      "method": "get",
+      "data": {}
+    },
+    "AddingDeltalinkToMeter": {
+      "name": "AddingDeltalinkToMeter",
+      "method": "post",
+      "data": {
+        "addDeltalinkToMeterValues": {
+            "MeterID": "?",
+            "DeltalinkID":"?"
+        }
+      }
+  },
+  "FactoryReset": {
+    "name": "FactoryReset",
+    "method": "post",
+    "data": {
+      "deviceId": "?",
+      "serialNumber": "?",
+      "DeviceType": "?",
+      "factoryResetType": "?"
+    }
+  },
+    "DisplayAllTechnicalLossItems": {
+      "name": "DisplayAllTechnicalLossItems",
+      "method": "get",
+      "data": {}
+    },
+    "NewTransformerTechItemsEntry": {
+      "name": "NewTransformerTechItemsEntry",
+      "method": "post",
+      "data": {
+        "insertNewTechnicalItems": {
+          "Type": "?",
+          "Name": "?",
+          "TransformerSerialNo": "?",
+          "Metered": "?",
+          "UsagePerDay": "?",
+          "NoOfConnectedItems": "?",
+          "UsageTime": "?",
+          "StartHour": "?",
+          "EndHour": "?"
+        }
+      }
+    },
+    "EditTransformerTechItemsEntry": {
+      "name": "EditTransformerTechItemsEntry",
+      "method": "post",
+      "data": {
+        "editNewTechnicalItems": {
+          "Name": "?",
+          "TechitemID": "?",
+          "TransformerSerialNo": "?",
+          "Metered": "?",
+          "UsagePerDay": "?",
+          "NoOfConnectedItems": "?",
+          "UsageTime": "?",
+          "StartHour": "?",
+          "EndHour": "?"
+        }
+      }
+    },
+    "DeleteTransformerTechItems": {
+      "name": "DeleteTransformerTechItems",
+      "method": "post",
+      "data": {
+        "deleteTechnicalItems": {
+          "TechitemID": "?"
+        }
+      }
+    },
+    
+    "ListAllBulkOperations":{
+      "name":"ListAllBulkOperations",
+      "method":"get",
+      "data":{}
+    },
+
+    "ExportAllDeltalinkDetails":{
+      "name":"ExportAllDeltalinkDetails",
+      "method":"get",
+      "data":{}
+    },    
+    "fetchSystemInformation": {
+      "name": "fetchSystemInformation",
+      "method": "post",
+      "data": {
+        "deviceId": "?",
+        "deviceType": "?"
+      }
+    },
+    "BackHaulConfigurations": {
+      "name": "BackHaulConfigurations",
+      "method": "post",
+      "data": {
+        "deviceId": "?",
+        "serialNumber": "?",
+        "ConfigType": "?",
+        "Type": "?",
+        "DeviceType": "?",
+        "saveConfigDetails": "?"
+      }
+    },
+    "FrontHaulConfigurations": {
+      "name": "FrontHaulConfigurations",
+      "method": "post",
+      "data": {
+        "deviceId": "?",
+        "serialNumber": "?",
+        "ConfigType": "?",
+        "Type": "?",
+        "DeviceType": "?",
+        "saveConfigDetails": "?"
+      }
+    },
+    "SystemSettingsConfigurations": {
+      "name": "SystemSettingsConfigurations",
+      "method": "post",
+      "data": {
+        "deviceId": "?",
+        "serialNumber": "?",
+        "ConfigType": "?",
+        "Type": "?",
+        "DeviceType": "?",
+        "saveConfigDetails": "?"
+      }
+    },
+    "CloudConnectivity": {
+      "name": "CloudConnectivity",
+      "method": "post",
+      "data": {
+        "FileBinary":"?"
+      }
+    },
+    "MeterConfigurations": {
+      "name": "MeterConfigurations",
+      "method": "post",
+      "data": {
+        "deviceId": "?",
+        "serialNumber": "?",
+        "ConfigType": "?",
+        "Type": "?",
+        "DeviceType": "?",
+        "saveConfigDetails": "?"
+      }
+    },
+    "BandwidthLimitations": {
+      "name": "BandwidthLimitations",
+      "method": "post",
+      "data": {
+        "deviceId": "?",
+        "serialNumber": "?",
+        "ConfigType": "?",
+        "Type": "?",
+        "DeviceType": "?",
+        "saveConfigDetails": "?"
+      }
+    },
+    "AlarmsEvents": {
+      "name": "AlarmsEvents",
+      "method": "post",
+      "data": {
+        "deviceId": "?",
+        "serialNumber": "?",
+        "DeviceType": "?",
+        "saveConfigDetails": "?"
+    }
+    },
+    "fetchCountryDefaults": {
+      "name": "fetchCountryDefaults",
+      "method": "post",
+      "data": {
+        "Country": "?",
+        "Type": "?"
+    }
+    },
+    "ScanAvailableMeshProfiles": {
+      "name": "ScanAvailableMeshProfiles",
+      "method": "post",
+      "data": {
+        "deviceId": "?",
+        "serialNumber": "?",
+        "DeviceType": "?"
+    }
+    },
+    "livedata": {
+      "name": "livedata",
+      "method": "get",
+      "data": {}
+    },
+    "liveconnection": {
+      "name": "liveconnection",
+      "data":{
+        "cellID": "?"
+      }
+    },
+    "GetCircuitIDLists": {
+      "name": "GetCircuitIDLists",
+      "method": "get",
+      "data": {}
+    },
+    "carrierList": {
+      "name": "carrierList",
+      "method": "post",
+      "data": {
+        "deviceId": "?"
+      }
+    },
+    "FirmwareGroupLists": {
+      "name": "FirmwareGroupLists",
+      "method": "get",
+      "data": {}
+    },
+    "ConfigUploadMeters": {
+      "name": "ConfigUploadMeters",
+      "method": "post",
+      "data": {
+        "insertMeterConfigurationDetails": {
+          "Type": "?",
+          "DeviceType": "?",
+          "SerialNumber": "?",
+          "RadioMode": "?",
+          "ChannelWidth": "?",
+          "Channel": "?",
+          "TransmitPower": "?",
+          "RadioBand": "?",
+          "StreamSelection": "?",
+          "PrimaryMeshID": "?",
+          "PrimarySecurityType": "?",
+          "PrimaryPreSharedKey": "?",
+          "PrimaryMacAddress": "?",
+          "PrimarySerialNumber": "?",
+          "PrimaryDeviceType": "?",
+          "SecondaryMeshID": "?",
+          "SecondarySecurityType": "?",
+          "SecondaryPreSharedKey": "?",
+          "SecondaryMacAddress": "?",
+          "SecondarySerialNumber": "?",
+          "SecondaryDeviceType": "?",
+          "SSID": "?",
+          "WirelessSecurity": "?",
+          "Password": "?",
+          "DHCPStatus": "?",
+          "StartAddress": "?",
+          "EndAddress": "?",
+          "PrimaryDNS": "?",
+          "SecondaryDNS": "?",
+          "DefaultGateway": "?",
+          "SubnetMask": "?",
+          "UtilityID": "?",
+          "CertificateNumber": "?",
+          "CircuitID": "?",
+          "ESN": "?",
+          "BandwidthStatus": "?",
+          "DownloadBandwidth": "?",
+          "UploadBandwidth": "?",
+          "SystemName": "?",
+          "Country": "?",
+          "TimeZone": "?"
+        }
+      }
+    },
+    "ConfigUploadHyperSprout": {
+      "name": "ConfigUploadHyperSprout",
+      "method": "post",
+      "data": {
+        "insertHypersproutConfigurationDetails": {
+          "Type": "?",
+          "DeviceType": "?",
+          "SerialNumber": "?",
+          "RadioMode2_4": "?",
+          "ChannelWidth2_4": "?",
+          "Channel2_4": "?",
+          "TransmitPower2_4": "?",
+          "GuardInterval2_4": "?",
+          "StreamSelection2_4": "?",
+          "RadioMode5_L": "?",
+          "ChannelWidth5_L": "?",
+          "Channel5_L": "?",
+          "TransmitPower5_L": "?",
+          "GuardInterval5_L": "?",
+          "StreamSelection5_L": "?",
+          "RadioMode5_H": "?",
+          "ChannelWidth5_H": "?",
+          "Channel5_H": "?",
+          "TransmitPower5_H": "?",
+          "GuardInterval5_H": "?",
+          "StreamSelection5_H": "?",
+          "MeshID2_4": "?",
+          "SecurityType2_4": "?",
+          "PreSharedKey2_4": "?",
+          "MeshID5_H": "?",
+          "SecurityType5_H": "?",
+          "PreSharedKey5_H": "?",
+          "HotspotStatus2_4_1": "?",
+          "SSID2_4_1": "?",
+          "WirelessSecurity2_4_1": "?",
+          "Password2_4_1": "?",
+          "HotspotStatus2_4_2": "?",
+          "SSID2_4_2": "?",
+          "WirelessSecurity2_4_2": "?",
+          "Password2_4_2": "?",
+          "HotspotStatus5_H_1": "?",
+          "SSID5_H_1": "?",
+          "WirelessSecurity5_H_1": "?",
+          "Password5_H_1": "?",
+          "HotspotStatus5_H_2": "?",
+          "SSID5_H_2": "?",
+          "WirelessSecurity5_H_2": "?",
+          "Password5_H_2": "?",
+          "DHCPStatus": "?",
+          "StartAddress": "?",
+          "EndAddress": "?",
+          "PrimaryDNS": "?",
+          "SecondaryDNS": "?",
+          "DefaultGateway": "?",
+          "SubnetMask": "?",
+          "UserName": "?",
+          "Password": "?",
+          "SimPin": "?",
+          "NetworkSelection": "?",
+          "CarrierName": "?",
+          "EthernetStatus": "?",
+          "EthernetIPAddress": "?",
+          "EthernetPrimaryDNS": "?",
+          "EthernetSecondaryDNS": "?",
+          "EthernetDefaultGateway": "?",
+          "EthernetSubnetMask": "?",
+          "PrimaryBackhaul": "?",
+          "AutoSwitchOver": "?",
+          "BandwidthStatus": "?",
+          "DownloadBandwidth": "?",
+          "UploadBandwidth": "?",
+          "SystemName": "?",
+          "Country": "?",
+          "TimeZone": "?"
+        }
+      }
+    }
+  }
+}

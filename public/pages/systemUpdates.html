@@ -1,0 +1,27 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <h3 class="headingAlign"  style="margin-left: 1.6%"> Job Status </h3>
+    </div>
+    
+    <div class="row">
+        <div class="pull-right filterBtn" style="margin-top: 1%">
+
+            <!--<button type="button" class="btn btn-default btnColor newAccountSettings" popover-append-to-body='false' ng-click="reset()"> 
+                Reset 
+                </button>-->
+
+            <button type="button" class="btn btn-default btnColor demandReadSettings" popover-append-to-body='false' popover-animation='true'
+                popover-placement='bottom' popover-is-open="dynamicPopover.isOpen" uib-popover-template='dynamicPopover.templateUrl'
+                ng-click="today()">
+                Filter
+            </button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="container-fluid">
+            <div ui-grid="jobStatusGrid" ui-grid-exporter ui-grid-pagination ui-grid-resize-columns class="grid"></div>
+            <div class="watermark" ng-if="!jobStatusGrid.data.length">{{commonMsg}}</div>
+        </div>
+    </div>
+</div>

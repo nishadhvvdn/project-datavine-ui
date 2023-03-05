@@ -1,0 +1,47 @@
+<div class="tab-content">
+    <div class="tab-form-wrapper">
+        <h3 class="no-border">Cloud Connectivity Settings</h3>
+        <form class="pure-form pure-form-aligned" name="clodConnectivityForm" method="post" novalidate autocomplete="off" id="cloudResetForm">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Host Name<span class="validationRequired">*</span></label>
+                        <div class="input-wrap"><input ng-disabled="true" type="text" class="form-control" name="hostName" ng-model="configurationDetails.CloudHostName" >
+                        	<div class="field-message" ng-messages="clodConnectivityForm.hostName.$error"
+							ng-if='clodConnectivityForm.hostName.$dirty' ng-cloak></div>
+							<span ng-show="errorHostName" class="error-span" style="color:red;">{{errorHostNameMessage}}</span>
+						</div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Shared Access Key<span class="validationRequired">*</span></label>
+                        <div class="input-wrap short-input icon-input"><input type="{{passwordIconOne}}" ng-disabled="true" class="form-control" name="sharedAccessKey" ng-model="configurationDetails.CloudSharedAccessKey" ><i ng-class="passwordIconOne === 'text' ? 'fa fa-eye' : 'fa fa-eye-slash' " ng-click="passwordIconOne === 'text' ? passwordIconOne = 'password' :passwordIconOne = 'text'"></i>
+                        	<div class="field-message" ng-messages="clodConnectivityForm.sharedAccessKey.$error"
+							ng-if='clodConnectivityForm.sharedAccessKey.$dirty' ng-cloak></div>
+							<span ng-show="errorSharedAccessKey" class="error-span" style="color:red;">{{errorSharedAccessKeyMessage}}</span>
+						</div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Certificate<span class="validationRequired">*</span></label>
+                        <div class="input-wrap"><input type="file" ng-model="file" file-model="fileMod" name="uploadfile"
+                        file-reader="fileContent" accept=".pem" onchange="angular.element(this).scope().fileNameChanged(this.files)">
+                    </div>
+                    <div class="row"> <div class="col-md-12">
+                        <span ng-if="invalidFile" style="color:red;">{{ fileErrMessage }}</span>
+                    </div>
+                    </div>
+
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-btn text-right">
+                        <button class="plain-btn" ng-click="resetDetails('cloudConnect');">Cancel</button>
+                        <button class="fill-btn"  ng-click="saveCloudConnectivityConfig();" ng-disabled="!isFileBrowsed || fileValidation">Save</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

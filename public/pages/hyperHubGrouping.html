@@ -1,0 +1,45 @@
+<div class="container-fluid" id="transformerMeterGroupingDiv">
+    <div class="row">
+        <div ncy-breadcrumb></div>
+        <div class="circuitName listadjust">
+            <h5>List of HyperHUBs&trade;</h5>
+        </div>
+    </div>
+    <div class="row" style="margin-bottom:3px">
+        <div class="pull-left gp-transformer-lable">
+            <div class="row ">
+                <div class="col-xs-6 col-md-6 col-sm-6 col-lg-6">
+                    <input ng-model="searchterm" class="form-control searchBox" placeholder="Search"
+                           type="search" ng-change="searchButtonClear(searchterm)">
+                </div>
+                <div class="col-xs-6 col-md-6 col-sm-6 col-lg-6">
+                    <button type="button" ng-click="searchButton(searchterm)" class="btn btn-default btnColor" ng-disabled="!searchterm">
+                        Search
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="pull-right">
+            <button type="button" ng-click="openNewHyerHubConfiguration()"
+                    class="btn btn-default btnColor">
+                Find HyperHUBs&trade;
+            </button>
+            &nbsp;
+            <button type="button" ng-click="removeSelectedHyperHub()"
+                    class="btn btn-default btnColor configSettings">
+                Un-Group HyperHUB&trade;
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="container-fluid">
+            <div ui-grid="hyperHubGrouping" ui-grid-edit ui-grid-exporter ui-grid-pagination
+                 ui-grid-selection ui-grid-resize-columns class="grid">                
+            </div>
+            <div class="watermark" ng-show="!hyperHubGrouping.data.length">{{datagridMessage}}</div>
+        </div>
+        <div class="container">
+            <div ui-view></div>
+        </div>
+    </div>
+</div>

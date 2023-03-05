@@ -1,0 +1,138 @@
+<div class="continer-fluid">
+<div style="height: auto">
+    <div style="padding-top:2%">
+        <div class="rectangleBox">
+            <div id="dvId" class="divImage">
+                <div class="row">
+                <img alt="#" src="../assets/images/Report/Device Registration.png" class="imgDimension-helpSub" />
+                </div>
+            </div>
+            <div class="your_col"></div>
+            <div class="row" style="align-content: center">
+                <label style="font-size: 30px; color: white; padding-top: 30px; padding-left:110px">Device Registration Status</label>
+            </div>
+        </div>
+        <div class="row" style="margin-left:30%;margin-top:30px">
+            <div style="width: 120%">
+                <div style="width: 50%;">
+                    <div style="float: left;">
+                        <p><a ng-click="tabChange('readingReport')" href=""><strong>1. Reading The Report</strong></a></p>
+                    </div>
+                    <div style="float: right;">
+                        <p><a ng-click="tabChange('exportingReport')" href=""><strong>4. Exporting The Report</strong></a></p>
+                    </div>
+                </div>
+            </div>
+            <div style="width: 120%">
+                <div style="width: 48.4%; float: left;">
+                    <div style="float: left;">
+                        <p><a ng-click="tabChange('filterReport')" href=""><strong>2. Filtering The Report</strong></a></p>
+                    </div>
+                    <div style="float: right;">
+                        <p><a ng-click="tabChange('printReport')" href=""><strong>5. Printing The Report</strong></a></p>
+                    </div>
+                </div>
+            </div>
+            <div style="width: 120%">
+                <div style="width: 40%;">
+                    <div style="float: left;">
+                        <p><a ng-click="tabChange('sortReport')" href=""><strong>3. Sorting The Report</strong></a></p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="hr" style="margin-top: 1%"></div>
+    <div ng-show="tabs.readingReport">
+        <div>
+            <div class="row">
+            <label class="adjustHead">I. Reading The Report</label>
+            </div>
+            <p class="paragraph">
+                The Device Registration Status report shows all devices that have been deregistered from the CollectionENGINE&trade;. The report
+                contains four columns.
+
+
+                <br><strong>1.Serial Number:  </strong>The serial number of the device that was deregistered.
+                <br><strong>2.Type:</strong>The type of device is shown here. This can be a HyperSPROUT&trade; or meter.
+                <br><strong>3.Last Deregistered Time:</strong> The timestamp of when the device was deregistered should be
+                here.
+                <br><strong>4.HyperSPROUT&trade;: </strong>The serial number of the HyperSPROUT&trade; that was collecting data from the
+                device before it deregistered.
+
+            </p>
+            <div class="row">
+            <img alt="#" src="../assets/images/listRegistration.png" class="listSize"  />
+            </div>
+            <p class="paragraph">
+                If the report has a large amount of data, it might separate into pages. In this case, the user can choose how many entries
+                to display or which page to show from the pagination tool bar in the bottom left of the report.</p>
+                <div class="row">
+            <img alt="#" src="../assets/images/commPage.png" class="paginationSize"  />
+                </div>
+        </div>
+    </div>
+    <div ng-show="tabs.exportingReport">
+        <div>
+            <div class="row">
+            <label class="adjustHead">IV. Exporting The Report</label>
+            </div>
+            <p class="paragraph">
+                The report gives four different options for exporting. The user may export either all the data in the report or just the
+                currently displayed data in either a CSV format or a PDF format. To do this the user simply has to click
+                on the export button in the top right corner of the report after filtering it for the desired data.
+            </p>
+            <div class="row">
+            <img alt="#" src="../assets/images/exportMenu.png" class="" style="padding-left: 40%;padding-top:70px" />
+            </div>
+        </div>
+    </div>
+    <div ng-show="tabs.filterReport">
+        <div>
+            <div class="row">
+            <label class="adjustHead">II. Filtering The Report</label>
+            </div>
+            <p class="paragraph">
+                The filter for the device registration status report contains one section. It allows the user to input a threshold for the
+                deregistration time column by entering a date and time.
+            </p>
+            <div class="row">
+            <img alt="#" src="../assets/images/filterRegistration.png" class="" style="padding-left: 35%;" />
+            </div>
+
+        </div>
+    </div>
+    <div ng-show="tabs.printReport">
+        <div>
+            <div class="row">
+            <label class="adjustHead">V. Printing The Report</label>
+            </div>
+            <p class="paragraph">
+                The report can easily be prepared for printing by using the provided printing button. This button will open up a standard
+                printing window with the report displayed.
+            </p>
+            <div class="row">
+            <img alt="#" src="../assets/images/savePrint.png" class="" style="padding-left: 46%;padding-top:50px" />
+            </div>
+        </div>
+    </div>
+    <div ng-show="tabs.sortReport">
+        <div>
+            <div class="row">
+            <label class="adjustHead">III. Sorting The Report</label>
+            </div>
+            <p class="paragraph">
+                To sort the report, the user must click the header of whichever column they would like to sort by. For instance, clicking
+                on the Last Deregistered Time header will switch the column between the default display, ascending times,
+                and descending times.
+            </p>
+            <div class="row">
+            <img alt="#" src="../assets/images/sortRegistration.png" class="" style="padding-left: 42%;margin-top:21px" />
+            </div>
+        </div>
+    </div>
+</div>
+</div>

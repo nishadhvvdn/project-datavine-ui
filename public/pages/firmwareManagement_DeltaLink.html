@@ -1,0 +1,26 @@
+﻿<div class="container-fluid">
+	<div class="row">
+		<h3 class="headingAlign" style="margin-left:15px">DeltaLINK&trade; Firmware Management</h3>
+	</div>
+	<div class="row">
+		<div class="pull-right" style="padding-right: 13px;">
+			<button type="button" class="btn btn-default btnColor" popover-append-to-body='false' popover-animation='true' popover-placement='bottom'
+				popover-is-open="dynamicPopover.isOpen" uib-popover-template='dynamicPopover.templateUrl'>
+                Filter
+            </button>&nbsp;
+			<button type="button" ng-click="openImportFirmware()" class="btn btn-default btnColor">
+                Import DeltaLINK&trade; Firmware
+            </button>&nbsp;
+			<button type="button" ng-click="openEnterFirmwareDownload()" class="btn btn-default btnColor" style="padding-right:-2%">
+                Enter&nbsp;DeltaLINK&trade; Firmware&nbsp;Download Mode
+            </button>
+		</div>
+	</div>
+	<div class="row">
+		<div class="container-fluid">
+			<div ui-grid="deltaLinkGroupGrid" ui-grid-exporter ui-grid-pagination ui-grid-resize-columns class="grid"></div>
+			<div class="watermark" ng-if="!deltaLinkGroupGrid.data.length">{{commonMsg}}</div>
+		</div>
+
+	</div>
+</div>

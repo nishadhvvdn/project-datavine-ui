@@ -1,0 +1,56 @@
+﻿<div class="modal-header">
+    <h4 class="modal-title"><strong>Import {{name}} Firmware</strong></h4>
+</div>
+<div class="container-fluid modalBackground">
+    <div class="modal-body">
+        <form name="import_firmwareForm" novalidate>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="row">
+                        <h5><strong>Select {{name}} Firmware File</strong></h5>
+                    </div>
+                    <div class="row">
+                        <label class="btn custom-input-btn">
+                            <input type="file" class="fileUpload" ng-model="file" file-model="fileMod" name="uploadfile"
+                                file-reader="fileContent" accept=".zip" style="display:none;" />
+                            <i class="fa fa-cloud-upload"></i> Upload Files
+                        </label><br />
+                        <span class="filename-property"
+                            style="font-size: 10px;">{{fileContent.name}}</span>
+                        <!--<span style="font-size: 11px; color:blue"><i>Select files only with .txt extension </i></span>-->
+                        <span style="font-size: 11px; color:red ">{{errMessage}}</span>
+                    </div>
+                    <div class="row">
+                        <h5><strong>Select Device Type</strong></h5>
+                    </div>
+                    <div class="row">
+                        <select class="form-control select-widh" name="selectedDeviceType" ng-model="selectedDeviceType"
+                            ng-options="obj as obj.deviceType for obj in deviceTypeArray track by obj.id"
+                            ng-change="dataTypeChange()" required></select>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-7">
+                    <div class="row">
+                        <h5><strong>Import Result</strong></h5>
+                    </div>
+                    <div class="row modalTable">
+                        <table class="table result_table">
+                            <tr ng-repeat="import in imports">
+                                <td>{{name}} {{import.key}}</td>
+                                <td> {{import.value}} </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default btnColor" ng-disabled="import_firmwareForm.$invalid||fileUploadStatus"
+        ng-click="uploadFile()">
+        Import
+    </button>
+    <button type="button" class="btn btn-default btnDefault" ng-click="cancel()">Cancel</button>
+</div>

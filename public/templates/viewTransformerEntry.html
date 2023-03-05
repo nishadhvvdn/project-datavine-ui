@@ -1,0 +1,31 @@
+<div id="print-content">
+    <div class="modal-header">
+        <strong>
+            <h4 class="modal-title">View- (Transformer - {{transfomerdetails.transformerSl}})</h4>
+        </strong>
+    </div>
+    <div class="container-fluid modalBackground">
+        <div class="modal-body">
+            <form name="viewTransEntry_form" novalidate>
+                <div class="container-fluid">
+                    <uib-tabset active="active" class="editModalFont">
+                        <uib-tab index="0" heading="Transformer Details">
+                            <div ng-include="'/tabs/transformerDetails.html'"></div>
+                        </uib-tab>
+                        <uib-tab index="1" heading="HyperSPROUT&trade; Details">
+                            <div ng-include="'/tabs/hyperSproutDetails.html'"></div>
+                        </uib-tab>
+                        <uib-tab index="1" heading="Communications">
+                            <div ng-include="'/tabs/communications.html'"></div>
+                        </uib-tab>
+                    </uib-tabset>
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class='modal-footer'>
+        <button type="button" class="btn btn-default btnDefault" ng-click="ok()">OK</button>
+    </div>
+</div>

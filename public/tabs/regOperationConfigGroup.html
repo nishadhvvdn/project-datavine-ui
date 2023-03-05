@@ -1,0 +1,93 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <div>
+            <a href='' class="imageBorder" style="margin-left: 80%;" ng-click="printCart()"><img src="../assets/images/Print.png" /></a>
+            <a href='' class="imageBorder" ng-click="pdf()"><img src="../assets/images/PDF.png" /><b class="anchorText">PDF</b>&nbsp;</a>
+            <a href='' class="imageBorder" ng-click="excel()"><img src="../assets/images/Excel.png" /><b class="anchorText">Excel</b>&nbsp;</a>
+        </div>
+    </div>
+    <hr class="editHr" />
+    <div class="row">
+        <form name="config_form" novalidate ng-submit="registerOpsForm()" method="post">
+            <table class="table table-hover modalTableBorder">
+                <tr>
+                    <td>
+                        <label>Demand Interval Length(mins)</label>
+                        <i class="fa fa-asterisk" style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;" aria-hidden="true"></i>
+                    </td>
+                    <td>{{configObj['ConfigGroups_Info']['DemandIntervalLength']}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>No. of SubIntervals</label>
+                        <i class="fa fa-asterisk" style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;" aria-hidden="true"></i>
+                    </td>
+                    <td>{{configObj['ConfigGroups_Info']['NumberofSubIntervals']}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Cold Load Pickup Time(mins)</label>
+                        <i class="fa fa-asterisk" style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;" aria-hidden="true"></i>
+
+                    </td>
+                    <td>{{configObj['ConfigGroups_Info']['ColdLoadPickupTimes']}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Power Outage Recognition Time(secs)</label>
+                        <i class="fa fa-asterisk" style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;" aria-hidden="true"></i>
+                    </td>
+                    <td>{{configObj['ConfigGroups_Info']['PowerOutageRecognitionTime']}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Test Mode Demand Interval Length</label>
+                        <i class="fa fa-asterisk" style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;" aria-hidden="true"></i>
+                    </td>
+                    <td>{{configObj['ConfigGroups_Info']['TestModeDemandIntervalLength']}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Number of Test Mode Subintervals</label>
+                        <i class="fa fa-asterisk" style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;" aria-hidden="true"></i>
+                    </td>
+                    <td>{{configObj['ConfigGroups_Info']['NumberofTestModeSubintervals']}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Time to remain in Test Mode(mins)</label>
+                        <i class="fa fa-asterisk" style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;" aria-hidden="true"></i>
+                    </td>
+                    <td>{{configObj['ConfigGroups_Info']['TimetoremaininTestMode']}}</td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <hr />
+    <div class="row">
+        <h5>
+            <strong>Daily Self Reads</strong>
+            <i class="fa fa-asterisk" style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;" aria-hidden="true"></i>
+        </h5>
+    </div>
+    <div class="row">
+        <table class="table table-hover modalTableBorder">
+            <tr>
+                <td>
+                    <h5 class=""><strong>Daily Self Read Time</strong></h5>
+                </td>
+                <td>Enable &nbsp;<input type="checkbox" ng-model="configObj['ConfigGroups_Info']['DailySelfReadTime']" ng-disabled="true"></td>
+                <!--configObj['ConfigGroups_Info']['DailySelfReadTime']-->
+                <td>
+                    <select style="width:50%;" ng-disabled="!configObj['ConfigGroups_Info']['DailySelfReadTime']">
+                        <option value="All">15mins</option>
+                        <option value="ReadTime1">30mins</option>
+                        <option value="ReadTime2">45mins</option>
+                        <option value="ReadTime3">60mins</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <h5 style="color:red ; font-size:12px; margin-left:2%"><i class="fa fa-asterisk" style="font-size: 1vh; color: red; " aria-hidden="true"></i>All fields are mandatory</h5>
+</div>

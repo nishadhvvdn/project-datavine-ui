@@ -1,0 +1,755 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for controllers\newCircuitConfigurationCtrl.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">controllers/</a> newCircuitConfigurationCtrl.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">86.58% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>129/149</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">84.51% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>60/71</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>10/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">86.58% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>129/149</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">(function (angular) {
+    
+    "use strict";
+    
+    angular.module('dataVINEApp').controller('newCircuitConfigurationCtrl', ["$uibModalStack","$modalInstance", "$scope", "$rootScope", "$uibModal", "$state", "DeviceService",
+        function ($uibModalStack,$modalInstance, $scope, $rootScope, $uibModal, $state, deviceService) {
+            
+            var configurationData = null;
+            var retrievedData = null;
+            init();
+            
+            function init() {
+                $scope.meterdetails = {};
+                
+                <span class="missing-if-branch" title="if path not taken" >I</span>if ($state.current.name === 'editCircuit' &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >angular.isUndefinedOrNull(objCacheDetails.data.selectedData))</span> {
+<span class="cstat-no" title="statement not covered" >                    $state.go('system.registration.circuitEntry');</span>
+<span class="cstat-no" title="statement not covered" >                    return;</span>
+                }
+                
+                $scope.showCktIdErrorMsg = true;
+                configurationData = angular.copy(objCacheDetails.data.configurationData);
+                objCacheDetails.data.configurationData = null;
+                $scope.meterdetails.CircuitNote = ''; 
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (angular.isUndefinedOrNull(objCacheDetails.data.selectedData)) {
+<span class="cstat-no" title="statement not covered" >                    $scope.createUpdateStatus = true;</span>
+                } else {
+                    retrievedData = objCacheDetails.data.selectedData;
+                    $scope.meterdetails.CircuitNumber = retrievedData.CircuitNumber;
+                    $scope.meterdetails.circuitId = retrievedData.circuitId;
+                    $scope.meterdetails.kvaRating = retrievedData.kvaRating;
+                    $scope.meterdetails.substationId = retrievedData.substationId;
+                    $scope.meterdetails.substationName = retrievedData.substationName;
+                    $scope.meterdetails.substationAdd = retrievedData.substationAdd;
+                    $scope.meterdetails.country = retrievedData.country;
+                    $scope.meterdetails.state = retrievedData.state;
+                    $scope.meterdetails.city = retrievedData.city;
+                    $scope.meterdetails.zipcode = retrievedData.zipcode;
+                    $scope.meterdetails.latitude = (retrievedData.Latitude).toString();
+                    $scope.meterdetails.longitude = (retrievedData.Longitude).toString();
+                    $scope.meterdetails.CircuitNote = retrievedData.CircuitNote;
+                    
+                    $scope.createUpdateStatus = false;
+                    objCacheDetails.data.selectedData = null;
+&nbsp;
+                }
+            }
+            
+            
+            $scope.update = function () {
+                deviceService.editCircuit($scope.meterdetails.CircuitNumber, 
+                            $scope.meterdetails.circuitId, $scope.meterdetails.kvaRating, $scope.meterdetails.substationId, $scope.meterdetails.substationName, $scope.meterdetails.substationAdd,
+                            $scope.meterdetails.country, $scope.meterdetails.state, $scope.meterdetails.city, 
+                            $scope.meterdetails.zipcode, parseFloat($scope.meterdetails.latitude), parseFloat($scope.meterdetails.longitude), $scope.meterdetails.CircuitNote).then(function (resultMsg) {
+                    swal(resultMsg);
+                    $modalInstance.dismiss();
+                    $uibModalStack.clearFocusListCache();
+                    $state.reload();
+                });
+            };
+            $scope.cancel = function () {
+                $modalInstance.dismiss();
+                $uibModalStack.clearFocusListCache();
+            };
+            
+            $scope.save = function () {
+                deviceService.create('NewCircuitEntry',['Add',[$scope.meterdetails.circuitId], [$scope.meterdetails.kvaRating], [$scope.meterdetails.substationId],
+                                         [$scope.meterdetails.substationName], [$scope.meterdetails.substationAdd], [$scope.meterdetails.country], 
+                                         [$scope.meterdetails.state], [$scope.meterdetails.city], [$scope.meterdetails.zipcode],
+                            [parseFloat($scope.meterdetails.latitude)], [parseFloat($scope.meterdetails.longitude)], [$scope.meterdetails.CircuitNote]]).then(function (resultMsg) {
+                    swal(resultMsg);
+                    $modalInstance.dismiss();
+                    $uibModalStack.clearFocusListCache();
+                    $state.reload();
+&nbsp;
+                });
+            };
+            
+            $scope.oneAtATime = true;
+            $scope.status = {
+                isCustomHeaderOpen: false,
+                isFirstOpen: true,
+                isFirstDisabled: false
+            };
+            
+            var regLat = new RegExp("^(\\+|-)?(?:90(?:(?:\\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\\.[0-9]{1,6})?))$");       
+            var regLon = new RegExp("^(\\+|-)?(?:180(?:(?:\\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\\.[0-9]{1,6})?))$");
+&nbsp;
+            $scope.focusValidate = function (field) {
+                if (field === 'circuitId') {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if ($.isEmptyObject($scope.circuitEdit.circuitId.$error) === false) {
+<span class="cstat-no" title="statement not covered" >                        $scope.errorMessageCktId = 'DTC ID is required!';</span>
+<span class="cstat-no" title="statement not covered" >                        $scope.errorCktId = true;</span>
+<span class="cstat-no" title="statement not covered" >                        $scope.circuitEdit.circuitId.$valid = false;</span>
+                    } else if ($scope.meterdetails.circuitId.length &gt; 30) {
+                        $scope.errorMessageCktId = 'Length of DTC ID must be less than 30';
+                        $scope.errorCktId = true;
+                        $scope.circuitEdit.circuitId.$valid = false;
+                    } else {
+                        $scope.errorCktId = false;
+                        $scope.circuitEdit.circuitId.$valid = true;
+                    }
+&nbsp;
+                } else if (field === 'kvaRating') {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (!$.isEmptyObject($scope.circuitEdit.kvaRating.$error)) {
+<span class="cstat-no" title="statement not covered" >                        $scope.errorMessageKvaRating = 'KVA Rating is required!';</span>
+<span class="cstat-no" title="statement not covered" >                        $scope.errorKvaRating = true;</span>
+<span class="cstat-no" title="statement not covered" >                        $scope.circuitEdit.kvaRating.$valid = false;</span>
+                    } else if ($scope.meterdetails.kvaRating.length &gt; 6) {
+                        $scope.errorMessageKvaRating = 'Length of KVA Rating must be less than 6!'
+                        $scope.errorKvaRating = true;
+                        $scope.circuitEdit.kvaRating.$valid = false;
+                    } else {
+                        $scope.errorKvaRating = false;
+                        $scope.circuitEdit.kvaRating.$valid = true;
+                    }
+                }
+                else if (field === 'latitude') {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (!$.isEmptyObject($scope.circuitEdit.latitude.$error)) {
+<span class="cstat-no" title="statement not covered" >                        $scope.errorMessageLatitude = 'Latitude is required!';</span>
+<span class="cstat-no" title="statement not covered" >                        $scope.errorLatitude = true;</span>
+<span class="cstat-no" title="statement not covered" >                        $scope.circuitEdit.latitude.$valid = false;</span>
+                    }
+                    else <span class="missing-if-branch" title="if path not taken" >I</span>if (regLat.exec($scope.meterdetails.latitude)) {
+<span class="cstat-no" title="statement not covered" >                        $scope.errorLatitude = false;</span>
+<span class="cstat-no" title="statement not covered" >                         $scope.circuitEdit.latitude.$valid = true;</span>
+                    } else {
+                        $scope.errorMessageLatitude = 'Invalid Latitude! The range of latitude is 0 to +/- 90';
+                        $scope.errorLatitude = true;
+                        $scope.circuitEdit.latitude.$valid = false;
+                    }
+                }
+                else if (field === 'longitude') {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (!$.isEmptyObject($scope.circuitEdit.longitude.$error)) {
+<span class="cstat-no" title="statement not covered" >                        $scope.errorMessageLongitude = 'Longitude is required!';</span>
+<span class="cstat-no" title="statement not covered" >                        $scope.errorLongitude = true;</span>
+<span class="cstat-no" title="statement not covered" >                        $scope.circuitEdit.longitude.$valid = false;</span>
+                    }
+                    else <span class="missing-if-branch" title="if path not taken" >I</span>if (regLon.exec($scope.meterdetails.longitude)) {
+<span class="cstat-no" title="statement not covered" >                        $scope.errorLongitude = false;</span>
+<span class="cstat-no" title="statement not covered" >                        $scope.circuitEdit.longitude.$valid = true;</span>
+                    } else {
+                        $scope.errorMessageLongitude = 'Invalid Longitude! The range of longitude is 0 to +/- 180';
+                        $scope.errorLongitude = true;
+                        $scope.circuitEdit.longitude.$valid = false;
+                    }
+                }
+                else if (field === 'substationId') {
+                    if ($scope.meterdetails.substationId.length &gt; 30) {
+                        $scope.errorMessageSubstnId = 'Length of Sub-station ID must be less than 30!';
+                        $scope.errorSubstnId = true;
+                        $scope.circuitEdit.substationId.$valid = false;
+                    } else {
+                        $scope.errorSubstnId = false;
+                        $scope.circuitEdit.substationId.$valid = true;
+                    }
+                }
+                else if (field === 'substationName') {
+                    if ($scope.meterdetails.substationName.length &gt; 30) {
+                        $scope.errorMessageSubstnName = 'Length of Sub-station name must be less than 30!';
+                        $scope.errorSubstnName = true;
+                        $scope.circuitEdit.substationName.$valid = false;
+                    } else {
+                        $scope.errorSubstnName = false;
+                        $scope.circuitEdit.substationName.$valid = true;
+                    }
+                }
+                else if (field === 'substationAdd') {
+                    if ($scope.meterdetails.substationAdd.length &gt; 100) {
+                        $scope.errorMessagesubstationAdd = 'Length of Sub-station Address must be less than 100!';
+                        $scope.errorsubstationAdd = true;
+                        $scope.circuitEdit.substationAdd.$valid = false;
+                    } else {
+                        $scope.errorsubstationAdd = false;
+                        $scope.circuitEdit.substationAdd.$valid = true;
+                    }
+                }
+                else if (field === 'country') {
+                    if ($scope.meterdetails.country.length &gt; 50) {
+                        $scope.errorMessageCountry = 'Length of Country must be less than 50!';
+                        $scope.errorCountry = true;
+                        $scope.circuitEdit.country.$valid = false;
+                    } else {
+                        $scope.errorCountry = false;
+                        $scope.circuitEdit.country.$valid = true;
+                    }
+                }
+                else if (field === 'state') {
+                    if ($scope.meterdetails.state.length &gt; 50) {
+                        $scope.errorMessageState = 'Length of State must be less than 50!';
+                        $scope.errorState = true;
+                        $scope.circuitEdit.state.$valid = false;
+                    } else {
+                        $scope.errorState = false;
+                        $scope.circuitEdit.state.$valid = true;
+                    }
+                }
+                else if (field === 'city') {
+                    if ($scope.meterdetails.city.length &gt; 50) {
+                        $scope.errorMessageCity = 'Length of City must be less than 50!';
+                        $scope.errorCity = true;
+                        $scope.circuitEdit.city.$valid = false;
+                    } else {
+                        $scope.errorCity = false;
+                        $scope.circuitEdit.city.$valid = true;
+                    }
+                }
+                else <span class="missing-if-branch" title="else path not taken" >E</span>if (field === 'zipcode') {
+                    if ($scope.meterdetails.zipcode.length &gt; 6) {
+                        $scope.errorMessageZipcode = 'Length of Zipcode must be less than 6!';
+                        $scope.errorZipcode = true;
+                        $scope.circuitEdit.zipcode.$valid = false;
+                    } else {
+                        $scope.errorZipcode = false;
+                         $scope.circuitEdit.zipcode.$valid = true;   
+                    }
+                }
+&nbsp;
+                $scope.create_circuit_valid = $scope.errorCktId || $scope.errorKvaRating || $scope.errorLatitude ||
+                                              $scope.errorLongitude || $scope.errorLongitude || $scope.errorSubstnId ||
+                                              $scope.errorSubstnName || $scope.errorCountry || $scope.errorState ||
+                                              $scope.errorCity || $scope.errorZipcode;
+            };
+            
+            $scope.$on('$destroy', function() {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (!angular.isUndefinedOrNull(configurationData)) {
+<span class="cstat-no" title="statement not covered" >                    configurationData = null;</span>
+                }
+            });
+&nbsp;
+        }]);
+})(window.angular);</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Aug 22 2017 16:49:25 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

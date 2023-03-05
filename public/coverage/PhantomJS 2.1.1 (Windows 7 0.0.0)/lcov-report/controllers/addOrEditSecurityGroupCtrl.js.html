@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for controllers\addOrEditSecurityGroupCtrl.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">controllers/</a> addOrEditSecurityGroupCtrl.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">5.77% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>6/104</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/53</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">5.56% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/18</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">5.77% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>6/104</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">(function (angular) {
+&nbsp;
+    "use strict";
+&nbsp;
+    angular.module('dataVINEApp')
+        .controller('addOrEditSecurityGroupCtrl', ['$scope', '$modalInstance', '$state', 'securityGroupDropDown', 'record', 'administrationService', 'type', 'commonService', <span class="fstat-no" title="function not covered" >function ($scope, $modalInstance, $state, securityGroupDropDown, record, administrationService, type, commonService) {</span>
+<span class="cstat-no" title="statement not covered" >            initTree();</span>
+<span class="cstat-no" title="statement not covered" >            $scope.disable = true;</span>
+<span class="cstat-no" title="statement not covered" >            $scope.cancel = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                $modalInstance.dismiss();</span>
+            };
+<span class="cstat-no" title="statement not covered" >            var list = [];</span>
+<span class="cstat-no" title="statement not covered" >            list = objCacheDetails.data.securityGroupDetails;</span>
+<span class="cstat-no" title="statement not covered" >            $scope.msg = '';</span>
+<span class="cstat-no" title="statement not covered" >            $scope.unique = true;</span>
+<span class="cstat-no" title="statement not covered" >            $scope.wordMsg = '';</span>
+<span class="cstat-no" title="statement not covered" >            $scope.check = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                var groupObj = commonService.check(list, 'SecurityGroupID', $scope.securityGroupID);</span>
+<span class="cstat-no" title="statement not covered" >                $scope.unique = groupObj.check;</span>
+<span class="cstat-no" title="statement not covered" >                $scope.name = groupObj.name;</span>
+<span class="cstat-no" title="statement not covered" >                $scope.msg = groupObj.msg;</span>
+<span class="cstat-no" title="statement not covered" >                $scope.specialChar = groupObj.checkSpecialChar;</span>
+            }
+<span class="cstat-no" title="statement not covered" >            $scope.wordCheck = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                var checkword = commonService.wordCheck($scope.description);</span>
+<span class="cstat-no" title="statement not covered" >                $scope.wordMsg = checkword.wordMsg;</span>
+            }
+<span class="cstat-no" title="statement not covered" >            $scope.viewMode = false;</span>
+<span class="cstat-no" title="statement not covered" >            $scope.securityGroupIDs = (type === 'edit'||type === 'view') ? securityGroupDropDown.output : [];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            $scope.description = (type === 'edit'||type === 'view') ? record.entity["Description"] : $scope.description;</span>
+<span class="cstat-no" title="statement not covered" >            $scope.securityGroupID = (type === 'add') ? $scope.securityGroupID : record.entity["SecurityGroupID"];            </span>
+<span class="cstat-no" title="statement not covered" >            if (type === 'view'){</span>
+<span class="cstat-no" title="statement not covered" >                populateData($scope.securityGroupID);</span>
+<span class="cstat-no" title="statement not covered" >                $scope.viewMode = true;</span>
+&nbsp;
+            }
+                
+<span class="cstat-no" title="statement not covered" >            $scope.treeDivInitialized = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                initTree();</span>
+<span class="cstat-no" title="statement not covered" >                if (type === 'edit'){</span>
+<span class="cstat-no" title="statement not covered" >                    for(var s=0;s&lt;$scope.securityGroupIDs.length;s++){</span>
+<span class="cstat-no" title="statement not covered" >                        if($scope.securityGroupIDs[s]==='Administrator'){</span>
+<span class="cstat-no" title="statement not covered" >                            $scope.securityGroupIDs.splice(s,1);</span>
+<span class="cstat-no" title="statement not covered" >                            break;</span>
+                        }
+                            
+&nbsp;
+                    }
+<span class="cstat-no" title="statement not covered" >                    populateData($scope.securityGroupID);</span>
+                }
+                    
+            }
+&nbsp;
+&nbsp;
+<span class="fstat-no" title="function not covered" >            function populateData(securityId) {</span>
+<span class="cstat-no" title="statement not covered" >                administrationService.returnSecurityGroups(securityId).then(<span class="fstat-no" title="function not covered" >function (objData) {</span></span>
+<span class="cstat-no" title="statement not covered" >                    if (!angular.isUndefinedOrNull(objData) &amp;&amp; !angular.isUndefinedOrNull(objData.output)</span>
+                        &amp;&amp; objData.output.length &gt; 0) {
+<span class="cstat-no" title="statement not covered" >                        objData = objData.output[0];</span>
+<span class="cstat-no" title="statement not covered" >                        initTree(objData.Functions);</span>
+                    }
+                });
+            }
+<span class="cstat-no" title="statement not covered" >            $scope.changeSecurityFunction=<span class="fstat-no" title="function not covered" >function(securityId){</span></span>
+<span class="cstat-no" title="statement not covered" >                for(var i=0;i&lt;list.length;i++){</span>
+<span class="cstat-no" title="statement not covered" >                    if(list[i].SecurityGroupID===securityId)</span>
+                    {
+<span class="cstat-no" title="statement not covered" >                        $scope.description=list[i].Description;</span>
+<span class="cstat-no" title="statement not covered" >                        break;</span>
+                    }
+                }
+<span class="cstat-no" title="statement not covered" >                populateData(securityId);</span>
+            }
+<span class="cstat-no" title="statement not covered" >            $scope.SaveOrEditSecurityGroup = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                var treeArray = commonService.getTreeData();</span>
+<span class="cstat-no" title="statement not covered" >                if (type === 'edit') {</span>
+<span class="cstat-no" title="statement not covered" >                    administrationService.EditSecurityGroups($scope.securityGroupID, $scope.description, treeArray).then(<span class="fstat-no" title="function not covered" >function (objData) {</span></span>
+<span class="cstat-no" title="statement not covered" >                        if (objData.type) {</span>
+<span class="cstat-no" title="statement not covered" >                            swal(objData.output);</span>
+                        } else {
+<span class="cstat-no" title="statement not covered" >                            swal(objData.Message);</span>
+                        }
+<span class="cstat-no" title="statement not covered" >                        $state.reload();</span>
+<span class="cstat-no" title="statement not covered" >                        $modalInstance.dismiss();</span>
+                    });
+                } else {
+<span class="cstat-no" title="statement not covered" >                    administrationService.AddSecurityGroups($scope.securityGroupID, $scope.description, treeArray).then(<span class="fstat-no" title="function not covered" >function (objData) {</span></span>
+<span class="cstat-no" title="statement not covered" >                        if (objData.type) {</span>
+<span class="cstat-no" title="statement not covered" >                            swal(objData.output);</span>
+                        } else {
+<span class="cstat-no" title="statement not covered" >                            swal(objData.Message);</span>
+                        }
+<span class="cstat-no" title="statement not covered" >                        $state.reload();</span>
+<span class="cstat-no" title="statement not covered" >                        $modalInstance.dismiss();</span>
+                    });
+                }
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var checkableTree = null;</span>
+<span class="cstat-no" title="statement not covered" >            var tree = [];</span>
+<span class="fstat-no" title="function not covered" >            function initTree(objFunctions) {</span>
+<span class="cstat-no" title="statement not covered" >                tree = commonService.initTree(objFunctions);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                checkableTree = $('#tree').treeview({</span>
+                    data: tree,
+                    showIcon: false,
+                    showCheckbox: true,
+                });
+<span class="cstat-no" title="statement not covered" >                check();</span>
+<span class="fstat-no" title="function not covered" >                function check() {</span>
+<span class="cstat-no" title="statement not covered" >                    var obj = $('#tree').treeview('getChecked');</span>
+<span class="cstat-no" title="statement not covered" >                    $scope.disable = true;</span>
+<span class="cstat-no" title="statement not covered" >                    if (obj.length &gt; 0)</span>
+<span class="cstat-no" title="statement not covered" >                        $scope.disable = false;</span>
+<span class="cstat-no" title="statement not covered" >                    setTimeout(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                        $scope.$apply($scope.disable); </span>//this triggers a $digest
+                    }, 1000);
+                }
+&nbsp;
+<span class="fstat-no" title="function not covered" >                function adjustParent(node) {</span>
+<span class="cstat-no" title="statement not covered" >                    var parent = checkableTree.treeview('getParent', node);</span>
+<span class="cstat-no" title="statement not covered" >                    if (parent !== checkableTree) {</span>
+<span class="cstat-no" title="statement not covered" >                        var checked = 0;</span>
+<span class="cstat-no" title="statement not covered" >                        for (var i in parent.nodes) {</span>
+<span class="cstat-no" title="statement not covered" >                            if (parent.nodes.hasOwnProperty(i)&amp;&amp;parent.nodes[i].state.checked) {</span>
+<span class="cstat-no" title="statement not covered" >                                checked++;</span>
+                            }
+                        }
+<span class="cstat-no" title="statement not covered" >                        if ((parent.nodes.length === checked) !== parent.state.checked) {</span>
+<span class="cstat-no" title="statement not covered" >                            checkableTree.treeview(parent.state.checked ? 'uncheckNode' : 'checkNode', [parent.nodeId, { silent: true }]);</span>
+                        }
+<span class="cstat-no" title="statement not covered" >                        adjustParent(parent);</span>
+                    }
+                }
+<span class="cstat-no" title="statement not covered" >                var inEvent = 0;</span>
+<span class="cstat-no" title="statement not covered" >                checkableTree.on('nodeChecked ', <span class="fstat-no" title="function not covered" >function (ev, node) {</span></span>
+<span class="cstat-no" title="statement not covered" >                    inEvent++;</span>
+<span class="cstat-no" title="statement not covered" >                    if (node.nodes !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >                        for (var i in node.nodes) {</span>
+<span class="cstat-no" title="statement not covered" >                            if(node.nodes.hasOwnProperty(i))</span>
+<span class="cstat-no" title="statement not covered" >                                checkableTree.treeview('checkNode', node.nodes[i].nodeId);</span>
+                        }
+                    }
+<span class="cstat-no" title="statement not covered" >                    inEvent--;</span>
+<span class="cstat-no" title="statement not covered" >                    if (inEvent === 0) {</span>
+<span class="cstat-no" title="statement not covered" >                        adjustParent(node);</span>
+                    }
+<span class="cstat-no" title="statement not covered" >                    check();</span>
+                }).on('nodeUnchecked ', <span class="fstat-no" title="function not covered" >function (ev, node) {</span>
+<span class="cstat-no" title="statement not covered" >                    inEvent++;</span>
+<span class="cstat-no" title="statement not covered" >                    if (node.nodes !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >                        for (var i in node.nodes) {</span>
+<span class="cstat-no" title="statement not covered" >                            if(node.nodes.hasOwnProperty(i))</span>
+<span class="cstat-no" title="statement not covered" >                                checkableTree.treeview('uncheckNode', node.nodes[i].nodeId);</span>
+                        }
+                    }
+<span class="cstat-no" title="statement not covered" >                    inEvent--;</span>
+<span class="cstat-no" title="statement not covered" >                    if (inEvent === 0) {</span>
+<span class="cstat-no" title="statement not covered" >                        adjustParent(node);</span>
+                    }
+<span class="cstat-no" title="statement not covered" >                    check();</span>
+                });
+            };
+        }]);
+&nbsp;
+})(window.angular);
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Aug 22 2017 16:49:25 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <div class="navbar-inverse sideNav">
+            <ul class="nav">
+                <li class="navigation_heading">
+                    <strong class="tabHeaderSize">
+                        System Management
+                    </strong>
+                </li>
+                <li ui-sref-active="activeState" ng-class="currentURL.current.name === 'system.hyperhublogs' || currentURL.current.name === 'system.hypersproutlogs' || 
+                currentURL.current.name === 'system.meterlogs' || currentURL.current.name === 'system.deltalinklogs' ? 'activeState' : '' ">
+                    <a ui-sref="system.deviceManagement" class="configNav_br" ng-click="selectDeviceTab()">Device
+                        Management</a>
+                </li>
+                <li ui-sref-active="activeState">
+                    <a ui-sref="system.networkJobStatus" class="configNav_br">Job Status</a>
+                </li>
+                <!--<li ui-sref-active="activeState">
+                    <a ui-sref="system.networkStatistics" class="configNav_br">Network Statistics</a>
+                </li>-->
+                <!--<li ui-sref-active="activeState">
+                    <a ui-sref="system.endpointCleanup" class="configNav_br">Endpoint Cleanup</a>
+                </li>-->
+                <li  ng-hide= "currentURL.current.name === 'system.unassignedDeltaLink' || currentURL.current.name.split('.')[1] === 'hypersproutconfig'  || currentURL.current.name.split('.')[1] === 'hyperhubconfig' || currentURL.current.name.split('.')[1] === 'meterconfig'" ui-sref-active="activeState" ng-class="currentURL.current.name === 'system.technicalLossEntry' || currentURL.current.name === 'system.meterDeltalink'  ? 'activeState' : '' ">
+                    <a ui-sref="system.registration" class="configNav_br" ng-click="selectRegistration()">Add
+                        Devices</a>
+                </li>
+                <li ng-show="currentURL.current.name === 'system.unassignedDeltaLink'" ui-sref-active="activeState" ng-class="currentURL.current.name === 'system.unassignedDeltaLink' ? 'activeState' : '' ">
+                    <a ui-sref="system.registration" class="configNav_br" ng-click="selectRegistration()">Add
+                        Devices</a>
+                </li>
+                <li ng-show="currentURL.current.name.split('.')[1] === 'hypersproutconfig'" ui-sref-active="activeState" ng-class="currentURL.current.name.split('.')[1] === 'hypersproutconfig' ? 'activeState' : '' ">
+                    <a ui-sref="system.hypersproutconfig"class="configNav_br" ng-click="selectConfiguration('hs')">Add
+                        Devices</a>
+                </li>
+                <li ng-show="currentURL.current.name.split('.')[1] === 'hyperhubconfig'" ui-sref-active="activeState" ng-class="currentURL.current.name.split('.')[1] === 'hyperhubconfig' ? 'activeState' : '' ">
+                    <a ui-sref="system.hyperhubconfig"class="configNav_br" ng-click="selectConfiguration('hh')">Add
+                        Devices</a>
+                </li>
+                <li ng-show="currentURL.current.name.split('.')[1] === 'meterconfig'" ui-sref-active="activeState" ng-class="currentURL.current.name.split('.')[1] === 'meterconfig' ? 'activeState' : '' ">
+                    <a ui-sref="system.meterconfig"class="configNav_br" ng-click="selectConfiguration('meter')">Add
+                        Devices</a>
+                </li>
+                <li ui-sref-active="activeState">
+                    <a ui-sref="system.grouping" class="configNav_br" ng-click="selectGrouping()">Grouping</a>
+                </li>
+                <!--<li ui-sref-active="activeState">
+                    <a ui-sref="system.nodeStatusOverview" class="configNav_br">Node Status Overview</a>
+                </li>-->
+            </ul>
+        </div>
+    </div>
+</div>

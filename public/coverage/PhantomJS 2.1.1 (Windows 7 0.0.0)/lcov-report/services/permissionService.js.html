@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for services\permissionService.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">services/</a> permissionService.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">98.13% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>105/107</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">99.38% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>161/162</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">80% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>4/5</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">98.13% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>105/107</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">856×</span>
+<span class="cline-any cline-yes">87×</span>
+<span class="cline-any cline-yes">87×</span>
+<span class="cline-any cline-yes">87×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">86×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">86×</span>
+<span class="cline-any cline-yes">86×</span>
+<span class="cline-any cline-yes">516×</span>
+<span class="cline-any cline-yes">516×</span>
+<span class="cline-any cline-yes">516×</span>
+<span class="cline-any cline-yes">2494×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">86×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">85×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">75×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">73×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">71×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">69×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">59×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">57×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">55×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">53×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">47×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">45×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">39×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">37×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">35×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">33×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">31×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">(function (angular) {
+&nbsp;
+    "use strict";
+&nbsp;
+    angular.module('dataVINEApp').service('permissionService', ['refreshservice',
+        function (refreshservice) {
+&nbsp;
+            this.checkPermission = function (state, callback) {
+                var insertdetails = [];
+                var funDetail = objCacheDetails.functionDetails;
+                if (angular.isUndefined(objCacheDetails.functionDetails)) {
+                    refreshservice.refresh().then(<span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                        funDetail = objCacheDetails.functionDetails;</span>
+<span class="cstat-no" title="statement not covered" >                        check();</span>
+                    });
+                } else {
+                    check();
+                }
+                function check() {
+                    var obj = {};
+                    for (var count in funDetail) {
+                        <span class="missing-if-branch" title="else path not taken" >E</span>if (funDetail.hasOwnProperty(count)) {
+                            insertdetails.push(funDetail[count]);
+                            for (var key in insertdetails[count].values) {
+                                obj[key] = insertdetails[count].values[key];
+                            }
+                        }
+&nbsp;
+                    }
+                    //------------------------------------For Hypersprout---------------------------------------------------------------------------------------------------------------
+                    if (state.name === 'login') {
+                        return callback(true);
+                    }
+                    if (state.name === 'hyperSprout.configurationManagement' || state.name === 'hyperSprout.configurationManagement.configPrgm' || state.name === 'hyperSprout.configurationManagement.configurations' || state.name === 'hyperSprout.configurationManagement.downloads' || state.name === 'hyperSprout.configurationManagement.discrepancies') {
+                        if (obj.ModifyHypersproutConfigurations === true || obj.ModifyHypersproutConfigurations === "true") {
+                            return callback(true);
+                        }
+                        return callback(false);
+                    }
+&nbsp;
+                    //------------------------------------------------------------------------------------------------------------------
+                    if (state.name === 'hyperSprout.groupManagement') {
+                        if (obj.ModifyHypersproutFirmware === true || obj.ModifyHypersproutFirmware === "true") {
+                            return callback(true);
+                        }
+                        return callback(false);
+                    }
+                    if (state.name === 'hyperSprout.hyperSproutJobStatus') {
+                        if (obj.HypersproutJobStatus === true || obj.HypersproutJobStatus === "true") {
+                            return callback(true);
+                        }
+                        return callback(false);
+                    }
+                    if (state.name === 'hyperSprout.firmwareManagement') {
+                        if (obj.HypersproutFirmwareManagement === true || obj.HypersproutFirmwareManagement === "true") {
+                            return callback(true);
+                        }
+                        return callback(false);
+                    }
+                    //------------------------------------------------for meter----------------------------------------------------------------------------------------------------------
+&nbsp;
+                    if (state.name === 'meter.configurationManagement' || state.name === 'meter.configurationManagement.configPrgm' || state.name === 'meter.configurationManagement.configurations' || state.name === 'meter.configurationManagement.downloads' || state.name === 'meter.configurationManagement.discrepancies') {
+                        if (obj.ModifyMeterConfigurations === true || obj.ModifyMeterConfigurations === "true") {
+                            return callback(true);
+                        }
+                        return callback(false);
+                    }
+&nbsp;
+                    if (state.name === 'meter.groupManagement') {
+                        if (obj.ModifyMeterFirmware === true || obj.ModifyMeterFirmware === "true") {
+                            return callback(true);
+                        }
+                        return callback(false);
+                    }
+                    if (state.name === 'meter.firmwareManagement') {
+                        if (obj.MeterFirmwareManagement === true || obj.MeterFirmwareManagement === "true") {
+                            return callback(true);
+                        }
+                        return callback(false);
+                    }
+                    if (state.name === 'meter.JobStatus') {
+                        if (obj.MeterJobStatus === true || obj.MeterJobStatus === "true") {
+                            return callback(true);
+                        }
+                        return callback(false);
+                    }
+                    //-------------------------------System Management-----------------------------------------------------------------
+                    if (state.name === 'system.deviceManagement' || state.name === 'system.deviceManagement.relays' || state.name === 'system.deviceManagement.meters') {
+                        if (obj.DeviceManagement === true || obj.DeviceManagement === "true") {
+                            return callback(true);
+                        }
+                        return callback(false);
+                    }
+                    if (state.name === 'system.networkJobStatus') {
+                        if (obj.JobStatus === true || obj.JobStatus === "true") {
+                            return callback(true);
+                        }
+                        return callback(false);
+                    }
+                    if (state.name === 'system.deviceManagement.hyphersprout' || state.name === 'system.deviceManagement.meter') {
+                        if (obj.EndpointCleanup === true || obj.EndpointCleanup === "true") {
+                            return callback(true);
+                        }
+                        return callback(false);
+                    }
+                    //----------------------------Administration-----------------------------------------------
+                    if (state.name === 'administration.security') {
+                        if (obj.ModifySecurity === true || obj.ModifySecurity === "true") {
+                            return callback(true);
+                        }
+                        return callback(false);
+                    }
+                    if (state.name === 'administration.systemSettings') {
+                        if (obj.ModifySystemSettings === true || obj.ModifySystemSettings === "true") {
+                            return callback(true);
+                        }
+                        return callback(false);
+                    }
+                    if (state.name === 'administration.defineUsers') {
+                        if (obj.ModifyUsers === true || obj.ModifyUsers === "true") {
+                            return callback(true);
+                        }
+                        return callback(false);
+                    }
+                    //------------------------------Report----------------------------------------------------------
+                    if (state.name === 'reports.communicationStatistics'||state.name === 'reports.communicationStatistics.hypersproutEntry'||state.name === 'reports.communicationStatistics.hyperhubEntry'||state.name === 'reports.communicationStatistics.meterEntry') {
+                        if (obj.CommunicationStatistics === true || obj.CommunicationStatistics === "true") {
+                            return callback(true);
+                        }
+                        return callback(false);
+                    }
+                    if (state.name === 'reports.dataVineHealth') {
+                        if (obj.DataVINEHealth === true || obj.DataVINEHealth === "true") {
+                            return callback(true);
+                        }
+                        return callback(false);
+                    }
+                    if (state.name === 'reports.systemLogs') {
+                        if (obj.SystemLog === true || obj.SystemLog === "true") {
+                            return callback(true);
+                        }
+                        return callback(false);
+                    }
+                    if (state.name === 'reports.deviceFirmwareVersions') {
+                        if (obj.DeviceFirmwareVersions === true || obj.DeviceFirmwareVersions === "true") {
+                            return callback(true);
+                        }
+                        return callback(false);
+                    }
+                    if (state.name === 'reports.deviceRegistrationStatus') {
+                        if (obj.DeviceRegistrationStatus === true || obj.DeviceRegistrationStatus === "true") {
+                            return callback(true);
+                        }
+                        return callback(false);
+                    }
+                    if (state.name === 'reports.systemAuditLog') {
+                        if (obj.SystemAuditLog === true || obj.SystemAuditLog === "true") {
+                            return callback(true);
+                        }
+                        return callback(false);
+                    }
+&nbsp;
+                    //===============
+                    if (state.name === 'system.grouping') {
+                        if (obj.Grouping === true || obj.Grouping === "true") {
+                            return callback(true);
+                        }
+                        return callback(false);
+                    }
+                    if (state.name === 'system.registration' || (state.name === 'system.registration.hyperHubEntry' || state.name === 'system.registration.circuitEntry' || state.name === 'system.registration.transformerEntry' || state.name === 'system.registration.meterEntry')) {
+                        if (obj.Registration === true || obj.Registration === "true") {
+                            return callback(true);
+                        }
+                        return callback(false);
+                    }
+                }
+            }
+        }]);
+})(window.angular);</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Aug 22 2017 16:49:25 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

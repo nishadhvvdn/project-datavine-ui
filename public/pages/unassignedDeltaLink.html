@@ -1,0 +1,57 @@
+<div class="container-fluid" id="unassignedDeltalinkListDiv">
+    <div class="row ">
+        <button type="button" class="btn btn-default bk-button" ng-click="goBack()" style="margin-bottom: -1.7%;">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            Back
+        </button>
+        <hr/>
+        <div class="circuitName listadjust">
+            <h5>Unassigned DeltaLINK&trade; List</h5>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="pull-left gp-transformer-lable">
+            <div class="row ">
+                <!-- <div class="col-xs-6 col-md-6 col-sm-6 col-lg-6">
+                    <select ng-model="searchMeterGrouping" class="form-control boxadjust" ng-change="searchGrid(searchterm)">
+                        <option value="all">All</option>
+                        <option value="tsn">Deltalink Serial Number</option>
+                        <option value="hsn">Consumer Number</option>
+                    </select>
+                </div> -->
+                <div class="col-xs-6 col-md-6 col-sm-6 col-lg-6">
+                    <input ng-model="searchterm" class="form-control searchBox" placeholder="Search"
+                           type="search" ng-change="searchButtonClear(searchterm);">
+                </div>
+                <div class="col-xs-6 col-md-6 col-sm-6 col-lg-6" style="padding-left: 0;">
+                    <button type="button" ng-click="searchGrid(searchterm)" class="btn btn-default btnColor" ng-disabled="!searchterm">
+                     Search
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="pull-right grouping">
+            <button type="button" ng-click="assignDeltalinkToMeter()"
+                    class="btn btn-default btnColor configSettings">
+                Assign Selected DeltaLINK&trade;
+            </button>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="container-fluid">
+            <div ui-grid="deltaLinkGrid" ui-grid-edit ui-grid-exporter ui-grid-pagination
+                 ui-grid-selection ui-grid-resize-columns class="grid"></div>
+            <div class="watermark" ng-show="!deltaLinkGrid.data.length">
+                {{commonMsg}}
+            </div>
+
+        </div>
+        <div class="container">
+            <div ui-view></div>
+        </div>
+    </div>
+
+</div>

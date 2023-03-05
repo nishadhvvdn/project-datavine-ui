@@ -1,0 +1,75 @@
+﻿<div class="modal-header">
+	<h4 class="modal-title"><b>Upload Program</b></h4>
+</div>
+<div class="container-fluid modalBackground">
+	<div class="modal-body">
+		<form name="upload_configForm" novalidate>
+			<div class="table modalTableBorder">
+				<div class="row">
+					<div class="col-md-3 col-lg-3">
+						<h5 class="name"><strong>Name: <i class="fa fa-asterisk"
+									style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;"
+									aria-hidden="true"></i></strong></h5>
+					</div>
+					<div class="col-md-8 col-lg-9">
+						<input type="text" autocomplete='off' name="name" ng-model="uploadObj.name"
+							ng-keyup="check($event)" class="form-control input-width" ng-maxlength="20" required />
+						<br />
+						<span ng-if="msg!=''" style="color:red ; font-size:12px">{{msg}}</span>
+						<span ng-show="specialChar" style="color:red ; font-size:12px ">Special Characters not
+							allowed</span>
+						<span style="color:red" ng-show="upload_configForm.name.$error.maxlength">
+							Name should not contain more than 20 characters
+						</span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3 col-lg-3">
+						<h5 class="name"><strong>Select File: <i class="fa fa-asterisk"
+									style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;"
+									aria-hidden="true"></i></strong></h5>
+					</div>
+					<div class="col-md-9 col-lg-9">
+						<input type="file" class="fileUpload" style="border-radious:3px" ng-model="file"
+							file-model="fileMod" name="uploadfile" file-reader="fileContent" accept=".xml" />
+						<!--<span style="font-size: 11px; color:blue"><i>Select files only with .txt extension </i></span>-->
+						<span style="font-size: 11px; color:red ">{{uploadFileObject.errMessage}}</span>
+
+					</div>
+				</div>
+				<div class="row">
+					<br>
+					<div class="col-md-3 col-lg-3">
+						<h5><strong>Description: <i class="fa fa-asterisk"
+									style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;"
+									aria-hidden="true"></i></strong></h5>
+					</div>
+					<div class="col-md-9 col-lg-9">
+						<textarea ng-model="description" name="description" ng-keyup="wordCheck($event)"
+							class="form-control importResultArea stop-resize" ng-minlength="1" ng-maxlength="100"
+							ng-pattern="/^[a-zA-Z0-9(),. ;/]+$/" required></textarea><br />
+						<span ng-if="wordMsg!=''" style="color:red ; font-size:12px">{{wordMsg}}</span>
+						<span style="color:red ; font-size:12px" ng-show="upload_configForm.description.$error.pattern">
+							Special characters are not allowed
+						</span><br />
+						<span style="color:red ; font-size:12px"
+							ng-show="upload_configForm.description.$error.maxlength">
+							Description should not contain more than 100 characters
+						</span>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<h5 style="color:red ; font-size:12px; margin-left:2%"><i class="fa fa-asterisk" style="font-size: 1vh; color: red; "
+		aria-hidden="true"></i>All fields are mandatory</h5>
+<div class='modal-footer'>
+	<button type="button" class="btn btn-default btnColor" ng-click="Save()" ng-disabled="wordMsg||specialChar||fileContent.content==undefined||unique||(uploadFileObject.errMessage) ||upload_configForm.name.$dirty && upload_configForm.name.$invalid || upload_configForm.name.$error.required ||
+            upload_configForm.version.$dirty && upload_configForm.version.$invalid || upload_configForm.version.$error.required ||
+            upload_configForm.description.$dirty && upload_configForm.description.$invalid ||
+            upload_configForm.description.$error.required ">
+		Save
+	</button>
+	<button type="button" class="btn btn-default btnDefault" ng-click="cancel(upload_configForm.$dirty)">Cancel</button>
+</div>

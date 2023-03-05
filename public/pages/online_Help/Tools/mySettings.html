@@ -1,0 +1,90 @@
+<div class="container-fluid">
+
+    <!--=====================================================-->
+
+    <div class="row">
+        <div class="rectangleBox">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 your_col">
+                    <img alt="#" src="../assets/images/Administration/My Settings.png" class="imgDimension-helpSub" />
+                </div>
+                <div class="col-xs-8 col-sm-98 col-md-8 col-lg-8 labelStyle">
+                    <label> My Settings </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--=====================================================-->
+
+    <div class="row" style="margin-top: 1%">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="pull-right">
+                <p><a ng-click="tabChange('changingAccount')" href=""><strong> 1. &nbsp; Changing Account Settings </strong></a></p>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="pull-left">
+                <p><a ng-click="tabChange('changingPassword')" href=""><strong> 2. &nbsp; Changing The Password </strong></a></p>
+            </div>
+        </div>
+    </div>
+    <!--=====================================================-->
+
+    <div class="hr" style="margin-top: 0"></div>
+
+
+    <!--=====================================================================================-->
+
+    <div class="row text-center scrollAdjust " ng-show="tabs.changingAccount">
+        <label> <h1> <strong> 1. Changing Account Settings </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+             To change the account settings simply change the value of the setting you want to alter in the text box associated with the setting and then click save
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/mySettingMain.png" />
+
+    </div>
+    <!--================================================================================-->
+
+    <div class="row text-center scrollAdjust" ng-show="tabs.changingPassword">
+        <label> <h1> <strong> 2. Changing The Password </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+            To change the password of the account begin by clicking the Change Password button in the bottom right.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/changePasswordBtn.png" />
+
+        <span>
+        <p class="paragraph">
+            
+            This will open a new window prompting for the current account password. Input this along with the new password and click OK. This will change the password for the account.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/changePswdWindow.png" />
+
+    </div>
+
+
+    <!--=====================================================================================-->
+
+</div>
+
+
+
+
+
+
+

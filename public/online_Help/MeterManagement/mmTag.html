@@ -1,0 +1,165 @@
+<div class="container-fluid">
+
+    <!--=====================================================-->
+
+    <div class="row">
+        <div class="rectangleBox">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 your_col">
+                    <img alt="#" src="../assets/images/HypersproutManagement/Tag discrepancy.png" class="imgDimension-helpSub" />
+                </div>
+                <div class="col-xs-8 col-sm-98 col-md-8 col-lg-8 labelStyle">
+                    <label> Tag Discrepancies </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--=====================================================-->
+
+
+    <div class="row" style="margin-top: 1%">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="pull-right">
+                <p><a ng-click="tabChange('readingReport')" href=""><strong>1. &nbsp; Reading The List</strong></a></p>
+                <p><a ng-click="tabChange('filterReport')" href=""><strong>2. &nbsp; Filtering The List</strong></a></p>
+                <p><a ng-click="tabChange('sortReport')" href=""><strong>3. &nbsp; Sorting The List</strong></a></p>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="pull-left">
+                <p><a ng-click="tabChange('exportingReport')" href=""><strong>4. &nbsp; Exporting The List</strong></a></p>
+                <p><a ng-click="tabChange('printReport')" href=""><strong>5. &nbsp; Printing The List</strong></a></p>
+            </div>
+        </div>
+    </div>
+    <!--=====================================================-->
+
+    <div class="hr" style="margin-top: 0"></div>
+
+    <!--===============================================================-->
+
+    <div class="row text-center" ng-show="tabs.readingReport">
+        <label> <h1> <strong> 1. Reading The List </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+        
+        
+        
+                The tag discrepancy list shows every reported discrepancy between the current configurations on the Meters and what
+                the CollectionENGINE&trade; is supposed to have set it to.
+                 <br>The list contains five columns. 
+                 <br><strong>1. Serial Number: </strong>This column shows the serial number of the Meter.
+                <br><strong>2. Configuration Tag:</strong> This column shows the configuration value on the CollectionENGINE&trade;.
+                <br><strong>3. Discrepant Tag: </strong> This column shows the configuration value that is actually on the
+                Meter.
+                <br><strong>4. First Found Time: </strong> The timestamp for when the system first registered the discrepancy.
+                <br><strong>5.Corrected Time: </strong> The timestamp for when discrepancy was corrected (this is blank if it has not been corrected).
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/readTag.png" style="width: 56%;margin-top:1%" />
+
+
+        <span> 
+        <p class="paragraph"  style= "margin-top:2%">
+                    If the report has a large amount of data, it might separate into pages. In this case, the user can choose how
+                many entries to display or which page to show from the pagination tool bar in the bottom left of the report.
+        </p>
+                </span>
+
+
+
+        <img alt="#" src="../assets/images/commPage.png" style=" width: 56% ;margin-top:1%" />
+
+    </div>
+    <!--=====================================================================================-->
+
+
+
+    <div class="row text-center scrollAdjust scrollHeightThreeRow" ng-show="tabs.filterReport">
+        <label> <h1> <strong> 2. Filtering The List </strong> </h1> </label>
+
+        <span> 
+        <p class="paragraph">
+             The filter for the tag discrepancies page contains two sections. 
+                    The first section allows you to choose between showing tag discrepancies that have already been corrected, ones that haven’t been corrected,
+                 and both by clicking the appropriate radio button.
+        </p>
+                </span>
+
+
+
+        <img alt="#" src="../assets/images/filterTagCorrected.png" />
+        <div>&nbsp;</div>
+        <span> 
+        <p class="paragraph">
+                   The second section allows you to input a date range that will filter the list for discrepancies that were found 
+                within the specified range.
+        </p>
+                </span>
+        <div>&nbsp;</div>
+        <img alt="#" src="../assets/images/filterTime.png" />
+
+    </div>
+    <!--===================================================================================-->
+
+    <div class="row text-center" ng-show="tabs.sortReport">
+        <label> <h1> <strong> 3. Sorting The List </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+            To sort the list, the user must click the header of whichever column they would like to sort by. For instance, clicking on the Configuration 
+               Tag header will switch the column between the default display, ascending alphabetically, and descending alphabetically.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/sortTag.png" />
+
+    </div>
+    <!--==========================================================================-->
+
+    <div class="row text-center" ng-show="tabs.exportingReport">
+        <label> <h1> <strong> 4. Exporting The List </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+            The report gives four different options for exporting. The user may export either all the data in the report or just the
+                currently displayed data in either a CSV format or a PDF format. To do this the user simply has to click
+                on the export button in the top right corner of the report after filtering it for the desired data.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/exportMenu.png" />
+
+    </div>
+    <!--=================================================================================-->
+
+    <div class="row text-center" ng-show="tabs.printReport">
+        <label> <h1> <strong> 5. Printing The List </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+            The report can easily be prepared for printing by using the provided printing button. This button will open up a standard
+                printing window with the report displayed.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/savePrint.png" />
+
+
+    </div>
+
+
+
+    <!--=====================================================================================-->
+
+</div>

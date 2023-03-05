@@ -1,0 +1,21 @@
+<div class="container-fluid">
+    <div class="row">
+        <h3 class="headingAlign" style="margin-left:15px">DeltaLINK&trade; Job Status</h3>
+    </div>
+    <div class="row">
+        <div class="pull-right filterBtn">
+            <button type="button" class="btn btn-default btnColor demandReadSettings" popover-append-to-body='false' popover-animation='true'
+                    popover-placement='bottom' popover-is-open="dynamicPopover.isOpen" uib-popover-template='dynamicPopover.templateUrl'
+                    ng-click="today()">
+                Filter
+            </button>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="container-fluid">
+            <div ui-grid="jobStatusGrid" ui-grid-resize-columns ui-grid-pagination ui-grid-exporter class="grid"></div>
+            <div class="watermark" ng-if="!deltaLinkGrid.data.length">{{commonMsg}}</div>
+        </div>
+    </div>
+</div>

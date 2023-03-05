@@ -1,0 +1,74 @@
+﻿<div id="print-content">
+	<div class="modal-header">
+		<h4 class="modal-title"><strong>Save As Configuration</strong></h4>
+	</div>
+	<div class="container-fluid modalBackground">
+		<div class="modal-body">
+			<form name="config_form" novalidate>
+				<div class="row">
+					<div class="col-sm-4 col-md-4 col-g-4">
+						<h5><strong>Config Programs</strong><i class="fa fa-asterisk mandatory"></i></h5>
+					</div>
+					<div class="col-sm-8 col-md-8 col-g-8">
+						<input name="Config_prog" ng-maxlength="20" type="text" class="form-control input-width"
+							ng-model="configObj['Name']" ng-keyup="check($event)" required><br>
+						<span ng-if="msg!=''" style="color:red ; font-size:12px">{{msg}}</span>
+						<span ng-show="specialChar" style="color:red ; font-size:12px ">Special Characters not
+							allowed</span>
+						<span style="color:red" ng-show="config_form.Config_prog.$error.maxlength">
+							Name should not contain more than 20 characters
+						</span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-4 col-md-4 col-g-4">
+						<h5><strong>Description:</strong></h5>
+					</div>
+					<div class="col-sm-8 col-md-8 col-g-8">
+						<input type="text" class="form-control input-width" ng-model="configObj['Description']">
+					</div>
+				</div>
+				<div class="row">
+					&nbsp;
+				</div>
+				<hr class="editHr" />
+				<div class="container-fluid">
+					<uib-tabset active="active" class="editModalFont">
+						<uib-tab index="0" heading="Quantities">
+							<div ng-include="'/tabs/quantities.html'"></div>
+						</uib-tab>
+						<uib-tab index="1" heading="Register Operation">
+							<div ng-include="'/tabs/registerOperation.html'"></div>
+						</uib-tab>
+						<uib-tab index="2" heading="Load Profile">
+							<div ng-include="'/tabs/loadProfile.html'"></div>
+						</uib-tab>
+						<uib-tab index="3" heading="Events/Alarms">
+							<div ng-include="'/tabs/eventsAlarms.html'"></div>
+						</uib-tab>
+						<uib-tab index="4" heading="Device Multiplier">
+							<div ng-include="'/tabs/deviceMultiplier.html'"></div>
+						</uib-tab>
+						<uib-tab index="5" heading="Voltage Monitor">
+							<div ng-include="'/tabs/voltageMonitor.html'"></div>
+						</uib-tab>
+						<uib-tab index="6" heading="Comm Logs">
+							<div ng-include="'/tabs/commLogs.html'"></div>
+						</uib-tab>
+
+					</uib-tabset>
+
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class='modal-footer'>
+		<button type="button" class="btn btn-default btnColor"
+			ng-disabled="specialChar||unique||config_form.Config_prog.$invalid||config_form.energy.$invalid||config_form.pw1.$invalid||config_form.pw2.$invalid||config_form.pw3.$invalid||config_form.pw4.$invalid||config_form.outageLength.$invalid||loadProfieObj.pulse1||loadProfieObj.pulse2||loadProfieObj.pulse3||loadProfieObj.pulse4||loadProfieObj.outageLength"
+			ng-click="Save()">
+			Save
+		</button>
+		<button type="button" class="btn btn-default btnDefault" ng-click="cancel(config_form.$dirty)">Cancel</button>
+	</div>
+</div>

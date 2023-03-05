@@ -1,0 +1,64 @@
+﻿<div class="modal-header">
+    <h4 class="modal-title"><strong>Production Firmware</strong></h4>
+</div>
+<div class="container-fluid modalBackground">
+    <div class="modal-body">
+        <table class="table table-hover modalTableBorder">
+            <tr>
+                <td>
+                    <h4><strong>Device Class used by Unit Tests</strong></h4>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h5><strong>Endpoint Comm Module</strong></h5>
+                </td>
+                <td>
+                    <select class="selectGroup" name="commModule" ng-model="commModule.value"
+                        ng-options="commMod for commMod in endpointCommModule.values" style="width:80%;" required>
+                        <option value="">Select One</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h5><strong>Endpoint HAN Module</strong></h5>
+                </td>
+                <td>
+                    <select class="selectGroup" name="hanModule" ng-model="hanModule.value"
+                        ng-options="hanMod for hanMod in endpointHANModule.values" style="width:80%;" required>
+                        <option value="">Select One</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h5><strong>Endpoint Register</strong></h5>
+                </td>
+                <td>
+                    <select class="selectGroup" name="endRegister" ng-model="endRegister.value"
+                        ng-options="endReg for endReg in endpointRegister.values" style="width:80%;" required>
+                        <option value="">Select One</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h5><strong>Relay Register</strong></h5>
+                </td>
+                <td>
+                    <select class="selectGroup" name="hyperRegister" ng-model="hyperRegister.value"
+                        ng-options="hypReg for hypReg in relayRegister.values" style="width:80%;" required>
+                        <option value="">Select One</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default btnColor" ng-click="">
+        OK
+    </button>
+    <button type="button" class="btn btn-default btnDefault" ng-click="cancel()">Cancel</button>
+</div>

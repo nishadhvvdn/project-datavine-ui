@@ -1,0 +1,70 @@
+<div class="modal-header">
+    <h4 class="modal-title"><strong>Technical Loss Item - {{techLossData.Name}}</strong></h4>
+</div>
+<div class="container-fluid modalBackground">
+    <div class="modal-body">
+        <div class="row">
+            <table class="table table-hover tableBorder">
+                <tr>
+                    <td>
+                        <h5><strong>Name:</strong></h5>
+                    </td>
+                    <td>
+                        <h5><strong>{{techLossData.Name}}</strong></h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5><strong>Metered:</strong></h5>
+                    </td>
+                    <td>
+                        <h5><strong>{{ techLossData.Metered }}</strong></h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5><strong>Usage Per Day (kW):</strong></h5>
+                    </td>
+                    <td>
+                        <h5><strong>{{techLossData.UsagePerDay}}</strong></h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5><strong>No. of Connected Items</strong></h5>
+                    </td>
+                    <td>
+                        <h5><strong>{{techLossData.ConnectedItems}}</strong></h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5><strong>Usage Time:</strong></h5>
+                    </td>
+                    <td>
+                        <h5><strong>{{techLossData.UsageTime}}</strong></h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5><strong>Start Hour:</strong></h5>
+                    </td>
+                    <td>
+                        <h5><strong>{{techLossData.StartHour}}</strong></h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5><strong>End Hour:</strong></h5>
+                    </td>
+                    <td>
+                        <h5><strong>{{techLossData.EndHour}}</strong></h5>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div class='modal-footer'>
+    <button type="button" class="btn btn-default btnDefault" ng-click="ok()">OK</button>
+</div>

@@ -1,0 +1,28 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <h3 class="headingAlign" style="margin-left:15px">HyperSPROUT&trade; Firmware Management</h3>
+    </div>
+        <div class="row">
+        <div class="pull-right" style="padding-right: 13px;">
+            <button type="button" class="btn btn-default btnColor"
+                    popover-append-to-body='false' popover-animation='true'
+                    popover-placement='bottom' popover-is-open="dynamicPopover.isOpen"
+                    uib-popover-template='dynamicPopover.templateUrl'>
+                Filter
+            </button>&nbsp;
+            <button type="button" ng-click="openImportFirmware()" class="btn btn-default btnColor">
+                Import HyperSPROUT&trade; Firmware
+            </button>&nbsp;
+            <button type="button" ng-click="openEnterFirmwareDownload()" class="btn btn-default btnColor">
+                Enter&nbsp;HyperSPROUT&trade; Firmware&nbsp;Download Mode
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="container-fluid">
+            <div ui-grid="firmwareOptions" ui-grid-exporter ui-grid-pagination ui-grid-resize-columns class="grid"></div>
+            <div class="watermark" ng-if="!firmwareOptions.data.length">{{commonMsg}}</div>
+        </div>
+
+    </div>
+</div>

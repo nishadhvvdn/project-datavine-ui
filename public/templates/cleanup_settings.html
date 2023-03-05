@@ -1,0 +1,38 @@
+﻿<div class="row">
+    <h5 style="margin-left: 1%; margin-top: 1%;"><b>Select Status Options</b></h5>
+    <a class="btn btn-default pull-right cleanup_popoverClose" ng-click="dynamicPopover.close()">
+        <span class="glyphicon glyphicon-remove"></span>
+    </a>
+    <div style="margin-left: 10%;">
+        <select-all-checkbox checkboxes="ListOfItems" all-selected="AllSelectedItems" all-clear="NoSelectedItems">
+        </select-all-checkbox>All
+        <div ng-repeat="item in ListOfItems" style="margin-left:12%">
+            <input type="checkbox" ng-model="item.isSelected" />{{item.desc}}
+        </div>
+    </div>
+</div>
+<div class="row">
+    <h5 style="margin-left:2%"><b>Last Deregistered Time Threshold</b></h5>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="input-group dateFilterPos">
+            <input type="text" class="form-control" uib-datepicker-popup ng-model="startingDate"
+                ng-change="setFromDate(startingDate)" is-open="popup1.opened" datepicker-options="dateOptions"
+                ng-required="true" close-text="Close" show-button-bar="false" readonly="readonly" />
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default " ng-click="open1()">
+                    <i class="glyphicon glyphicon-calendar"></i>
+                </button>
+            </span>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <uib-timepicker ng-model="startingDate" ng-change="setStartTime(startingDate)" hour-step="hstep"
+            minute-step="mstep" show-meridian="ismeridian" class="timepicker demandTime"></uib-timepicker>
+    </div>
+</div>
+<div class="row">
+    <button type="button" name="createReport" ng-model="createReport"
+        class="btn btn-default btnColor hyperSproutCreateReport">Find Endpoints</button>
+</div>

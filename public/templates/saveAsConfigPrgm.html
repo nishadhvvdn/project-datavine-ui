@@ -1,0 +1,75 @@
+﻿<div class="modal-header">
+    <h4 class="modal-title"><b>Save Config Program</b></h4>
+</div>
+<div class="container-fluid modalBackground">
+    <div class="modal-body">
+        <form name="upload_configForm" novalidate>
+            <div class="row">
+                <table class="table table-hover modalTableBorder">
+                    <tr>
+                        <td>
+                            <h5 class="name"><strong>Name: <i class="fa fa-asterisk"
+                                        style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;"
+                                        aria-hidden="true"></i></strong></h5>
+                        </td>
+                        <td>
+                            <input type="text" name="name" ng-model="name" class="name_textbox" ng-minlength="5"
+                                ng-maxlength="20" ng-pattern="/^[a-zA-Z0-9]+$/" required /> <br />
+                            <span style="color:red ; font-size:12px" ng-show="upload_configForm.name.$error.pattern">
+                                Only characters and numbers are allowed
+                            </span><br />
+                            <span style="color:red ; font-size:12px" ng-show="upload_configForm.name.$error.minlength">
+                                Name should contain at least 5 characters
+                            </span>
+                            <span style="color:red" ng-show="upload_configForm.name.$error.maxlength">
+                                Name should not contain more than 20 characters
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5 class="name"><strong>Version: <i class="fa fa-asterisk"
+                                        style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;"
+                                        aria-hidden="true"></i></strong></h5>
+                        </td>
+                        <td>
+                            <input type="number" name="version" ng-model="version" class="name_textbox" min=0
+                                oninput="validity.valid||(value='');" required /> <br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5><strong>Description: <i class="fa fa-asterisk"
+                                        style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;"
+                                        aria-hidden="true"></i></strong></h5>
+                        </td>
+                        <td>
+                            <textarea ng-model="description" name="description" class="importResultArea"
+                                ng-minlength="1" ng-maxlength="100" ng-pattern="/^[a-zA-Z0-9(),. ;/]+$/"
+                                required></textarea><br />
+                            <span style="color:red ; font-size:12px"
+                                ng-show="upload_configForm.description.$error.pattern">
+                                Special characters are not allowed
+                            </span><br />
+                            <span style="color:red ; font-size:12px"
+                                ng-show="upload_configForm.description.$error.maxlength">
+                                Description should not contain more than 100 characters
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    </div>
+</div>
+<h5 style="color:red ; font-size:12px; margin-left:2%"><i class="fa fa-asterisk" style="font-size: 1vh; color: red; "
+        aria-hidden="true"></i>All fields are mandatory</h5>
+<div class='modal-footer'>
+    <button type="button" class="btn btn-default btnColor" ng-click="Save()" ng-disabled="upload_configForm.name.$dirty && upload_configForm.name.$invalid || upload_configForm.name.$error.required ||
+            upload_configForm.version.$dirty && upload_configForm.version.$invalid || upload_configForm.version.$error.required ||
+            upload_configForm.description.$dirty && upload_configForm.description.$invalid ||
+            upload_configForm.description.$error.required ">
+        Save As
+    </button>
+    <button type="button" class="btn btn-default btnDefault" ng-click="cancel(upload_configForm.$dirty)">Cancel</button>
+</div>

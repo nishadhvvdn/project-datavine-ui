@@ -1,0 +1,38 @@
+﻿<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a ui-sref="master" href="#/master">
+                <img alt="#" src="../assets/images/logo_Delta.png" class="delta_logo_home" />
+            </a>
+        </div>
+        <div class="collapse navbar-collapse " id="myNavbar">
+            <ul class="nav navbar-nav " style="margin-top:2.4vh">
+                <li>
+                    <h2 class="dataVINE_word"><strong>DataVINE&trade;</strong></h2>
+                </li>
+                <li>
+                    <h3 class="collectionEngine_word">CollectionENGINE&trade;</h3>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="homeImage1" style="margin-top:1.2vh"><a ui-sref="master" href="#/master">&nbsp;<img alt="#"
+                            src="../assets/images/Home.png" /></a></li>
+                <li class="homeImage" style="margin-top:2.5vh">
+                    <h4 class="welcomeUser"><strong>&nbsp; Welcome, {{userName}} &nbsp; </strong></h4>
+                </li>
+                <!--<li><a ui-sref="login"  class="logout_icon">Logout &nbsp;<span class="glyphicon glyphicon-log-out"></span></a></li>-->
+                <li class="profile hovertip hovertipback logout_icon"><img alt="#" popover-animation='true'
+                        popover-placement='bottom' popover-is-open="dynamicPopover.isOpen"
+                        uib-popover-template='dynamicPopover.templateUrl'
+                        src="../assets/images/Administration/profileIcon.png" class="imgDimension-profile"
+                        style="margin-top:0.5vh" />
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

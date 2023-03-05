@@ -1,0 +1,157 @@
+<div class="container-fluid">
+
+    <!--=====================================================-->
+
+    <div class="row">
+        <div class="rectangleBox">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 your_col">
+                    <img alt="#" src="../assets/images/Report/System Audit.png" class="imgDimension-helpSub" />
+                </div>
+                <div class="col-xs-8 col-sm-98 col-md-8 col-lg-8 labelStyle">
+                    <label> System Audit Log </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--=====================================================-->
+
+
+    <div class="row" style="margin-top: 1%">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="pull-right">
+                <p><a ng-click="tabChange('readingReport')" href=""><strong>1. &nbsp; Reading The Report</strong></a></p>
+                <p><a ng-click="tabChange('filterReport')" href=""><strong>2. &nbsp; Filtering The Report</strong></a></p>
+                <p><a ng-click="tabChange('sortReport')" href=""><strong>3. &nbsp; Sorting The Report</strong></a></p>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="pull-left">
+                <p><a ng-click="tabChange('exportingReport')" href=""><strong>4. &nbsp; Exporting The Report</strong></a></p>
+                <p><a ng-click="tabChange('printReport')" href=""><strong>5. &nbsp; Printing The Report</strong></a></p>
+            </div>
+        </div>
+    </div>
+    <!--=====================================================-->
+
+    <div class="hr" style="margin-top: 0"></div>
+
+    <!--===============================================================-->
+
+    <div class="row text-center" ng-show="tabs.readingReport">
+        <label> <h1> <strong> 1. Reading The Report </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+        
+        
+        
+                The system audit log report shows all user actions on the CollectionENGINE&trade;. 
+            The report contains three columns. 
+            
+            <br><strong>1.User ID:  </strong>The id of the user who carried out the action.
+            <br><strong>2.Event Date/Time: </strong>The timestamp for when the action was done.
+            <br><strong>3.Event: </strong>A brief description of what action was taken on the CollectionENGINE&trade;. 
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/listAudit.png" style=" width: 56%; height:22vh" />
+
+
+        <span> 
+        <p class="paragraph"  style= "margin-top:1%">
+                    The report has a large amount of data, it might separate into pages. In this case, the user can choose how
+                many entries to display or which page to show from the pagination tool bar in the bottom left of the report.
+        </p>
+                </span>
+
+
+
+        <img alt="#" src="../assets/images/commPage.png" style=" width: 56% ;margin-top:1%" />
+
+    </div>
+    <!--=====================================================================================-->
+
+    <div class="row text-center scrollAdjust" ng-show="tabs.filterReport" style=" height: 67vh">
+        <label> <h1> <strong> 2. Filtering The Report </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+            The filter for the system audit log report contains three sections. 
+               </br>The first section is a set of checkboxes that allows the user to select which users to filter for.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/filterAuditSelect.png" style=" margin-top:1%" />
+        <span> 
+        <p class="paragraph" style=" margin-top:2%">
+                   The second section allows a user to select a date time range for the Event Date/Time column. The user may either use the dropdown to 
+                select a common date span such as the last week or the user can use the date and time selection boxes to set a custom date time span.
+        </p>
+                </span>
+        <img alt="#" src="../assets/images/filterAuditRange.png"  style=" margin-top:1%"/>
+
+    </div>
+    <!--===================================================================================-->
+
+    <div class="row text-center" ng-show="tabs.sortReport">
+        <label> <h1> <strong> 3. Sorting The Report </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+            To sort the report, the user must click the header of whichever column they would like to sort by. For instance, clicking on the Event 
+               Date/Time header will switch the column between the default display, ascending times, and descending times.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/sortAudit.png" />
+
+    </div>
+    <!--==========================================================================-->
+
+    <div class="row text-center" ng-show="tabs.exportingReport">
+        <label> <h1> <strong> 4. Exporting The Report </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+            The report gives four different options for exporting. The user may export either all the data in the report or just the
+                currently displayed data in either a CSV format or a PDF format. To do this the user simply has to click
+                on the export button in the top right corner of the report after filtering it for the desired data.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/exportMenu.png" />
+
+    </div>
+    <!--=================================================================================-->
+
+    <div class="row text-center" ng-show="tabs.printReport">
+        <label> <h1> <strong> 5. Printing The Report </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+            The report can easily be prepared for printing by using the provided printing button. This button will open up a standard
+                printing window with the report displayed.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/savePrint.png" />
+
+
+    </div>
+
+
+
+    <!--=====================================================================================-->
+
+</div>

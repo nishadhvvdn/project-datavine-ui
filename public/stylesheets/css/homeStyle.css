@@ -1,0 +1,688 @@
+/* Css for homescreen */
+.textFont {
+    font-size: 3vh;
+}
+
+.welcomeUser {
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 24vw;
+}
+
+.delta_logo_home {
+    height: 10.8vh;
+    border-right: 0.2vh solid black;
+    width: 205px;
+}
+
+/*
+.logo_Delta_home {
+    height: 7.7vh;
+    border-right: 0.2vh solid black;
+    width:205px;
+}*/
+
+.dataVINE_word {
+    margin-left: 2vh;
+    font-size: 4vh !important;
+}
+
+.collectionEngine_word {
+    margin-left: 2vh;
+    margin-top: 1vh;
+    font-size: 3.5vh !important;
+}
+
+.homeImage {
+    margin-top: 2vh;
+}
+
+.logout_icon {
+    color: #000000 !important;
+    margin-top: 0.2vh;
+    font-size: 2vh;
+    margin-left: -2vh;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.homecontainer {
+    margin-left: 10vh;
+    height: 28vh;
+}
+
+.heading {
+    border-radius: 50%;
+    width: 27vh;
+    height: 27vh;
+    background-color: black;
+    z-index: 0;
+    text-align: center;
+}
+
+.imgDimension {
+    height: 7vh;
+    margin-top: 24%;
+}
+
+.textColor {
+    color: #ffdd00;
+}
+
+.reports_text {
+    margin-top: 6%;
+}
+
+.sub_top {
+    width: 39vh;
+    margin-top: -23vh;
+    margin-left: 19vh;
+    background-color: black;
+}
+
+.print-button {
+    margin-top: 1%;
+    margin-left: -0.5%
+}
+
+.print-buttonalign {
+    margin-top: 1% !important;
+    margin-left: 10px;
+}
+
+.sub_top_Report {
+    width: 39vh;
+    margin-top: -24vh;
+    margin-left: 19vh;
+    background-color: black;
+}
+
+.text_top_Report {
+    margin-left: 28%;
+}
+
+a.anchorLogin {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+a:hover.anchorLogin {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.sub_other {
+    width: 39vh;
+    margin-top: 0.5vh;
+    margin-left: 19vh;
+    background-color: black;
+}
+
+.text_other {
+    margin-left: 28%;
+}
+
+.sub_last_Report {
+    width: 37vh;
+    margin-top: 1%;
+    margin-left: 15vh;
+    background-color: black;
+}
+
+.hyperSprout_text {
+    margin-top: 3%;
+}
+
+.meter_text {
+    margin-top: 2%;
+}
+
+.system_text {
+    margin-top: 3%;
+}
+
+.tools_img {
+    margin-left: 29%;
+    margin-top: 20%;
+}
+
+.tools_text {
+    margin-left: 37%;
+}
+
+.homeFooter {
+    background-color: #000000;
+}
+
+/* End of CSS for homescreen */
+
+/* Media Queries for homescreen */
+
+@media screen and (min-height: 600px) and (max-height: 799px) {
+    .mainBody {
+        background-repeat: no-repeat;
+        background-position-x: 12vh;
+    }
+
+    .navbar-inverse {
+        background-repeat: no-repeat;
+        background-position-x: 12vh;
+    }
+
+    .tradeLoginTM {
+        margin-left: 61vh;
+        margin-top: -6vh;
+    }
+
+    .dataVINE_word {
+        margin-top: 2vh;
+    }
+
+    .collectionEngine_word {
+        margin-top: 2vh;
+    }
+
+    a.logout_icon {
+        font-size: 3vh;
+    }
+
+    .welcomeUser {
+        white-space: nowrap;
+        overflow: hidden;
+        max-width: 24vw;
+    }
+
+    .securityCodeTable {
+        margin-bottom: 0px !important;
+    }
+
+    .btnPosition {
+        margin-top: 17vh;
+    }
+
+    .key {
+        margin-top: -12%;
+        margin-left: 56.6%;
+    }
+
+    .securityCodeHR {
+        margin-top: 7px !important;
+    }
+
+    .searchBtn {
+        margin-top: -9.5vh;
+        margin-left: 44vh;
+    }
+
+    .ui-grid {
+        border: 1px solid #000000 !important;
+        height: 62vh !important;
+    }
+
+    .tradeTM {
+        margin-left: 20vh;
+        margin-top: -6vh;
+    }
+    .firefox-browser .tradeTM {
+        margin-left: 24vh;
+        margin-top: -6vh;
+    }
+}
+
+.pad-top {
+    padding-top: 10px;
+}
+
+@media screen and (min-height: 500px) {
+    .pad-top {
+        padding-top: 2px;
+    }
+}
+
+@media screen and (min-height: 600px) {
+    .pad-top {
+        padding-top: 5px;
+    }
+    .homescreen-wrap.pad-top {
+        padding-top: 5px;
+        overflow: hidden;
+        height: 86vh;
+        margin-right: -15px;
+        padding-right: 15px;
+    }
+}
+
+@media screen and (min-height: 800px) and (max-height: 999px) {
+    .mainBody {
+        background-repeat: no-repeat;
+        background-position-x: 17vh;
+    }
+
+    .navbar-inverse {
+        background-repeat: no-repeat;
+        background-position-x: 17vh;
+    }
+
+    .pad-top {
+        padding-top: 15px;
+    }
+
+    .btnPosition {
+        margin-top: 15vh;
+    }
+
+    .key {
+        margin-top: -16%;
+        margin-left: 67%;
+    }
+}
+
+@media screen and (min-height: 1000px) and (max-height:1299px) {
+    .mainBody {
+        background-repeat: no-repeat;
+        background-position-x: 53vh;
+    }
+
+    .pad-top {
+        padding-top: 20px;
+    }
+
+    .navbar-inverse {
+        background-repeat: no-repeat;
+        background-position-x: 53vh;
+    }
+}
+
+@media screen and (min-height: 1300px) and (max-height:1700px) {
+    .mainBody {
+        background-repeat: no-repeat;
+        background-position-x: 53vh;
+    }
+
+    .pad-top {
+        padding-top: 25px;
+    }
+
+    .navbar-inverse {
+        background-repeat: no-repeat;
+        background-position-x: 53vh;
+    }
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1399px)and (min-height:800px) and (max-height:900px) {
+    .mainBody {
+        background-repeat: no-repeat;
+        background-position-x: 61vh;
+    }
+
+    .navbar-inverse {
+        background-repeat: no-repeat;
+        background-position-x: 61vh;
+    }
+
+    .homecontainer {
+        margin-left: 9vh;
+    }
+
+    .assignSecuritycode {
+        margin-top: -2%;
+    }
+
+    .btnPosition {
+        margin-top: 15vh;
+    }
+
+    .key {
+        margin-top: -11%;
+        margin-left: 47.5%;
+    }
+}
+
+@media screen and (min-width: 1400px) and (max-width: 1599px)and (min-height:800px) and (max-height:900px) {
+    .mainBody {
+        background-repeat: no-repeat;
+        background-position-x: 61vh;
+    }
+
+    .navbar-inverse {
+        background-repeat: no-repeat;
+        background-position-x: 61vh;
+    }
+
+    .homecontainer {
+        margin-left: 16vh;
+    }
+
+    .assignSecuritycode {
+        margin-top: -2%;
+    }
+
+    .btnPosition {
+        margin-top: 15vh;
+    }
+
+    .key {
+        margin-top: -11%;
+        margin-left: 47.5%;
+    }
+}
+
+@media screen and (min-width: 1600px) and (max-width: 1899px)and (min-height:800px) and (max-height:900px) {
+    .mainBody {
+        background-repeat: no-repeat;
+        background-position-x: 61vh;
+    }
+
+    .navbar-inverse {
+        background-repeat: no-repeat;
+        background-position-x: 61vh;
+    }
+
+    .homecontainer {
+        margin-left: 25vh;
+    }
+
+    .assignSecuritycode {
+        margin-top: -2%;
+    }
+
+    .btnPosition {
+        margin-top: 15vh;
+    }
+
+    .key {
+        margin-top: -11%;
+        margin-left: 47.5%;
+    }
+}
+
+@media screen and (min-width: 1600px) and (max-width: 1899px)and (min-height:900px) and (max-height:1000px) {
+    .mainBody {
+        background-repeat: no-repeat;
+        background-position-x: 61vh;
+    }
+
+    .homecontainer {
+        margin-left: 20vh;
+    }
+
+    .navbar-inverse {
+        background-repeat: no-repeat;
+        background-position-x: 61vh;
+    }
+
+    .assignSecuritycode {
+        margin-top: -2%;
+    }
+
+    .btnPosition {
+        margin-top: 15vh;
+    }
+
+    .key {
+        margin-top: -11%;
+        margin-left: 47.5%;
+    }
+}
+
+@media screen and (min-width: 1900px)and (min-height:900px) and (max-height:1000px) {
+    .mainBody {
+        background-repeat: no-repeat;
+        background-position-x: 71vh;
+    }
+
+    .homecontainer {
+        margin-left: 25vh;
+    }
+
+    .navbar-inverse {
+        background-repeat: no-repeat;
+        background-position-x: 71vh;
+    }
+
+    .assignSecuritycode {
+        margin-top: -1%;
+    }
+
+    .btnPosition {
+        margin-top: 17vh;
+    }
+
+    .key {
+        margin-top: -10%;
+        margin-left: 40%;
+    }
+
+    .searchBtn {
+        margin-top: -6vh;
+        margin-left: 34vh;
+    }
+
+    .popover {
+        max-width: 22vw;
+    }
+
+    .configSettings {
+        margin-right: 3vh;
+    }
+
+    .toolsSettings {
+        margin-right: 20vh;
+    }
+
+    .searchEndpoint {
+        width: 17vw;
+    }
+
+    .cleanup_popoverClose {
+        margin-top: -3.5vh;
+    }
+
+    .relay_popoverClose {
+        margin-top: -1vh;
+    }
+
+    .tagsFilter {
+        margin-right: 20vh;
+    }
+
+    .securityCodeTable {
+        margin-bottom: 0px !important;
+    }
+
+    /*.demandReadSettings {
+        margin-right: 22vh;
+    }*/
+
+}
+
+@media screen and (min-width: 1900px)and (min-height:1000px) and (max-height:1100px) {
+    .mainBody {
+        background-repeat: no-repeat;
+        background-position-x: 71vh;
+    }
+
+    .homecontainer {
+        margin-left: 20vh;
+    }
+
+    .navbar-inverse {
+        background-repeat: no-repeat;
+        background-position-x: 71vh;
+    }
+
+    .assignSecuritycode {
+        margin-top: -1%;
+    }
+
+    .btnPosition {
+        margin-top: 17vh;
+    }
+
+    .key {
+        margin-top: -10%;
+        margin-left: 40%;
+    }
+
+    .searchBtn {
+        margin-top: -6vh;
+        margin-left: 34vh;
+    }
+
+    .popover {
+        max-width: 22vw;
+    }
+
+    .configSettings {
+        margin-right: 3vh;
+    }
+
+    .toolsSettings {
+        margin-right: 20vh;
+    }
+
+    .searchEndpoint {
+        width: 17vw;
+    }
+
+    .cleanup_popoverClose {
+        margin-top: -3.5vh;
+    }
+
+    .relay_popoverClose {
+        margin-top: -1vh;
+    }
+
+    .tagsFilter {
+        margin-right: 20vh;
+    }
+
+    .securityCodeTable {
+        margin-bottom: 0px !important;
+    }
+
+    /*.demandReadSettings {
+        margin-right: 22vh;
+    }*/
+}
+
+@media screen and (min-width: 2200px) and (min-height:1200px) and (max-height:1400px) {
+    .navbar-inverse {
+        background-repeat: no-repeat;
+        background-position-x: 100vh;
+    }
+
+    .mainBody {
+        background-repeat: no-repeat;
+        background-position-x: 150vh;
+    }
+
+    .homecontainer {
+        margin-left: 25vh;
+    }
+
+    .key {
+        margin-top: -12%;
+        margin-left: 33%;
+    }
+}
+
+@media screen and (min-width: 2200px) and (min-height:1400px) {
+    .navbar-inverse {
+        background-repeat: no-repeat;
+        background-position-x: 100vh;
+    }
+
+    .print-button {
+        margin-top: 1%;
+        margin-left: -5px;
+    }
+
+    .print-buttonalign {
+        margin-top: 1% !important;
+        margin-left: 10px;
+    }
+
+    .key {
+        margin-top: -12%;
+        margin-left: 33%;
+    }
+
+    .mainBody {
+        background-repeat: no-repeat;
+        background-position-x: 150vh;
+    }
+
+    .imgDimension-profile {
+        height: 5vh;
+        width: 79px;
+        margin-left: -30%;
+        margin-top: -21%;
+        border-radius: 4px;
+        border: 1px solid black;
+    }
+}
+
+.imgDimension-profile {
+    height: 4vh;
+    width: 60px;
+    margin-left: 25%;
+    margin-top: 2%;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.showItem {
+    background-color: black;
+    color: white
+}
+
+.nav>.hoverList>a:hover,
+.nav>li>a:focus {
+    text-decoration: none;
+    background-color: black;
+}
+
+.nav>.hoverColor>a:hover,
+a:focus {
+    color: #ffdd00;
+    text-decoration: underline;
+}
+
+.hoverLogout>a:hover,
+a:focus {
+    color: #ffdd00;
+}
+
+.hovertip>.popover.bottom>.arrow:after {
+
+    border-bottom-color: black;
+}
+
+.hovertipback>.popover.bottom>.arrow {
+
+    border-bottom-color: black;
+    left: 65%;
+}
+
+/* =========================testing========================================*/
+.popover.bottomProf {
+    margin-top: 6px;
+}
+
+.navbar.navbar-inverse>.container-fluid>.collapse.navbar-collapse>.nav.navbar-nav.navbar-right>.profile>.popover.bottom {
+    /*visibility: visible;
+    display: block;
+    top: 51.8281px;
+    left: 10.828125px;*/
+    margin-top: -5%;
+    background-color: black;
+    padding-right: 0px;
+}
+
+.profile.popover.bottom {
+    /*width:6vw;*/
+    margin-top: 0%;
+}
+
+/* End of media query for homescreen */

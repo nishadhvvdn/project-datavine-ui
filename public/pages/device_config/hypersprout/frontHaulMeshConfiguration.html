@@ -1,0 +1,123 @@
+<div class="right-section">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="deviceConfig-tabs">
+				<ul class="nav nav-tabs" role="tablist">
+					<li ng-class="path==='2.4' ? 'active' : '' "><a ng-click="changeTab('2.4', 'meshtwofour');">2.4 GHz</a></li>
+					<li ng-class="path==='5' ? 'active' : '' "><a ng-click="changeTab('5', 'meshfive');">5 GHz(High)</a></li>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane" ng-class="path==='2.4' ? 'active' : '' " id="first">
+                        <h3 class="no-border">Mesh Configuration</h3>
+						<div class="tab-form-wrapper">
+							<form class="pure-form pure-form-aligned" name="fronthaulMesh2_4Form" method="post" novalidate autocomplete="off">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="form-group">
+											<label>Mesh ID<span class="validationRequired">*</span></label>
+											<div class="input-wrap short-input"> 
+												<input type="text" class="form-control" name="meshID" ng-model="configurationDetails.FronthaulMesh2MeshID" ng-blur="focusValidate('meshID2_4')"
+												ng-change="focusValidate('meshID2_4')" maxlength=32 ng-trim="false" required>
+												<div class="field-message" ng-messages="fronthaulMesh2_4Form.meshID.$error"
+												ng-if='fronthaulMesh2_4Form.meshID.$dirty' ng-cloak></div>
+												<span ng-show="errorMeshID2_4" class="error-span" style="color:red;">{{errorMeshID2_4Message}}</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-12">
+										<div class="form-group">
+											<label>Security Type<span class="validationRequired">*</span></label>
+											<div class="input-wrap short-input">
+												<select name="securityType" ng-model="configurationDetails.FronthaulMesh2SecurityType" class="form-control"
+												required ng-change="focusValidate('securityTypeMesh2')">
+												<option value="Open">Open</option>
+												<option value="SAE">SAE</option></select>
+												<div class="field-message" ng-messages="fronthaulMesh2_4Form.securityType.$error"
+												ng-if='fronthaulMesh2_4Form.securityType.$dirty' ng-cloak>
+												<div ng-message="required">Security Type is required!</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-12" ng-show="configurationDetails.FronthaulMesh2SecurityType.toLowerCase() === 'sae'">
+										<div class="form-group">
+											<label>Pre-shared Key<span class="validationRequired">*</span></label>
+											<div class="input-wrap short-input icon-input">
+												<input type="{{passwordIconOne}}" class="form-control" name="preSharedKey" ng-model="configurationDetails.FronthaulMesh2PresharedKey" ng-blur="focusValidate('psk2_4')"
+												ng-change="focusValidate('psk2_4')" maxlength=63 ng-trim="false" ><i ng-class="passwordIconOne === 'text' ? 'fa fa-eye' : 'fa fa-eye-slash' " ng-click="passwordIconOne === 'text' ? passwordIconOne = 'password' :passwordIconOne = 'text'"></i>
+												<div class="field-message" ng-messages="fronthaulMesh2_4Form.preSharedKey.$error"
+												ng-if='fronthaulMesh2_4Form.preSharedKey.$dirty' ng-cloak></div>
+												<span ng-show="errorPreSharedKey2_4" class="error-span" style="color:red;">{{errorPreSharedKey2_4Message}}</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-12">
+										<div class="form-btn text-right">
+											<button class="plain-btn" ng-click="resetDetails('meshtwofour');">Cancel</button>
+											<button class="fill-btn" ng-click="saveFronthaulMeshConfig('2_4');" ng-disabled="fronthaulMesh2_4Form.$invalid || set_mesh2_4_valid || !fronthaulMesh2_4Form.$dirty">Save</button>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div role="tabpanel" class="tab-pane" ng-class="path==='5' ? 'active' : '' " id="second">
+                        <h3>Mesh Configuration</h3>
+						<div class="tab-form-wrapper">
+							<form class="pure-form pure-form-aligned" name="fronthaulMesh5Form" method="post" novalidate autocomplete="off">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="form-group">
+											<label>Mesh ID<span class="validationRequired">*</span></label>
+											<div class="input-wrap short-input"> 
+												<input type="text" class="form-control" name="meshID" ng-model="configurationDetails.FronthaulMesh5hMeshID" ng-blur="focusValidate('meshID5h')"
+												ng-change="focusValidate('meshID5h')" maxlength=32 ng-trim="false" required>
+												<div class="field-message" ng-messages="fronthaulMesh5Form.meshID.$error"
+												ng-if='fronthaulMesh5Form.meshID.$dirty' ng-cloak></div>
+												<span ng-show="errorMeshID5h" class="error-span" style="color:red;">{{errorMeshID5hMessage}}</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-12">
+										<div class="form-group">
+											<label>Security Type<span class="validationRequired">*</span></label>
+											<div class="input-wrap short-input">
+												<select name="securityType" ng-model="configurationDetails.FronthaulMesh5hSecurityType" class="form-control"
+												required ng-change="focusValidate('securityTypeMesh5')">
+												<option value="Open">Open</option>
+												<option value="SAE">SAE</option></select>
+												<div class="field-message" ng-messages="fronthaulMesh5Form.securityType.$error"
+												ng-if='fronthaulMesh5Form.securityType.$dirty' ng-cloak>
+												<div ng-message="required">Security Type is required!</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-12"  ng-show="configurationDetails.FronthaulMesh5hSecurityType.toLowerCase() === 'sae'">
+										<div class="form-group">
+											<label>Pre-shared Key<span class="validationRequired">*</span></label>
+											<div class="input-wrap short-input icon-input">
+												<input type="{{passwordIconTwo}}" class="form-control" name="preSharedKey" ng-model="configurationDetails.FronthaulMesh5hPresharedKey" ng-blur="focusValidate('psk5h')"
+												ng-change="focusValidate('psk5h')" maxlength=63 ng-trim="false" ><i ng-class="passwordIconTwo === 'text' ? 'fa fa-eye' : 'fa fa-eye-slash' " ng-click="passwordIconTwo === 'text' ? passwordIconTwo = 'password' :passwordIconTwo = 'text'"></i>
+												<div class="field-message" ng-messages="fronthaulMesh5Form.preSharedKey.$error"
+												ng-if='fronthaulMesh5Form.preSharedKey.$dirty' ng-cloak></div>
+												<span ng-show="errorPreSharedKey5h" class="error-span" style="color:red;">{{errorPreSharedKey5hMessage}}</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-12">
+										<div class="form-btn text-right">
+											<button class="plain-btn" ng-click="resetDetails('meshfive');">Cancel</button>
+											<button class="fill-btn" ng-click="saveFronthaulMeshConfig('5_H');" ng-disabled="fronthaulMesh5Form.$invalid || set_mesh5h_valid || !fronthaulMesh5Form.$dirty || !configurationDetails.FronthaulMesh5hSecurityType">Save</button>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

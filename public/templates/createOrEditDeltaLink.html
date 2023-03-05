@@ -1,0 +1,173 @@
+<div class="container-fluid" id="circuitCreationDiv">
+    <section>
+        <div class="row circuit">
+            <h4 ng-show="type==='add'"><strong>Create DeltaLINK&trade;</strong></h4>
+            <h4 ng-show="type==='edit'"><strong>Edit DeltaLINK&trade;</strong></h4>
+        </div>
+    </section>
+    <form class="pure-form pure-form-aligned" name="deltalinkForm" method="post" novalidate autocomplete="off">
+        <section>
+            <uib-accordion close-others="oneAtATime">
+                <div uib-accordion-group class="panel-default" is-open="status.isFirstOpen">
+                    <uib-accordion-heading>
+                        DeltaLINK&trade; Details <i class="fa fa-chevron-down" style="color:blue" aria-hidden="true"></i>
+<!--                        <span ng-if="deltalinkForm.macID.$valid && deltalinkForm.deltaSl.$valid && deltalinkForm.version.$valid && deltalinkForm.bandwidth.$valid && deltalinkForm.downloadBandwidth.$valid && deltalinkForm.uploadBandwidth.$valid">-->
+                        <span ng-if="!deltaLink_valid">
+					<span class="glyphicon_Ckt glyphicon-ok-sign circuitDetails"></span>
+				</span>
+                    </uib-accordion-heading>
+                    <section style="margin-left:3%">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <h5><strong>Serial Number</strong><span class="validationRequired">*</span></h5>
+                                <input name="deltaSl"
+                                       class="divthree"
+                                       ng-model="deltalinkDetails.SerialNumber"
+                                       ng-blur="deltaLinkValidation('deltaSl')"
+                                       ng-change="deltaLinkValidation('deltaSl')"
+                                       type="text"
+                                       placeholder="DeltaLINK&trade; Serial Number"
+                                       maxlength=25
+                                       ng-trim="false"
+                                       disallow-space
+                                       required>
+                                <div class="field-message" ng-messages="deltalinkForm.deltaSl.$error"
+                                     ng-if='deltalinkForm.deltaSl.$dirty' ng-cloak>
+                                </div>
+                                <span ng-show="errorDeltaSl" style="color:red;">{{errorDeltaSlMessage}}</span>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <h5><strong>Version</strong><span class="validationRequired"></span></h5>
+                                <input name="version"
+                                       class="divthree dropbox"
+                                       ng-blur="deltaLinkValidation('version')"
+                                       ng-change="deltaLinkValidation('version')"
+                                       ng-model="deltalinkDetails.version"
+                                       type="text"
+                                       placeholder="Version"
+                                       maxlength=7
+                                       ng-trim="false"
+                                       disallow-space>
+                                <div class="field-message" ng-messages="deltalinkForm.version.$error"
+                                     ng-if='deltalinkForm.version.$dirty' ng-cloak>
+                                </div>
+                                <span style="color:red;" ng-show="errorVersion"><br>{{errorVersionMessage}} </span>
+                            </div>
+                            <div class="col-lg-4">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <h5><strong>WIFI MAC ID</strong><span class="validationRequired">*</span></h5>
+                                <input name="macID"
+                                       class="divthree dropbox"
+                                       ng-blur="deltaLinkValidation('macID')"
+                                       ng-change="deltaLinkValidation('macID')"
+                                       ng-paste="deltaLinkValidation('macID')"
+                                       ng-model="deltalinkDetails.macID"
+                                       type="text"
+                                       placeholder="WIFI MAC ID"
+                                       maxlength=17
+                                       required
+                                       ng-trim="false"
+                                       disallow-space>
+                                <div class="field-message" ng-messages="deltalinkForm.macId.$error"
+                                     ng-if='deltalinkForm.macId.$dirty' ng-cloak>
+
+                                </div>
+                                <span style="color:red;" ng-show="errorMacid"><br>{{errorMacIDMessage}} </span>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <h5><strong>Bandwidth</strong><span class="validationRequired">*</span></h5>
+                                <!-- radio button insertion -->
+                                <div class="row radio-label">
+                                    <div class="col-lg-4">
+                                        <label>
+                                        <input type="radio" ng-model="deltalinkDetails.bandwidth" value="1" name="bandwidth"
+                                        ng-change="onchangeBandwidth(deltalinkDetails.bandwidth)" required>
+                                        <span>Enable</span></label>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <label>
+                                        <input type="radio" ng-model="deltalinkDetails.bandwidth" value="0" name="bandwidth"
+                                        ng-change="onchangeBandwidth(deltalinkDetails.bandwidth)">
+                                        <span>Disable</span></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <h5><strong>Download Bandwidth (Mbps)</strong><span class="validationRequired">*</span></h5>
+                                <input name="downloadBandwidth" class="divthree dropbox"
+                                       ng-blur="deltaLinkValidation('downloadBandwidth')"
+                                       ng-change="deltaLinkValidation('downloadBandwidth')"
+                                       ng-model="deltalinkDetails.downloadBandwidth"
+                                       type="text"
+                                       placeholder="Download Bandwidth"
+                                       maxlength=4
+                                       ng-trim="false"
+                                       numbers-only required
+                                       ng-disabled="deltalinkDetails.bandwidth === '0'">
+                                <div class="field-message" ng-messages="deltalinkForm.downloadBandwidth.$error"
+                                     ng-if='deltalinkForm.downloadBandwidth.$dirty' ng-cloak>
+                                </div>
+                                <span style="color:red;" ng-show="errorDownloadBandwidth"><br>{{errorDownloadBandwidthMessage}}
+								</span>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <h5><strong>Upload Bandwidth (Mbps)</strong><span class="validationRequired">*</span></h5>
+                                <input name="uploadBandwidth" class="divthree dropbox"
+                                       ng-blur="deltaLinkValidation('uploadBandwidth')"
+                                       ng-change="deltaLinkValidation('uploadBandwidth')"
+                                       ng-model="deltalinkDetails.uploadBandwidth"
+                                       type="text"
+                                       placeholder="Upload Bandwidth"
+                                       maxlength=4
+                                       ng-trim="false"
+                                       numbers-only required
+                                       ng-disabled="deltalinkDetails.bandwidth === '0'">
+                                <div class="field-message" ng-messages="deltalinkForm.uploadBandwidth.$error"
+                                     ng-if='deltalinkForm.uploadBandwidth.$dirty' ng-cloak>
+                                </div>
+                                <span style="color:red;" ng-show="errorUploadBandwidth"><br>{{errorUploadBandwidthMessage}}
+								</span>
+                            </div>
+                        </div>
+                        
+                    </section>
+                </div>
+        </section>
+        </uib-accordion>
+        </section>
+
+    </form>
+    <section>
+        <div class="row">
+            <div class="btnRow">
+				<span>
+					<button type="button" class="btn btn-default btnColor" ng-show="type==='add'"
+                            ng-click="saveDeltaLinkDetails()"
+                            ng-disabled=" deltaLink_valid || deltalinkForm.$invalid">
+						Create
+					</button>
+
+					<button type="button" class="btn btn-default btnColor" ng-show="type==='edit'"
+                            ng-click="updateDeltaLinkDetails()"
+                            ng-disabled="deltaLink_valid || deltalinkForm.$invalid || btnDisable">
+						Update
+					</button>
+
+					<button type="button" class="btn btn-default btnDefault"
+                            ng-click="cancelModalWindow()">Cancel</button>
+				</span>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!--I ma an updated file-->

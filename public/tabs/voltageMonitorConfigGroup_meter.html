@@ -1,0 +1,97 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <div>
+            <a href='' class="imageBorder" style="margin-left: 80%;" ng-click="printCart()"><img src="../assets/images/Print.png" /></a>
+            <a href='' class="imageBorder" ng-click="pdf()"><img src="../assets/images/PDF.png" /><b class="anchorText">PDF</b>&nbsp;</a>
+            <a href='' class="imageBorder" ng-click="excel()"><img src="../assets/images/Excel.png" /><b class="anchorText">Excel</b>&nbsp;</a>
+        </div>
+    </div>
+    <hr class="editHr" />
+    <div class="row">
+        <!--<form name="voltMon" novalidate>-->
+        <form name="config_form" novalidate>
+            <table class="table table-hover table-bordered editConfigTable" style="border:1px solid #000000;">
+                <tr>
+                    <td>
+                        <h5>
+                            <b>Enable Voltage Monitor</b>
+                            <i class="fa fa-asterisk" style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;" aria-hidden="true"></i>
+                        </h5>
+                    </td>
+                    <td>{{configObj['ConfigGroups_Info']['EnableVoltageMonitor']}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5>
+                            <b>Phase Selection</b>
+                            <i class="fa fa-asterisk" style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;" aria-hidden="true"></i>
+                        </h5>
+                    </td>
+                    <td>{{configObj['ConfigGroups_Info']['PhaseSelection']}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5>
+                            <b>Interval Length</b>
+                            <i class="fa fa-asterisk" style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;" aria-hidden="true"></i>
+                        </h5>
+
+                    </td>
+                    <td>{{configObj['ConfigGroups_Info']['IntervalLengthVoltage']}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5>
+                            <b>RMS Volt Load Threshold(V)</b>
+                            <i class="fa fa-asterisk" style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;" aria-hidden="true"></i>
+                        </h5>
+                    </td>
+                    <td>{{configObj['ConfigGroups_Info']['RMSVoltLoadThreshold']}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5>
+                            <b>RMS Volt High Threshold(V)</b>
+                            <i class="fa fa-asterisk" style="font-size: 1vh; color: red; position: absolute; margin-top: 0%;" aria-hidden="true"></i>
+                        </h5>
+                    </td>
+                    <td>{{configObj['ConfigGroups_Info']['RMSVoltHighThreshold']}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5>
+                            <b>Low Voltage Threshold</b>
+                            <i class="fa fa-asterisk " style="font-size: 1vh; color: red; position: absolute; margin-top:
+                            0%;" aria-hidden="true"></i>
+                        </h5>
+                    </td>
+                    <td>{{configObj[ 'ConfigGroups_Info'][ 'LowVoltageThreshold']}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5>
+                            <b>Low Voltage Threshold Deviation/ Interval(80-100%)</b>
+                            <i class="fa fa-asterisk " style="font-size: 1vh; color: red; position: absolute; margin-top:
+                            0%;" aria-hidden="true"></i>
+                        </h5>
+                    </td>
+                    <td>{{configObj[ 'ConfigGroups_Info'][ 'LowVoltageThresholdDeviation']}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5>
+                            <b>High Voltage Threshold Deviation/ Interval(100-120%)</b>
+                            <i class="fa fa-asterisk " style="font-size: 1vh; color: red; position: absolute; margin-top:
+                            0%; " aria-hidden="true"></i>
+                        </h5>
+                    </td>
+
+                    <td>{{configObj['ConfigGroups_Info']['HighVoltageThresholdDeviation']}}</td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <h5 style="color:red ; font-size:12px ">
+        <i class="fa fa-asterisk " style="font-size: 1vh; color: red;" aria-hidden="true"></i>All fields are mandatory
+    </h5>
+</div>

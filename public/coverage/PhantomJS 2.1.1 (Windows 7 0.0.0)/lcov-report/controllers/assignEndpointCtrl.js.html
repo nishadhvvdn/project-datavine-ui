@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for controllers\assignEndpointCtrl.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">controllers/</a> assignEndpointCtrl.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">82.54% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>52/63</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">54.17% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>13/24</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">78.95% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>15/19</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">82.54% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>52/63</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">﻿(function (angular) {
+&nbsp;
+    "use strict";
+&nbsp;
+    angular.module('dataVINEApp')
+        .controller('assignEndpointCtrl', ['$scope', 'fileUpload', '$modalInstance', '$uibModal', '$timeout', 'hypersproutMgmtService','commonService','type',
+            function ($scope, fileUpload, $modalInstance, $uibModal, $timeout, hypersproutMgmtService,commonService,type) {
+                init();
+                var modalInstance = null;
+                function init() {
+                    $scope.selectAction = "Add";
+                    var appGroupList = [];
+                    for (var i in objCacheDetails.data.groupList) {
+                        <span class="missing-if-branch" title="else path not taken" >E</span>if ((type==='HyperSprout')?(objCacheDetails.data.groupList[i].Group_Name !== "Unknown Membership Group"):<span class="branch-1 cbranch-no" title="branch not covered" >objCacheDetails.data.groupList[i].ClassName !== "unknown")</span> {
+                            appGroupList.push(objCacheDetails.data.groupList[i]);
+                        }
+                    }
+                    $scope.groupList = appGroupList;
+                };
+                $scope.assignEndpoints =commonService.getAssignEndPointArray();
+                function formatData(objData){
+                        <span class="missing-if-branch" title="else path not taken" >E</span>if (!angular.isUndefinedOrNull(objData)) {
+                             if (objData.type === true) {
+                                $scope.assignEndpoints[0].value = $scope.fileContent.name;
+                                $scope.assignEndpoints[1].value = $scope.selectGroup.Group_Name;
+                                $scope.assignEndpoints[2].value = $scope.selectAction;
+                                $scope.assignEndpoints[3].value = angular.isUndefinedOrNull(objData.Status) ? 'Failed to import' : <span class="branch-1 cbranch-no" title="branch not covered" >objData.Status;</span>
+&nbsp;
+                            } else {
+                                $scope.assignEndpoints[0].value = $scope.fileContent.name;
+                                $scope.assignEndpoints[1].value = $scope.selectGroup.Group_Name;
+                                $scope.assignEndpoints[2].value = $scope.selectAction;
+                                $scope.assignEndpoints[3].value = objData.Message;
+                            }
+                            $timeout(<span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                                $scope.$apply();</span>
+                            }, 300, false);
+                        }
+                }
+                $scope.assignEndPoints = function () {
+                    $scope.errMessage = '';
+                    if ((type==='Meter'?<span class="branch-0 cbranch-no" title="branch not covered" >$scope.selectGroup["Group_Type"]:</span>$scope.selectGroup["Group Type"]) === "Configuration Group") {
+                        hypersproutMgmtService.HSMOrMMConfNewImportSave((type==='HyperSprout')?'HSMConfImportConfSave':<span class="branch-1 cbranch-no" title="branch not covered" >'MMConfImportConfSave',</span>$scope.selectGroup.Group_Name, $scope.fileContent.content, $scope.selectAction, type).then(function (objData) {
+                            formatData(objData);
+                        });
+                    } else {
+&nbsp;
+                        hypersproutMgmtService.HSMOrMMGrpMgmtAssignGrpMembershipAssignEndpoint((type==='HyperSprout')?'HSMGrpMgmtAssignGrpMembershipAssignEndpoint':<span class="branch-1 cbranch-no" title="branch not covered" >'MMGrpMgmtAssignGrpMembershipAssignEndpoint',</span>$scope.selectGroup.Group_Name, $scope.selectAction, $scope.fileContent.content, type).then(function (objData) {
+                            formatData(objData);
+                        });
+                    }
+                };
+                $scope.cancel = function () {
+                    $modalInstance.dismiss();
+                };
+                $scope.Save = function () {
+                    $modalInstance.dismiss();
+                }
+&nbsp;
+                $scope.status = {
+                    isopen: false
+                };
+                $scope.openCreateApplicationGroup = function (size) {
+                    modalInstance = $uibModal.open({
+                        templateUrl: '/templates/createApplicationGroup.html',
+                        controller: 'createApplicationGroupCtrl',
+                        size: size,
+                        backdrop: 'static',
+                        keyboard: true,
+                        resolve: {
+                            type: function () {
+                                return type;
+                            }
+                        }
+                    });
+                    modalInstance.result.then(<span class="fstat-no" title="function not covered" >function (createdItem) {</span>
+<span class="cstat-no" title="statement not covered" >                        init();</span>
+<span class="cstat-no" title="statement not covered" >                        if (!angular.isUndefinedOrNull(createdItem)) {</span>
+<span class="cstat-no" title="statement not covered" >                            var objToInsert = { 'Group_Name': createdItem };</span>
+<span class="cstat-no" title="statement not covered" >                            $scope.groupList.push(objToInsert);</span>
+<span class="cstat-no" title="statement not covered" >                            $scope.selectGroup = objToInsert;</span>
+                        }
+                    }, <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                        init();</span>
+                    });
+                };
+                $scope.validation = false;
+                $scope.fileUpload={};
+                $scope.$watch('fileMod', function (newVal) {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (newVal) {
+<span class="cstat-no" title="statement not covered" >                        commonService.checkfileExtension(newVal,'txt',<span class="fstat-no" title="function not covered" >function(result){</span></span>
+<span class="cstat-no" title="statement not covered" >                            $scope.fileUpload=result;</span>
+                        });
+                    }
+                });
+&nbsp;
+                $scope.uploadFile = function () {
+&nbsp;
+                    var file = $scope.myFile;
+                    var uploadUrl = "/fileUpload";
+                    fileUpload.uploadFileToUrl(file, uploadUrl);
+                };
+                $scope.printCart = function () {
+                    window.print();
+                };
+&nbsp;
+                $scope.$on('$destroy', function () {
+                    <span class="missing-if-branch" title="if path not taken" >I</span>if (!angular.isUndefinedOrNull(modalInstance)) {
+<span class="cstat-no" title="statement not covered" >                        modalInstance.dismiss();</span>
+<span class="cstat-no" title="statement not covered" >                        modalInstance = null;</span>
+                    }
+                });
+            }])
+})(window.angular);</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Aug 22 2017 16:49:25 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

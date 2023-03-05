@@ -1,0 +1,3 @@
+Name,TransformerSerialNo,Metered,UsagePerDay,NoOfConnectedItems,UsageTime,StartHour,EndHour
+Sample1,SampleSerialNo,TRUE,10,10,allDay,2,13
+Sample2,SampleSerialNo,TRUE,10,11,custom,0,23

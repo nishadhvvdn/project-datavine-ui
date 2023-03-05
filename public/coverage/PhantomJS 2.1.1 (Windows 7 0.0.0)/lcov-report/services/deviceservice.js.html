@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for services\deviceservice.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">services/</a> deviceservice.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">98.13% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>105/107</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">83.33% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>15/18</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>35/35</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">98.13% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>105/107</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">297×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">297×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">297×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">297×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">297×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">297×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">297×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">297×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">297×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">297×</span>
+<span class="cline-any cline-yes">37×</span>
+<span class="cline-any cline-yes">37×</span>
+<span class="cline-any cline-yes">37×</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">37×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">297×</span>
+<span class="cline-any cline-yes">39×</span>
+<span class="cline-any cline-yes">39×</span>
+<span class="cline-any cline-yes">39×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">39×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">297×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">297×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">297×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">297×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">297×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
+&nbsp;
+/**
+ * This handles registering the device details
+ * @date : 06-09-2016
+ * @lastModified: 06-09-2016
+ * @Author : Ganesh
+ * @param $q
+ * @param networkUtilService
+ */
+(function (angular) {
+    'use strict';
+    angular.module('dataVINEApp').service('DeviceService', ['$q', 'NetworkUtilService',
+        function ($q, networkUtilService) {
+            this.editHyperHub = function (hyperHubObject) {
+                var des = $q.defer();
+                var arrInputData = [hyperHubObject.HyperHubID, hyperHubObject.HubSerialNumber, hyperHubObject.HubName, hyperHubObject.HardwareVersion, hyperHubObject.GprsMacID, hyperHubObject.WifiMacID,
+                hyperHubObject.WifiIPAddress, hyperHubObject.WifiAccessPointPassword, hyperHubObject.Latitude, hyperHubObject.Longitude, hyperHubObject.SimCardNumber];
+                networkUtilService.createHttpRequestAndGetResponse("EditHyperHubDetails", arrInputData).then(function (objData) {
+                    des.resolve(handleDisplayMessage(objData));
+                });
+                return des.promise;
+            };
+            this.getAllhyperHub = function (type) {
+                var des = $q.defer();
+                var arrInputData = [type];
+                networkUtilService.createHttpRequestAndGetResponse("DisplayAllHyperHubDetails", arrInputData).then(function (objData) {
+                    des.resolve(objData);
+                });
+                return des.promise;
+            };
+            this.deleteHyperHub = function (hyperHubIDarray) {
+                var des = $q.defer();
+                var arrInputData = [hyperHubIDarray];
+                networkUtilService.createHttpRequestAndGetResponse("DeleteHyperHubDetails", arrInputData).then(function (objData) {
+                    des.resolve(handleDisplayMessage(objData));
+                });
+                return des.promise;
+            };
+            this.create = function (endPoint, arrInputData,type) {
+                var des = $q.defer();
+                networkUtilService.createHttpRequestAndGetResponse(endPoint, arrInputData).then(function (objData) {
+                    des.resolve(type==='upload'?<span class="branch-0 cbranch-no" title="branch not covered" >objData:</span>handleDisplayMessage(objData));
+                });
+                return des.promise;
+            };
+            this.editCircuit = function (CircuitNumber, circuitID, kvaRating, substationId, substationName, substationAdd,
+                country, state, city, zipcode, latitude, longitude, circuitNote) {
+                var des = $q.defer();
+                var arrInputData = [CircuitNumber, circuitID, kvaRating, substationId, substationName, substationAdd,
+                    country, state, city, zipcode, latitude, longitude, circuitNote];
+                networkUtilService.createHttpRequestAndGetResponse("EditCircuitDetails", arrInputData).then(function (objData) {
+                    des.resolve(handleDisplayMessage(objData));
+                });
+                return des.promise;
+            };
+&nbsp;
+            this.deleteCircuit = function (arrCircuitId) {
+                var des = $q.defer();
+                var arrInputData = [arrCircuitId];
+                networkUtilService.createHttpRequestAndGetResponse("DeleteCircuitDetails", arrInputData).then(function (objData) {
+                    des.resolve(handleDisplayMessage(objData));
+                });
+                return des.promise;
+            };
+&nbsp;
+            this.getAllCircuits = function () {
+                var des = $q.defer();
+                var arrInputData = [];
+                networkUtilService.createHttpRequestAndGetResponse("DisplayAllCircuitDetails", arrInputData).then(function (objData) {
+                    <span class="missing-if-branch" title="else path not taken" >E</span>if (!angular.isUndefinedOrNull(objData) &amp;&amp; objData.type) {
+                        des.resolve(objData.CircuitDetailSelected);
+                    } else {
+<span class="cstat-no" title="statement not covered" >                        des.resolve(null);</span>
+                    }
+                });
+                return des.promise;
+            };
+&nbsp;
+            this.editMeter = function (MeterId, MeterSerialNumber, MeterApptype, MeterVersion, MeterInstallationLocation, MeterCTRatio,
+                MeterPTRatio, MeterNumberOfPhases, MeterRatedFrequency, MeterRatedVoltage, MeterNominalCurrent,
+                MeterMaximumCurrent, MeterMeasurementClass, MeterCompliantToStandards, MeterWiFiIpAddress, MeterWiFiAccessPointPassword,
+                MeterMeterAdminPassword, MeterLatitude, MeterLongitude, MeterConsumerNumber, MeterConsumerName,
+                MeterConsumerAddress, MeterConsumerContactNumber, MeterBillingCycleDate, MeterBillingTime,
+                MeterDemandResetDate, MeterMake, MeterDisconnector, MeterConsumerCountry, MeterConsumerState,
+                MeterConsumerCity, MeterConsumerZipCode, MeterWiFiMacID, ImpulseCountKWh, ImpulseCountKVARh,
+                SealID, BiDirectional, EVMeter, SolarPanel, MeterWifiPassFlag) {
+                var des = $q.defer();
+                var arrInputData = [MeterId, MeterSerialNumber, MeterApptype, MeterVersion, MeterInstallationLocation, MeterCTRatio,
+                    MeterPTRatio, MeterNumberOfPhases, MeterRatedFrequency, MeterRatedVoltage, MeterNominalCurrent,
+                    MeterMaximumCurrent, MeterMeasurementClass, MeterCompliantToStandards, MeterWiFiIpAddress, MeterWiFiAccessPointPassword,
+                    MeterMeterAdminPassword, MeterLatitude, MeterLongitude, MeterConsumerNumber, MeterConsumerName,
+                    MeterConsumerAddress, MeterConsumerContactNumber, MeterBillingCycleDate, MeterBillingTime,
+                    MeterDemandResetDate, MeterMake, MeterDisconnector, MeterConsumerCountry, MeterConsumerState,
+                    MeterConsumerCity, MeterConsumerZipCode, MeterWiFiMacID, ImpulseCountKWh, ImpulseCountKVARh,
+                    SealID, BiDirectional, EVMeter, SolarPanel, MeterWifiPassFlag];
+                networkUtilService.createHttpRequestAndGetResponse("EditMeterDetails", arrInputData).then(function (objData) {
+                    des.resolve(handleDisplayMessage(objData));
+                });
+                return des.promise;
+            };
+&nbsp;
+            this.deleteMeters = function (arrMeterId) {
+                var des = $q.defer();
+                var arrInputData = [arrMeterId];
+                networkUtilService.createHttpRequestAndGetResponse("DeleteMeterDetails", arrInputData).then(function (objData) {
+                    des.resolve(handleDisplayMessage(objData));
+                });
+                return des.promise;
+            };
+&nbsp;
+            this.getAllMeters = function () {
+                var des = $q.defer();
+                var arrInputData = ["All"];
+                networkUtilService.createHttpRequestAndGetResponse("SMMeters", arrInputData).then(function (objData) {
+                    if (!angular.isUndefinedOrNull(objData) &amp;&amp; objData.type) {
+                        des.resolve(objData.details);
+                    } else {
+                        des.resolve(null);
+                    }
+                });
+                return des.promise;
+            }
+&nbsp;
+            this.getAllTransformers = function () {
+                var des = $q.defer();
+                var arrInputData = [];
+                networkUtilService.createHttpRequestAndGetResponse("DisplayAllTransformerDetails", arrInputData).then(function (objData) {
+                    if (!angular.isUndefinedOrNull(objData) &amp;&amp; objData.type) {
+                        des.resolve(objData);
+                    } else {
+                        des.resolve(null);
+                    }
+                });
+                return des.promise;
+            }
+&nbsp;
+            this.editTransformer = function (TransformerID, HypersproutID, TFMRSerialNumber, TFMRMake, TFMRRatingCapacity, TFMRHighLineVoltage,
+                TFMRLowLineVoltage, TFMRHighLineCurrent, TFMRLowLineCurrent, TFMRType, HypersproutSerialNumber, HypersproutVersion,
+                HypersproutMake, HSCTRatio, HSPTRatio, HSRatedVoltage, HSNumberOfPhases, HSRatedFrequency, HSAccuracy, HSDemandResetDate,
+                HSCompliantToStandards, HSMaxDemandWindow, HSMaxDemandSlidingWindowInterval, HSSensorDetails, HSGPRSMacID,
+                HSWiFiMacID, HSWiFiIpAddress, HSWiFiAccessPointPassword, HSSimCardNumber, HSLatitude, HSLongitude,
+                ConnectedStreetlights, StreetlightsMetered, MaxOilTemp, MinOilTemp, StreetlightUsage, NoOfConnectedStreetlights,
+                WireSize, HSWifiPassFlag, ConnectedCamera) {
+                var des = $q.defer();
+                var arrInputData = [TransformerID, HypersproutID, TFMRSerialNumber, TFMRMake, TFMRRatingCapacity, TFMRHighLineVoltage,
+                    TFMRLowLineVoltage, TFMRHighLineCurrent, TFMRLowLineCurrent, TFMRType, HypersproutSerialNumber, HypersproutVersion,
+                    HypersproutMake, HSCTRatio, HSPTRatio, HSRatedVoltage, HSNumberOfPhases, HSRatedFrequency, HSAccuracy, HSDemandResetDate,
+                    HSCompliantToStandards, HSMaxDemandWindow, HSMaxDemandSlidingWindowInterval, HSSensorDetails, HSGPRSMacID,
+                    HSWiFiMacID, HSWiFiIpAddress, HSWiFiAccessPointPassword, HSSimCardNumber, HSLatitude, HSLongitude,
+                    ConnectedStreetlights, StreetlightsMetered, MaxOilTemp, MinOilTemp, StreetlightUsage, NoOfConnectedStreetlights,
+                    WireSize, HSWifiPassFlag, ConnectedCamera];
+                networkUtilService.createHttpRequestAndGetResponse("EditTransformerHypersproutDetails", arrInputData).then(function (objData) {
+                    des.resolve(handleDisplayMessage(objData));
+                });
+                return des.promise;
+            };
+&nbsp;
+            this.deleteTransformers = function (transformerId, hypersproutId) {
+                var des = $q.defer();
+                var arrInputData = [transformerId, hypersproutId];
+                networkUtilService.createHttpRequestAndGetResponse("DeleteTransformerHypersproutDetails", arrInputData).then(function (objData) {
+                    des.resolve(handleDisplayMessage(objData));
+                });
+                return des.promise;
+            };
+            this.getAllEndPointDetails = function () {
+                var des = $q.defer();
+                var arrInputData = [];
+                networkUtilService.createHttpRequestAndGetResponse("DisplayAllEndpointDetails", arrInputData).then(function (objData) {
+                    des.resolve(objData);
+                });
+                return des.promise;
+            };
+            this.editEndpoint = function (endpointObject) {
+                var des = $q.defer();
+                var arrInputData = [endpointObject.EndpointID,endpointObject.Owner,endpointObject.MacID,endpointObject.Description,endpointObject.CircuitID];
+                networkUtilService.createHttpRequestAndGetResponse("EditEndpointDetails", arrInputData).then(function (objData) {
+                    des.resolve(handleDisplayMessage(objData));
+                });
+                return des.promise;
+            }; 
+            this.deleteEndPointDetails = function (endPointIdArray) {
+                var des = $q.defer();
+                var arrInputData = [endPointIdArray];
+                networkUtilService.createHttpRequestAndGetResponse("DeleteEndpointDetails", arrInputData).then(function (objData) {
+                    des.resolve(handleDisplayMessage(objData));
+                });
+                return des.promise;
+            };                        
+            function handleDisplayMessage(objData) {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (!angular.isUndefinedOrNull(objData) &amp;&amp; !angular.isUndefinedOrNull(objData.Message)) {
+<span class="cstat-no" title="statement not covered" >                    return objData.Message;</span>
+                } else {
+                    return "Failed to perform operation !! Try again";
+                }
+            }         
+        }]);
+})(window.angular);</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Aug 22 2017 16:49:25 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

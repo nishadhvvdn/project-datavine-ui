@@ -1,0 +1,35 @@
+<div class="container-fluid" id="circuitGroupingDiv" >
+    <div class="row">
+        <div ncy-breadcrumb></div>
+        <div class="substationName " style="margin-left:1.5%">
+            <h5>List of Distribution Transformer Circuits</h5>
+        </div>
+    </div>
+    <div class="row circuit-lable-bottom">
+        <div class="pull-left ">
+            <div class="row">
+                <div class="col-xs-4 col-md-4 col-sm-4 col-lg-4 circuit-lable">
+                    <input class="form-control" ng-model="searchtermInCircuitGrouping" 
+                           placeholder="Search by DTC ID"
+                           type="text" ng-change="searchButtonClear(searchtermInCircuitGrouping)">
+                </div>
+                <div class="col-xs-2 col-md-2 col-sm-2 col-lg-2">
+                    <button type="button" ng-click="searchButton(searchtermInCircuitGrouping)" class="btn btn-default btnColor" ng-disabled="!searchtermInCircuitGrouping">
+                        Search
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="container-fluid">
+            <div ui-grid="circuitGroupingOptions" ui-grid-edit ui-grid-exporter ui-grid-pagination
+            ui-grid-selection  ui-grid-resize-columns ui-grid-filter-container class="grid">                
+            </div>
+            <div class="watermark" ng-show="!circuitGroupingOptions.data.length">{{datagridMessage}}</div>
+        </div>
+        <div class="container">
+            <div ui-view></div>
+        </div>
+    </div>
+</div>

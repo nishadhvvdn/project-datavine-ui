@@ -1,0 +1,51 @@
+﻿<div class="modal-header" ng-hide="addEditStatus">
+    <h4 ng-if="!viewMode" class="modal-title"><strong>Edit Security Group</strong></h4>
+    <h4 ng-if="viewMode" class="modal-title"><strong>View Security Group</strong></h4>
+</div>
+<div class="container-fluid modalBackground">
+    <div class="modal-body">
+        <div class="row">
+            <form name="securityGroupForm" novalidate>
+                <table class="table table-hover modalTableBorder">
+                    <tr>
+                        <td>
+                            <h5><strong>Security Group ID:</strong><i class="fa fa-asterisk mandatory"></i></h5>
+                        </td>
+                        <td>
+                            <select name="securityGroupID" ng-model="securityGroupID" class="form-control select-width"
+                                ng-disabled="viewMode" ng-options="obj as obj for obj in securityGroupIDs"
+                                ng-change="changeSecurityFunction(securityGroupID)" style="width:275px;" required>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5><strong>Description:</strong><i class="fa fa-asterisk mandatory"></i></h5>
+                        </td>
+                        <td>
+                            <input type="text" ng-disabled="viewMode" class="form-control userSettingsInput"
+                                ng-model="description" name="description" ng-change="wordCheck($event)" ng-blur="wordCheck($event)" maxlength=250 required />
+                            <span ng-if="wordMsg!=''" style="color:red ; font-size:12px">{{wordMsg}}</span>
+                            <span style="color:red" ng-show="securityGroupForm.description.$error.required && securityGroupForm.description.$dirty">
+                                Description is required
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5><strong>Functions:</strong><i class="fa fa-asterisk mandatory"></i></h5>
+                        </td>
+                        <td>
+                            <div id="tree" ng-init="treeDivInitialized()" ng-class="{'disabled': viewMode === true}"></div>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+<div class='modal-footer'>
+    <button type="button" ng-if="!viewMode" class="btn btn-default btnColor"
+        ng-disabled="wordMsg||securityGroupForm.$invalid||disable||wordCheckButtonDisable|| (!securityGroupForm.$dirty && functionsCheckBoolean)" ng-click="SaveOrEditSecurityGroup()">OK</button>
+    <button type="button" class="btn btn-default btnDefault" ng-click="cancel()">Cancel</button>
+</div>

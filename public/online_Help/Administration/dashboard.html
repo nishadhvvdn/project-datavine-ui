@@ -1,0 +1,104 @@
+<div class="container-fluid">
+
+    <!--=====================================================-->
+
+    <div class="row">
+        <div class="rectangleBox">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 your_col">
+                    <img alt="#" src="../assets/images/Administration/My Settings.png" class="imgDimension-helpSub" />
+                </div>
+                <div class="col-xs-8 col-sm-98 col-md-8 col-lg-8 labelStyle">
+                    <label> Dashboard </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--=====================================================-->
+
+    <div class="row" style="margin-top: 1%">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="pull-right">
+                <p><a ng-click="tabChange('changingAccount')" href=""><strong> 1. &nbsp; Reading The List  </strong></a></p>
+                <p><a ng-click="tabChange('exportingReport')" href=""><strong>2. &nbsp; Exporting The Report</strong></a></p>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="pull-left">
+                <p><a ng-click="tabChange('changingPassword')" href=""><strong> 3. &nbsp; Filtering The List </strong></a></p>
+                <p><a ng-click="tabChange('sortReport')" href=""><strong> 4. &nbsp; Header Description </strong></a></p>
+            </div>
+        </div>
+    </div>
+    <!--=====================================================-->
+
+    <div class="hr" style="margin-top: 0"></div>
+
+
+    <!--=====================================================================================-->
+
+    <div class="row text-center scrollAdjust scrollHeightOneRow" ng-show="tabs.changingAccount">
+        <label> <h1> <strong> 1. Reading The List </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+             This Section allows user to see all the meter and transformer readings according to timestamp.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/dashboardlisthelp.png" style=" width: 56% ;margin-top:1%"/>
+
+    </div>
+    <!--================================================================================-->
+    <div class="row text-center" ng-show="tabs.exportingReport">
+        <label> <h1> <strong> 2. Exporting The Report </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+            The report gives four different options for exporting. The user may export either all the data in the report or just the
+                currently displayed data in either a CSV format or a PDF format. To do this the user simply has to click
+                on the export button in the top right corner of the report after filtering it for the desired data.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/exportMenu.png" />
+
+    </div> 
+    <div class="row text-center scrollAdjust scrollHeightOneRow" ng-show="tabs.changingPassword">
+        <label> <h1> <strong> 3. Filtering The List </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+            The filter for the Dashboard page contain one section. This allows user to filter out the list by timestamp.after selecting the time interval user has click the refresh button. By default for every 2 minutes the list will be refresh. 
+        </p>
+                </span>
+        <img alt="#" src="../assets/images/filterdashboardhelp.png" />
+
+        <span>
+    </div>
+    <!--=====================================================================================-->
+    <div class="row text-center scrollAdjust scrollHeightOneRow" ng-show="tabs.sortReport">
+        <label> <h1> <strong> 4. Header Description </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+    </br>The Header contains four fields.
+
+    <br><strong>1. HS:</strong> Shows the Transformer ID.
+    <br><strong>2. Status:</strong> Tells the user whether the device is connected or not.
+    <br><strong>3. Last Data received:</strong> Last data received for displayed Transformer.
+    <br><strong>4. Connected meters count:</strong> Total number of meters are connected to the transformer.
+        </p>
+                </span>
+        <img alt="#" src="../assets/images/dashhelp.png" style=" width: 56% ;margin-top:1%"/>
+
+        <span>
+    </div>
+</div>

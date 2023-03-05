@@ -1,0 +1,219 @@
+<div class="container-fluid">
+
+    <!--=====================================================-->
+
+    <div class="row">
+        <div class="rectangleBox">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 your_col">
+                    <img alt="#" src="../assets/images/Administration/DefineUsers.png" class="imgDimension-helpSub" />
+                </div>
+                <div class="col-xs-8 col-sm-98 col-md-8 col-lg-8 labelStyle">
+                    <label> Define Users </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--=====================================================-->
+
+
+    <div class="row" style="margin-top: 1%">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="pull-right">
+                <p><a ng-click="tabChange('readingReport')" href=""><strong>1. &nbsp; Reading The List</strong></a></p>
+                <p><a ng-click="tabChange('sortReport')" href=""><strong>2. &nbsp; Sorting The List </strong></a></p>
+                <p><a ng-click="tabChange('exportingReport')" href=""><strong>3. &nbsp; Exporting The List</strong></a></p>
+                <p><a ng-click="tabChange('filterReport')" href=""><strong>4. &nbsp; Filtering The List</strong></a></p>
+
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div class="pull-left">
+                <p><a ng-click="tabChange('addReport')" href=""><strong>5. &nbsp; Adding A User </strong></a></p>
+                <p><a ng-click="tabChange('editReport')" href=""><strong>6. &nbsp; Editing A User </strong></a></p>
+                <p><a ng-click="tabChange('deleteReport')" href=""><strong>7. &nbsp;  Deleting A User</strong></a></p>
+                <p><a ng-click="tabChange('resetReport')" href=""><strong>8. &nbsp; Resetting A User’s Password</strong></a></p>
+            </div>
+        </div>
+    </div>
+    <!--=====================================================-->
+
+    <div class="hr" style="margin-top: 0"></div>
+
+    <!--===============================================================-->
+
+    <div class="row text-center scrollAdjust" ng-show="tabs.readingReport" style=" height: 439px">
+        <label> <h1> <strong> 1. Reading The List </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+        
+        
+        
+                The users list shows every user in the system. The list contains six columns. </br>
+
+                1. <strong>User ID: </strong> column shows the unique user ID of the account.</br>
+                2. <b>Name:</b> This column shows the name of the person registered to the account.</br>
+                3. <b>E-Mail Address: </b>This one shows the email associated with the user.</br>
+                4. <b>Security Group:</b> This one shows the security group that is hooked up to this account.</br>
+                5. <b>Account Locked:</b> This column shows whether or not the account has been locked.</br>
+                6. <b>Action: </b>This column contains buttons for editing or deleting the account and one for reseting the
+                user’s password
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/defineUserList.png" style=" width: 56%" />
+
+
+        <span> 
+        <p class="paragraph"  style= "margin-top:1%">
+                    If the list has a large amount of data, it might separate into pages. In this case, the user can choose how many entries
+                to display or which page to show from the pagination tool bar in the bottom left of the report.
+        </p>
+                </span>
+
+
+
+        <img alt="#" src="../assets/images/commPage.png" style=" width: 56% ;margin-top:1%" />
+
+    </div>
+    <!--=====================================================================================-->
+
+
+
+    <div class="row text-center" ng-show="tabs.sortReport">
+        <label> <h1> <strong> 2. Sorting The List </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+             To sort the list, the user must click the header of whichever column they would like to sort by. For instance, clicking on
+                the Security Group header will switch the column between the default display, ascending alphabetically, and
+                descending alphabetically.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/sortUser.png" />
+
+    </div>
+    <!--==========================================================================-->
+
+    <div class="row text-center" ng-show="tabs.exportingReport">
+        <label> <h1> <strong> 3. Exporting The List </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+            The report gives four different options for exporting. The user may export either all the data in the report or just the
+                currently displayed data in either a CSV format or a PDF format. To do this the user simply has to click
+                on the export button in the top right corner of the report after filtering it for the desired data.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/exportMenu.png" />
+
+    </div>
+    <!--======================================================================================-->
+    <div class="row text-center scrollAdjust" ng-show="tabs.filterReport" style=" height: 67vh">
+        <label> <h1> <strong> 4. Filtering The List </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+           The filter for the define users page contains only one section. This consists of a single checkbox to filter out locked accounts.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/defineLockedUser.png" />
+
+    </div>
+    <!--===================================================================================-->
+    <div class="row text-center scrollAdjust" ng-show="tabs.addReport" style="height: 429px">
+        <label> <h1> <strong> 5. Adding A User </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+            To add a user click the Add User button above the top right corner of the list.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/addUser.png" />
+
+        <span>
+        <p class="paragraph" style="margin-top: 1%">
+            
+           Clicking the button will open the user creation window. From here simply enter the user details for the account you wish
+                to create and click OK. The new account will be added immediately to the list.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/addDefineUser.png" style="margin-top: 1%" />
+    </div>
+    <!--======================================================================================-->
+    <div class="row text-center scrollAdjust" ng-show="tabs.editReport" style="height: 429px">
+        <label> <h1> <strong> 6. Editing A User </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+              To edit a user locate the account in the list and click the edit button in the Action column.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/editUser.png" />
+
+        <span>
+        <p class="paragraph"  style="margin-top: 1%" >
+            
+            The edit window will open after clicking the edit button. From here change any values you wish and then click the OK button
+                to save your changes.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/editUserWindow.png"  style="margin-top: 1%"/>
+    </div>
+    <!--======================================================================================-->
+    <div class="row text-center" ng-show="tabs.deleteReport">
+        <label> <h1> <strong> 7. Deleting A User </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+             To delete a user locate the user on the list and click the delete button in the Action column. When prompted if you are sure
+                click yes and the user will be deleted.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/editUser.png" />
+    </div>
+    <!--======================================================================================-->
+    <div class="row text-center" ng-show="tabs.resetReport">
+        <label> <h1> <strong> 8. Resetting A User’s Password </strong> </h1> </label>
+
+        <span>
+        <p class="paragraph">
+            
+             To reset a user’s password locate the user on the list and click the reset password button in the Action column. When prompted
+                if you are sure click yes and the user’s password will be reset and emailed to the email associated with
+                account.
+        </p>
+                </span>
+
+
+        <img alt="#" src="../assets/images/editUser.png" />
+    </div>
+    <!--======================================================================================-->
+
+
+</div>

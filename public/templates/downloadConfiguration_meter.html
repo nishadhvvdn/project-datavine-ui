@@ -1,0 +1,43 @@
+﻿<form name="upload_Config" novalidate>
+	<div class="modal-header">
+		<h4 class="modal-title"><b>Download Configuration</b></h4>
+	</div>
+	<div class="container-fluid">
+		<div class="modal-body">
+			<div class="row">
+				<!--<div class="well well-sm">
+                1 of 2 Configuration Groups have eligible endpoints with no configuration download in progress
+            </div>-->
+				<div class="row">
+					<table class="table table-hover download_Configuration">
+						<tr>
+							<td><strong>Configurations</strong></td>
+							<td>
+								<select class="form-control" name="selectConfig" style="width:68% !important;"
+									ng-model="selectConfig" ng-options="obj.name for obj in downloadGroupsList"
+									ng-change="LoadListDevicesAttached(selectConfig)" required>
+									<option value="">Select Configuaration</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td><strong>Meter</strong></td>
+							<td>
+								<div ng-dropdown-multiselect="" dropdown-Type="Select meter serial number"
+									options="meterSerialNumberList" selected-model="selectedItems"></div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class='modal-footer'>
+		<button type="button"
+			ng-disabled="upload_Config.$invalid||(selectedItems.length==0)||meterSerialNumberList==undefined"
+			ng-click="downloadConfig(selectConfig.name,selectHyperSprout.HypersproutSerialNumber)"
+			class="btn btn-default btnColor">Download Configuration</button>&nbsp;&nbsp;
+		<button type="submit" ng-click="cancel()" class="btn btn-default btnDefault">Cancel</button>
+	</div>
+</form>

@@ -1,0 +1,59 @@
+<div class="container-fluid dashboardScroll">
+    <div class="row">
+        <h3 class="headingAlign jobsAllign"> Live Dashboard </h3> 
+    </div>
+    <div class="row">
+        <h4 class="headingAlign jobsAllign">
+           <strong> HS: </strong> {{cellIdHS1}}
+            &nbsp; &nbsp; &nbsp; &nbsp; <strong>Status: </strong> {{HS1Status}}
+            &nbsp; &nbsp; &nbsp; &nbsp;<strong> Last Data received at: </strong> {{HS1LastConnectionDetails.DBTimestamp}}    
+            &nbsp; &nbsp; &nbsp; &nbsp;<strong>Connected meters count:</strong> {{HS1LastConnectionDetails.connectedMeterCount}}
+        <div class="pull-right timeinterval-block">
+            <label>Select Time Interval</label>
+            <select class="btn btn-default" name="Timeinterval" ng-model="Timeinterval"
+                ng-options="value for value in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]">
+            </select>
+            <button type="button" class="btn btn-default btnColor demandReadSettings" ng-click="refreshHS1()">
+                Refresh
+            </button>
+        </div> 
+        </h4>       
+    </div>
+   <div class="row">
+        <div class="container-fluid">
+            <div ui-grid="statusOptions" ui-grid-edit ui-grid-exporter ui-grid-pagination ui-grid-selection ui-grid-resize-columns class="grid"></div>
+            <div class="watermark" ng-if="!statusOptions.data.length">{{commonMsg}}</div>
+        </div>
+    </div>
+</br>       
+    <div class="row">
+        <h4 class="headingAlign jobsAllign">
+            <strong> HS: </strong> {{cellIdHS2}} <strong>
+            &nbsp; &nbsp; &nbsp; &nbsp; Status: </strong></Status:> {{HS2Status}}
+            &nbsp; &nbsp; &nbsp; &nbsp;<strong> Last Data received at: </strong> {{HS2LastConnectionDetails.DBTimestamp}}    
+            &nbsp; &nbsp; &nbsp; &nbsp;<strong>Connected meters count:</strong> {{HS2LastConnectionDetails.connectedMeterCount}} 
+     </h4>
+    </div>    
+    <div class="row">
+        <div class="container-fluid">
+            <div ui-grid="hsData" ui-grid-edit ui-grid-exporter ui-grid-pagination ui-grid-selection ui-grid-resize-columns class="grid"></div>
+            <div class="watermark" ng-if="!hsData.data.length">{{commonMsghs}}</div>
+        </div>
+    </div>
+</br>       
+    <div class="row">
+        <h4 class="headingAlign jobsAllign">
+            <!-- <strong> HS: </strong> {{cellIdHS3}} <strong>
+            &nbsp; &nbsp; &nbsp; &nbsp; Status: </strong></Status:> {{HS3Status}}
+            &nbsp; &nbsp; &nbsp; &nbsp;<strong> Last Data received at: </strong> {{HS3LastConnectionDetails.DBTimestamp}}    
+            &nbsp; &nbsp; &nbsp; &nbsp;<strong>Connected meters count:</strong> {{HS3LastConnectionDetails.connectedMeterCount}}  -->
+    </h4>
+    </div>    
+    <!-- <div class="row">
+        <div class="container-fluid">
+            <div ui-grid="hs3Data" ui-grid-edit ui-grid-exporter ui-grid-pagination ui-grid-selection ui-grid-resize-columns class="grid"></div>
+            <div class="watermark" ng-if="!hs3Data.data.length">{{commonMsghs}}</div>
+        </div>
+    </div>  -->
+    <br/><br/>
+</div>

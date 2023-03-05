@@ -1,0 +1,56 @@
+﻿<div class="modal-header">
+    <h4 class="modal-title"><strong>Add Members</strong></h4>
+</div>
+<div class="container-fluid modalBackground">
+    <div class="modal-body">
+        <form name="import_configForm" novalidate>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="row">
+                        <h5><strong>Select Group</strong></h5>
+                    </div>
+                    <div class="row">
+                        <select class="selectGroup" name="group" ng-model="selectedTestGroup"
+                            ng-options="obj.Name for obj in configurationDetails" required>
+                            <option value="">Select One</option>
+                        </select>
+
+                    </div>
+                    <br />
+                    <div class="row">
+                        <h5><strong>Select File For Import</strong></h5>
+                    </div>
+                    <div class="row">
+                        <input type="file" class="fileUpload" ng-model="file" file-model="fileMod" name="uploadfile"
+                            file-reader="fileContent" accept=".txt" />
+                        <!--<span style="font-size: 11px; color:blue"><i>Select files only with .txt extension </i></span>-->
+                        <span style="font-size: 11px; color:red ">{{fileUploadHyper.errMessage}}</span>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-7">
+                    <div class="row">
+                        <h5><strong>Import Result</strong></h5>
+                    </div>
+                    <div class="row modalTable">
+                        <table class="table result_table">
+                            <tr ng-repeat="import in imports">
+                                <td>{{import.key}}</td>
+                                <td> {{import.value}} </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="modal-footer">
+    <!--<button type="button" class="btn btn-default btnColor" ng-click="uploadFile()" ng-disabled="fileUploadStatus">Import</button>-->
+
+    <button type="button" class="btn btn-default btnColor" ng-click="uploadFile()" ng-disabled="    
+            (fileUploadHyper.errMessage) ||
+            (import_configForm.group.$dirty && import_configForm.group.$invalid ||
+            import_configForm.group.$error.required) ">Import</button>
+    <button type="button" class="btn btn-default btnDefault" ng-click="cancel()">Cancel</button>
+</div>

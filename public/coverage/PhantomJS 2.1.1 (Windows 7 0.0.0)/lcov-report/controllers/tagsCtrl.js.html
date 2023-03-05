@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for controllers\tagsCtrl.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">controllers/</a> tagsCtrl.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">85.71% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>60/70</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">71.43% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>20/28</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">75% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>9/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">85.71% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>60/70</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">﻿(function (angular) {
+&nbsp;
+    "use strict";
+&nbsp;
+    angular.module('dataVINEApp').controller('discrepanciesCtrl', ['$scope', '$timeout', 'hypersproutMgmtService', '$filter', 'refreshservice','$controller','endpoint', function ($scope, $timeout, hypersproutConfigService, $filter, refreshservice,$controller,endpoint) {
+        $scope.tagOptions = {};
+        $scope.startingDate = null;
+        $scope.endingDate = null;
+        $scope.invalidDate = false;
+        $scope.invalidTime = false;
+        var tagData = [];
+        $scope.object = {};
+        var userTimeZone = angular.isUndefinedOrNull(objCacheDetails.userDetails)?<span class="branch-0 cbranch-no" title="branch not covered" >undefined:</span>objCacheDetails.userDetails.timeZone;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (angular.isUndefined(userTimeZone)) {
+<span class="cstat-no" title="statement not covered" >            refreshservice.refresh().then(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                userTimeZone = objCacheDetails.userDetails.timeZone;</span>
+<span class="cstat-no" title="statement not covered" >                init();</span>
+            });
+        } else {
+            init();
+        }
+        $scope.tagOptions = angular.copy(objCacheDetails.grid);
+        $scope.tagOptions.data = [];
+        $scope.tagOptions.exporterPdfOrientation='landscape',
+        $scope.tagOptions.exporterPdfMaxGridWidth=600;
+        $scope.tagOptions.columnDefs =[
+                { field: 'Serial Number',width: '30%', enableHiding: false, type: 'number' },
+                { field: 'Configuration Tag',width: '25%', enableHiding: false },
+                { field: 'Discrepent Tag',width: '25%', enableHiding: false },
+                { field: 'First Found Time',width: '10%', enableHiding: false },
+                { field: 'Corrected Time',width: '10%', enableHiding: false },
+            ];             
+&nbsp;
+        function init() {
+            $scope.startingDate = new Date(moment.tz(userTimeZone).format('YYYY-MM-DD HH:mm'));
+            $scope.endingDate = new Date(moment.tz(userTimeZone).format('YYYY-MM-DD HH:mm'));
+            hypersproutConfigService.getTagDiscrepencies(endpoint).then(function (objData) {
+                <span class="missing-if-branch" title="else path not taken" >E</span>if (!angular.isUndefinedOrNull(objData) &amp;&amp; !angular.isUndefinedOrNull(objData.TagDiscrepanciesSelected)) {
+                    for (var i = 0; i &lt; objData.TagDiscrepanciesSelected.length; i++) {
+                        var objTagDiscrepency = objData.TagDiscrepanciesSelected[i];
+                        objTagDiscrepency.FirstFoundTime = moment.tz(objTagDiscrepency.FirstFoundTime, userTimeZone).format('YYYY-MM-DD HH:mm');
+                        <span class="missing-if-branch" title="if path not taken" >I</span>if (!angular.isUndefinedOrNull(objTagDiscrepency.CorrectTime)) {
+<span class="cstat-no" title="statement not covered" >                            objTagDiscrepency.CorrectTime = moment.tz(objTagDiscrepency.CorrectTime, userTimeZone).format('YYYY-MM-DD HH:mm');</span>
+                        }
+                        var objToInsert = {};
+                        objToInsert["Serial Number"] = objTagDiscrepency.SerialNumber;
+                        objToInsert["Configuration Tag"] = objTagDiscrepency.ConfigurationTab;
+                        objToInsert["Device Class"] = objTagDiscrepency.TagDiscrepanciesDevice;
+                        objToInsert["Discrepent Tag"] = objTagDiscrepency.DiscrepantTag;
+                        objToInsert["First Found Time"] = objTagDiscrepency.FirstFoundTime;
+                        objToInsert["Corrected Time"] = objTagDiscrepency.CorrectTime;
+                        objToInsert["IsCorrected"] = objTagDiscrepency.IsCorrected;
+                        tagData.push(objToInsert);
+                    }
+                    $scope.tagOptions.data = tagData;
+                }
+            });
+        }
+&nbsp;
+        $scope.toggleDropdown = <span class="fstat-no" title="function not covered" >function ($event) {</span>
+<span class="cstat-no" title="statement not covered" >            $event.preventDefault();</span>
+<span class="cstat-no" title="statement not covered" >            $event.stopPropagation();</span>
+<span class="cstat-no" title="statement not covered" >            $scope.status.isopen = !$scope.status.isopen;</span>
+        };
+        $scope.dynamicPopover = {
+            templateUrl: '/templates/tagSettings.html',
+            content: '',
+            open: function() {
+                $scope.dynamicPopover.isOpen = true;
+            },
+            close: function() {
+                $scope.dynamicPopover.isOpen = false;
+            }
+        };
+        $scope.tags = function () {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if ($scope.object.correctedState === "correctedOnly" || $scope.object.correctedState === "discrepentOnly" || $scope.object.correctedState === "all") {
+<span class="cstat-no" title="statement not covered" >                $scope.invalidSelection = false;</span>
+            }
+            else {
+                $scope.invalidSelection = true;
+            }
+        };
+        $scope.tagFilterConfig = function () {
+            $scope.invalidSelection = true;
+            var tagOptionsTimeData = $filter('dateFilter')(tagData, "First Found Time", $scope.startingDate, $scope.endingDate);
+            <span class="missing-if-branch" title="else path not taken" >E</span>if ($scope.object.correctedState === "correctedOnly" || $scope.object.correctedState === "discrepentOnly" || $scope.object.correctedState === "all") {
+                $scope.invalidSelection = false;
+                if ($scope.object.correctedState === "correctedOnly") {
+                    $scope.tagOptions.data = $filter('tagFilter')(tagOptionsTimeData, $scope.object.correctedState,'correctedOnly');
+                }
+                else if ($scope.object.correctedState === "discrepentOnly") {
+                    $scope.tagOptions.data = $filter('tagFilter')(tagOptionsTimeData, $scope.object.correctedState,'discrepentOnly');
+                }
+                else <span class="missing-if-branch" title="else path not taken" >E</span>if ($scope.object.correctedState === "all") {
+                    $scope.tagOptions.data = tagOptionsTimeData;
+                }
+            }
+            <span class="missing-if-branch" title="if path not taken" >I</span>if ($scope.invalidSelection) {
+<span class="cstat-no" title="statement not covered" >                $scope.dynamicPopover.isOpen = true;</span>
+            }
+            else {
+                $scope.dynamicPopover.isOpen = false;
+                $scope.invalidSelection = false;
+            }
+            $timeout(<span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                $scope.$apply();</span>
+            }, 300, false);
+            // $scope.dynamicPopover.isOpen = false;
+        };
+        $controller('dateCommonCtrl', { $scope: $scope });        
+        $scope.printCart = function () {
+            window.print();
+        };
+    }]);
+})(window.angular);</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Aug 22 2017 16:49:25 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

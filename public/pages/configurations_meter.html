@@ -1,0 +1,21 @@
+﻿    <div class="row">
+        <h3 class="headingAlign" style="margin-left:15px"> Meter Configurations</h3>
+    </div>
+    <div class="row">
+        <div class="pull-left print-buttonalign">
+            <a ng-click="printCart()"><img alt="#" src="../assets/images/Print.png" class="anchorText" /><strong class="anchorText">Print</strong></a>
+        </div>
+        <div class="pull-right" style="margin-right: 1px;">
+            <button type="button" class="btn btn-default btnColor" popover-append-to-body='false' popover-animation='true'
+                    popover-placement='bottom' popover-is-open="dynamicPopover.isOpen" uib-popover-template='dynamicPopover.templateUrl' ng-click="today()">
+                Filter
+            </button>&nbsp;
+            <button type="button" ng-click="openNewConfiguration_Meter()" ng-model="newconf_Meter" class="btn btn-default btnColor ">New </button>&nbsp;
+            <button type="button" ng-click="openImportConfiguration_Meter()" ng-model="importconf_Meter" class="btn btn-default btnColor configSettings">Add Members </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="container-fluid">
+            <div ui-grid="meterconfigOptions" ui-grid-pagination ui-grid-exporter ui-grid-resize-columns class="grid"></div>
+        </div>
+    </div>
