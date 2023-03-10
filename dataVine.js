@@ -46,7 +46,8 @@ app.get('/getEnv',function(req,res){
         envName:process.env.envName,
         mqttHost:process.env.mqttHost,
         mqttUsername:process.env.mqttUsername,
-        mqttPassword:process.env.mqttPassword
+        mqttPassword:process.env.mqttPassword,
+        TENANT_NAME:process.env.TENANT_NAME 
     };
     res.json(obj);
 });

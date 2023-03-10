@@ -20,8 +20,8 @@
                     var insertdetails = [];
                     var funDetail = objCacheDetails.functionDetails;
                     $scope.dynamicPopover.isOpen = false;
-                    $rootScope.callMqtt();
-                    $scope.connectMqtt();
+                    // $rootScope.callMqtt();
+                    // $scope.connectMqtt();
                     var obj = {};
                     for (var count in funDetail) {
                         if (funDetail.hasOwnProperty(count)) {
@@ -32,28 +32,28 @@
                         }
                     }
                 });
-                $scope.connectMqtt = function () {      
-                    $rootScope.mqttClient.on('connect', function() {
-                        console.log("Connected to MQTT");
-                    });
-                    $rootScope.mqttClient.on('message', function(topic, message) {                
-                        var message = JSON.parse(message);                        
-                        // $scope.messageDetails = message;
-                        // console.log("Message: " + $scope.messageDetails, message);
-                        document.getElementById("messageDetails-recipient").innerHTML = message.recipient;
-                        document.getElementById("messageDetails-date").innerHTML = getFormatedDate(message.date);
-                        document.getElementById("messageDetails-message").innerHTML = message.message;
-                        var x = document.getElementById("toast");
-                        x.classList.add("show");
-                        setTimeout(function(){ x.classList.remove("show"); }, 3000);
-                    });
-                    $rootScope.mqttClient.subscribe('admin/common', { qos: 0 }, function(error) {
-                        if (error) {
-                            console.log('Subscribe to topics error', error);
-                            return;
-                        }
-                    });
-                }                
+                // $scope.connectMqtt = function () {      
+                //     $rootScope.mqttClient.on('connect', function() {
+                //         console.log("Connected to MQTT");
+                //     });
+                //     $rootScope.mqttClient.on('message', function(topic, message) {                
+                //         var message = JSON.parse(message);
+                //         // $scope.messageDetails = message;
+                //         // console.log("Message: " + $scope.messageDetails, message);
+                //         document.getElementById("messageDetails-recipient").innerHTML = message.recipient;
+                //         document.getElementById("messageDetails-date").innerHTML = getFormatedDate(message.date);
+                //         document.getElementById("messageDetails-message").innerHTML = message.message;
+                //         var x = document.getElementById("toast");
+                //         x.classList.add("show");
+                //         // setTimeout(function(){ x.classList.remove("show"); }, 3000);
+                //     });
+                //     $rootScope.mqttClient.subscribe('admin/common', { qos: 0 }, function(error) {
+                //         if (error) {
+                //             console.log('Subscribe to topics error', error);
+                //             return;
+                //         }
+                //     });
+                // }                
                 
                 function getFormatedDate (date) {
                     if(date){

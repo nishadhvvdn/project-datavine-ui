@@ -1034,7 +1034,7 @@
                 this.getAllMessageById = function (id) {
                     var des = $q.defer();
                     networkUtilService
-                    .createHttpRequestAndGetResponse("GetMessageById?message_id="+id)
+                    .createHttpRequestAndGetResponse("GetMessageById?_id="+id)
                     .then(function (objData) {
                         des.resolve(objData);
                     });
@@ -1044,7 +1044,7 @@
                 this.updateMessageById = function (id, is_read) {
                     var des = $q.defer();
                     networkUtilService
-                    .createHttpRequestAndGetResponse("EditMessageStatus?message_id="+id, [is_read])
+                    .createHttpRequestAndGetResponse("EditMessageStatus?_id="+id, [is_read])
                     .then(function (objData) {
                         des.resolve(objData);
                     });

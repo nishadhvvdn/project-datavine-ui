@@ -171,6 +171,8 @@
                         13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
                 $scope.transfomerdetails.demandDate = $scope.demandDate[1];
                 $scope.showTranSrlErrorMsg = true;
+                $scope.saveMessage = "";
+                $scope.updateMessage = "";
                 configurationData = angular.copy(objCacheDetails.data.configurationData);
                 objCacheDetails.data.configurationData = null;
                 $scope.changeStreetLightsSetting = function (value) {
@@ -424,8 +426,8 @@
                             var isSuccess = deviceService.validateSuccess(objData);
                             if(isSuccess) {
                                 if(objData.Message) {                                    
-                                    if(objData.Message == "OTP updated"){
-                                        swal(commonService.addTrademark(objData.Message));
+                                    if(objData.result == "OTP updated"){
+                                        $scope.updateMessage = objData.Message;
                                         $scope.otpModelShow();
                                     }else if(objData.Message == "Transformer Details Successfully Updated!"){   
                                         swal(commonService.addTrademark(objData.Message));                                     
@@ -518,13 +520,16 @@
                                 if(objData.Message) {                                     
                                     if(Object.keys(objData.Result[0]).includes('Otpmessage')){
                                         if(objData.Result[0].Otpmessage == "OTP generated successfully"){
-                                            swal(commonService.addTrademark(objData.Message));  
+                                            $scope.saveMessage = objData.Message;
                                             $scope.otpModelShow();
                                         }
-                                    }else if(objData.Message == "Transformer Details Successfully Added!"){
-                                        $modalInstance.dismiss(true);
-                                        $uibModalStack.clearFocusListCache();
-                                        $state.reload();
+                                    }else if(Object.keys(objData.Result[0]).includes('Comment')){
+                                        if(objData.Result[0].Comment == "OTP verified successfully & Details Added"){
+                                            swal(commonService.addTrademark(objData.Message)); 
+                                            $modalInstance.dismiss(true);
+                                            $uibModalStack.clearFocusListCache();
+                                            $state.reload(); 
+                                        }                                        
                                     }else {
                                         swal(commonService.addTrademark(objData.Message));                                        
                                     }
@@ -562,6 +567,11 @@
                 }
 
                 $scope.cancelOtp = function (){
+                    if($scope.createUpdateStatus){
+                        swal(commonService.addTrademark($scope.saveMessage));
+                    }else {
+                        swal(commonService.addTrademark($scope.updateMessage));
+                    }
                     $scope.otpModal.dismiss(true);
                     $modalInstance.dismiss(true);
                     $uibModalStack.clearFocusListCache();

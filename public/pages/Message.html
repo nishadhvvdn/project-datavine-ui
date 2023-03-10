@@ -6,8 +6,74 @@
           <h3>Message</h3>
         </div>
       </div>
-      <div class="message">
-        <div class="row m-flex">
+      <div class="message msg-scroll" id="m-card">
+        <div class="message-card" ng-repeat="item in messageData"
+        ng-class="{'message-card': item.is_read == true , 'message-card read-msg':item.is_read == false}">
+          <div class="user-pic">            
+            <img ng-if="item.type == 'Transformer'" src="../assets/images/Message/transformer-white.png" alt="Profile" class="profile-pic"/>
+            <img ng-if="item.type == 'Meter'" src="../assets/images/Message/meter-white.png" alt="Profile" class="profile-pic"/>
+            <img ng-if="item.type == 'Tenant'" src="../assets/images/Message/tenant-white.svg" alt="Profile" class="profile-pic"/>
+          </div>
+          <div class="msg-info">
+              <div class="message-sender">
+                  <div class="user-name">{{item.recipient}}</div>
+                  <div class="msg-time">{{getFormatedDate(item.date)}}</div>
+                  <div class="msg-icon">
+                    <span class="d-tooltip env-btn" ng-click="updateMessageItem('list',item)">
+                      <img ng-if="item.is_read" src="../assets/images/Message/envelope.svg" alt="env-open"/>
+                      <img ng-if="!item.is_read" src="../assets/images/Message/envelope-open.svg" alt="env-open"/> 
+                      <div class="tooltiptext" ng-if="item.is_read">
+                        Mark as Unread
+                      </div>
+                      <div class="tooltiptext" ng-if="!item.is_read">
+                        Mark as Read
+                      </div>
+                    </span>
+                    <span class="d-tooltip bin-btn" ng-click="deleteMessageItem('list',item)">
+                      <i class="fa fa-trash-o"></i>
+                      <div class="tooltiptext">Delete</div>
+                    </span>
+                  </div>
+              </div>
+              <div class="msg-severity">
+                <div>
+                  {{item.message}} 
+                  <!-- <a href="#" data-toggle="modal" data-target="#exampleModal">more</a>                   -->
+                </div>
+                <div>
+                  <span class="m-Minor" ng-if="item.severity == 'Minor'">{{item.severity}}</span>
+                  <span class="m-Warning" ng-if="item.severity == 'Warning'">{{item.severity}}</span>
+                  <span class="m-Critical" ng-if="item.severity == 'Critical'">{{item.severity}}</span>
+                  <span class="m-Minor" ng-if="!item.severity">No Severity</span>
+                </div>
+              </div>
+          </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">              
+              <div class="modal-body">
+                erver 9.0 is activated by license, but the option of enable guest account is grey.erver 9.0 is 
+                activated by license, but the option of enable guest account is grey.erver 9.0 is activated 
+                by license, but the option of enable guest account is grey.erver 9.0 is activated by license, 
+                but the option of enable guest account is grey.erver 9.0 is activated by license, but the 
+                option of enable guest account is grey.erver 9.0 is activated by license, but the option of 
+                enable guest account is grey.erver 9.0 is activated by license, but the option of enable 
+                guest account is grey.erver 9.0 is activated by license, but the option of enable guest 
+                account is grey.erver 9.0 is activated by license, but the option of enable guest account 
+                is grey.erver 9.0 is activated by license, but the option of enable guest account is grey.erver
+                 9.0 is activated by license, but the option of enable guest account is grey.
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal -->
+
+        <!-- <div class="row m-flex">
           <div class="col-lg-4">
             <div class="m-card" id="m-card">
               <div ng-repeat="item in messageData">
@@ -143,7 +209,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

@@ -1124,16 +1124,16 @@
             function ($sessionStorage, $rootScope, $scope, $http, $state, initService, refreshservice, logoutservice) {
                 $scope.currentURL = $state;
                 init();                
-                $rootScope.callMqtt = function (){
-                    var url = objCacheDetails.mqttHost;
-                    var options = {                   
-                        // clientId: userDetails.mqtt_client_id,
-                        clientId: `datavine_${Math.random().toString(16).substr(2, 8)}`,
-                        username: objCacheDetails.mqttUsername,
-                        password: objCacheDetails.mqttPassword
-                    };
-                    $rootScope.mqttClient = mqtt.connect(url, options);
-                }
+                // $rootScope.callMqtt = function (){
+                //     var url = objCacheDetails.mqttHost;
+                //     var options = {                   
+                //         // clientId: userDetails.mqtt_client_id,
+                //         clientId: `datavine_${Math.random().toString(16).substr(2, 8)}`,
+                //         username: objCacheDetails.mqttUsername,
+                //         password: objCacheDetails.mqttPassword
+                //     };
+                //     $rootScope.mqttClient = mqtt.connect(url, options);
+                // }
 
                 $rootScope.commonMsg = 'Loading...';
 

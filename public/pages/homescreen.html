@@ -1,16 +1,20 @@
 ﻿<div class="container-fluid">
-	<div class="custom-toast" id="toast">
-		{{messageDetails.recipient}}
-		<div class="custom-toast-header">
-		  <strong class="toast-me-auto" id="messageDetails-recipient"></strong>
-		  <small class="toast-small" id="messageDetails-date"></small>
-		  <button class="ml-2 mb-1 btn-close-custom-toast" >
-		  </button>
-		</div>
-		<div class="custom-toast-body" id="messageDetails-message">		 
-		</div>
-	</div>
+	
 	<div class="row">
+		<div class="custom-toast" id="toast">
+			<div class="custom-toast-header">
+			  <strong class="toast-me-auto" id="messageDetails-recipient"></strong>
+			  <small class="toast-small" id="messageDetails-date"></small>
+			  <button class="ml-2 mb-1 btn-close-custom-toast" >
+			  </button>
+			</div>
+			<div class="custom-toast-body">
+				<div class='display-flex'>                         
+					<img alt="#" id="messageDetails-Icon" class="rounded-image" />
+					<p class='toast-message-text' id="messageDetails-message"></p>
+				</div>	 
+			</div>
+		</div>
 		<nav class="navbar navbar-inverse">
 			<div class="container-fluid">
 				<div class="navbar-header">

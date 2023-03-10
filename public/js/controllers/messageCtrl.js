@@ -53,11 +53,11 @@
       $scope.initMessageDetails($scope.page);
 
       $scope.getFormatedDate = function (date) {
-        return moment(date).format("h:mm a,DD MMM YYYY");
+        return moment(date).format("h:mm a, DD MMM YYYY");
       };
       $scope.getMessageItemDetails = function (item) {
         deviceService
-          .getAllMessageById(item.message_id)
+          .getAllMessageById(item._id)
           .then(function (apiData) {
             if (apiData && apiData.MessageDetailsById && apiData.MessageDetailsById.length > 0) {
               $scope.showMessageDetails = true;
@@ -71,19 +71,20 @@
           });
       };
       $scope.updateMessageItem = function (type, item) {
+        console.log(type,item);
         var id,is_read;
         if (type == "list") {
-          id = item.message_id;
+          id = item._id;
           is_read = !item.is_read;
         } else {
-          id = $scope.messageSelectedItem.message_id;
+          id = $scope.messageSelectedItem._id;
           is_read = !$scope.messageSelectedItem.is_read;
         }
 
         deviceService.updateMessageById(id, is_read).then(function (apiData) {
           if(apiData.output == "Message status updated"){
             var updateData = $scope.messageData.filter(function (message) {
-              if(message.message_id == id){
+              if(message._id == id){
                 message.is_read = !message.is_read;
                 $scope.messageSelectedItem = message;
                 return message;
@@ -97,15 +98,14 @@
       $scope.deleteMessageItem = function (type, item) {
         var id;
         if (type == "list") {
-          id = item.message_id;
+          id = item._id;
         } else {
-          id = $scope.messageSelectedItem.message_id;
-        }
-        console.log(item,$scope.messageSelectedItem);
+          id = $scope.messageSelectedItem._id;
+        }        
         deviceService.deleteMessageById(id).then(function (apiData) {
           if(apiData.output == "Message Deleted"){
             var deletedData = $scope.messageData.filter(function (message) {
-              if(message.message_id != id){
+              if(message._id != id){
                 return message;
               }
             });
