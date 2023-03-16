@@ -4,12 +4,15 @@
       <div class="card-header">
         <div class="page-title">
           <h3>Message</h3>
+          <button type="button" class="btn btn-default btnColor" ng-click="refresh()">
+            Refresh
+          </button>
         </div>
       </div>
       <div class="message msg-scroll" id="m-card">
         <div class="message-card" ng-repeat="item in messageData"
-        ng-class="{'message-card': item.is_read == true , 'message-card read-msg':item.is_read == false}">
-          <div class="user-pic">            
+        ng-class="{'message-card read-msg': item.is_read == true , 'message-card':item.is_read == false}">
+          <div class="user-pic">
             <img ng-if="item.type == 'Transformer'" src="../assets/images/Message/transformer-white.png" alt="Profile" class="profile-pic"/>
             <img ng-if="item.type == 'Meter'" src="../assets/images/Message/meter-white.png" alt="Profile" class="profile-pic"/>
             <img ng-if="item.type == 'Tenant'" src="../assets/images/Message/tenant-white.svg" alt="Profile" class="profile-pic"/>

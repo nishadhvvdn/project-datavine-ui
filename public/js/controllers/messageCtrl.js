@@ -32,9 +32,13 @@
       $templateCache
     ) {
       $scope.messageData = [];
-      $scope.showMessageDetails = false;
       $scope.messageSelectedItem = {};
       $scope.page = 1;
+
+      $scope.refresh = function () {
+        $scope.page = 1;
+        $scope.initMessageDetails(1);
+      }
 
       // Initial API call for Messages
       $scope.initMessageDetails = function (page) {
@@ -60,7 +64,6 @@
           .getAllMessageById(item._id)
           .then(function (apiData) {
             if (apiData && apiData.MessageDetailsById && apiData.MessageDetailsById.length > 0) {
-              $scope.showMessageDetails = true;
               $scope.messageSelectedItem = apiData.MessageDetailsById[0];
               if(!apiData.MessageDetailsById[0].is_read){
                 $scope.updateMessageItem("list",apiData.MessageDetailsById[0]);
@@ -71,7 +74,6 @@
           });
       };
       $scope.updateMessageItem = function (type, item) {
-        console.log(type,item);
         var id,is_read;
         if (type == "list") {
           id = item._id;
@@ -90,8 +92,9 @@
                 return message;
               }
               return message;
-            });
-            $scope.messageData = updateData;            
+            });          
+            $scope.messageData = updateData;
+            $scope.callMessageCount();
           }          
         });
       };
@@ -110,12 +113,22 @@
               }
             });
             $scope.messageData = deletedData;
-            $scope.showMessageDetails = false;
+            $scope.callMessageCount();
           } else {
             swal(apiData.Message);
           }
         });
       };
+
+      $scope.callMessageCount = function () {
+        deviceService.GetMessageCount().then(function (apiData) {
+          if(apiData.type){
+              $rootScope.messageCount = apiData.data;
+          } else {
+            swal(apiData.Message);
+          }                    
+      });
+      }
 
       document.getElementById("m-card").addEventListener("scroll",function(e){        
         var scrollTop = e.currentTarget.scrollTop;

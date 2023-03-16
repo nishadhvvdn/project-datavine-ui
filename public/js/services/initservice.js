@@ -54,7 +54,7 @@
                                                 objCacheDetails.webserviceUrl = objCacheDetails.protocol + "://" + objCacheDetails.webservicehost + "/";
                                                 function getFormatedDate (date) {
                                                     if(date){
-                                                        return moment(date).format("h:mm a, MMM YYYY");
+                                                        return moment(date).format("h:mm a, DD MMM YYYY");
                                                     }else {
                                                         return "Invalid Date";
                                                     }

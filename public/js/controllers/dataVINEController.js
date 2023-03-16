@@ -640,11 +640,11 @@
                     abstract: true,
                     url: "/reports",
                     templateUrl: "pages/reports_mainview.html",
-                    controller: function ($scope,DeviceService) {
-                        $scope.messageCount = 0;
+                    controller: function ($scope, $rootScope,DeviceService) {
+                        $rootScope.messageCount = 0;
                         DeviceService.GetMessageCount().then(function (apiData) {
                             if(apiData.type){
-                                $scope.messageCount = apiData.data;
+                                $rootScope.messageCount = apiData.data;
                             } else {
                               swal(apiData.Message);
                             }                    
